@@ -158,7 +158,7 @@ class Evaluacion(models.Model):
     jurado = models.ForeignKey(Jurado, on_delete=models.CASCADE, related_name='evaluacion_jurado')
     trabajo = models.ForeignKey(Trabajo, on_delete=models.CASCADE, related_name='evaluacion_trabajo')
     
-    puntuacion = models.DecimalField(max_digits=4, decimal_places=2)
+    puntuacion = models.DecimalField(max_digits=4, decimal_places=2, default=0)
     comentario = models.TextField(blank=True, null=True)
     fecha_evaluacion = models.DateTimeField(auto_now_add=True)
 
