@@ -282,5 +282,18 @@ class Command(BaseCommand):
                         fecha_recepcion=timezone.now()
                     )
         # endregion
+        
+        # region Asignando ganadores a los concursos (1:N)
+        self.stdout.write("Asignando ganadores a los concursos...")
+        for concurso in concursos:
+            # Obtenemos los participantes inscritos en ese concurso
+            participantes_inscritos = [inscripcion.participante for inscripcion in concurso.inscribe_concurso.all()]
+
+            # Si hay participantes, elegimos uno al azar como ganador
+            if participantes_inscritos:
+                ganador = random.choice(participantes_inscritos)
+                concurso.ganador = ganador
+                concurso.save()
+        # endregion
 
         self.stdout.write(self.style.SUCCESS("Datos generados correctamente."))

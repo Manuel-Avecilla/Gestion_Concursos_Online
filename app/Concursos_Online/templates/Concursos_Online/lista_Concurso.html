@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista Concursos</title>
+</head>
+<body>
+    <h1>Lista Concursos:</h1>
+    {% for concurso in Concursos_Mostrar %}
+        <hr>
+        <div>
+            <h2>Nombre: {{concurso.nombre}}</h2>
+            <h4>Descripcion: {{concurso.descripcion}}</h4>
+            <h3>Fecha Inicio: {{concurso.fecha_inicio}}</h3>
+            <h3>Fecha Final: {{concurso.fecha_final}}</h3>
+            <h3>Activo: {{concurso.activo}}</h3>
+            <h3>Creador: {{concurso.creador.usuario.nombre_usuario}}</h3>
+            <h3>Alias Ganador: {{concurso.ganador.alias}}</h3>
+            <h2>Participantes:</h2>
+            <ul>
+                {% for Participante in concurso.participantes.all %}
+                    <li>alias: {{Participante.alias}}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <hr>
+        <br><br>
+    {% endfor %}
+</body>
+</html>
