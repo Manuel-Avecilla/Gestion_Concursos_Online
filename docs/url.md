@@ -25,7 +25,7 @@ Incluye información relacionada, como participantes, creador y ganador.
 Lista todos los **concursos** con sus datos asociados, que comienzen en el mismo mes y año 
 Parámetros:  
 - `anyo_concurso`: Año de la fecha de inicio del concurso.
-- `mes_concurso`: Mes de la fecha de inicio del concurso.
+- `mes_concurso`: Mes de la fecha de inicio del concurso.  
 Incluye información relacionada, como participantes, creador y ganador.
 
 ---
