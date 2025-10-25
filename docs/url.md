@@ -46,9 +46,9 @@ Incluye información relacionada, como participantes, creador y ganador.
 Lista de **concursos** con sus datos asociados:
 
 Parámetros:  
-- `texto`: Estado del concurso.  
-Lista los concursos que contienen `texto` en su descripción.  
-Los concursos resultantes están ordenados de forma descendente (de Z a A) según el nombre.  
+- `texto`: Texto que puede contener la descripcion del concurso.  
+- Lista los concursos que contienen `texto` en su descripción.  
+- Los concursos resultantes están ordenados de forma descendente (de Z a A) según el nombre.  
 Incluye información relacionada, como participantes, creador y ganador.
 
 ---
