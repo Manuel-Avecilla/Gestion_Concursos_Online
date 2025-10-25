@@ -30,5 +30,16 @@ Incluye información relacionada, como participantes, creador y ganador.
 
 ---
 
+### `/concursos-online/listar/activo/<str:activo>/`
+Lista de **concursos** con sus datos asociados:
+
+Parámetros:  
+- `activo`: Estado del concurso.  
+- Si `activo` es "true" en la URL, solo ves los concursos activos.  
+- Si `activo` es "false", ves todos los concursos (activos e inactivos).  
+- Y siempre están ordenados por fecha de inicio.  
+Incluye información relacionada, como participantes, creador y ganador.
+
+---
 
 [⬅️ Volver al README principal](../README.md)

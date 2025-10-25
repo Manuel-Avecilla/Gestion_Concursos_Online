@@ -159,16 +159,23 @@ class Command(BaseCommand):
             creador = random.choice(administradores)
             
             # Generar fechas de inicio y final de forma consistente
-            fecha_inicio = timezone.now() - timedelta(days=random.randint(10, 30))
+            fecha_inicio = timezone.now() - timedelta(days=random.randint(10, 200))
             fecha_final = fecha_inicio + timedelta(days=random.randint(5, 15))
             
             # Crear el concurso
+            estadoBolean = False
+            estado = random.randint(0, 1)
+            if (estado == 0):
+                estadoBolean = False
+            else:
+                estadoBolean = True
+            
             concurso = Concurso.objects.create(
                 nombre=f"Concurso {i+1}: {fake.word().capitalize()}",
                 descripcion=fake.text(300),
                 fecha_inicio=fecha_inicio,
                 fecha_final=fecha_final,
-                activo=True,
+                activo=estadoBolean,
                 creador=creador
             )
             
