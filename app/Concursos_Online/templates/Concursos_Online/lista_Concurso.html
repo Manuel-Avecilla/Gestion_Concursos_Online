@@ -24,6 +24,8 @@
                 {% endfor %}
             </ul>
             <a href="{% url 'dame_concurso' id_concurso=concurso.id %}">Ver Concurso</a>
+            <br>
+            <a href="{% url 'dame_concursos_fecha' concurso.fecha_inicio.year concurso.fecha_inicio.month %}">Ver Concursos que empienzan en el mismo año y mes</a>
         </div>
         <hr>
         <br><br>

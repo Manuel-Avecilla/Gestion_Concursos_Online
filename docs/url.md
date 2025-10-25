@@ -21,4 +21,14 @@ Incluye información relacionada, como participantes, creador y ganador.
 
 ---
 
+### `/concursos-online/<int:anyo_concurso>/<int:mes_concurso>/`
+Lista todos los **concursos** con sus datos asociados, que comienzen en el mismo mes y año 
+Parámetros:  
+- `anyo_concurso`: Año de la fecha de inicio del concurso.
+- `mes_concurso`: Mes de la fecha de inicio del concurso.
+Incluye información relacionada, como participantes, creador y ganador.
+
+---
+
+
 [⬅️ Volver al README principal](../README.md)
