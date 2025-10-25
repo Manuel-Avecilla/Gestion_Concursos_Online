@@ -158,3 +158,35 @@ def dame_concurso_texto(request, texto):
     """
     
     return render(request,'Concursos_Online/lista_Concurso.html',{'Concursos_Mostrar':concursos})
+
+# Una url que permite ver el participante que se inscribió más recientemente en un concurso concreto, utilizando el ID del concurso.
+# Muestra únicamente la información de ese último inscrito, limitando la consulta a un solo registro
+def dame_ultimo_participante(request, id_concurso):
+    
+    participante_a_mostrar = (
+        Participante.objects
+        .filter(inscribe_participante__concurso_id = id_concurso)
+        .order_by("-inscribe_participante__fecha_inscripcion")[:1].get()
+    )
+    
+    """
+    participante_raw = (Participante.objects.raw(
+    "SELECT * FROM Concursos_Online_participante pa "
+    + " JOIN Concursos_Online_inscribe ins ON pa.id = ins.participante_id "
+    + " WHERE ins.concurso_id = %s " 
+    + " ORDER BY ins.fecha_inscripcion DESC "
+    + " LIMIT 1 " 
+    ,[id_concurso] 
+    ))
+    # --- Extraer el objeto único ---
+    try:
+        # Usamos next(iter(participante_raw)) para obtener el objeto singular.
+        # next(iter()) maneja el caso de lista vacía limpiamente.
+        participante_a_mostrar = next(iter(participante_raw))
+    except StopIteration:
+        # Esto ocurre si LIMIT 1 no encontró ningún resultado para ese id_concurso
+        participante_a_mostrar = None
+        
+    # El diccionario ahora envía el objeto Participante individual (o None)
+    """
+    return render(request,'Concursos_Online/Participante.html',{'Participante_Mostrar':participante_a_mostrar})

@@ -53,4 +53,15 @@ Incluye información relacionada, como participantes, creador y ganador.
 
 ---
 
+### `/concursos-online/ultimo-participante-inscrito/<int:id_concurso>/`
+Muestra el **detalle de un Participante** específico. 
+
+Parámetros:  
+- `id_concurso`: ID del concurso.  
+- Una url que permite ver el participante que se inscribió más recientemente en un concurso concreto, utilizando el `id_concurso`.  
+- Muestra únicamente la información de ese último inscrito, limitando la consulta a un solo registro.  
+Incluye información del participante.
+
+---
+
 [⬅️ Volver al README principal](../README.md)
