@@ -13,4 +13,12 @@ Incluye información relacionada, como participantes, creador y ganador.
 
 ---
 
+### `/concursos-online/<int:id_concurso>`
+Muestra el **detalle de un concurso** específico.  
+Parámetro:  
+- `id_concurso`: ID del concurso.  
+Incluye información relacionada, como participantes, creador y ganador.
+
+---
+
 [⬅️ Volver al README principal](../README.md)
