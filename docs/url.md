@@ -42,4 +42,15 @@ Incluye información relacionada, como participantes, creador y ganador.
 
 ---
 
+### `/concursos-online/listar/texto/<str:texto>/`
+Lista de **concursos** con sus datos asociados:
+
+Parámetros:  
+- `texto`: Estado del concurso.  
+Lista los concursos que contienen `texto` en su descripción.  
+Los concursos resultantes están ordenados de forma descendente (de Z a A) según el nombre.  
+Incluye información relacionada, como participantes, creador y ganador.
+
+---
+
 [⬅️ Volver al README principal](../README.md)

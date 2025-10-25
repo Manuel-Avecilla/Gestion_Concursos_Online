@@ -124,3 +124,37 @@ def dame_concurso_activo(request, activo):
     """
     
     return render(request,'Concursos_Online/lista_Concurso.html',{'Concursos_Mostrar':concursos})
+
+# Una url que:
+# Lista los concursos que tienen el texto especificado en su descripción.
+# Los concursos resultantes están ordenados de forma descendente (de Z a A) según el nombre.
+def dame_concurso_texto(request, texto):
+    
+    concursos = (
+        Concurso.objects
+        .select_related(
+            "creador__usuario",  # anidado
+            "ganador__usuario",  # Asi también accedes a su usuario
+        )
+        .prefetch_related("participantes__usuario")  # Relacion N:N en participantes
+    )
+    concursos = concursos.filter(descripcion__contains=texto).order_by("-nombre")
+    concursos.all()
+    
+    """
+    # 1. Prepara el parámetro para la búsqueda de subcadena (LIKE '%%')
+    texto_con_comodines = '%' + texto + '%'
+    
+    concursos = (Concurso.objects.raw(
+    "SELECT * FROM Concursos_Online_concurso co "
+    + " JOIN Concursos_Online_administrador ad ON co.creador_id = ad.id "
+    + " JOIN Concursos_Online_participante pa ON co.ganador_id = pa.id "
+    + " JOIN Concursos_Online_inscribe ins ON co.id = ins.concurso_id "
+    + " JOIN Concursos_Online_participante p ON p.id = ins.participante_id "
+    + " WHERE co.descripcion LIKE %s "
+    + " ORDER BY co.nombre DESC "
+    ,[texto_con_comodines] # Usamos la variable texto_con_comodines
+    ))
+    """
+    
+    return render(request,'Concursos_Online/lista_Concurso.html',{'Concursos_Mostrar':concursos})
