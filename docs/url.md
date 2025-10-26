@@ -7,60 +7,78 @@ Cada apartado describe su función, los parámetros esperados y las relaciones e
 
 ---
 
-### `/concursos-online/listar/`
+### 1. `/concursos-online/listar/`
 Lista todos los **concursos** con sus datos asociados.  
 Incluye información relacionada, como participantes, creador y ganador.
 
 ---
 
-### `/concursos-online/<int:id_concurso>`
+### 2. `/concursos-online/<int:id_concurso>`
 Muestra el **detalle de un concurso** específico.  
-Parámetro:  
-- `id_concurso`: ID del concurso.  
 Incluye información relacionada, como participantes, creador y ganador.
+
+Parámetro:  
+
+- `id_concurso`: ID del concurso.  
 
 ---
 
-### `/concursos-online/<int:anyo_concurso>/<int:mes_concurso>/`
-Lista todos los **concursos** con sus datos asociados, que comienzen en el mismo mes y año 
+### 3. `/concursos-online/<int:anyo_concurso>/<int:mes_concurso>/`
+Lista todos los **concursos** con sus datos asociados, que comienzen en el mismo mes y año
+Incluye información relacionada, como participantes, creador y ganador.
+
 Parámetros:  
+
 - `anyo_concurso`: Año de la fecha de inicio del concurso.
 - `mes_concurso`: Mes de la fecha de inicio del concurso.  
-Incluye información relacionada, como participantes, creador y ganador.
 
 ---
 
-### `/concursos-online/listar/activo/<str:activo>/`
+### 4. `/concursos-online/listar/activo/<str:activo>/`
 Lista de **concursos** con sus datos asociados:
+Incluye información relacionada, como participantes, creador y ganador.
+Y siempre están ordenados por fecha de inicio. 
 
 Parámetros:  
+
 - `activo`: Estado del concurso.  
 - Si `activo` es "true" en la URL, solo ves los concursos activos.  
 - Si `activo` es "false", ves todos los concursos (activos e inactivos).  
-- Y siempre están ordenados por fecha de inicio.  
-Incluye información relacionada, como participantes, creador y ganador.
 
 ---
 
-### `/concursos-online/listar/texto/<str:texto>/`
+### 5. `/concursos-online/listar/texto/<str:texto>/`
 Lista de **concursos** con sus datos asociados:
-
-Parámetros:  
-- `texto`: Texto que puede contener la descripcion del concurso.  
-- Lista los concursos que contienen `texto` en su descripción.  
-- Los concursos resultantes están ordenados de forma descendente (de Z a A) según el nombre.  
 Incluye información relacionada, como participantes, creador y ganador.
+Los concursos resultantes están ordenados de forma descendente (de Z a A) según el nombre.
+
+Parámetros:
+
+- `texto`: Texto que puede contener la descripcion del concurso.  
+- Lista los concursos que contienen `texto` en su descripción.    
 
 ---
 
-### `/concursos-online/ultimo-participante-inscrito/<int:id_concurso>/`
+### 6. `/concursos-online/ultimo-participante-inscrito/<int:id_concurso>/`
 Muestra el **detalle de un Participante** específico. 
+Incluye información del participante.
+Muestra únicamente la información de ese último inscrito, limitando la consulta a un solo registro.
 
-Parámetros:  
+Parámetros:
+
 - `id_concurso`: ID del concurso.  
 - Una url que permite ver el participante que se inscribió más recientemente en un concurso concreto, utilizando el `id_concurso`.  
-- Muestra únicamente la información de ese último inscrito, limitando la consulta a un solo registro.  
+
+---
+
+### 7. `re_path(r'^participante/(?P<alias_participante>[a-zA-Z0-9_-]+)/$'`
+Muestra el **detalle de un Participante** específico. 
 Incluye información del participante.
+
+Parámetros:
+
+- `alias_participante`: Alias del Participante.  
+- Una url que permite obtener información sobre un Participante en concreto, buscando por su `alias_participante`.   
 
 ---
 

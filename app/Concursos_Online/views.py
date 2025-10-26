@@ -190,3 +190,22 @@ def dame_ultimo_participante(request, id_concurso):
     # El diccionario ahora envía el objeto Participante individual (o None)
     """
     return render(request,'Concursos_Online/Participante.html',{'Participante_Mostrar':participante_a_mostrar})
+
+
+# Una url que permite obtener información sobre un Participante en concreto, buscando por su alias.
+def detalle_participante_alias(request, alias_participante):
+    
+    participante_a_mostrar = (
+        Participante.objects
+        .get(alias=alias_participante)
+    )
+    
+    """
+    participante_a_mostrar = (Participante.objects.raw(
+    "SELECT * FROM Concursos_Online_participante pa "
+    + " WHERE pa.alias = %s "
+    ,[alias_participante]
+    )[0])
+    """
+    
+    return render(request,'Concursos_Online/Participante.html',{'Participante_Mostrar':participante_a_mostrar})
