@@ -82,4 +82,10 @@ Parámetros:
 
 ---
 
+### 8. `/usuarios_sin_notificaciones/`
+Lista todos los **Usuarios** que nunca han recibido una **Notificación**. 
+Incluye información de los Usuarios.
+
+---
+
 [⬅️ Volver al README principal](../README.md)

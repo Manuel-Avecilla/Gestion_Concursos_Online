@@ -11,6 +11,7 @@ urlpatterns = [
     path('concursos-online/listar/texto/<str:texto>', views.dame_concurso_texto, name='dame_concurso_texto'),
     path('concursos-online/ultimo-participante-inscrito/<int:id_concurso>', views.dame_ultimo_participante, name='dame_ultimo_participante'),
     re_path(r'^participante/(?P<alias_participante>[a-zA-Z0-9_-]+)/$', views.detalle_participante_alias, name='detalle_participante_alias'),
+    path('usuarios_sin_notificaciones/', views.usuarios_sin_notificar, name='usuarios_sin_notificar'),
 ]
 
 # Explicacion re_path:

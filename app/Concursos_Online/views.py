@@ -209,3 +209,22 @@ def detalle_participante_alias(request, alias_participante):
     """
     
     return render(request,'Concursos_Online/Participante.html',{'Participante_Mostrar':participante_a_mostrar})
+
+# Una url que obtiene todos los Usuarios que nunca han recibido una Notificación.
+def usuarios_sin_notificar(request):
+    
+    usuarios_no_notificados = (
+        Usuario.objects
+        .filter(recibos=None)
+    )
+    usuarios_no_notificados.all()
+    
+    """
+    usuarios_no_notificados = (Usuario.objects.raw(
+    "SELECT * FROM Concursos_Online_usuario user "
+    + " LEFT JOIN Concursos_Online_recibe re ON re.usuario_id = user.id "
+    + " WHERE re.usuario_id IS NULL "
+    ))
+    """
+    
+    return render(request, 'Concursos_Online/no_notificados.html',{'Usuario_Mostrar':usuarios_no_notificados})
