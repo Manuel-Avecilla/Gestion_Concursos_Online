@@ -13,6 +13,7 @@ urlpatterns = [
     re_path(r'^participante/(?P<alias_participante>[a-zA-Z0-9_-]+)/$', views.detalle_participante_alias, name='detalle_participante_alias'),
     path('usuarios_sin_notificaciones/', views.usuarios_sin_notificar, name='usuarios_sin_notificar'),
     path('jurados/listar', views.dame_jurados, name='dame_jurados'),
+    path('jurados/metricas_experiencia/', views.metricas_experiencia_jurados, name='metricas_experiencia_jurados'),
 ]
 
 # Explicacion re_path:

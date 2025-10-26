@@ -94,4 +94,9 @@ Incluye información relacionada, como usuario y concursos.
 
 ---
 
+### 10. `jurados/metricas_experiencia/`
+Una url que calcula y muestra las métricas de agregación (`media`, `máximo` y `mínimo`) del campo experiencia de todos los **Jurados**.   
+
+---
+
 [⬅️ Volver al README principal](../README.md)

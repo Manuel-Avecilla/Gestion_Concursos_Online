@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import *
-from django.db.models import Q , Prefetch
+from django.db.models import Q , Prefetch, Avg, Max, Min
+
 # Create your views here.
 
 def index(request):
@@ -191,7 +192,6 @@ def dame_ultimo_participante(request, id_concurso):
     """
     return render(request,'Concursos_Online/Participante.html',{'Participante_Mostrar':participante_a_mostrar})
 
-
 # Una url que permite obtener información sobre un Participante en concreto, buscando por su alias.
 def detalle_participante_alias(request, alias_participante):
     
@@ -248,3 +248,31 @@ def dame_jurados(request):
     ))
     """
     return render(request, 'Concursos_Online/lista_Jurados.html', {'Jurados_Mostrar':jurados})
+
+# Una url que calcula y muestra las métricas de agregación (media, máximo y mínimo) del campo experiencia de todos los Jurados.
+def metricas_experiencia_jurados(request):
+    
+    metricas_objeto = (
+        Jurado.objects
+        .aggregate(
+            media_experiencia=Avg('experiencia'),
+            max_experiencia=Max('experiencia'),
+            min_experiencia=Min('experiencia')
+        )
+    )
+    
+    """
+    metricas_queryset = (Jurado.objects.raw(
+    "SELECT 1 AS id, AVG(experiencia) AS media_experiencia, MAX(experiencia) AS max_experiencia, MIN(experiencia) AS min_experiencia FROM Concursos_Online_jurado"
+    ))
+    
+    # Se debe obtener el único objeto del RawQuerySet iterable
+    try:
+        # Usamos next(iter(participante_raw)) para obtener el objeto singular.
+        # next(iter()) maneja el caso de lista vacía limpiamente.
+        metricas_objeto = next(iter(metricas_queryset))
+    except IndexError:
+        # En caso de que no haya jurados, maneja la excepción
+        metricas_objeto = None
+    """
+    return render(request, 'Concursos_Online/metricas_Jurados.html', {'Metricas_Mostrar':metricas_objeto})
