@@ -14,7 +14,7 @@ Incluye información relacionada, como participantes, creador y ganador.
 ---
 
 ### 2. `/concursos-online/<int:id_concurso>`
-Muestra el **detalle de un concurso** específico.  
+Muestra el **detalle de un concurso** específico.    
 Incluye información relacionada, como participantes, creador y ganador.
 
 Parámetro:  
@@ -24,7 +24,7 @@ Parámetro:
 ---
 
 ### 3. `/concursos-online/<int:anyo_concurso>/<int:mes_concurso>/`
-Lista todos los **concursos** con sus datos asociados, que comienzen en el mismo mes y año
+Lista todos los **concursos** con sus datos asociados, que comienzen en el mismo mes y año  
 Incluye información relacionada, como participantes, creador y ganador.
 
 Parámetros:  
@@ -36,7 +36,7 @@ Parámetros:
 
 ### 4. `/concursos-online/listar/activo/<str:activo>/`
 Lista de **concursos** con sus datos asociados:
-Incluye información relacionada, como participantes, creador y ganador.
+Incluye información relacionada, como participantes, creador y ganador.  
 Y siempre están ordenados por fecha de inicio. 
 
 Parámetros:  
@@ -48,8 +48,8 @@ Parámetros:
 ---
 
 ### 5. `/concursos-online/listar/texto/<str:texto>/`
-Lista de **concursos** con sus datos asociados:
-Incluye información relacionada, como participantes, creador y ganador.
+Lista de **concursos** con sus datos asociados:  
+Incluye información relacionada, como participantes, creador y ganador.  
 Los concursos resultantes están ordenados de forma descendente (de Z a A) según el nombre.
 
 Parámetros:
@@ -60,9 +60,9 @@ Parámetros:
 ---
 
 ### 6. `/concursos-online/ultimo-participante-inscrito/<int:id_concurso>/`
-Muestra el **detalle de un Participante** específico. 
-Incluye información del participante.
-Muestra únicamente la información de ese último inscrito, limitando la consulta a un solo registro.
+Muestra el **detalle de un Participante** específico.   
+Incluye información del participante.  
+Muestra únicamente la información de ese último inscrito, limitando la consulta a un solo registro.  
 
 Parámetros:
 
@@ -72,7 +72,7 @@ Parámetros:
 ---
 
 ### 7. `re_path(r'^participante/(?P<alias_participante>[a-zA-Z0-9_-]+)/$'`
-Muestra el **detalle de un Participante** específico. 
+Muestra el **detalle de un Participante** específico.   
 Incluye información del participante.
 
 Parámetros:
@@ -83,8 +83,14 @@ Parámetros:
 ---
 
 ### 8. `/usuarios_sin_notificaciones/`
-Lista todos los **Usuarios** que nunca han recibido una **Notificación**. 
+Lista todos los **Usuarios** que nunca han recibido una **Notificación**.   
 Incluye información de los Usuarios.
+
+---
+
+### 9. `/jurados/listar/`
+Lista todos los **Jurados**.   
+Incluye información relacionada, como usuario y concursos.
 
 ---
 

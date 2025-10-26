@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import *
-from django.db.models import Q
+from django.db.models import Q , Prefetch
 # Create your views here.
 
 def index(request):
@@ -228,3 +228,23 @@ def usuarios_sin_notificar(request):
     """
     
     return render(request, 'Concursos_Online/no_notificados.html',{'Usuario_Mostrar':usuarios_no_notificados})
+
+# Una url que obtiene todos los objetos Jurado.
+def dame_jurados(request):
+    
+    jurados = (
+        Jurado.objects
+        .select_related('usuario') 
+        .prefetch_related(Prefetch('concursos')) 
+    )
+    jurados.all()
+    
+    """
+    jurados = (Jurado.objects.raw(
+    "SELECT * FROM Concursos_Online_jurado ju "
+    + " JOIN Concursos_Online_usuario user ON user.id = ju.usuario_id"
+    + " LEFT JOIN Concursos_Online_asigna asig ON asig.jurado_id = ju.id "
+    + " LEFT JOIN Concursos_Online_concurso co ON asig.concurso_id = co.id "
+    ))
+    """
+    return render(request, 'Concursos_Online/lista_Jurados.html', {'Jurados_Mostrar':jurados})
