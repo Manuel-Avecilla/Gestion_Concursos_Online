@@ -22,3 +22,8 @@ urlpatterns = [
     path('',include('Concursos_Online.urls')),
     path("__debug__/", include("debug_toolbar.urls")),
 ]
+
+handler404 = "Concursos_Online.views.mi_error_404"
+handler403 = "Concursos_Online.views.mi_error_403"
+handler400 = "Concursos_Online.views.mi_error_400"
+handler500 = "Concursos_Online.views.mi_error_500"

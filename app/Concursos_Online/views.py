@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import *
 from django.db.models import Q , Prefetch, Avg, Max, Min
+from django.views.defaults import page_not_found
 
 # Create your views here.
 
@@ -276,3 +277,17 @@ def metricas_experiencia_jurados(request):
         metricas_objeto = None
     """
     return render(request, 'Concursos_Online/metricas_Jurados.html', {'Metricas_Mostrar':metricas_objeto})
+
+# Errores
+
+def mi_error_404(request,exception=None):
+    return render(request,'error/404.html',None,None,404)
+
+def mi_error_403(request,exception=None):
+    return render(request,'error/403.html',None,None,403)
+
+def mi_error_400(request,exception=None):
+    return render(request,'error/400.html',None,None,400)
+
+def mi_error_500(request,exception=None):
+    return render(request,'error/500.html',None,None,500)
