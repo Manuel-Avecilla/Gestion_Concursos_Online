@@ -1,0 +1,47 @@
+<div class="jurado-card">
+
+    <a class="jurado-header" href="{% url 'dame_jurado' id_jurado=Jurado_Mostrar.id %}">
+        <i class="fa-solid fa-user-tie icon"></i>
+        <h2 class="jurado-nombre">{{ Jurado_Mostrar.usuario.nombre_usuario }}</h2>
+    </a>
+
+    <section class="jurado-info">
+
+        <div class="info-item">
+            <i class="fa-solid fa-envelope icon"></i>
+            <p class="label">Correo:</p>
+            <p class="value">{{ Jurado_Mostrar.usuario.correo }}</p>
+        </div>
+
+        <div class="info-item">
+            <i class="fa-solid fa-award icon"></i>
+            <p class="label">Especialidad:</p>
+            <p class="value">{{ Jurado_Mostrar.especialidad }}</p>
+        </div>
+
+        <div class="info-item">
+            <i class="fa-solid fa-star-half-stroke icon"></i>
+            <p class="label">Puntuación Media:</p>
+            <p class="value">{{ Jurado_Mostrar.puntuacion_media }}</p>
+        </div>
+        <hr>
+        <div class="info-item concursos">
+            <i class="fa-solid fa-list-check icon"></i>
+            <p class="label">Concursos Asignados:</p>
+            <ul class="lista-concursos">
+                {% for concurso in Jurado_Mostrar.concursos.all %}
+                    <li>
+                        <a
+                            href="{% url 'dame_concurso' id_concurso=concurso.id %}"
+                            class="{% if concurso.activo %}estado-activo{% else %}estado-inactivo{% endif %}"
+                        >
+                            {{ concurso.nombre }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+    </section>
+
+</div>

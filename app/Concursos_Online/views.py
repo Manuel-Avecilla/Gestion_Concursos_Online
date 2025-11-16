@@ -251,7 +251,7 @@ def dame_jurados(request):
     + " LEFT JOIN Concursos_Online_concurso co ON asig.concurso_id = co.id "
     ))
     """
-    return render(request, 'Concursos_Online/lista_Jurados.html', {'Jurados_Mostrar':jurados})
+    return render(request, 'jurados/lista_jurados.html', {'Jurados_Mostrar':jurados})
 
 # Una url que calcula y muestra las métricas de agregación (media, máximo y mínimo) del campo experiencia de todos los Jurados.
 def metricas_experiencia_jurados(request):
@@ -279,7 +279,7 @@ def metricas_experiencia_jurados(request):
         # En caso de que no haya jurados, maneja la excepción
         metricas_objeto = None
     """
-    return render(request, 'Concursos_Online/metricas_Jurados.html', {'Metricas_Mostrar':metricas_objeto})
+    return render(request, 'jurados/metricas_jurados.html', {'Metricas_Mostrar':metricas_objeto})
 
 def participantes_listar(request):
     participantes = (
@@ -297,6 +297,17 @@ def dame_usuario(request, id_usuario):
     )
     
     return render(request, 'usuarios/usuario_detalle.html',{'Usuario_Mostrar':usuario})
+
+def dame_jurado(request, id_jurado):
+    
+    jurado = (
+        Jurado.objects
+        .select_related('usuario') 
+        .prefetch_related(Prefetch('concursos')) 
+        .get(id=id_jurado)
+    )
+    
+    return render(request, 'jurados/jurado_detalle.html',{'Jurado_Mostrar':jurado})
 
 # Errores
 

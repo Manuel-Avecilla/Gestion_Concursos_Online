@@ -1,0 +1,32 @@
+{% extends "base/base.html" %}
+{% load static %}
+
+{% block title %}ConcurNet - Estadisticas Jurados{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/extra/metricas_jurados.css' %}">
+{% endblock %}
+
+{% block cabecera %}
+    <h1>Nivel de Experiencia de los Jurados</h1>
+    <hr>
+    <br>
+{% endblock %}
+{% block contenido %}
+    <section class="metricas-container">
+        <div class="metrica-item">
+            <span class="label">Experiencia Media:</span>
+            <span class="value">{{ Metricas_Mostrar.media_experiencia }}</span>
+        </div>
+
+        <div class="metrica-item">
+            <span class="label">Experiencia Mínima:</span>
+            <span class="value">{{ Metricas_Mostrar.min_experiencia }}</span>
+        </div>
+
+        <div class="metrica-item">
+            <span class="label">Experiencia Máxima:</span>
+            <span class="value">{{ Metricas_Mostrar.max_experiencia }}</span>
+        </div>
+    </section>
+{% endblock %}

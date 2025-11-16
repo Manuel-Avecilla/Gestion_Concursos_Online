@@ -1,0 +1,161 @@
+/* --- Tarjeta del jurado --- */
+.jurado-card {
+    flex: 1 1 30%;
+    max-width: 900px;
+    min-width: 300px;
+    margin: 30px auto;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 
+    rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, 
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    overflow: hidden;
+    padding-bottom: 25px;
+}
+.jurado-card i {color: white;}
+
+/* --- Header --- */
+.jurado-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    background-color: #0a3c6f;
+    padding: 10px;
+}
+.jurado-header .icon {
+    font-size: 34px;
+    margin-right: 12px;
+    margin-left: 15px;
+}
+.jurado-nombre {
+    color: white;
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0;
+}
+a.jurado-header, .lista-concursos a {text-decoration: none;}
+
+/* --- Información general --- */
+.jurado-info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 15px;
+    margin-right: 15px;
+    gap: 15px;
+}
+.info-item {
+    display: grid;
+    grid-template-columns: 30px auto;
+    column-gap: 2px;
+    align-items: center;
+}
+.info-item .icon {
+    font-size: 20px;
+    color: #0a3c6f;
+    align-self: center;
+    justify-self: center;
+}
+.label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #555;
+    margin: 0;
+}
+.value {
+    grid-column: span 2;
+    font-size: 15px;
+    font-weight: 800;
+    margin: 0;
+    color: #222;
+}
+
+/* --- Listado de concursos --- */
+.concursos {
+    display: grid;
+    grid-template-columns: 30px auto;
+}
+.lista-concursos {
+    width: 100%;
+    list-style: none;
+    padding-left: 0;
+    margin-top: 4px;
+    grid-column: span 2;
+}
+
+.lista-concursos li {
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.lista-concursos li a {
+    display: block;
+    background: #f2f5ff;
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #333;
+    text-decoration: none;
+    box-shadow: 
+        rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, 
+        rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+.lista-concursos li a.estado-activo {
+    border-left: 6px solid #1b7d3b;
+}
+.lista-concursos li a.estado-inactivo {
+    border-left: 6px solid #9b1c1c;
+}
+.lista-concursos li a:hover {
+    background: #D6E0FF;
+}
+
+/* ---------- DARK MODE ---------- */
+@media (prefers-color-scheme: dark) {
+    .jurado-card {
+        background: #1e1e20;
+        box-shadow: 
+        rgba(255, 255, 255, 0.3) 0px 1px 2px 0px, 
+        rgba(255, 255, 255, 0.15) 0px 2px 6px 2px;
+    }
+    .jurado-card i {
+        color: #e0e0e0;
+    }
+    .jurado-header {
+        background: linear-gradient(135deg, #072946, #041625);
+    }
+    .jurado-header .icon {
+        color: white;
+    }
+    .jurado-nombre {
+        color: #ffffff;
+    }
+    .jurado-info {
+        color: #e0e0e0;
+    }
+    .info-item .icon {
+        color: #e0e0e0;
+    }
+    .label {
+        color: #818388;
+    }
+    .value {
+        color: #e0e0e0;
+    }
+    .lista-concursos li a {
+        background: #28282A;
+        color: #e0e0e0;
+        box-shadow:
+            rgba(255, 255, 255, 0.3) 0px 1px 2px 0px,
+            rgba(255, 255, 255, 0.15) 0px 2px 6px 2px;
+    }
+    .lista-concursos li a.estado-activo {
+        border-left: 6px solid #8fffb3; 
+    }
+    .lista-concursos li a.estado-inactivo {
+        border-left: 6px solid #ffb3b3;
+    }
+    .lista-concursos li a:hover {
+        background: #1e1e20;
+    }
+}

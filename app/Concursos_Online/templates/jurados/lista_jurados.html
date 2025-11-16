@@ -1,0 +1,24 @@
+{% extends "base/base.html" %}
+{% load static %}
+
+{% block title %}ConcurNet - Jurados{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/extra/lista.css' %}">
+    <link rel="stylesheet" href="{% static 'css/extra/jurado.css' %}">
+{% endblock %}
+
+{% block cabecera %}
+    <h1>Listado de Jurados</h1>
+    <hr>
+    <br>
+{% endblock %}
+{% block contenido %}
+    <div class="list">
+        {% for Jurado_Mostrar in Jurados_Mostrar %}
+            {% include "jurados/_item_jurado.html" %}
+        {% empty %}
+            <h2>No se encontraron jurados</h2>
+        {% endfor %}
+    </div>
+{% endblock %}

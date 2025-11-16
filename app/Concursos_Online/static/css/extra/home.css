@@ -112,3 +112,27 @@
 }
 
 /* ---------- DARK MODE ---------- */
+@media (prefers-color-scheme: dark) {
+    .home-hero {
+        background: linear-gradient(135deg, #072946, #041625);
+    }
+    .home-buttons .btn{
+        color: #e0e0e0;
+        border-color: #4a4a4d;
+        background-color: #1e1e20;
+    }
+    .btn:hover{
+        background-color: #4a4a4d;
+    }
+    .home-info h2{color: #e0e0e0;}
+    .home-info .intro{color: #818388;}
+    .features li {
+        background: #28282A;
+        color: #e0e0e0;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+        
+    }
+    .features li:hover {
+        background: #1e1e20;
+    }
+}

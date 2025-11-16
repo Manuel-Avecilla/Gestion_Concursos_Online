@@ -1,0 +1,17 @@
+{% extends "base/base.html" %}
+{% load static %}
+
+{% block title %}ConcurNet - Jurado{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/extra/jurado.css' %}">
+{% endblock %}
+
+{% block cabecera %}
+    <h1>Detalles de Jurado</h1>
+    <hr>
+    <br>
+{% endblock %}
+{% block contenido %}
+    {% include "jurados/_item_jurado.html" %}
+{% endblock %}
