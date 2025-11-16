@@ -1,0 +1,20 @@
+main * {
+    color: #28282A;
+}
+
+main {
+    flex: 1;
+    padding: 2rem 0;
+}
+
+.placeholder {
+    margin-top: 2rem;
+    padding: 2rem;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.placeholder li {
+    margin-bottom: 0.7rem;
+}

@@ -1,0 +1,26 @@
+{% extends "base/base.html" %}
+
+{% block title %}ConcurNet - Menu{% endblock %}
+
+{% block cabecera %}
+    <br>
+    <h1>Listado de enlaces</h1>
+    <br>
+{% endblock %}
+{% block contenido %}
+    <div class="placeholder">
+        <ul>
+            <li><a href="{% url 'lista_concursos' %}">Concursos</a></li>
+            <li><a href="{% url 'participantes_listar' %}">Participantes</a></li>
+            <li><a href="{% url 'dame_concurso' id_concurso=1 %}">Ver Concurso ID 1</a></li>
+            <li><a href="{% url 'dame_concursos_fecha' anyo_concurso=2025 mes_concurso=5 %}">Ver Concursos que empienzan en mayo de 2025</a></li>
+            <li><a href="{% url 'dame_concurso_activo' activo=True %}">Ver Concursos activos</a></li>
+            <li><a href="{% url 'dame_concurso_texto' texto="pablo" %}">Ver Concursos con "pablo" en la descripcion</a></li>
+            <li><a href="{% url 'dame_ultimo_participante' id_concurso=1 %}">Ver Ultimo Participante inscrito en el Concurso ID 1</a></li>
+            <li><a href="{% url 'detalle_participante_alias' alias_participante="ddiaz" %}">Ver Participante con alias: ddiaz</a></li>
+            <li><a href="{% url 'usuarios_sin_notificar' %}">Usuarios sin Notificaciones</a></li>
+            <li><a href="{% url 'dame_jurados' %}">Ver los Jurados y sus concursos Asignados</a></li>
+            <li><a href="{% url 'metricas_experiencia_jurados' %}">Ver Nivel de Experiencia de los Jurados</a></li>
+        </ul>
+    </div>
+{% endblock %}

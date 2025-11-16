@@ -1,0 +1,17 @@
+{% extends "base/base.html" %}
+{% load static %}
+
+{% block title %}ConcurNet - Concurso{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/extra/concurso.css' %}">
+{% endblock %}
+
+{% block cabecera %}
+    <h1>Detalles de Concurso</h1>
+    <hr>
+    <br>
+{% endblock %}
+{% block contenido %}
+    {% include "concursos/_item_concurso.html" %}
+{% endblock %}

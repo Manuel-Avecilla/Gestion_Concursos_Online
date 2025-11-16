@@ -1,0 +1,68 @@
+<div class="concurso-card">
+    <header class="concurso-header">
+        <div>
+            <h1>Concurso</h1>
+            <h2 class="concurso-nombre">{{ Concurso_Mostrar.nombre }}</h2>
+        </div>
+
+        {% if Concurso_Mostrar.activo %}
+            <span class="estado estado-activo">Activo</span>
+        {% else %}
+            <span class="estado estado-inactivo">Inactivo</span>
+        {% endif %}
+    </header>
+
+    <section class="concurso-info">
+        <p class="descripcion">{{ Concurso_Mostrar.descripcion }}</p>
+        
+        <div class="concurso-fecha">
+            <p><strong>Inicio:</strong> {{ Concurso_Mostrar.fecha_inicio|date:"d/m/Y H:i" }}</p>
+            <p><strong>Final:</strong> {{ Concurso_Mostrar.fecha_final|date:"d/m/Y H:i" }}</p>
+        </div>
+        <br>
+        <p><strong>Creador:</strong>
+            <a href="" class="usuario">
+                <i class="fa-solid fa-user"></i>
+                {{ Concurso_Mostrar.creador.usuario.nombre_usuario }}
+            </a>
+        </p>
+        <br>
+        <p><strong>Alias Ganador:</strong>
+            <a href="{% url 'detalle_participante_alias' alias_participante=Concurso_Mostrar.ganador.alias %}" class="usuario">
+                <i class="fa-solid fa-user"></i>
+                {{ Concurso_Mostrar.ganador.alias }}
+            </a>
+        </p>
+        <br>
+    </section>
+
+    <section class="concurso-participantes">
+        <h3>Participantes</h3>
+        <ul>
+            {% for Participante in Concurso_Mostrar.participantes.all %}
+                <li>
+                    <a href="{% url 'detalle_participante_alias' alias_participante=Participante.alias %}" class="usuario">
+                        <i class="fa-solid fa-user"></i>
+                        {{ Participante.alias }}
+                    </a>
+                </li>
+            {% empty %}
+                <p class="no-participantes">No hay participantes registrados.</p>
+            {% endfor %}
+        </ul>
+    </section>
+    <br>
+    <section class="concurso-links">
+        <a class="btn-link" href="{% url 'dame_concurso' id_concurso=Concurso_Mostrar.id %}">
+            <i class="fa-solid fa-circle-info"></i>
+            Ver Concurso
+        </a>
+
+        <a class="btn-link" href="{% url 'dame_concursos_fecha' Concurso_Mostrar.fecha_inicio.year Concurso_Mostrar.fecha_inicio.month %}">
+            <i class="fa-solid fa-circle-info"></i>
+            Ver concursos del mismo mes
+        </a>
+    </section>
+
+</div>
+

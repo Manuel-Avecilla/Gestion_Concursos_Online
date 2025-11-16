@@ -1,0 +1,22 @@
+header {
+    border-bottom: 1px solid #0a3c6f;
+    background: #ffffff;
+    padding: 1rem 0;
+    box-shadow:
+    rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 15px -1px;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo-header {
+    width: 350px;
+    aspect-ratio: 10/2;
+    background-image: url(../img/ConcurNet.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+}

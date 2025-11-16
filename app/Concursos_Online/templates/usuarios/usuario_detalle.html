@@ -1,0 +1,17 @@
+{% extends "base/base.html" %}
+{% load static %}
+
+{% block title %}ConcurNet - Usuario{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/extra/usuario.css' %}">
+{% endblock %}
+
+{% block cabecera %}
+    <h1>Detalles de Usuario</h1>
+    <hr>
+    <br>
+{% endblock %}
+{% block contenido %}
+    {% include "usuarios/_item_usuario.html" %}
+{% endblock %}

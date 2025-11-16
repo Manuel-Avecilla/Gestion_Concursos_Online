@@ -1,0 +1,28 @@
+@media (max-width: 950px) {
+    .logo-header {
+        width: 250px;
+        margin-bottom: 1rem;
+    }
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .social {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 672px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width: 550px){
+    .menu ul {
+        flex-direction: column;
+        margin-top: 1rem;
+        gap: .8rem;
+    }
+}

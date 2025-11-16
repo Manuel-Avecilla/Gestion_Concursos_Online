@@ -1,0 +1,24 @@
+{% extends "base/base.html" %}
+{% load static %}
+
+{% block title %}ConcurNet - Participantes{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/extra/lista.css' %}">
+    <link rel="stylesheet" href="{% static 'css/extra/participante.css' %}">
+{% endblock %}
+
+{% block cabecera %}
+    <h1>Listado de Participantes</h1>
+    <hr>
+    <br>
+{% endblock %}
+{% block contenido %}
+    <div class="list">
+        {% for Participante_Mostrar in Participantes_Mostrar %}
+            {% include "participantes/_item_participante.html" %}
+        {% empty %}
+            <h2>No se encontraron participantes</h2>
+        {% endfor %}
+    </div>
+{% endblock %}

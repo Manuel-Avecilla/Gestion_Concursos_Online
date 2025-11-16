@@ -1,3 +1,4 @@
+![ConcurNet](docs/logo.png)
 # Sistema de Gestión de Concursos Online
 
 Este proyecto está desarrollado con **Django** y tiene como objetivo gestionar concursos, permitiendo que **administradores** creen competencias, **participantes** se inscriban y presenten trabajos, y **jurados** los evalúen.  

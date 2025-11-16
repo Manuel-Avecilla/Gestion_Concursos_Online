@@ -1,0 +1,24 @@
+{% extends "base/base.html" %}
+{% load static %}
+
+{% block title %}ConcurNet - Concursos{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/extra/lista.css' %}">
+    <link rel="stylesheet" href="{% static 'css/extra/concurso.css' %}">
+{% endblock %}
+
+{% block cabecera %}
+    <h1>Listado de Concursos</h1>
+    <hr>
+    <br>
+{% endblock %}
+{% block contenido %}
+    <div class="list">
+        {% for Concurso_Mostrar in Concursos_Mostrar %}
+            {% include "concursos/_item_concurso.html" %}
+        {% empty %}
+            <h2>No se encontraron concursos</h2>
+        {% endfor %}
+    </div>
+{% endblock %}

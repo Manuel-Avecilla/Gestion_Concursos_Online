@@ -1,0 +1,66 @@
+/* --- Tarjeta del usuario --- */
+.usuario-card {
+    flex: 1 1 33%;
+    max-width: 900px;
+    min-width: 300px;
+    margin: 30px auto;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 
+    rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, 
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    overflow: hidden;
+    padding-bottom: 25px;
+}
+.usuario-card i {color: #0a3c6f;}
+/* --- Header --- */
+.usuario-header {
+    text-decoration: none;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    background-color: #0a3c6f;
+}
+.usuario-header .icon {
+    font-size: 32px;
+    margin-right: 12px;
+    margin-left: 15px;
+    color: white;
+}
+.usuario-nombre {
+    font-size: 24px;
+    margin: 0;
+    font-weight: 600;
+    color: white;
+}
+/* --- Info general --- */
+.usuario-info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 15px;
+    gap: 15px;
+}
+.info-item {
+    display: grid;
+    grid-template-columns: 30px auto;
+    column-gap: 2px;
+    align-items: center;
+}
+.info-item .icon {
+    font-size: 20px;
+}
+.label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #555;
+    margin: 0;
+}
+.value {
+    font-size: 15px;
+    font-weight: 800;
+    margin: 0;
+    color: #222;
+}
+
+/* ---------- DARK MODE ---------- */

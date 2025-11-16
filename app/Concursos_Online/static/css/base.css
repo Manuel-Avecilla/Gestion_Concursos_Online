@@ -1,0 +1,27 @@
+/* RESETEO BÁSICO */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Lexend", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: #F5F5F5;
+}
+
+/* CONTENEDOR GLOBAL */
+.container {
+    max-width: 1200px;
+    width: 90%;
+    margin: 0 auto;
+}

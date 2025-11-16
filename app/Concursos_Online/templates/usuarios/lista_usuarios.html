@@ -1,0 +1,24 @@
+{% extends "base/base.html" %}
+{% load static %}
+
+{% block title %}ConcurNet - Usuarios{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/extra/lista.css' %}">
+    <link rel="stylesheet" href="{% static 'css/extra/usuario.css' %}">
+{% endblock %}
+
+{% block cabecera %}
+    <h1>Listado de Usuarios</h1>
+    <hr>
+    <br>
+{% endblock %}
+{% block contenido %}
+    <div class="list">
+        {% for Usuario_Mostrar in Usuarios_Mostrar %}
+            {% include "usuarios/_item_usuario.html" %}
+        {% empty %}
+            <h2>No se encontraron usuarios</h2>
+        {% endfor %}
+    </div>
+{% endblock %}

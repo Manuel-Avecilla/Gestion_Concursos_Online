@@ -3,7 +3,8 @@ from . import views
 from django.urls import re_path
 
 urlpatterns = [
-    path('',views.index, name='index'),
+    path('',views.home, name='home'),
+    path('menu',views.menu, name='menu'),
     path('concursos-online/listar', views.concursos_listar, name='lista_concursos'),
     path('concursos-online/<int:id_concurso>', views.dame_concurso, name='dame_concurso'),
     path('concursos-online/<int:anyo_concurso>/<int:mes_concurso>', views.dame_concursos_fecha, name='dame_concursos_fecha'),
@@ -14,6 +15,9 @@ urlpatterns = [
     path('usuarios_sin_notificaciones/', views.usuarios_sin_notificar, name='usuarios_sin_notificar'),
     path('jurados/listar', views.dame_jurados, name='dame_jurados'),
     path('jurados/metricas_experiencia/', views.metricas_experiencia_jurados, name='metricas_experiencia_jurados'),
+    
+    path('participantes',views.participantes_listar, name='participantes_listar'),
+    path('usuario/<int:id_usuario>', views.dame_usuario, name='dame_usuario'),
 ]
 
 # Explicacion re_path:

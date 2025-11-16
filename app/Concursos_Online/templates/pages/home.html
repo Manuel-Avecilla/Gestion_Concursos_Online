@@ -1,0 +1,46 @@
+{% extends "base/base.html" %}
+{% load static %}
+
+{% block title %}ConcurNet - Home{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/extra/home.css' %}">
+{% endblock %}
+
+{% block cabecera %}
+    <section class="home-hero">
+        <h1>Bienvenido a <strong>ConcurNet</strong></h1>
+        <p class="subtitle">
+            El sistema donde puedes crear, administrar y participar en concursos de forma
+            fácil, intuitiva y totalmente online.
+        </p>
+        <div class="home-buttons">
+            <a href="{% url 'lista_concursos' %}" class="btn btn-primary">
+                <i class="fa-regular fa-compass"></i>
+                Explorar concursos
+            </a>
+        </div>
+    </section>
+{% endblock %}
+
+{% block contenido %}
+
+    <section class="home-info container">
+        <h2>¿Qué puedes hacer en ConcurNet?</h2>
+        <p class="intro">
+            Nuestra plataforma te ofrece todas las herramientas necesarias para gestionar concursos,
+            organizar participantes y visualizar resultados en tiempo real.
+        </p>
+
+        <ul class="features">
+            <li>Crear y administrar tus propios concursos</li>
+            <li>Añadir, editar y gestionar participantes</li>
+            <li>Consultar concursos activos, finalizados o programados</li>
+            <li>Aplicar filtros inteligentes por fecha, estado o creador</li>
+            <li>Ver los ganadores y estadísticas finales</li>
+            <li>Acceder fácilmente a tus concursos recientes</li>
+        </ul>
+    </section>
+
+{% endblock %}
+

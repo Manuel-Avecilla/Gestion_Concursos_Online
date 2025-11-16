@@ -1,0 +1,55 @@
+footer {
+    border-top: 1px solid #0a3c6f;
+    background-color: #0a3c6f;
+    color: white;
+    padding: 2rem 0;
+    margin-top: auto;
+    box-shadow:
+    rgba(50, 50, 93, 0.5) 0px -2px 5px -1px,
+    rgba(0, 0, 0, 1) 0px -1px 15px -1px;
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.logo-footer {
+    width: 90px;
+    height: 90px;
+    background-image: url(../img/ConcurNet-5.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.social {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 2rem;
+}
+
+.social i {
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.social i:hover {
+    transform: scale(1.4);
+    color: #c2c3c5;
+}
+
+footer a {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+footer a:hover {
+    color: white;
+}
+
+footer p {
+    margin-bottom: .5rem;
+}

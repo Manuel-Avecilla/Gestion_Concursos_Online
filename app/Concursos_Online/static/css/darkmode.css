@@ -1,0 +1,52 @@
+@media (prefers-color-scheme: dark) {
+
+    body {
+        background-color: #0f0f10;
+        color: #e5e5e5;
+    }
+    header {
+        background-color: #1a1a1c;
+        border-bottom: 1px solid #3b3b3d;
+    }
+    footer {
+        background-color: #1a1a1c;
+        border-top: 1px solid #3b3b3d;
+        color: #e5e5e5;
+    }
+    .logo-header {
+        background-image: url(../img/ConcurNet-2.png);
+    }
+    main * {
+        color: #e5e5e5;
+    }
+    .placeholder {
+        background: #1e1e20;
+        border-color: #3b3b3d;
+    }
+    .menu a {
+        color: #e0e0e0;
+        border-color: #4a4a4d;
+    }
+    .menu a:hover {
+        background-color: #4a4a4d;
+        color: white;
+    }
+    .menu a.a-Sing-Up,
+    .menu a.a-Log-in {
+        background-color: #072946;
+        color: white;
+    }
+    .menu a.a-Sing-Up:hover,
+    .menu a.a-Log-in:hover {
+        background-color: #0d4c8c;
+    }
+    .social i:hover {
+        color: #9d9d9d;
+    }
+    footer a {
+        color: #aaa;
+    }
+    footer a:hover {
+        color: white;
+    }
+}

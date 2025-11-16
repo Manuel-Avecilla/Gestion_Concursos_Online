@@ -5,8 +5,11 @@ from django.views.defaults import page_not_found
 
 # Create your views here.
 
-def index(request):
-    return render(request, 'Concursos_Online/index.html')
+def home(request):
+    return render(request, 'pages/home.html')
+
+def menu(request):
+    return render(request, 'pages/menu.html')
 
 # Una url que me muestre todos los Concursos y sus datos, incluido los relacionados.
 def concursos_listar(request):
@@ -31,7 +34,7 @@ def concursos_listar(request):
     ))
     """
     
-    return render(request,'Concursos_Online/lista_Concurso.html',{'Concursos_Mostrar':concursos})
+    return render(request,'concursos/lista_concursos.html',{'Concursos_Mostrar':concursos})
 
 # Una url que me muestre un Concurso y sus datos, incluido los relacionados.
 def dame_concurso(request, id_concurso):
@@ -57,7 +60,7 @@ def dame_concurso(request, id_concurso):
     )
     """
     
-    return render(request,'Concursos_Online/Concurso.html',{'Concurso_Mostrar':concurso})
+    return render(request,'concursos/concurso_detalle.html',{'Concurso_Mostrar':concurso})
 
 # Una url que muestre los Concursos que comienzan en un año y mes concreto
 def dame_concursos_fecha(request, anyo_concurso, mes_concurso):
@@ -89,7 +92,7 @@ def dame_concursos_fecha(request, anyo_concurso, mes_concurso):
     ))
     """
     
-    return render(request,'Concursos_Online/lista_Concurso.html',{'Concursos_Mostrar':concursos})
+    return render(request,'concursos/lista_concursos.html',{'Concursos_Mostrar':concursos})
 
 # Una url que:
 # Si pones "true" en la URL, solo ves los concursos activos;
@@ -125,7 +128,7 @@ def dame_concurso_activo(request, activo):
     ))
     """
     
-    return render(request,'Concursos_Online/lista_Concurso.html',{'Concursos_Mostrar':concursos})
+    return render(request,'concursos/lista_concursos.html',{'Concursos_Mostrar':concursos})
 
 # Una url que:
 # Lista los concursos que tienen el texto especificado en su descripción.
@@ -159,7 +162,7 @@ def dame_concurso_texto(request, texto):
     ))
     """
     
-    return render(request,'Concursos_Online/lista_Concurso.html',{'Concursos_Mostrar':concursos})
+    return render(request,'concursos/lista_concursos.html',{'Concursos_Mostrar':concursos})
 
 # Una url que permite ver el participante que se inscribió más recientemente en un concurso concreto, utilizando el ID del concurso.
 # Muestra únicamente la información de ese último inscrito, limitando la consulta a un solo registro
@@ -191,7 +194,7 @@ def dame_ultimo_participante(request, id_concurso):
         
     # El diccionario ahora envía el objeto Participante individual (o None)
     """
-    return render(request,'Concursos_Online/Participante.html',{'Participante_Mostrar':participante_a_mostrar})
+    return render(request,'participantes/participante_detalle.html',{'Participante_Mostrar':participante_a_mostrar})
 
 # Una url que permite obtener información sobre un Participante en concreto, buscando por su alias.
 def detalle_participante_alias(request, alias_participante):
@@ -209,7 +212,7 @@ def detalle_participante_alias(request, alias_participante):
     )[0])
     """
     
-    return render(request,'Concursos_Online/Participante.html',{'Participante_Mostrar':participante_a_mostrar})
+    return render(request,'participantes/participante_detalle.html',{'Participante_Mostrar':participante_a_mostrar})
 
 # Una url que obtiene todos los Usuarios que nunca han recibido una Notificación.
 def usuarios_sin_notificar(request):
@@ -228,7 +231,7 @@ def usuarios_sin_notificar(request):
     ))
     """
     
-    return render(request, 'Concursos_Online/no_notificados.html',{'Usuario_Mostrar':usuarios_no_notificados})
+    return render(request, 'usuarios/lista_usuarios.html',{'Usuarios_Mostrar':usuarios_no_notificados})
 
 # Una url que obtiene todos los objetos Jurado.
 def dame_jurados(request):
@@ -277,6 +280,23 @@ def metricas_experiencia_jurados(request):
         metricas_objeto = None
     """
     return render(request, 'Concursos_Online/metricas_Jurados.html', {'Metricas_Mostrar':metricas_objeto})
+
+def participantes_listar(request):
+    participantes = (
+        Participante.objects
+        .select_related("usuario")
+        .all()
+    )
+    return render(request,'participantes/lista_participantes.html',{'Participantes_Mostrar':participantes})
+
+def dame_usuario(request, id_usuario):
+    
+    usuario = (
+        Usuario.objects
+        .get(id=id_usuario)
+    )
+    
+    return render(request, 'usuarios/usuario_detalle.html',{'Usuario_Mostrar':usuario})
 
 # Errores
 

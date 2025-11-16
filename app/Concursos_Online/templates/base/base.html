@@ -1,0 +1,42 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}ConcurNet{% endblock %}</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/menu.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+    <link rel="stylesheet" href="{% static 'css/darkmode.css' %}">
+
+    <link rel="icon" type="image/png" href="{% static 'img/ConcurNet-7.png' %}">
+
+    {% block extra_css %}{% endblock %}
+    <script src="{% static 'js/app.js' %}" defer></script>
+</head>
+<body>
+
+    {% include "base/_header.html" %}
+
+    <main class="container">
+        {% block cabecera %}
+        {% endblock %}
+
+        {% block contenido %}
+        {% endblock %}
+    </main>
+
+    {% include "base/_footer.html" %}
+
+</body>
+</html>

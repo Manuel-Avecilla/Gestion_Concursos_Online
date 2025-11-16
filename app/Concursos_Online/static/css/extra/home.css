@@ -1,0 +1,114 @@
+/* ------------------------------
+    HERO SECTION
+------------------------------ */
+.home-hero {
+    text-align: center;
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #0a3c6f, #0d5fa5);
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+.home-hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    font-weight: 500;
+    color: white;
+}
+.home-hero strong {
+    font-size: 4rem;
+    font-weight: 900;
+    color: white;
+}
+.home-hero .subtitle {
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto 25px;
+    opacity: 0.9;
+    color: white;
+}
+.home-buttons {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.home-buttons .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-decoration: none;
+    color: #28282A;
+    background-color: white;
+    min-width: 300px;
+    font-weight: 600;
+    transition: 0.2s ease;
+    border: 2px solid #818388;
+    padding: 0.5rem;
+    border-radius: 0.7rem;
+    box-shadow:
+    rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+    rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+.btn i{
+    font-size: 1.5rem;
+    margin-right: 1rem;
+}
+.btn:hover {
+    background-color: #818388;
+    color: white;
+}
+.btn:hover i{
+    color: white;
+}
+.btn:active{
+    box-shadow:
+    rgba(255, 255, 255, 0.6) 0px 2px 4px,
+    rgba(255, 255, 255, 0.5) 0px 7px 13px -3px,
+    rgba(255, 255, 255, 0.4) 1px 3px 0px inset;
+}
+
+
+/* ------------------------------
+    INFO SECTION
+------------------------------ */
+.home-info {
+    padding: 50px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+.home-info h2 {
+    font-size: 2rem;
+    color: #07294B;
+    margin-bottom: 15px;
+}
+.home-info .intro {
+    max-width: 700px;
+    margin: 0 auto 30px;
+    font-size: 1.05rem;
+    color: #555;
+}
+.features {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 600px;
+}
+.features li {
+    background: #eef2f6;
+    padding: 12px 18px;
+    margin: 10px 0;
+    border-radius: 10px;
+    text-align: left;
+    font-size: 1rem;
+    color: #333;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    transition: 0.2s ease;
+}
+.features li:hover {
+    background: #e1e6eb;
+}
+
+/* ---------- DARK MODE ---------- */

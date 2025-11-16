@@ -1,0 +1,18 @@
+<div class="usuario-card">
+    <a class="usuario-header" href="{% url 'dame_usuario' id_usuario=Usuario_Mostrar.id %}">
+        <i class="fa-solid fa-user icon"></i>
+        <h2 class="usuario-nombre">{{ Usuario_Mostrar.nombre_usuario }}</h2>
+    </a>
+    <section class="usuario-info">
+        <div class="info-item">
+            <i class="fa-solid fa-envelope icon"></i>
+            <p class="label">Correo:</p>
+            <p class="value">{{ Usuario_Mostrar.correo }}</p>
+        </div>
+        <div class="info-item">
+            <i class="fa-solid fa-calendar icon"></i>
+            <p class="label">Fecha registro:</p>
+            <p class="value">{{ Usuario_Mostrar.fecha_registro|date:"d/m/Y" }}</p>
+        </div>
+    </section>
+</div>
