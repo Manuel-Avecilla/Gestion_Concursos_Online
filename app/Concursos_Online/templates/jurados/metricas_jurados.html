@@ -13,20 +13,32 @@
     <br>
 {% endblock %}
 {% block contenido %}
-    <section class="metricas-container">
+        <section class="metricas-container">
         <div class="metrica-item">
-            <span class="label">Experiencia Media:</span>
-            <span class="value">{{ Metricas_Mostrar.media_experiencia }}</span>
+            <span class="label">{{ "experiencia media"|capfirst }}</span>
+            <span class="value">{{ Metricas_Mostrar.media_experiencia|floatformat|default:"0" }}</span>
+        </div>
+        <div class="metrica-item">
+            <span class="label">{{ "experiencia mínima"|capfirst }}</span>
+            <span class="value">{{ Metricas_Mostrar.min_experiencia|add:"0" }}</span>
+        </div>
+        <div class="metrica-item">
+            <span class="label">{{ "experiencia máxima"|upper }}</span>
+            <span class="value">{{ Metricas_Mostrar.max_experiencia|default:"No disponible" }}</span>
         </div>
 
-        <div class="metrica-item">
-            <span class="label">Experiencia Mínima:</span>
-            <span class="value">{{ Metricas_Mostrar.min_experiencia }}</span>
-        </div>
-
-        <div class="metrica-item">
-            <span class="label">Experiencia Máxima:</span>
-            <span class="value">{{ Metricas_Mostrar.max_experiencia }}</span>
-        </div>
     </section>
+
+    {% if Metricas_Mostrar.media_experiencia >= 5 %}
+        <small class="indicador">Nivel medio alto</small>
+    {% endif %}
+
+    {% if Metricas_Mostrar.min_experiencia <= 3 %}
+        <small class="indicador">Existe experiencia baja entre jurados</small>
+    {% endif %}
+
+    {% if Metricas_Mostrar.max_experiencia == 10 %}
+        <small class="indicador">Un jurado tiene el nivel máximo</small>
+    {% endif %}
+
 {% endblock %}

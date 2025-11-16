@@ -2,18 +2,18 @@
     <header class="concurso-header">
         <div>
             <h1>Concurso</h1>
-            <h2 class="concurso-nombre">{{ Concurso_Mostrar.nombre }}</h2>
+            <h2 class="concurso-nombre">{{ Concurso_Mostrar.nombre|cut:"Concurso" }}</h2>
         </div>
 
         {% if Concurso_Mostrar.activo %}
             <span class="estado estado-activo">Activo</span>
-        {% else %}
+        {% elif not Concurso_Mostrar.activo %}
             <span class="estado estado-inactivo">Inactivo</span>
         {% endif %}
     </header>
 
     <section class="concurso-info">
-        <p class="descripcion">{{ Concurso_Mostrar.descripcion }}</p>
+        <p class="descripcion">{{ Concurso_Mostrar.descripcion|truncatechars:100 }}</p>
         
         <div class="concurso-fecha">
             <p><strong>Inicio:</strong> {{ Concurso_Mostrar.fecha_inicio|date:"d/m/Y H:i" }}</p>
@@ -37,20 +37,25 @@
     </section>
 
     <section class="concurso-participantes">
-        <h3>Participantes</h3>
-        <ul>
-            {% for Participante in Concurso_Mostrar.participantes.all %}
-                <li>
-                    <a href="{% url 'detalle_participante_alias' alias_participante=Participante.alias %}" class="usuario">
-                        <i class="fa-solid fa-user"></i>
-                        {{ Participante.alias }}
-                    </a>
-                </li>
-            {% empty %}
-                <p class="no-participantes">No hay participantes registrados.</p>
-            {% endfor %}
-        </ul>
-    </section>
+    <h3>Participantes: {{ Concurso_Mostrar.participantes.all|length }}</h3>
+    <ul>
+        {% for Participante in Concurso_Mostrar.participantes.all|slice:":5" %}
+            <li>
+                <a href="{% url 'detalle_participante_alias' alias_participante=Participante.alias %}" class="usuario">
+                    <i class="fa-solid fa-user"></i>
+                    {{ Participante.alias }}
+                </a>
+            </li>
+        {% empty %}
+            <p class="no-participantes">No hay participantes registrados.</p>
+        {% endfor %}
+    </ul>
+    {% if Concurso_Mostrar.participantes.all|length > 5 %}
+        <a href="{% url 'dame_participantes_concurso' id_concurso=Concurso_Mostrar.id %}" class="ver-mas">
+            Ver más participantes...
+        </a>
+    {% endif %}
+</section>
     <br>
     <section class="concurso-links">
         <a class="btn-link" href="{% url 'dame_concurso' id_concurso=Concurso_Mostrar.id %}">

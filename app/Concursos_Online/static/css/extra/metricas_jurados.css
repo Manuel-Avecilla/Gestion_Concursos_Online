@@ -32,6 +32,13 @@
     font-weight: 600;
     color: #0a3c6f;
 }
+.indicador {
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 /* ---------- DARK MODE ---------- */
 @media (prefers-color-scheme: dark) {

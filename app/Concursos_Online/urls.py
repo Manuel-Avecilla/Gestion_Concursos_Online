@@ -19,6 +19,7 @@ urlpatterns = [
     path('participantes',views.participantes_listar, name='participantes_listar'),
     path('usuario/<int:id_usuario>', views.dame_usuario, name='dame_usuario'),
     path('jurado/<int:id_jurado>', views.dame_jurado, name='dame_jurado'),
+    path('participantes/concurso/<int:id_concurso>',views.dame_participantes_concurso, name='dame_participantes_concurso'),
 ]
 
 # Explicacion re_path:

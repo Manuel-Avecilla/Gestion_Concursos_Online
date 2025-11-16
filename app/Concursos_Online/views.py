@@ -309,6 +309,18 @@ def dame_jurado(request, id_jurado):
     
     return render(request, 'jurados/jurado_detalle.html',{'Jurado_Mostrar':jurado})
 
+def dame_participantes_concurso(request, id_concurso):
+    
+    participantes = (
+        Participante.objects
+        .select_related("usuario")
+        .filter(inscribe_participante__concurso_id=id_concurso)
+        .all()
+        .distinct()
+    )
+    
+    return render(request,'participantes/lista_participantes.html',{'Participantes_Mostrar':participantes})
+
 # Errores
 
 def mi_error_404(request,exception=None):

@@ -12,6 +12,7 @@ Para mantener el README principal más limpio, la documentación detallada se en
 - [Instalación y ejecución en local](docs/instalacion.md)
 - [Modelos del Sistema](docs/modelos.md)
 - [URLS del Sistema](docs/url.md)
+- [Templates del Sistema](docs/templates.md)
 
 ---
 
