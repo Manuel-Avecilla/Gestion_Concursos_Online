@@ -20,6 +20,11 @@ urlpatterns = [
     path('usuario/<int:id_usuario>', views.dame_usuario, name='dame_usuario'),
     path('jurado/<int:id_jurado>', views.dame_jurado, name='dame_jurado'),
     path('participantes/concurso/<int:id_concurso>',views.dame_participantes_concurso, name='dame_participantes_concurso'),
+    
+    #--------------CRUD--------------
+    #---Usuario---
+    path('usuario/crear',views.usuario_create, name='usuario_create'),
+    
 ]
 
 # Explicacion re_path:

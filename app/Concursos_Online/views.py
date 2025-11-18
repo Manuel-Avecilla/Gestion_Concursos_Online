@@ -3,6 +3,10 @@ from .models import *
 from django.db.models import Q , Prefetch, Avg, Max, Min
 from django.views.defaults import page_not_found
 
+from .forms import *
+from django.contrib import messages
+from django.shortcuts import redirect
+
 # Create your views here.
 
 def home(request):
@@ -320,6 +324,46 @@ def dame_participantes_concurso(request, id_concurso):
     )
     
     return render(request,'participantes/lista_participantes.html',{'Participantes_Mostrar':participantes})
+
+#--------------------------------------------------------------------------------------------
+#                                          CRUD
+#--------------------------------------------------------------------------------------------
+
+#-------- USUARIO --------
+def usuario_create(request): # Metodo que controla el formulario
+    
+    # Si la petición es GET se creará el formulario Vacío
+    # Si la petición es POST se creará el formulario con Datos.
+    datosFormulario = None
+    if request.method == "POST":
+        datosFormulario = request.POST
+    
+    formulario = UsuarioForm(datosFormulario)
+    
+    if (request.method == "POST"):
+        
+        libro_creado = crear_usuario_modelo(formulario)
+        
+        if(libro_creado):
+            messages.success(request, 'Se ha creado el Usuario '+formulario.cleaned_data.get('nombre_usuario')+" correctamente")
+            return redirect('home')
+
+    return render(request, 'usuarios/crud/create_usuario.html',{'formulario':formulario})
+
+def crear_usuario_modelo(formulario): # Metodo que crea en la base de datos
+    
+    usuario_creado = False
+    # Comprueba si el formulario es válido
+    if formulario.is_valid():
+        try:
+            # Guarda el usuario en la base de datos
+            formulario.save()
+            usuario_creado = True
+        except Exception as error:
+            print(error)
+    return usuario_creado
+
+#--------------------------
 
 # Errores
 

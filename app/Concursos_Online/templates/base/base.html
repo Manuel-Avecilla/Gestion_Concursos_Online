@@ -1,4 +1,6 @@
 {% load static %}
+{% load django_bootstrap5 %}
+{% load bootstrap_icons %}
 
 <!DOCTYPE html>
 <html lang="es">
@@ -23,6 +25,11 @@
 
     {% block extra_css %}{% endblock %}
     <script src="{% static 'js/app.js' %}" defer></script>
+    
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+
+
 </head>
 <body>
 

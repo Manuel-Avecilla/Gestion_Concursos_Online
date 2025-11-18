@@ -42,6 +42,9 @@ INSTALLED_APPS = [
     'Concursos_Online',
     'django_seed',
     'debug_toolbar',
+    'django_bootstrap5',
+    'django_bootstrap_icons',
+
 ]
 
 MIDDLEWARE = [
