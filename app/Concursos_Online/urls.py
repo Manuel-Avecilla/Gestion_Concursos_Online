@@ -23,7 +23,8 @@ urlpatterns = [
     
     #--------------CRUD--------------
     #---Usuario---
-    path('usuario/crear',views.usuario_create, name='usuario_create'),
+    path('usuario/crear/',views.usuario_create, name='usuario_create'),
+    path('usuario/buscar/',views.usuario_buscar, name='usuario_buscar'),
     
 ]
 

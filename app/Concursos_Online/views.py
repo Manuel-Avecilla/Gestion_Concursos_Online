@@ -325,12 +325,14 @@ def dame_participantes_concurso(request, id_concurso):
     
     return render(request,'participantes/lista_participantes.html',{'Participantes_Mostrar':participantes})
 
+
+
 #--------------------------------------------------------------------------------------------
 #                                          CRUD
 #--------------------------------------------------------------------------------------------
 
 #-------- USUARIO --------
-def usuario_create(request): # Metodo que controla el formulario
+def usuario_create(request): # Metodo que controla el tipo de formulario
     
     # Si la petición es GET se creará el formulario Vacío
     # Si la petición es POST se creará el formulario con Datos.
@@ -342,10 +344,10 @@ def usuario_create(request): # Metodo que controla el formulario
     
     if (request.method == "POST"):
         
-        libro_creado = crear_usuario_modelo(formulario)
+        usuario_creado = crear_usuario_modelo(formulario)
         
-        if(libro_creado):
-            messages.success(request, 'Se ha creado el Usuario '+formulario.cleaned_data.get('nombre_usuario')+" correctamente")
+        if(usuario_creado):
+            messages.success(request, 'Se ha creado el Usuario: [ '+formulario.cleaned_data.get('nombre_usuario')+" ] correctamente.")
             return redirect('home')
 
     return render(request, 'usuarios/crud/create_usuario.html',{'formulario':formulario})
@@ -363,7 +365,25 @@ def crear_usuario_modelo(formulario): # Metodo que crea en la base de datos
             print(error)
     return usuario_creado
 
+def usuario_buscar(request): # Busqueda Simple
+
+    texto = request.GET.get("textoBusqueda", "")  # vacio si no se envia nada
+
+    if texto:
+        usuarios = Usuario.objects.filter(
+            Q(nombre_usuario__icontains=texto) |
+            Q(correo__icontains=texto)
+        )
+    else:
+        usuarios = Usuario.objects.all()
+
+    return render(request,'usuarios/lista_usuarios.html',{'Usuarios_Mostrar': usuarios,'Texto_Busqueda': texto,})
+
+
 #--------------------------
+
+
+
 
 # Errores
 

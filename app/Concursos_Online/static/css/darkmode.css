@@ -1,6 +1,6 @@
 @media (prefers-color-scheme: dark) {
 
-    body {
+    .general {
         background-color: #0f0f10;
         color: #e5e5e5;
     }
@@ -19,7 +19,7 @@
     main * {
         color: #e5e5e5;
     }
-    .placeholder {
+    .placeholder-menu {
         background: #1e1e20;
         border-color: #3b3b3d;
     }

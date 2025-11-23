@@ -20,7 +20,7 @@ body {
 }
 
 /* CONTENEDOR GLOBAL */
-.container {
+.main-container {
     max-width: 1200px;
     width: 90%;
     margin: 0 auto;
