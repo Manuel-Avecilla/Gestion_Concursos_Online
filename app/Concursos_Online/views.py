@@ -6,6 +6,7 @@ from django.views.defaults import page_not_found
 from .forms import *
 from django.contrib import messages
 from django.shortcuts import redirect
+from datetime import datetime
 
 # Create your views here.
 
@@ -368,6 +369,9 @@ def crear_usuario_modelo(formulario): # Metodo que crea en la base de datos
 def usuario_buscar(request): # Busqueda Simple
 
     texto = request.GET.get("textoBusqueda", "")  # vacio si no se envia nada
+    
+    # Equivalente al TRIM (Elimina espacios del principio y final)
+    texto = texto.strip()
 
     if texto:
         usuarios = Usuario.objects.filter(
@@ -379,6 +383,76 @@ def usuario_buscar(request): # Busqueda Simple
 
     return render(request,'usuarios/lista_usuarios.html',{'Usuarios_Mostrar': usuarios,'Texto_Busqueda': texto,})
 
+def usuario_buscar_avanzado(request): #Busqueda Avanzada
+    
+    if(len(request.GET) > 0):
+        formulario = UsuarioBuscarAvanzada(request.GET)
+        if formulario.is_valid():
+            mensaje_busqueda = 'Filtros Aplicados:\n'
+            QsUsuarios = Usuario.objects
+            
+            #Obtenemos los filtros
+            nombre_usuario_contiene = formulario.cleaned_data.get('nombre_usuario_contiene')
+            correo_contiene = formulario.cleaned_data.get('correo_contiene')
+            fecha_registro_desde = formulario.cleaned_data.get('fecha_registro_desde')
+            fecha_registro_hasta = formulario.cleaned_data.get('fecha_registro_hasta')
+            tipo_usuario = formulario.cleaned_data.get('tipo_usuario')
+            
+            #---Nombre---
+            if(nombre_usuario_contiene!=''):
+                nombre_usuario_contiene = nombre_usuario_contiene.strip()
+                QsUsuarios = QsUsuarios.filter(nombre_usuario__icontains=nombre_usuario_contiene)
+                mensaje_busqueda += '· Nombre contiene "'+nombre_usuario_contiene+'"\n'
+            else:
+                mensaje_busqueda += '· Cualquier nombre \n'
+            
+            #---Correo---
+            if(correo_contiene!=''):
+                correo_contiene = correo_contiene.strip()
+                QsUsuarios = QsUsuarios.filter(correo__icontains=correo_contiene)
+                mensaje_busqueda += '· Correo contiene "'+correo_contiene+'"\n'
+            else:
+                mensaje_busqueda += '· Cualquier correo \n'
+            
+            #---Fecha---
+            if (not fecha_registro_desde is None):
+                QsUsuarios = QsUsuarios.filter(fecha_registro__gte=fecha_registro_desde)
+                mensaje_busqueda += '· Registro desde '+datetime.strftime(fecha_registro_desde,'%d-%m-%Y')+'\n'
+            else:
+                mensaje_busqueda += '· Registro desde: Cualquier fecha \n'
+            
+            if (not fecha_registro_hasta is None):
+                QsUsuarios = QsUsuarios.filter(fecha_registro__lte=fecha_registro_hasta)
+                mensaje_busqueda += '· Registro hasta '+datetime.strftime(fecha_registro_hasta,'%d-%m-%Y')+'\n'
+            else:
+                mensaje_busqueda += '· Registro hasta: Cualquier fecha \n'
+            
+            #---Tipo---
+            if tipo_usuario == 'admin':
+                QsUsuarios = QsUsuarios.filter(administrador__isnull=False)
+                mensaje_busqueda += '· Rol: Admin \n'
+
+            elif tipo_usuario == 'jurado':
+                QsUsuarios = QsUsuarios.filter(jurado__isnull=False)
+                mensaje_busqueda += '· Rol: Jurado \n'
+
+            elif tipo_usuario == 'participante':
+                QsUsuarios = QsUsuarios.filter(participante__isnull=False)
+                mensaje_busqueda += '· Rol: Participante \n'
+            
+            else:
+                mensaje_busqueda += '· Rol: Cualquiera \n'
+            
+            #Ejecutamos la querySet y enviamos los usuarios
+            usuarios = QsUsuarios.all()
+            
+            return render(request, 'usuarios/lista_usuarios.html',
+                        {'Usuarios_Mostrar':usuarios,
+                        'Mensaje_Busqueda':mensaje_busqueda}
+                        )
+    else:
+        formulario = UsuarioBuscarAvanzada(None)
+    return render(request, 'usuarios/crud/buscar_avanzada_usuarios.html',{'formulario':formulario})
 
 #--------------------------
 

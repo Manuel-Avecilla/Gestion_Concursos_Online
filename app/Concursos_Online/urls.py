@@ -25,6 +25,7 @@ urlpatterns = [
     #---Usuario---
     path('usuario/crear/',views.usuario_create, name='usuario_create'),
     path('usuario/buscar/',views.usuario_buscar, name='usuario_buscar'),
+    path('usuario/buscar/avanzado/',views.usuario_buscar_avanzado, name='usuario_buscar_avanzado'),
     
 ]
 

@@ -15,6 +15,12 @@
 {% endblock %}
 {% block contenido %}
 
+    {% if Mensaje_Busqueda %}
+        <pre>{{Mensaje_Busqueda}}</pre>
+        <hr>
+        <br>
+    {% endif %}
+
     <form action="{% url 'usuario_buscar' %}" method="GET" class="d-flex mt-3">
         <input
             name="textoBusqueda"

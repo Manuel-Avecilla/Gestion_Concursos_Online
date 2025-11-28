@@ -4,18 +4,18 @@
 {% load django_bootstrap5 %}
 {% load bootstrap_icons %}
 
-{% block title %}ConcurNet - Crear Usuario{% endblock %}
+{% block title %}ConcurNet - Usuarios{% endblock %}
 
 {% block extra_css %}
 {% endblock %}
 
 {% block cabecera %}
-    <h1>Crear Usuario</h1>
+    <h1>Usuarios - Buscar AVANZADO</h1>
     <hr>
     <br>
 {% endblock %}
 {% block contenido %}
-    <form action="{% url 'usuario_create' %}" method="post">
+    <form action="{% url 'usuario_buscar_avanzado' %}" method="get">
         {% csrf_token %}
         {% bootstrap_form formulario %}
         <button type="submit">Enviar</button>
