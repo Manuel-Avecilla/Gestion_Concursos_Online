@@ -10,14 +10,15 @@
 {% endblock %}
 
 {% block cabecera %}
-    <h1>Crear Usuario</h1>
+    <h1>Actualizar Usuario</h1>
     <hr>
     <br>
 {% endblock %}
 {% block contenido %}
-    <form action="{% url 'usuario_create' %}" method="post">
+    <form action="{% url 'usuario_editar' usuario.id %}" method="post">
         {% csrf_token %}
         {% bootstrap_form formulario %}
-        <button type="submit">Enviar</button>
+        <button type="submit" class="btn btn-success">Actualizar</button>
+        <a href="{% url 'usuario_buscar' %}" class="btn btn-secondary">Cancelar</a>
     </form>
 {% endblock %}

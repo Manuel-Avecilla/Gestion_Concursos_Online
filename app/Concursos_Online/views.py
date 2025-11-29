@@ -39,7 +39,7 @@ def concursos_listar(request):
     ))
     """
     
-    return render(request,'concursos/lista_concursos.html',{'Concursos_Mostrar':concursos})
+    return render(request,'models/concursos/lista_concursos.html',{'Concursos_Mostrar':concursos})
 
 # Una url que me muestre un Concurso y sus datos, incluido los relacionados.
 def dame_concurso(request, id_concurso):
@@ -65,7 +65,7 @@ def dame_concurso(request, id_concurso):
     )
     """
     
-    return render(request,'concursos/concurso_detalle.html',{'Concurso_Mostrar':concurso})
+    return render(request,'models/concursos/concurso_detalle.html',{'Concurso_Mostrar':concurso})
 
 # Una url que muestre los Concursos que comienzan en un año y mes concreto
 def dame_concursos_fecha(request, anyo_concurso, mes_concurso):
@@ -97,7 +97,7 @@ def dame_concursos_fecha(request, anyo_concurso, mes_concurso):
     ))
     """
     
-    return render(request,'concursos/lista_concursos.html',{'Concursos_Mostrar':concursos})
+    return render(request,'models/concursos/lista_concursos.html',{'Concursos_Mostrar':concursos})
 
 # Una url que:
 # Si pones "true" en la URL, solo ves los concursos activos;
@@ -133,7 +133,7 @@ def dame_concurso_activo(request, activo):
     ))
     """
     
-    return render(request,'concursos/lista_concursos.html',{'Concursos_Mostrar':concursos})
+    return render(request,'models/concursos/lista_concursos.html',{'Concursos_Mostrar':concursos})
 
 # Una url que:
 # Lista los concursos que tienen el texto especificado en su descripción.
@@ -167,7 +167,7 @@ def dame_concurso_texto(request, texto):
     ))
     """
     
-    return render(request,'concursos/lista_concursos.html',{'Concursos_Mostrar':concursos})
+    return render(request,'models/concursos/lista_concursos.html',{'Concursos_Mostrar':concursos})
 
 # Una url que permite ver el participante que se inscribió más recientemente en un concurso concreto, utilizando el ID del concurso.
 # Muestra únicamente la información de ese último inscrito, limitando la consulta a un solo registro
@@ -199,7 +199,7 @@ def dame_ultimo_participante(request, id_concurso):
         
     # El diccionario ahora envía el objeto Participante individual (o None)
     """
-    return render(request,'participantes/participante_detalle.html',{'Participante_Mostrar':participante_a_mostrar})
+    return render(request,'models/participantes/participante_detalle.html',{'Participante_Mostrar':participante_a_mostrar})
 
 # Una url que permite obtener información sobre un Participante en concreto, buscando por su alias.
 def detalle_participante_alias(request, alias_participante):
@@ -217,7 +217,7 @@ def detalle_participante_alias(request, alias_participante):
     )[0])
     """
     
-    return render(request,'participantes/participante_detalle.html',{'Participante_Mostrar':participante_a_mostrar})
+    return render(request,'models/participantes/participante_detalle.html',{'Participante_Mostrar':participante_a_mostrar})
 
 # Una url que obtiene todos los Usuarios que nunca han recibido una Notificación.
 def usuarios_sin_notificar(request):
@@ -236,7 +236,7 @@ def usuarios_sin_notificar(request):
     ))
     """
     
-    return render(request, 'usuarios/lista_usuarios.html',{'Usuarios_Mostrar':usuarios_no_notificados})
+    return render(request, 'models/usuarios/lista_usuarios.html',{'Usuarios_Mostrar':usuarios_no_notificados})
 
 # Una url que obtiene todos los objetos Jurado.
 def dame_jurados(request):
@@ -256,7 +256,7 @@ def dame_jurados(request):
     + " LEFT JOIN Concursos_Online_concurso co ON asig.concurso_id = co.id "
     ))
     """
-    return render(request, 'jurados/lista_jurados.html', {'Jurados_Mostrar':jurados})
+    return render(request, 'models/jurados/lista_jurados.html', {'Jurados_Mostrar':jurados})
 
 # Una url que calcula y muestra las métricas de agregación (media, máximo y mínimo) del campo experiencia de todos los Jurados.
 def metricas_experiencia_jurados(request):
@@ -284,7 +284,7 @@ def metricas_experiencia_jurados(request):
         # En caso de que no haya jurados, maneja la excepción
         metricas_objeto = None
     """
-    return render(request, 'jurados/metricas_jurados.html', {'Metricas_Mostrar':metricas_objeto})
+    return render(request, 'models/jurados/metricas_jurados.html', {'Metricas_Mostrar':metricas_objeto})
 
 def participantes_listar(request):
     participantes = (
@@ -292,7 +292,7 @@ def participantes_listar(request):
         .select_related("usuario")
         .all()
     )
-    return render(request,'participantes/lista_participantes.html',{'Participantes_Mostrar':participantes})
+    return render(request,'models/participantes/lista_participantes.html',{'Participantes_Mostrar':participantes})
 
 def dame_usuario(request, id_usuario):
     
@@ -301,7 +301,7 @@ def dame_usuario(request, id_usuario):
         .get(id=id_usuario)
     )
     
-    return render(request, 'usuarios/usuario_detalle.html',{'Usuario_Mostrar':usuario})
+    return render(request, 'models/usuarios/usuario_detalle.html',{'Usuario_Mostrar':usuario})
 
 def dame_jurado(request, id_jurado):
     
@@ -312,7 +312,7 @@ def dame_jurado(request, id_jurado):
         .get(id=id_jurado)
     )
     
-    return render(request, 'jurados/jurado_detalle.html',{'Jurado_Mostrar':jurado})
+    return render(request, 'models/jurados/jurado_detalle.html',{'Jurado_Mostrar':jurado})
 
 def dame_participantes_concurso(request, id_concurso):
     
@@ -324,7 +324,7 @@ def dame_participantes_concurso(request, id_concurso):
         .distinct()
     )
     
-    return render(request,'participantes/lista_participantes.html',{'Participantes_Mostrar':participantes})
+    return render(request,'models/participantes/lista_participantes.html',{'Participantes_Mostrar':participantes})
 
 
 
@@ -349,9 +349,9 @@ def usuario_create(request): # Metodo que controla el tipo de formulario
         
         if(usuario_creado):
             messages.success(request, 'Se ha creado el Usuario: [ '+formulario.cleaned_data.get('nombre_usuario')+" ] correctamente.")
-            return redirect('home')
+            return redirect('usuario_buscar')
 
-    return render(request, 'usuarios/crud/create_usuario.html',{'formulario':formulario})
+    return render(request, 'models/usuarios/crud/create_usuario.html',{'formulario':formulario})
 
 def crear_usuario_modelo(formulario): # Metodo que crea en la base de datos
     
@@ -381,7 +381,7 @@ def usuario_buscar(request): # Busqueda Simple
     else:
         usuarios = Usuario.objects.all()
 
-    return render(request,'usuarios/lista_usuarios.html',{'Usuarios_Mostrar': usuarios,'Texto_Busqueda': texto,})
+    return render(request,'models/usuarios/lista_usuarios.html',{'Usuarios_Mostrar': usuarios,'Texto_Busqueda': texto,})
 
 def usuario_buscar_avanzado(request): #Busqueda Avanzada
     
@@ -446,16 +446,67 @@ def usuario_buscar_avanzado(request): #Busqueda Avanzada
             #Ejecutamos la querySet y enviamos los usuarios
             usuarios = QsUsuarios.all()
             
-            return render(request, 'usuarios/lista_usuarios.html',
+            return render(request, 'models/usuarios/lista_usuarios.html',
                         {'Usuarios_Mostrar':usuarios,
                         'Mensaje_Busqueda':mensaje_busqueda}
                         )
     else:
         formulario = UsuarioBuscarAvanzada(None)
-    return render(request, 'usuarios/crud/buscar_avanzada_usuarios.html',{'formulario':formulario})
+    return render(request, 'models/usuarios/crud/buscar_avanzada_usuarios.html',{'formulario':formulario})
+
+def usuario_editar(request, id_usuario): # Editar Usuario
+    usuario = Usuario.objects.get(id = id_usuario)
+    
+    # Si la petición es GET se creará el formulario Vacío
+    # Si la petición es POST se creará el formulario con Datos.
+    datosFormulario = None
+    if request.method == "POST":
+        datosFormulario = request.POST
+    
+    formulario = UsuarioForm(datosFormulario,instance=usuario)
+    
+    if (request.method == "POST"):
+        
+        usuario_creado = crear_usuario_modelo(formulario)
+        
+        if(usuario_creado):
+            messages.success(request, 'Se ha actualizado el Usuario: [ '+formulario.cleaned_data.get('nombre_usuario')+" ] correctamente.")
+            return redirect('usuario_buscar')
+    
+    return render(request, 'models/usuarios/crud/actualizar_usuario.html', {'formulario':formulario,'usuario':usuario})
+
+def usuario_eliminar(request, id_usuario): # Eliminar Usuario
+    usuario = Usuario.objects.get(id=id_usuario)
+    nombre = usuario.nombre_usuario
+    try:
+        usuario.delete()
+        messages.success(request, 'Se ha eliminado el Usuario [ '+nombre+' ] correctamente.')
+    except Exception as error:
+        print(error)
+    return redirect('usuario_buscar')
+#--------------------------
+
+#-------- PERFIL ----------
 
 #--------------------------
 
+#------ PARTICIPANTE ------
+
+#--------------------------
+
+#-------- CONCURSO --------
+
+#--------------------------
+
+#-------- JURADO ----------
+
+#--------------------------
+
+#----- ADMINISTRADOR ------
+
+#--------------------------
+
+#--------------------------------------------------------------------------------------------
 
 
 

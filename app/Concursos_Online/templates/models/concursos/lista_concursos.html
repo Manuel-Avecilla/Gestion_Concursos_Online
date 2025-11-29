@@ -16,7 +16,7 @@
 {% block contenido %}
     <div class="list">
         {% for Concurso_Mostrar in Concursos_Mostrar %}
-            {% include "concursos/_item_concurso.html" %}
+            {% include "models/concursos/_item_concurso.html" %}
         {% empty %}
             <h2>No se encontraron concursos</h2>
         {% endfor %}

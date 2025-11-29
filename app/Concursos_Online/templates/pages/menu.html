@@ -8,6 +8,7 @@
     <br>
 {% endblock %}
 {% block contenido %}
+    <h3>Tarea URL</h3>
     <div class="placeholder-menu">
         <ul>
             <li><a href="{% url 'lista_concursos' %}">Concursos</a></li>
@@ -21,12 +22,19 @@
             <li><a href="{% url 'usuarios_sin_notificar' %}">Usuarios sin Notificaciones</a></li>
             <li><a href="{% url 'dame_jurados' %}">Ver los Jurados y sus concursos Asignados</a></li>
             <li><a href="{% url 'metricas_experiencia_jurados' %}">Ver Nivel de Experiencia de los Jurados</a></li>
+        </ul>
+    </div>
+    <br>
+    <h3>Tarea CRUD</h3>
+    <div class="placeholder-menu">
+        <ul>
             <hr>
+            <h4>USUARIO CRUD</h4>
             <li><a href="{% url 'usuario_create' %}">Crear USUARIO</a></li>
             <li><a href="{% url 'usuario_buscar' %}">Filtro Simple USUARIO</a></li>
             <li><a href="{% url 'usuario_buscar_avanzado' %}">Filtro Avanzado USUARIO</a></li>
-            <li><a href="{% url 'usuario_create' %}">Actualizar USUARIO</a></li>
-            <li><a href="{% url 'usuario_create' %}">Eliminar USUARIO</a></li>
+            <li><a href="{% url 'usuario_editar' id_usuario=6 %}">Actualizar USUARIO ID:6 </a></li>
+            <li><a href="{% url 'usuario_buscar' %}">Eliminar USUARIO</a></li>
             <hr>
         </ul>
     </div>

@@ -18,6 +18,7 @@
     <form action="{% url 'usuario_buscar_avanzado' %}" method="get">
         {% csrf_token %}
         {% bootstrap_form formulario %}
-        <button type="submit">Enviar</button>
+        <button type="submit" class="btn btn-success">Buscar</button>
+        <a href="{% url 'usuario_buscar' %}" class="btn btn-secondary">Cancelar</a>
     </form>
 {% endblock %}

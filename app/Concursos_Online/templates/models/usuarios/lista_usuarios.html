@@ -8,12 +8,16 @@
     <link rel="stylesheet" href="{% static 'css/extra/usuario.css' %}">
 {% endblock %}
 
+
+
 {% block cabecera %}
     <h1>Listado de Usuarios</h1>
     <hr>
     <br>
 {% endblock %}
 {% block contenido %}
+
+    {% include "base/modal/_modal_eliminar.html" %}
 
     {% if Mensaje_Busqueda %}
         <pre>{{Mensaje_Busqueda}}</pre>
@@ -36,7 +40,7 @@
 
     <div class="list">
         {% for Usuario_Mostrar in Usuarios_Mostrar %}
-            {% include "usuarios/_item_usuario.html" %}
+            {% include "models/usuarios/_item_usuario.html" %}
         {% empty %}
             <h2>No se encontraron usuarios</h2>
         {% endfor %}

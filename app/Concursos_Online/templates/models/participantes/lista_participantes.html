@@ -16,7 +16,7 @@
 {% block contenido %}
     <div class="list">
         {% for Participante_Mostrar in Participantes_Mostrar %}
-            {% include "participantes/_item_participante.html" %}
+            {% include "models/participantes/_item_participante.html" %}
         {% empty %}
             <h2>No se encontraron participantes</h2>
         {% endfor %}
