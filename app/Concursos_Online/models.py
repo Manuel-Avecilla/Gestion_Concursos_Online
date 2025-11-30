@@ -18,7 +18,7 @@ class Perfil(models.Model):
     nombre_completo = models.CharField(max_length=100)
     biografia = models.TextField(blank=True, null=True)
     fecha_nacimiento = models.DateField(blank=True, null=True)
-    imagen_perfil = models.CharField(max_length=200,blank=True, null=True)
+    imagen_perfil = models.ImageField(upload_to='usuarios/', default='usuarios/default.jpg', blank=True, null=True)
 
     def __str__(self):
         return f"Perfil de {self.usuario.nombre_usuario}"

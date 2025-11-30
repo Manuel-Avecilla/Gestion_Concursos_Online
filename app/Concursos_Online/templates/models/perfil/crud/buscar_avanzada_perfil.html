@@ -1,0 +1,24 @@
+{% extends "base/base.html" %}
+{% load static %}
+
+{% load django_bootstrap5 %}
+{% load bootstrap_icons %}
+
+{% block title %}ConcurNet - Perfiles{% endblock %}
+
+{% block extra_css %}
+{% endblock %}
+
+{% block cabecera %}
+    <h1>Perfiles - Buscar AVANZADO</h1>
+    <hr>
+    <br>
+{% endblock %}
+{% block contenido %}
+    <form action="{% url 'perfil_buscar_avanzado' %}" method="get">
+        {% csrf_token %}
+        {% bootstrap_form formulario %}
+        <button type="submit" class="btn btn-success">Buscar</button>
+        <a href="{% url 'perfiles_listar' %}" class="btn btn-secondary">Cancelar</a>
+    </form>
+{% endblock %}

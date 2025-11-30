@@ -1,0 +1,35 @@
+{% extends "base/base.html" %}
+{% load static %}
+
+{% block title %}ConcurNet - Perfiles{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/extra/lista.css' %}">
+    <link rel="stylesheet" href="{% static 'css/extra/perfil.css' %}">
+{% endblock %}
+
+
+
+{% block cabecera %}
+    <h1>Listado de Perfiles</h1>
+    <hr>
+    <br>
+{% endblock %}
+{% block contenido %}
+
+    {% include "base/modal/_modal_eliminar.html" %}
+
+    {% if Mensaje_Busqueda %}
+        <pre>{{Mensaje_Busqueda}}</pre>
+        <hr>
+        <br>
+    {% endif %}
+
+    <div class="list">
+        {% for Perfil_Mostrar in Perfiles_Mostrar %}
+            {% include "models/perfil/_item_perfil.html" %}
+        {% empty %}
+            <h2>No se encontraron Perfiles</h2>
+        {% endfor %}
+    </div>
+{% endblock %}

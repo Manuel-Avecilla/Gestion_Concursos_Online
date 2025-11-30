@@ -25,6 +25,8 @@ urlpatterns = [
     path('usuario/<int:id_usuario>', views.dame_usuario, name='dame_usuario'),
     path('jurado/<int:id_jurado>', views.dame_jurado, name='dame_jurado'),
     path('participantes/concurso/<int:id_concurso>',views.dame_participantes_concurso, name='dame_participantes_concurso'),
+    path("perfil/<int:id_perfil>",views.dame_perfil, name="dame_perfil"),
+    path("perfiles/",views.perfiles_listar, name="perfiles_listar"),
     
     #--------------CRUD--------------
     #---Usuario---
@@ -35,6 +37,10 @@ urlpatterns = [
     path('usuario/eliminar/<int:id_usuario>', views.usuario_eliminar, name="usuario_eliminar"),
     
     #---Perfil---
+    path('usuario/perfil/crear/',views.perfil_create, name='perfil_create'),
+    path('usuario/perfil/buscar/avanzado/',views.perfil_buscar_avanzado, name='perfil_buscar_avanzado'),
+    path('usuario/perfil/editar/<int:id_perfil>', views.perfil_editar, name="perfil_editar"),
+    path('usuario/perfil/eliminar/<int:id_perfil>', views.perfil_eliminar, name="perfil_eliminar"),
     
     #---Participante---
     

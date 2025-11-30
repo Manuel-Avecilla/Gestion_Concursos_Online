@@ -4,21 +4,21 @@
 {% load django_bootstrap5 %}
 {% load bootstrap_icons %}
 
-{% block title %}ConcurNet - Actualizar Usuario{% endblock %}
+{% block title %}ConcurNet - Crear Perfil{% endblock %}
 
 {% block extra_css %}
 {% endblock %}
 
 {% block cabecera %}
-    <h1>Actualizar Usuario</h1>
+    <h1>Crear Perfil</h1>
     <hr>
     <br>
 {% endblock %}
 {% block contenido %}
-    <form action="{% url 'usuario_editar' usuario.id %}" method="post">
+    <form action="{% url 'perfil_create' %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {% bootstrap_form formulario %}
-        <button type="submit" class="btn btn-success">Actualizar</button>
+        <button type="submit" class="btn btn-success">Crear</button>
         <a href="{% url 'usuario_buscar' %}" class="btn btn-secondary">Cancelar</a>
     </form>
 {% endblock %}

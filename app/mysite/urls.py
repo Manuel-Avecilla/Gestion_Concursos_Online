@@ -17,6 +17,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from django.conf import settings
+from django.conf.urls.static import static
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('Concursos_Online.urls')),
@@ -27,3 +30,6 @@ handler404 = "Concursos_Online.views.mi_error_404"
 handler403 = "Concursos_Online.views.mi_error_403"
 handler400 = "Concursos_Online.views.mi_error_400"
 handler500 = "Concursos_Online.views.mi_error_500"
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

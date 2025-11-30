@@ -10,6 +10,10 @@
 # ------------------------------------------------------------
 # endregion
 
+# python manage.py generar_datos   <-- Comando para generar los datos
+
+# python manage.py dumpdata --indent 4 > Concursos_Online/fixtures/datos.json   <-- Comando para guardar los datos
+
 from django.core.management.base import BaseCommand
 from faker import Faker
 import random
@@ -60,7 +64,7 @@ class Command(BaseCommand):
                 nombre_completo=fake.name(),
                 biografia=fake.text(200),
                 fecha_nacimiento=fake.date_of_birth(minimum_age=18, maximum_age=70),
-                imagen_perfil=fake.image_url()
+                imagen_perfil="usuarios/default.jpg"
             )
         
         # endregion
@@ -154,7 +158,7 @@ class Command(BaseCommand):
         # 1. Creamos una lista vacía para guardar los concursos
         concursos = []
         # 2. Creamos 5 concursos
-        for i in range(5):
+        for i in range(7):
             # Elegir un administrador al azar como creador
             creador = random.choice(administradores)
             
