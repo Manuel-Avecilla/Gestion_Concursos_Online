@@ -1,0 +1,24 @@
+{% extends "base/base.html" %}
+{% load static %}
+
+{% load django_bootstrap5 %}
+{% load bootstrap_icons %}
+
+{% block title %}ConcurNet - Crear Participante{% endblock %}
+
+{% block extra_css %}
+{% endblock %}
+
+{% block cabecera %}
+    <h1>Crear Participante</h1>
+    <hr>
+    <br>
+{% endblock %}
+{% block contenido %}
+    <form action="{% url 'participante_create' %}" method="post">
+        {% csrf_token %}
+        {% bootstrap_form formulario %}
+        <button type="submit" class="btn btn-success">Crear</button>
+        <a href="{% url 'participantes_listar' %}" class="btn btn-secondary">Cancelar</a>
+    </form>
+{% endblock %}

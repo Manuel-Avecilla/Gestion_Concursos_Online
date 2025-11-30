@@ -43,6 +43,10 @@ urlpatterns = [
     path('usuario/perfil/eliminar/<int:id_perfil>', views.perfil_eliminar, name="perfil_eliminar"),
     
     #---Participante---
+    path('concursos-online/participante/crear/',views.participante_create, name='participante_create'),
+    path('concursos-online/participante/buscar/avanzado/',views.participante_buscar_avanzado, name='participante_buscar_avanzado'),
+    #path('concursos-online/participante/editar/<int:id_participante>', views.participante_editar, name="participante_editar"),
+    #path('concursos-online/participante/eliminar/<int:id_participante>', views.participante_eliminar, name="participante_eliminar"),
     
     #---Concurso---
     

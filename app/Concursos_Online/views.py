@@ -635,6 +635,88 @@ def perfil_eliminar(request, id_perfil): # Eliminar Perfil
 #--------------------------
 
 #------ PARTICIPANTE ------
+def participante_create(request): #Metodo que controla el tipo de formulario
+        
+    # Si la petición es GET se creará el formulario Vacío
+    # Si la petición es POST se creará el formulario con Datos.
+    datosFormulario = None
+    
+    if request.method == "POST":
+        datosFormulario = request.POST
+    
+    formulario = ParticipanteForm(datosFormulario)
+    
+    if (request.method == "POST"):
+        
+        participante_creado = crear_participante_modelo(formulario)
+        
+        if(participante_creado):
+            messages.success(request, 'Se ha creado el Participante: [ '+formulario.cleaned_data.get('alias')+" ] correctamente.")
+            return redirect('participantes_listar')
+
+    return render(request, 'models/participantes/crud/create_participante.html',{'formulario':formulario})
+
+def crear_participante_modelo(formulario): #Metodo que interactua con la base de datos
+    
+    participante_creado = False
+    # Comprueba si el formulario es válido
+    if formulario.is_valid():
+        try:
+            # Guarda el usuario en la base de datos
+            formulario.save()
+            participante_creado = True
+        except Exception as error:
+            print(error)
+    return participante_creado
+
+def participante_buscar_avanzado(request): #Busqueda Avanzada
+    
+    if(len(request.GET) > 0):
+        formulario = ParticipanteBuscarAvanzada(request.GET)
+        if formulario.is_valid():
+            
+            mensaje_busqueda = 'Filtros Aplicados:\n'
+            QsParticipante = Participante.objects
+            
+            #Obtenemos los campos
+            alias_contiene = formulario.cleaned_data.get('alias_contiene')
+            edad_minima = formulario.cleaned_data.get('edad_minima')
+            nivel_minimo = formulario.cleaned_data.get('nivel_minimo')
+            
+            #---Alias---
+            if(alias_contiene!=''):
+                alias_contiene = alias_contiene.strip()
+                QsParticipante = QsParticipante.filter(alias__icontains=alias_contiene)
+                mensaje_busqueda += '· Alias contiene "'+alias_contiene+'"\n'
+            else:
+                mensaje_busqueda += '· Cualquier Alias \n'
+            
+            #---Edad---
+            if edad_minima is not None:
+                QsParticipante = QsParticipante.filter(edad__gte=edad_minima)
+                mensaje_busqueda += f'· Edad mínima: {edad_minima}\n'
+            else:
+                mensaje_busqueda += '· Cualquier edad\n'
+
+            #---Nivel---
+            if nivel_minimo is not None:
+                QsParticipante = QsParticipante.filter(nivel__gte=nivel_minimo)
+                mensaje_busqueda += f'· Nivel mínimo: {nivel_minimo}\n'
+            else:
+                mensaje_busqueda += '· Cualquier nivel\n'
+            
+            #Ejecutamos la querySet y enviamos los usuarios
+            perfiles = QsParticipante.all()
+            
+            return render(request, 'models/participantes/lista_participantes.html',
+                        {'Participantes_Mostrar':perfiles,
+                        'Mensaje_Busqueda':mensaje_busqueda}
+                        )
+    else:
+        formulario = ParticipanteBuscarAvanzada(None)
+    return render(request, 'models/participantes/crud/buscar_avanzada_participantes.html',{'formulario':formulario})
+
+
 
 #--------------------------
 

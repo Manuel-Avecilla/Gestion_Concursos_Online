@@ -14,6 +14,13 @@
     <br>
 {% endblock %}
 {% block contenido %}
+
+    {% if Mensaje_Busqueda %}
+        <pre>{{Mensaje_Busqueda}}</pre>
+        <hr>
+        <br>
+    {% endif %}
+
     <div class="list">
         {% for Participante_Mostrar in Participantes_Mostrar %}
             {% include "models/participantes/_item_participante.html" %}

@@ -1,0 +1,24 @@
+{% extends "base/base.html" %}
+{% load static %}
+
+{% load django_bootstrap5 %}
+{% load bootstrap_icons %}
+
+{% block title %}ConcurNet - Participantes{% endblock %}
+
+{% block extra_css %}
+{% endblock %}
+
+{% block cabecera %}
+    <h1>Participantes - Buscar AVANZADO</h1>
+    <hr>
+    <br>
+{% endblock %}
+{% block contenido %}
+    <form action="{% url 'participante_buscar_avanzado' %}" method="get">
+        {% csrf_token %}
+        {% bootstrap_form formulario %}
+        <button type="submit" class="btn btn-success">Buscar</button>
+        <a href="{% url 'participantes_listar' %}" class="btn btn-secondary">Cancelar</a>
+    </form>
+{% endblock %}
