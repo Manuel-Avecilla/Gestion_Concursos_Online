@@ -20,8 +20,8 @@ db.sqlite3
 *.env
 
 # Archivos estáticos generados por Django
-staticfiles/
-media/
+#staticfiles/
+#media/
 
 # Archivos temporales / backups
 *.bak
