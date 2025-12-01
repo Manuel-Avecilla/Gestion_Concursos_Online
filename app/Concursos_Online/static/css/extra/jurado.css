@@ -110,6 +110,44 @@ a.jurado-header, .lista-concursos a {text-decoration: none;}
     background: #D6E0FF;
 }
 
+.ud-buttons {
+    display: flex;
+    gap: 10px;
+}
+.ud-buttons a i , .ud-buttons button i {
+    font-size: 1.2rem;
+    color: white;
+}
+
+.ud-buttons a , .ud-buttons button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    border-color: transparent;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.2s ease-in-out;
+    color: white;
+    box-shadow: 
+    rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, 
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+.ud-buttons .editar {
+    background-color: #415a77;
+}
+.ud-buttons .editar:hover {
+    background-color: #314863;
+}
+.ud-buttons .eliminar {
+    background-color: #8b2f3c;
+}
+.ud-buttons .eliminar:hover {
+    background-color: #6f252f;
+}
+
 /* ---------- DARK MODE ---------- */
 @media (prefers-color-scheme: dark) {
     .jurado-card {

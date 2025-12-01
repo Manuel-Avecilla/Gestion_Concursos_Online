@@ -914,6 +914,158 @@ def administrador_eliminar(request, id_administrador):  # Eliminar Administrador
 #--------------------------
 
 #-------- JURADO ----------
+def jurado_create(request):  # Método que controla el tipo de formulario
+        
+    # Si la petición es GET se creará el formulario vacío
+    # Si la petición es POST se creará el formulario con datos.
+    datosFormulario = None
+    
+    if request.method == "POST":
+        datosFormulario = request.POST
+    
+    formulario = JuradoForm(datosFormulario)
+    
+    if (request.method == "POST"):
+        
+        jurado_creado = crear_jurado_modelo(formulario)
+        
+        if (jurado_creado):
+            
+            usuario = formulario.cleaned_data.get('usuario')
+            nombre = usuario.nombre_usuario
+            
+            messages.success(request, 'Se ha creado el Jurado: [ ' + nombre + " ] correctamente.")
+            return redirect('dame_jurados')
+
+    return render(request, 'models/jurados/crud/create_jurado.html', {'formulario': formulario})
+
+def crear_jurado_modelo(formulario):  # Método que interactúa con la base de datos
+    
+    jurado_creado = False
+
+    # Comprueba si el formulario es válido
+    if formulario.is_valid():
+        try:
+            # Guarda el Jurado en la base de datos
+            formulario.save()
+            jurado_creado = True
+        except Exception as error:
+            print(error)
+    
+    return jurado_creado
+
+def jurado_buscar_avanzado(request):  # Búsqueda Avanzada
+
+    if len(request.GET) > 0:
+        formulario = JuradoBuscarAvanzada(request.GET)
+
+        if formulario.is_valid():
+
+            mensaje_busqueda = 'Filtros Aplicados:\n'
+            QsJurado = Jurado.objects
+
+            # Obtenemos los campos del formulario
+            usuario_contiene = formulario.cleaned_data.get('usuario_contiene')
+            especialidad_contiene = formulario.cleaned_data.get('especialidad_contiene')
+            experiencia_minima = formulario.cleaned_data.get('experiencia_minima')
+            puntuacion_minima = formulario.cleaned_data.get('puntuacion_minima')
+
+            # --- Nombre de usuario contiene ---
+            if usuario_contiene != '':
+                usuario_contiene = usuario_contiene.strip()
+                QsJurado = QsJurado.filter(usuario__nombre_usuario__icontains=usuario_contiene)
+                mensaje_busqueda += f'· Usuario contiene "{usuario_contiene}"\n'
+            else:
+                mensaje_busqueda += '· Cualquier nombre de usuario\n'
+
+            # --- Especialidad contiene ---
+            if especialidad_contiene != '':
+                especialidad_contiene = especialidad_contiene.strip()
+                QsJurado = QsJurado.filter(especialidad__icontains=especialidad_contiene)
+                mensaje_busqueda += f'· Especialidad contiene "{especialidad_contiene}"\n'
+            else:
+                mensaje_busqueda += '· Cualquier especialidad\n'
+
+            # --- Experiencia mínima ---
+            if experiencia_minima is not None:
+                QsJurado = QsJurado.filter(experiencia__gte=experiencia_minima)
+                mensaje_busqueda += f'· Experiencia mínima: {experiencia_minima} años\n'
+            else:
+                mensaje_busqueda += '· Cualquier experiencia\n'
+
+            # --- Puntuación mínima ---
+            if puntuacion_minima is not None:
+                QsJurado = QsJurado.filter(puntuacion_media__gte=puntuacion_minima)
+                mensaje_busqueda += f'· Puntuación mínima: {puntuacion_minima}\n'
+            else:
+                mensaje_busqueda += '· Cualquier puntuación\n'
+
+            # Ejecutamos el QuerySet final
+            jurados = QsJurado.all()
+
+            return render(
+                request,
+                'models/jurados/lista_jurados.html',
+                {
+                    'Jurados_Mostrar': jurados,
+                    'Mensaje_Busqueda': mensaje_busqueda,
+                }
+            )
+
+    else:
+        formulario = JuradoBuscarAvanzada(None)
+
+    return render(
+        request,
+        'models/jurados/crud/buscar_avanzada_jurados.html',
+        {'formulario': formulario}
+    )
+
+def jurado_editar(request, id_jurado):  # Actualizar Jurado
+    
+    jurado = Jurado.objects.get(id=id_jurado)
+    
+    # Si la petición es GET se creará el formulario vacío
+    # Si la petición es POST se creará el formulario con datos.
+    datosFormulario = None
+    
+    if request.method == "POST":
+        datosFormulario = request.POST
+    
+    formulario = JuradoForm(datosFormulario, instance=jurado)
+    
+    if (request.method == "POST"):
+        
+        jurado_actualizado = crear_jurado_modelo(formulario)
+        
+        if (jurado_actualizado):
+            
+            usuario = formulario.cleaned_data.get('usuario')
+            nombre = usuario.nombre_usuario
+            
+            messages.success(request, 'Se ha actualizado el Jurado: [ ' + nombre + " ] correctamente.")
+            return redirect('dame_jurados')
+    
+    return render(
+        request,
+        'models/jurados/crud/actualizar_jurados.html',
+        {
+            'formulario': formulario,
+            'jurado': jurado
+        }
+    )
+
+def jurado_eliminar(request, id_jurado):  # Eliminar Jurado
+    jurado = Jurado.objects.get(id=id_jurado)
+    nombre = jurado.usuario.nombre_usuario
+    
+    try:
+        jurado.delete()
+        messages.success(request, 'Se ha eliminado el Jurado [ ' + nombre + ' ] correctamente.')
+    except Exception as error:
+        print(error)
+    
+    return redirect('dame_jurados')
 
 #--------------------------
 

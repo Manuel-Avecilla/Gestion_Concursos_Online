@@ -57,6 +57,10 @@ urlpatterns = [
     path('concursos-online/administrador/eliminar/<int:id_administrador>', views.administrador_eliminar, name="administrador_eliminar"),
     
     #---Jurado---
+    path('concursos-online/jurado/crear/',views.jurado_create, name='jurado_create'),
+    path('concursos-online/jurado/buscar/avanzado/',views.jurado_buscar_avanzado, name='jurado_buscar_avanzado'),
+    path('concursos-online/jurado/editar/<int:id_jurado>', views.jurado_editar, name="jurado_editar"),
+    path('concursos-online/jurado/eliminar/<int:id_jurado>', views.jurado_eliminar, name="jurado_eliminar"),
     
     #---Concurso---
     
