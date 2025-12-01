@@ -1,0 +1,67 @@
+<div class="administrador-card">
+
+    <!-- HEADER PERSONALIZADO -->
+    <div class="administrador-header text-center">
+        <a class="administrador-title" href="{% url 'dame_administrador' id_administrador=Administrador_Mostrar.id %}">
+            <i class="fa-solid fa-user-gear"></i>
+            Administrador: {{ Administrador_Mostrar.usuario.nombre_usuario }}
+        </a>
+    </div>
+
+    <!-- BODY PERSONALIZADO -->
+    <div class="administrador-body">
+
+        <p>
+            <i class="fa-solid fa-building-user"></i>
+            <strong>Área responsable:</strong>
+            <br>
+            {{ Administrador_Mostrar.area_responsable }}
+        </p>
+
+        <p>
+            <i class="fa-solid fa-toggle-on"></i>
+            <strong>Activo:</strong>
+            <br>
+            {% if Administrador_Mostrar.activo %}
+                <p class="administrador-estado administrador-estado-activo">Sí</p>
+            {% else %}
+                <p class="administrador-estado administrador-estado-inactivo">No</p>
+            {% endif %}
+        </p>
+
+        <p>
+            <i class="fa-solid fa-calendar-check"></i>
+            <strong>Fecha de asignación:</strong>
+            <br>
+            {{ Administrador_Mostrar.fecha_asignacion|date:"d/m/Y H:i" }}
+        </p>
+
+        <p>
+            <i class="fa-solid fa-clock"></i>
+            <strong>Horario disponible:</strong>
+            <br>
+            {% if Administrador_Mostrar.horario_disponible %}
+                {{ Administrador_Mostrar.horario_disponible|time:"H:i" }}
+            {% else %}
+                No especificado
+            {% endif %}
+        </p>
+
+        <!-- BOTONES -->
+        <div class="ud-buttons">
+            <a class="editar" href="{% url 'administrador_editar' id_administrador=Administrador_Mostrar.id %}">
+                <i class="fa-regular fa-pen-to-square"></i>
+                Editar
+            </a>
+            <button type="button" class="eliminar"
+                    data-bs-toggle="modal"
+                    data-bs-target="#modalEliminar"
+                    data-url="{% url 'administrador_eliminar' id_administrador=Administrador_Mostrar.id %}">
+                <i class="fa-solid fa-trash-can"></i>
+                Eliminar
+            </button>
+        </div>
+
+    </div>
+
+</div>

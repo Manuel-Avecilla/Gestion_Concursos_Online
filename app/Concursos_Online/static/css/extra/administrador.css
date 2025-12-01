@@ -1,0 +1,111 @@
+/* Card general */
+.administrador-card {
+    flex: 1 1 33%;
+    max-width: 900px;
+    min-width: 350px;
+    margin: 30px auto;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 
+    rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, 
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    overflow: hidden;
+    padding-bottom: 25px;
+}
+
+/* Header */
+.administrador-header {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 6px;
+    background-color: #0a3c6f;
+}
+
+.administrador-title {
+    font-size: 1.2rem;
+    text-decoration: none;
+    margin: 0;
+    font-weight: 600;
+    color: white;
+}
+
+.administrador-title i {
+    color: white;
+    font-size: 1.6rem;
+    margin-right: 1rem;
+}
+
+.administrador-title:hover {
+    opacity: 0.9;
+}
+
+/* Body */
+.administrador-body {
+    padding: 1.4rem;
+    background-color: #ffffff;
+}
+
+.administrador-body p {
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+.administrador-body i {
+    margin-right: 6px;
+    color: #0a3c6f;
+}
+
+.administrador-estado {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-weight: bold;
+}
+.administrador-estado-activo {
+    background: #d4fde1;
+    color: #1b7d3b;
+}
+.administrador-estado-inactivo {
+    background: #ffe0e0;
+    color: #9b1c1c;
+}
+
+
+.ud-buttons {
+    display: flex;
+    gap: 10px;
+}
+.ud-buttons a i , .ud-buttons button i {
+    font-size: 1.2rem;
+    color: white;
+}
+
+.ud-buttons a , .ud-buttons button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    border-color: transparent;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.2s ease-in-out;
+    color: white;
+    box-shadow: 
+    rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, 
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+.ud-buttons .editar {
+    background-color: #415a77;
+}
+.ud-buttons .editar:hover {
+    background-color: #314863;
+}
+.ud-buttons .eliminar {
+    background-color: #8b2f3c;
+}
+.ud-buttons .eliminar:hover {
+    background-color: #6f252f;
+}

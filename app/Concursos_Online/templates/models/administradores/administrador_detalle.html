@@ -1,0 +1,18 @@
+{% extends "base/base.html" %}
+{% load static %}
+
+{% block title %}ConcurNet - Administrador{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/extra/administrador.css' %}">
+{% endblock %}
+
+{% block cabecera %}
+    <h1>Detalles de Administrador</h1>
+    <hr>
+    <br>
+{% endblock %}
+{% block contenido %}
+    {% include "base/modal/_modal_eliminar.html" %}
+    {% include "models/administradores/_item_administrador.html" %}
+{% endblock %}

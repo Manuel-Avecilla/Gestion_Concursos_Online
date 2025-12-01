@@ -27,6 +27,8 @@ urlpatterns = [
     path('participantes/concurso/<int:id_concurso>',views.dame_participantes_concurso, name='dame_participantes_concurso'),
     path("perfil/<int:id_perfil>",views.dame_perfil, name="dame_perfil"),
     path("perfiles/",views.perfiles_listar, name="perfiles_listar"),
+    path("administrador/<int:id_administrador>",views.dame_administrador, name="dame_administrador"),
+    path("administradores/",views.administradores_listar, name="administradores_listar"),
     
     #--------------CRUD--------------
     #---Usuario---
@@ -48,11 +50,19 @@ urlpatterns = [
     path('concursos-online/participante/editar/<int:id_participante>', views.participante_editar, name="participante_editar"),
     path('concursos-online/participante/eliminar/<int:id_participante>', views.participante_eliminar, name="participante_eliminar"),
     
-    #---Concurso---
+    #---Administrador---
+    path('concursos-online/administrador/crear/',views.administrador_create, name='administrador_create'),
+    path('concursos-online/administrador/buscar/avanzado/',views.administrador_buscar_avanzado, name='administrador_buscar_avanzado'),
+    path('concursos-online/administrador/editar/<int:id_administrador>', views.administrador_editar, name="administrador_editar"),
+    path('concursos-online/administrador/eliminar/<int:id_administrador>', views.administrador_eliminar, name="administrador_eliminar"),
     
     #---Jurado---
     
-    #---Administrador---
+    #---Concurso---
+    
+    
+    
+    
     
     #--------------------------------
 ]

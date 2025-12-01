@@ -1,0 +1,33 @@
+{% extends "base/base.html" %}
+{% load static %}
+
+{% block title %}ConcurNet - Administradores{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/extra/lista.css' %}">
+    <link rel="stylesheet" href="{% static 'css/extra/administrador.css' %}">
+{% endblock %}
+
+{% block cabecera %}
+    <h1>Listado de Administradores</h1>
+    <hr>
+    <br>
+{% endblock %}
+{% block contenido %}
+
+    {% include "base/modal/_modal_eliminar.html" %}
+
+    {% if Mensaje_Busqueda %}
+        <pre>{{Mensaje_Busqueda}}</pre>
+        <hr>
+        <br>
+    {% endif %}
+
+    <div class="list">
+        {% for Administrador_Mostrar in Administradores_Mostrar %}
+            {% include "models/administradores/_item_administrador.html" %}
+        {% empty %}
+            <h2>No se encontraron administradores</h2>
+        {% endfor %}
+    </div>
+{% endblock %}
