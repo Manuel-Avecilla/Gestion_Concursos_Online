@@ -716,8 +716,38 @@ def participante_buscar_avanzado(request): #Busqueda Avanzada
         formulario = ParticipanteBuscarAvanzada(None)
     return render(request, 'models/participantes/crud/buscar_avanzada_participantes.html',{'formulario':formulario})
 
+def participante_editar(request, id_participante): # Actualizar Perfil
+    
+    participante = Participante.objects.get(id = id_participante)
+    
+    # Si la petición es GET se creará el formulario Vacío
+    # Si la petición es POST se creará el formulario con Datos.
+    datosFormulario = None
+    
+    if request.method == "POST":
+        datosFormulario = request.POST
+    
+    formulario = ParticipanteForm(datosFormulario,instance=participante)
+    
+    if (request.method == "POST"):
+        
+        participante_creado = crear_participante_modelo(formulario)
+        
+        if(participante_creado):
+            messages.success(request, 'Se ha actualizado el Participante: [ '+formulario.cleaned_data.get('alias')+" ] correctamente.")
+            return redirect('participantes_listar')
+    
+    return render(request, 'models/participantes/crud/actualizar_participantes.html', {'formulario':formulario,'participante':participante})
 
-
+def participante_eliminar(request, id_participante): # Eliminar Perfil
+    participante = Participante.objects.get(id = id_participante)
+    nombre = participante.alias
+    try:
+        participante.delete()
+        messages.success(request, 'Se ha eliminado el Participante [ '+nombre+' ] correctamente.')
+    except Exception as error:
+        print(error)
+    return redirect('participantes_listar')
 #--------------------------
 
 #-------- CONCURSO --------

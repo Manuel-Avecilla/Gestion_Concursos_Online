@@ -203,10 +203,24 @@ class PerfilBuscarAvanzada(forms.Form):
         super().clean()
         
         #Obtenemos los campos
+        biografia_contiene = self.cleaned_data.get('biografia_contiene')
         fecha_nacimiento_desde = self.cleaned_data.get('fecha_nacimiento_desde')
         fecha_nacimiento_hasta = self.cleaned_data.get('fecha_nacimiento_hasta')
+        usuarios = self.cleaned_data.get('usuarios')
         
         #Comprobamos
+        
+        if (
+            biografia_contiene == "" and
+            fecha_nacimiento_desde is None and
+            fecha_nacimiento_hasta is None and
+            len(usuarios) == 0
+        ):
+            self.add_error('biografia_contiene','Debes rellenar al menos un campo.')
+            self.add_error('fecha_nacimiento_desde','Debes rellenar al menos un campo.')
+            self.add_error('fecha_nacimiento_hasta','Debes rellenar al menos un campo.')
+            self.add_error('usuarios','Debes rellenar al menos un campo.')
+        
         if(
             not fecha_nacimiento_desde is None and
             not fecha_nacimiento_hasta is None and
@@ -260,7 +274,7 @@ class ParticipanteForm(ModelForm):
                     "style": "max-width: 110px;",
                     "min": 1,
                     "max": 100,
-                    "step": 1,
+                    "step": 0.01,
                 }
             )
         }

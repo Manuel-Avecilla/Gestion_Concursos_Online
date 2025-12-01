@@ -42,6 +42,21 @@
                 <p class="value">{{ Participante_Mostrar.nivel }}</p>
             </div>
         </div>
+
+        <div class="ud-buttons">
+            <a class="editar" href="{% url 'participante_editar' id_participante=Participante_Mostrar.id %}">
+                <i class="fa-regular fa-pen-to-square"></i>
+                Editar
+            </a>
+            <button type="button" class="eliminar"
+                    data-bs-toggle="modal"
+                    data-bs-target="#modalEliminar"
+                    data-url="{% url 'participante_eliminar' id_participante=Participante_Mostrar.id %}">
+                <i class="fa-solid fa-trash-can"></i>
+                Eliminar
+            </button>
+        </div>
+
     </section>
 </div>
 
