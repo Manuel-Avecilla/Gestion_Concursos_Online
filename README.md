@@ -13,6 +13,7 @@ Para mantener el README principal más limpio, la documentación detallada se en
 - [Modelos del Sistema](docs/modelos.md)
 - [URLS del Sistema](docs/url.md)
 - [Templates del Sistema](docs/templates.md)
+- [CRUD del Sistema](docs/crud.md)
 
 ---
 
