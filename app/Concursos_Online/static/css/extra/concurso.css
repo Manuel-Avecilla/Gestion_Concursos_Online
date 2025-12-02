@@ -109,7 +109,7 @@ a.usuario:hover {
     gap: 10px;
 }
 
-.btn-link {
+.boton-link {
     background: #0a3c6f;
     color: white;
     padding: 10px 14px;
@@ -119,12 +119,50 @@ a.usuario:hover {
     font-weight: bold;
     transition: 0.2s ease;
 }
-.btn-link i  {
+.boton-link i  {
     color: white;
 }
 
-.btn-link:hover {
+.boton-link:hover {
     background: #07294B;
+}
+
+.ud-buttons {
+    display: flex;
+    gap: 10px;
+}
+.ud-buttons a i , .ud-buttons button i {
+    font-size: 1.2rem;
+    color: white;
+}
+
+.ud-buttons a , .ud-buttons button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    border-color: transparent;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.2s ease-in-out;
+    color: white;
+    box-shadow: 
+    rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, 
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+.ud-buttons .editar {
+    background-color: #415a77;
+}
+.ud-buttons .editar:hover {
+    background-color: #314863;
+}
+.ud-buttons .eliminar {
+    background-color: #8b2f3c;
+}
+.ud-buttons .eliminar:hover {
+    background-color: #6f252f;
 }
 
 /* ---------- DARK MODE ---------- */

@@ -63,10 +63,10 @@ urlpatterns = [
     path('concursos-online/jurado/eliminar/<int:id_jurado>', views.jurado_eliminar, name="jurado_eliminar"),
     
     #---Concurso---
-    
-    
-    
-    
+    path('concursos-online/concurso/crear/',views.concurso_create, name='concurso_create'),
+    path('concursos-online/concurso/buscar/avanzado/',views.concurso_buscar_avanzado, name='concurso_buscar_avanzado'),
+    path('concursos-online/concurso/editar/<int:id_concurso>', views.concurso_editar, name="concurso_editar"),
+    path('concursos-online/concurso/eliminar/<int:id_concurso>', views.concurso_eliminar, name="concurso_eliminar"),
     
     #--------------------------------
 ]

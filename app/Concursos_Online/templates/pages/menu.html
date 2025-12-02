@@ -41,7 +41,7 @@
             <h4>PERFIL CRUD</h4>
             <li><a href="{% url 'perfil_create' %}">Crear PERFIL</a></li>
             <li><a href="{% url 'perfil_buscar_avanzado' %}">Filtro Avanzado PERFIL</a></li>
-            <li><a href="{% url 'perfil_editar' id_perfil=6 %}">Actualizar PERFIL ID:6 </a></li>
+            <li><a href="{% url 'perfil_editar' id_perfil=2 %}">Actualizar PERFIL ID:2 </a></li>
             <li><a href="{% url 'perfiles_listar' %}">Eliminar PERFIL</a></li>
             <hr>
             <h4>PARTICIPANTE CRUD</h4>
@@ -59,14 +59,15 @@
             <h4>JURADO CRUD</h4>
             <li><a href="{% url 'jurado_create' %}">Crear JURADO</a></li>
             <li><a href="{% url 'jurado_buscar_avanzado' %}">Filtro Avanzado JURADO</a></li>
-            <li><a href="{% url 'administrador_editar' id_administrador=2 %}">Actualizar JURADO ID:2 </a></li>
-            <li><a href="{% url 'administradores_listar' %}">Eliminar JURADO</a></li>
+            <li><a href="{% url 'jurado_editar' id_jurado=2 %}">Actualizar JURADO ID:2 </a></li>
+            <li><a href="{% url 'dame_jurados' %}">Eliminar JURADO</a></li>
             <hr>
             <h4>CONCURSO CRUD</h4>
-
+            <li><a href="{% url 'concurso_create' %}">Crear CONCURSO</a></li>
+            <li><a href="{% url 'concurso_buscar_avanzado' %}">Filtro Avanzado CONCURSO</a></li>
+            <li><a href="{% url 'concurso_editar' id_concurso=2 %}">Actualizar CONCURSO ID:2 </a></li>
+            <li><a href="{% url 'lista_concursos' %}">Eliminar CONCURSO</a></li>
             <hr>
-
-            
         </ul>
     </div>
 {% endblock %}

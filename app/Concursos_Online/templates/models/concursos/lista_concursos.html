@@ -14,6 +14,16 @@
     <br>
 {% endblock %}
 {% block contenido %}
+
+    {% include "base/modal/_modal_eliminar.html" %}
+
+    {% if Mensaje_Busqueda %}
+        <pre>{{Mensaje_Busqueda}}</pre>
+        <hr>
+        <br>
+    {% endif %}
+
+
     <div class="list">
         {% for Concurso_Mostrar in Concursos_Mostrar %}
             {% include "models/concursos/_item_concurso.html" %}
