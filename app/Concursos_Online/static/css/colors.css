@@ -1,0 +1,57 @@
+:root {
+    /* Colores principales en modo normal */
+    --primary-color: #4CAF50;
+    --primary-light: #81C784;
+    --primary-dark: #388E3C;
+
+    /* Colores secundarios en modo normal */
+    --secondary-color: #FF9800;
+    --secondary-light: #FFB74D;
+    --secondary-dark: #F57C00;
+
+    /* Fondo general en modo normal */
+    --background-color: #F5F5F5;
+    --background-light: #FFFFFF;
+    --background-dark: #E0E0E0;
+
+    /* Texto en modo normal */
+    --text-color: #212121;
+    --text-light: #424242;
+    --text-dark: #0D0D0D;
+
+    /* Bordes en modo normal */
+    --border-color: #E0E0E0;
+    --border-light: #EEEEEE;
+    --border-dark: #BDBDBD;
+}
+
+/* --------------------------------------- */
+/* MODO OSCURO */
+/* --------------------------------------- */
+
+:root.dark-mode {
+    /* Colores principales en modo oscuro */
+    --primary-color: #66BB6A;
+    --primary-light: #A5D6A7;
+    --primary-dark: #338A3E;
+
+    /* Colores secundarios en modo oscuro */
+    --secondary-color: #FFB74D;
+    --secondary-light: #FFE0B2;
+    --secondary-dark: #F57C00;
+
+    /* Fondo general en modo oscuro */
+    --background-color: #121212;
+    --background-light: #1E1E1E;
+    --background-dark: #000000;
+
+    /* Texto en modo oscuro */
+    --text-color: #E0E0E0;
+    --text-light: #FFFFFF;
+    --text-dark: #B3B3B3;
+
+    /* Bordes en modo oscuro */
+    --border-color: #333333;
+    --border-light: #4D4D4D;
+    --border-dark: #1A1A1A;
+}
