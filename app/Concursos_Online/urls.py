@@ -31,6 +31,7 @@ urlpatterns = [
     path("administradores/",views.administradores_listar, name="administradores_listar"),
     
     #--------------CRUD--------------
+    
     #---Usuario---
     path('usuario/crear/',views.usuario_create, name='usuario_create'),
     path('usuario/buscar/',views.usuario_buscar, name='usuario_buscar'),
@@ -69,4 +70,8 @@ urlpatterns = [
     path('concursos-online/concurso/eliminar/<int:id_concurso>', views.concurso_eliminar, name="concurso_eliminar"),
     
     #--------------------------------
+    
+    #---Sesiones---
+    path('registro',views.registrar_usuario,name='registrar_usuario'),
+    
 ]

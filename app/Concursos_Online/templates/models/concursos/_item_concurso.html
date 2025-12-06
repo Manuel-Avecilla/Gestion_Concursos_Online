@@ -21,9 +21,9 @@
         </div>
         <br>
         <p><strong>Creador:</strong>
-            <a href="" class="usuario">
+            <a href="{% url 'dame_administrador' id_administrador=Concurso_Mostrar.creador.id %}" class="usuario">
                 <i class="fa-solid fa-user"></i>
-                {{ Concurso_Mostrar.creador.usuario.nombre_usuario }}
+                {{ Concurso_Mostrar.creador.usuario.username }}
             </a>
         </p>
         <br>

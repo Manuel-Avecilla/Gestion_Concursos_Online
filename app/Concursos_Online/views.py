@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .models import *
 from django.db.models import Q , Prefetch, Avg, Max, Min
 from django.views.defaults import page_not_found
+from django.contrib.auth import login
 
 from .forms import *
 from django.contrib import messages
@@ -513,7 +514,7 @@ def usuario_editar(request, id_usuario): # Editar Usuario
 
 def usuario_eliminar(request, id_usuario): # Eliminar Usuario
     usuario = Usuario.objects.get(id=id_usuario)
-    nombre = usuario.nombre_usuario
+    nombre = usuario.username
     try:
         usuario.delete()
         messages.success(request, 'Se ha eliminado el Usuario [ '+nombre+' ] correctamente.')
@@ -1221,6 +1222,35 @@ def concurso_eliminar(request, id_concurso):  # Eliminar Concurso
 #--------------------------
 
 #--------------------------------------------------------------------------------------------
+
+def registrar_usuario(request):
+    if request.method == 'POST':
+        formulario = RegistroForm(request.POST)
+        
+        if formulario.is_valid():
+            
+            user = formulario.save()
+            
+            perfil = Perfil.objects.create(usuario = user)
+            perfil.save()
+            
+            rol = int(formulario.cleaned_data.get('rol'))
+            
+            if(rol == Usuario.PARTICIPANTE):
+                participante = Participante.objects.create(usuario = user)
+                participante.save()
+            elif(rol == Usuario.JURADO):
+                jurado = Jurado.objects.create(usuario = user)
+                jurado.save()
+            
+            login(request, user)
+            
+            return redirect('home')
+    else:
+        formulario = RegistroForm()
+        
+    return render(request, 'registration/signup.html', {'formulario': formulario})
+
 
 
 # Errores

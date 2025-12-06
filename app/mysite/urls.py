@@ -24,6 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('Concursos_Online.urls')),
     path("__debug__/", include("debug_toolbar.urls")),
+    path('accounts/', include('django.contrib.auth.urls')),
 ]
 
 handler404 = "Concursos_Online.views.mi_error_404"

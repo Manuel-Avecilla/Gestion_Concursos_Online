@@ -1,16 +1,19 @@
 from django import forms
 from django.forms import ModelForm
 from .models import *
+from django.contrib.auth.forms import UserCreationForm
+
 
 from datetime import date #Para conseguir el año actual
 from django.core.files.uploadedfile import UploadedFile
 
+"""
 #----------------------------------USUARIO-----------------------------------
 class UsuarioForm(ModelForm):
 
     class Meta:
         model = Usuario
-        fields = ["nombre_usuario","correo","password"]
+        fields = ["username","email","password1","password2"]
         labels = {
             "nombre_usuario":("Nombre de Usuario"),
             "correo":("Correo electrónico"),
@@ -107,7 +110,7 @@ class UsuarioBuscarAvanzada(forms.Form):
         #Siempre devolvemos el conjunto de datos.
         return self.cleaned_data
 #----------------------------------------------------------------------------
-
+"""
 #----------------------------------PERFIL-----------------------------------
 class PerfilForm(ModelForm):
     class Meta:
@@ -758,3 +761,14 @@ class ConcursoBuscarAvanzada(forms.Form):
         #Siempre devolvemos el conjunto de datos.
         return self.cleaned_data
 #----------------------------------------------------------------------------
+
+class RegistroForm(UserCreationForm):
+    roles = (
+        {Usuario.PARTICIPANTE, 'Participante'},
+        {Usuario.JURADO, 'Jurado'},
+    )
+    rol = forms.ChoiceField(choices=roles)
+    
+    class Meta:
+        model = Usuario
+        fields = ('username','email','password1','password2','rol')

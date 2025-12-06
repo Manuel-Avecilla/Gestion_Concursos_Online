@@ -41,11 +41,14 @@ class Command(BaseCommand):
         self.stdout.write("Generando usuarios...")
         usuarios = []
         for _ in range(30):
-            usuarios.append(Usuario.objects.create(
-                nombre_usuario=fake.unique.user_name(),
-                correo=fake.unique.email(),
-                password=fake.password(length=10)
-            ))
+            usuarios.append(
+                Usuario.objects.create_user(
+                    username=fake.unique.user_name(),
+                    email=fake.unique.email(),
+                    password="iespsur.25"
+                )
+            )
+
         
         # endregion
 
@@ -58,15 +61,20 @@ class Command(BaseCommand):
         # ------------------------------------------------------------
         
         self.stdout.write("Generando perfiles...")
+        contador = 0
+
         for usuario in usuarios:
+            contador += 1
+            num = str(contador).zfill(3)  # → 001, 002, 003 ... 060
+
             Perfil.objects.create(
                 usuario=usuario,
                 nombre_completo=fake.name(),
                 biografia=fake.text(200),
                 fecha_nacimiento=fake.date_of_birth(minimum_age=18, maximum_age=70),
-                imagen_perfil="usuarios/default.jpg"
+                imagen_perfil=f"usuarios/foto-perfil-{num}.jpg"
             )
-        
+    
         # endregion
 
         # region Creación de Administradores
