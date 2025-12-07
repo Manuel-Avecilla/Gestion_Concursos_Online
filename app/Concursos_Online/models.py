@@ -18,6 +18,9 @@ class Usuario(AbstractUser):
         choices=ROLES,
         default=1,
     )
+    def __str__(self):
+        return f"{self.username} ({self.get_rol_display()})"
+
 
 #------------------------------- PERFIL ------------------------------------------
 class Perfil(models.Model):
@@ -30,7 +33,8 @@ class Perfil(models.Model):
     imagen_perfil = models.ImageField(upload_to='usuarios/', default='usuarios/default.jpg', blank=True, null=True)
 
     def __str__(self):
-        return f"Perfil de {self.usuario.nombre_usuario}"
+        return f"Perfil de {self.usuario.username}"
+
 
 #------------------------------- JURADO ------------------------------------------
 class Jurado(models.Model):
@@ -46,7 +50,8 @@ class Jurado(models.Model):
     concursos = models.ManyToManyField('Concurso', through='Asigna', related_name='jurados')
 
     def __str__(self):
-        return f"Jurado: {self.usuario.nombre_usuario}"
+        return f"Jurado: {self.usuario.username}"
+
 
 #------------------------------- PARTICIPANTE ------------------------------------------
 class Participante(models.Model):
@@ -59,7 +64,8 @@ class Participante(models.Model):
     puntuacion_total = models.DecimalField(max_digits=10, decimal_places=2, default=0)
 
     def __str__(self):
-        return f"Participante: {self.alias}"
+        return f"Participante: {self.usuario.username}"
+
 
 #------------------------------- ADMINISTRADOR ------------------------------------------
 class Administrador(models.Model):
@@ -72,7 +78,8 @@ class Administrador(models.Model):
     horario_disponible = models.TimeField(blank=True, null=True)
 
     def __str__(self):
-        return f"Administrador: {self.usuario.nombre_usuario}"
+        return f"Admin: {self.usuario.username}"
+
 
 #------------------------------- NOTIFICACION ------------------------------------------
 class Notificacion(models.Model):
@@ -86,7 +93,8 @@ class Notificacion(models.Model):
     fecha_envio = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.titulo
+        return f"Notificación: {self.titulo} (Autor: {self.autor.usuario.username})"
+
 
 #------------------------------- RECIBE (Relacion) ------------------------------------------
 class Recibe(models.Model):
@@ -100,7 +108,8 @@ class Recibe(models.Model):
     fecha_recepcion = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.usuario.nombre_usuario} recibe {self.notificacion.titulo}"
+        return f"{self.usuario.username} → {self.notificacion.titulo} [{self.get_estado_display()}]"
+
 
 #------------------------------- CONCURSO ------------------------------------------
 class Concurso(models.Model):
@@ -118,7 +127,8 @@ class Concurso(models.Model):
     participantes = models.ManyToManyField(Participante, through='Inscribe', related_name='inscritos')
 
     def __str__(self):
-        return self.nombre
+        return f"Concurso: {self.nombre}"
+
 
 #------------------------------- TRABAJO ------------------------------------------
 class Trabajo(models.Model):
@@ -136,7 +146,8 @@ class Trabajo(models.Model):
     puntuacion_promedio = models.DecimalField(max_digits=5, decimal_places=2, default=0)
 
     def __str__(self):
-        return f"{self.titulo} ({self.participante.alias})"
+        return f"Trabajo: {self.titulo} - {self.participante.usuario.username}"
+
 
 #------------------------------- INSCRIBE (Relacion) ------------------------------------------
 class Inscribe(models.Model):
@@ -147,7 +158,8 @@ class Inscribe(models.Model):
     fecha_inscripcion = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.participante.alias} inscrito en {self.concurso.nombre}"
+        return f"{self.participante.usuario.username} inscrito en {self.concurso.nombre}"
+
 
 #------------------------------- ASIGNA (Relacion) ------------------------------------------
 class Asigna(models.Model):
@@ -159,7 +171,8 @@ class Asigna(models.Model):
     activo = models.BooleanField(default=True)
 
     def __str__(self):
-        return f"{self.jurado} asignado a {self.concurso}"
+        return f"{self.jurado.usuario.username} asignado a {self.concurso.nombre}"
+
 
 #------------------------------- EVALUACION (Relacion) ------------------------------------------
 class Evaluacion(models.Model):
@@ -172,4 +185,4 @@ class Evaluacion(models.Model):
     fecha_evaluacion = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.jurado.usuario.nombre_usuario} evalúa {self.trabajo.titulo}"
+        return f"Evaluación de {self.jurado.usuario.username} sobre {self.trabajo.titulo}"

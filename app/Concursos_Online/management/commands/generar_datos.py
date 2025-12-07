@@ -10,7 +10,9 @@
 # ------------------------------------------------------------
 # endregion
 
-# python manage.py generar_datos   <-- Comando para generar los datos
+# python manage.py migrate          <-- Comando para generar la base de datos
+# python manage.py generar_datos    <-- Comando para generar los datos y rellenar la base de datos
+# python manage.py generar_grupos   <-- Comando para generar los grupos y permisos
 
 # python manage.py dumpdata --indent 4 > Concursos_Online/fixtures/datos.json   <-- Comando para guardar los datos
 
@@ -87,6 +89,10 @@ class Command(BaseCommand):
         self.stdout.write("Generando administradores...")
         administradores = []
         for u in random.sample(usuarios, 3):
+            
+            u.rol = Usuario.ADMINISTRADOR
+            u.save()
+            
             administradores.append(Administrador.objects.create(
                 usuario=u,
                 area_responsable=fake.job(),
@@ -119,6 +125,10 @@ class Command(BaseCommand):
         # 4. Crear los objetos Jurado asociados a esos usuarios
         jurados = []
         for u in usuarios_para_jurado:
+            
+            u.rol = Usuario.JURADO
+            u.save()
+            
             nuevo_jurado = Jurado.objects.create(
                 usuario=u,
                 experiencia=random.randint(1, 10),
@@ -150,6 +160,10 @@ class Command(BaseCommand):
         # 4. Crear los objetos Participante asociados a esos usuarios
         participantes = []
         for u in usuarios_para_participantes:
+            
+            u.rol = Usuario.PARTICIPANTE
+            u.save()
+            
             nuevo_participante = Participante.objects.create(
                 usuario=u,
                 alias=fake.user_name(),
@@ -165,7 +179,7 @@ class Command(BaseCommand):
         self.stdout.write("Generando concursos...")
         # 1. Creamos una lista vacía para guardar los concursos
         concursos = []
-        # 2. Creamos 5 concursos
+        # 2. Creamos 7 concursos
         for i in range(7):
             # Elegir un administrador al azar como creador
             creador = random.choice(administradores)
@@ -183,7 +197,7 @@ class Command(BaseCommand):
                 estadoBolean = True
             
             concurso = Concurso.objects.create(
-                nombre=f"Concurso {i+1}: {fake.word().capitalize()}",
+                nombre = f"{random.choice(['Concurso','Festival','Premio','Torneo'])} {random.choice(['Nacional','Creativo','Juvenil','Internacional','Regional'])} de {random.choice(['Fotografía','Arte Digital','Robótica','Pintura','Canto','Ciencia'])}",
                 descripcion=fake.text(300),
                 fecha_inicio=fecha_inicio,
                 fecha_final=fecha_final,
@@ -313,6 +327,26 @@ class Command(BaseCommand):
                 ganador = random.choice(participantes_inscritos)
                 concurso.ganador = ganador
                 concurso.save()
+        # endregion
+
+        # region Creación de superusuario de pruebas
+        self.stdout.write("Creando superusuario de pruebas...")
+
+        from django.contrib.auth import get_user_model
+        User = get_user_model()
+
+        # Si ya existe, lo eliminamos para evitar conflicto al regenerar la base
+        if User.objects.filter(username="admin").exists():
+            User.objects.filter(username="admin").delete()
+
+        # Crear superusuario
+        User.objects.create_superuser(
+            username="admin",
+            email="admin@example.com",
+            password="1234"
+        )
+
+        self.stdout.write("Superusuario creado: admin / 1234")
         # endregion
 
         self.stdout.write(self.style.SUCCESS("Datos generados correctamente."))

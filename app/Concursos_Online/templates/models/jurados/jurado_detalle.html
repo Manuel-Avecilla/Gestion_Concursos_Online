@@ -13,6 +13,11 @@
     <br>
 {% endblock %}
 {% block contenido %}
-    {% include "base/modal/_modal_eliminar.html" %}
+    
+    {% if perms.concursos_online.delete_jurado %}
+        {% include "base/modal/_modal_eliminar.html" %}
+    {% endif %}
+
     {% include "models/jurados/_item_jurado.html" %}
+
 {% endblock %}

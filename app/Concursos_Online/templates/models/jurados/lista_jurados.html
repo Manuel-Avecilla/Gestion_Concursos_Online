@@ -14,8 +14,10 @@
     <br>
 {% endblock %}
 {% block contenido %}
-
-    {% include "base/modal/_modal_eliminar.html" %}
+    
+    {% if perms.concursos_online.delete_jurado %}
+        {% include "base/modal/_modal_eliminar.html" %}
+    {% endif %}
 
     {% if Mensaje_Busqueda %}
         <pre>{{Mensaje_Busqueda}}</pre>

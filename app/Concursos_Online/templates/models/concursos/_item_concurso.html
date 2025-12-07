@@ -74,19 +74,22 @@
         <br>
         <!-- BOTONES -->
         <div class="ud-buttons">
-            <a class="editar" href="{% url 'concurso_editar' id_concurso=Concurso_Mostrar.id %}">
-                <i class="fa-regular fa-pen-to-square"></i>
-                Editar
-            </a>
-            <button type="button" class="eliminar"
-                    data-bs-toggle="modal"
-                    data-bs-target="#modalEliminar"
-                    data-url="{% url 'concurso_eliminar' id_concurso=Concurso_Mostrar.id %}">
-                <i class="fa-solid fa-trash-can"></i>
-                Eliminar
-            </button>
+            {% if perms.concursos_online.change_concurso %}
+                <a class="editar" href="{% url 'concurso_editar' id_concurso=Concurso_Mostrar.id %}">
+                    <i class="fa-regular fa-pen-to-square"></i>
+                    Editar
+                </a>
+            {% endif %}
+            {% if perms.concursos_online.delete_concurso %}
+                <button type="button" class="eliminar"
+                        data-bs-toggle="modal"
+                        data-bs-target="#modalEliminar"
+                        data-url="{% url 'concurso_eliminar' id_concurso=Concurso_Mostrar.id %}">
+                    <i class="fa-solid fa-trash-can"></i>
+                    Eliminar
+                </button>
+            {% endif %}
         </div>
-
     </section>
 
 </div>

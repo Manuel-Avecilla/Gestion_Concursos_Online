@@ -1,21 +1,88 @@
+# ============================================================
+# region Importaciones
+# ============================================================
+
 from django.shortcuts import render
 from .models import *
 from django.db.models import Q , Prefetch, Avg, Max, Min
 from django.views.defaults import page_not_found
 from django.contrib.auth import login
+from django.contrib.auth.decorators import permission_required
+from django.contrib.auth.models import Group
 
 from .forms import *
 from django.contrib import messages
 from django.shortcuts import redirect
 from datetime import datetime
 
-# Create your views here.
+# endregion
+# ============================================================
+
+
+
+
+
+# ============================================================
+# region Páginas públicas (Home, Menu)
+# ============================================================
 
 def home(request):
     return render(request, 'pages/home.html')
 
 def menu(request):
     return render(request, 'pages/menu.html')
+
+# endregion
+# ============================================================
+
+
+
+
+
+# ============================================================
+# region Autenticación y Registro
+# ============================================================
+
+def registrar_usuario(request):
+    if request.method == 'POST':
+        formulario = RegistroForm(request.POST)
+        
+        if formulario.is_valid():
+            
+            user = formulario.save()
+            
+            perfil = Perfil.objects.create(usuario = user)
+            perfil.save()
+            
+            rol = int(formulario.cleaned_data.get('rol'))
+            
+            if(rol == Usuario.PARTICIPANTE):
+                
+                grupo = Group.objects.get(name='Participantes')
+                grupo.user_set.add(user)
+                
+                participante = Participante.objects.create(usuario = user)
+                participante.save()
+                
+            elif(rol == Usuario.JURADO):
+                
+                grupo = Group.objects.get(name='Jurados')
+                grupo.user_set.add(user)
+                
+                jurado = Jurado.objects.create(usuario = user)
+                jurado.save()
+            
+            login(request, user)
+            
+            return redirect('home')
+    else:
+        formulario = RegistroForm()
+        
+    return render(request, 'registration/signup.html', {'formulario': formulario})
+
+# endregion
+# ============================================================
+
 
 # Una url que me muestre todos los Concursos y sus datos, incluido los relacionados.
 def concursos_listar(request):
@@ -364,11 +431,12 @@ def administradores_listar(request):
     return render(request,'models/administradores/lista_administradores.html',{'Administradores_Mostrar':administradores})
 
 
-#--------------------------------------------------------------------------------------------
-#                                          CRUD
-#--------------------------------------------------------------------------------------------
+# ============================================================
+# region CRUDs (Create, Read, Update, Delete)
+# ============================================================
 
-#-------- USUARIO --------
+#region -------- USUARIO --------
+@permission_required('concursos_online.add_usuario', raise_exception=True)
 def usuario_create(request): # Metodo que controla el tipo de formulario
     
     # Si la petición es GET se creará el formulario Vacío
@@ -389,6 +457,7 @@ def usuario_create(request): # Metodo que controla el tipo de formulario
 
     return render(request, 'models/usuarios/crud/create_usuario.html',{'formulario':formulario})
 
+@permission_required('concursos_online.add_usuario', raise_exception=True)
 def crear_usuario_modelo(formulario): # Metodo que crea en la base de datos
     
     usuario_creado = False
@@ -402,6 +471,7 @@ def crear_usuario_modelo(formulario): # Metodo que crea en la base de datos
             print(error)
     return usuario_creado
 
+@permission_required('concursos_online.view_usuario', raise_exception=True)
 def usuario_buscar(request): # Busqueda Simple
 
     texto = request.GET.get("textoBusqueda", "")  # vacio si no se envia nada
@@ -419,6 +489,7 @@ def usuario_buscar(request): # Busqueda Simple
 
     return render(request,'models/usuarios/lista_usuarios.html',{'Usuarios_Mostrar': usuarios,'Texto_Busqueda': texto,})
 
+@permission_required('concursos_online.view_usuario', raise_exception=True)
 def usuario_buscar_avanzado(request): #Busqueda Avanzada
     
     if(len(request.GET) > 0):
@@ -490,6 +561,7 @@ def usuario_buscar_avanzado(request): #Busqueda Avanzada
         formulario = UsuarioBuscarAvanzada(None)
     return render(request, 'models/usuarios/crud/buscar_avanzada_usuarios.html',{'formulario':formulario})
 
+@permission_required('concursos_online.change_usuario', raise_exception=True)
 def usuario_editar(request, id_usuario): # Editar Usuario
     usuario = Usuario.objects.get(id = id_usuario)
     
@@ -512,6 +584,7 @@ def usuario_editar(request, id_usuario): # Editar Usuario
     
     return render(request, 'models/usuarios/crud/actualizar_usuario.html', {'formulario':formulario,'usuario':usuario})
 
+@permission_required('concursos_online.delete_usuario', raise_exception=True)
 def usuario_eliminar(request, id_usuario): # Eliminar Usuario
     usuario = Usuario.objects.get(id=id_usuario)
     nombre = usuario.username
@@ -521,9 +594,10 @@ def usuario_eliminar(request, id_usuario): # Eliminar Usuario
     except Exception as error:
         print(error)
     return redirect('usuario_buscar')
-#--------------------------
+#endregion--------------------------
 
-#-------- PERFIL ----------
+#region-------- PERFIL ----------
+@permission_required('concursos_online.add_perfil', raise_exception=True)
 def perfil_create(request): #Metodo que controla el tipo de formulario
         
     # Si la petición es GET se creará el formulario Vacío
@@ -547,6 +621,7 @@ def perfil_create(request): #Metodo que controla el tipo de formulario
 
     return render(request, 'models/perfil/crud/create_perfil.html',{'formulario':formulario})
 
+@permission_required('concursos_online.add_perfil', raise_exception=True)
 def crear_perfil_modelo(formulario): #Metodo que interactua con la base de datos
     
     perfil_creado = False
@@ -560,6 +635,7 @@ def crear_perfil_modelo(formulario): #Metodo que interactua con la base de datos
             print(error)
     return perfil_creado
 
+@permission_required('concursos_online.view_perfil', raise_exception=True)
 def perfil_buscar_avanzado(request): #Busqueda Avanzada
     
     if(len(request.GET) > 0):
@@ -618,6 +694,7 @@ def perfil_buscar_avanzado(request): #Busqueda Avanzada
         formulario = PerfilBuscarAvanzada(None)
     return render(request, 'models/perfil/crud/buscar_avanzada_perfil.html',{'formulario':formulario})
 
+@permission_required('concursos_online.change_perfil', raise_exception=True)
 def perfil_editar(request, id_perfil): # Editar Perfil
     
     perfil = Perfil.objects.get(id = id_perfil)
@@ -643,6 +720,7 @@ def perfil_editar(request, id_perfil): # Editar Perfil
     
     return render(request, 'models/perfil/crud/actualizar_perfil.html', {'formulario':formulario,'perfil':perfil})
 
+@permission_required('concursos_online.delete_perfil', raise_exception=True)
 def perfil_eliminar(request, id_perfil): # Eliminar Perfil
     perfil = Perfil.objects.get(id = id_perfil)
     nombre = perfil.nombre_completo
@@ -652,9 +730,10 @@ def perfil_eliminar(request, id_perfil): # Eliminar Perfil
     except Exception as error:
         print(error)
     return redirect('perfiles_listar')
-#--------------------------
+#endregion--------------------------
 
-#------ PARTICIPANTE ------
+#region------ PARTICIPANTE ------
+@permission_required('concursos_online.add_participante', raise_exception=True)
 def participante_create(request): #Metodo que controla el tipo de formulario
         
     # Si la petición es GET se creará el formulario Vacío
@@ -676,6 +755,7 @@ def participante_create(request): #Metodo que controla el tipo de formulario
 
     return render(request, 'models/participantes/crud/create_participante.html',{'formulario':formulario})
 
+@permission_required('concursos_online.add_participante', raise_exception=True)
 def crear_participante_modelo(formulario): #Metodo que interactua con la base de datos
     
     participante_creado = False
@@ -689,6 +769,7 @@ def crear_participante_modelo(formulario): #Metodo que interactua con la base de
             print(error)
     return participante_creado
 
+@permission_required('concursos_online.view_participante', raise_exception=True)
 def participante_buscar_avanzado(request): #Busqueda Avanzada
     
     if(len(request.GET) > 0):
@@ -736,6 +817,7 @@ def participante_buscar_avanzado(request): #Busqueda Avanzada
         formulario = ParticipanteBuscarAvanzada(None)
     return render(request, 'models/participantes/crud/buscar_avanzada_participantes.html',{'formulario':formulario})
 
+@permission_required('concursos_online.change_participante', raise_exception=True)
 def participante_editar(request, id_participante): # Actualizar Perfil
     
     participante = Participante.objects.get(id = id_participante)
@@ -759,6 +841,7 @@ def participante_editar(request, id_participante): # Actualizar Perfil
     
     return render(request, 'models/participantes/crud/actualizar_participantes.html', {'formulario':formulario,'participante':participante})
 
+@permission_required('concursos_online.delete_participante', raise_exception=True)
 def participante_eliminar(request, id_participante): # Eliminar Perfil
     participante = Participante.objects.get(id = id_participante)
     nombre = participante.alias
@@ -768,9 +851,10 @@ def participante_eliminar(request, id_participante): # Eliminar Perfil
     except Exception as error:
         print(error)
     return redirect('participantes_listar')
-#--------------------------
+#endregion--------------------------
 
-#----- ADMINISTRADOR ------
+#region----- ADMINISTRADOR ------
+@permission_required('concursos_online.add_administrador', raise_exception=True)
 def administrador_create(request):  # Metodo que controla el tipo de formulario
         
     # Si la petición es GET se creará el formulario Vacío
@@ -796,6 +880,7 @@ def administrador_create(request):  # Metodo que controla el tipo de formulario
 
     return render(request, 'models/administradores/crud/create_administrador.html', {'formulario': formulario})
 
+@permission_required('concursos_online.add_administrador', raise_exception=True)
 def crear_administrador_modelo(formulario):  # Metodo que interactua con la base de datos
     
     administrador_creado = False
@@ -809,6 +894,7 @@ def crear_administrador_modelo(formulario):  # Metodo que interactua con la base
             print(error)
     return administrador_creado
 
+@permission_required('concursos_online.view_administrador', raise_exception=True)
 def administrador_buscar_avanzado(request):  # Busqueda Avanzada
 
     if len(request.GET) > 0:
@@ -876,6 +962,7 @@ def administrador_buscar_avanzado(request):  # Busqueda Avanzada
         {'formulario': formulario}
     )
 
+@permission_required('concursos_online.change_administrador', raise_exception=True)
 def administrador_editar(request, id_administrador):  # Actualizar Administrador
     
     administrador = Administrador.objects.get(id=id_administrador)
@@ -903,6 +990,7 @@ def administrador_editar(request, id_administrador):  # Actualizar Administrador
     
     return render(request, 'models/administradores/crud/actualizar_administradores.html', {'formulario': formulario, 'administrador': administrador})
 
+@permission_required('concursos_online.delete_administrador', raise_exception=True)
 def administrador_eliminar(request, id_administrador):  # Eliminar Administrador
     administrador = Administrador.objects.get(id=id_administrador)
     nombre = administrador.usuario.nombre_usuario
@@ -912,9 +1000,10 @@ def administrador_eliminar(request, id_administrador):  # Eliminar Administrador
     except Exception as error:
         print(error)
     return redirect('administradores_listar')
-#--------------------------
+#endregion--------------------------
 
-#-------- JURADO ----------
+#region-------- JURADO ----------
+@permission_required('concursos_online.add_jurado', raise_exception=True)
 def jurado_create(request):  # Método que controla el tipo de formulario
         
     # Si la petición es GET se creará el formulario vacío
@@ -940,6 +1029,7 @@ def jurado_create(request):  # Método que controla el tipo de formulario
 
     return render(request, 'models/jurados/crud/create_jurado.html', {'formulario': formulario})
 
+@permission_required('concursos_online.add_jurado', raise_exception=True)
 def crear_jurado_modelo(formulario):  # Método que interactúa con la base de datos
     
     jurado_creado = False
@@ -955,6 +1045,7 @@ def crear_jurado_modelo(formulario):  # Método que interactúa con la base de d
     
     return jurado_creado
 
+@permission_required('concursos_online.view_jurado', raise_exception=True)
 def jurado_buscar_avanzado(request):  # Búsqueda Avanzada
 
     if len(request.GET) > 0:
@@ -1022,6 +1113,7 @@ def jurado_buscar_avanzado(request):  # Búsqueda Avanzada
         {'formulario': formulario}
     )
 
+@permission_required('concursos_online.change_jurado', raise_exception=True)
 def jurado_editar(request, id_jurado):  # Actualizar Jurado
     
     jurado = Jurado.objects.get(id=id_jurado)
@@ -1056,6 +1148,7 @@ def jurado_editar(request, id_jurado):  # Actualizar Jurado
         }
     )
 
+@permission_required('concursos_online.delete_jurado', raise_exception=True)
 def jurado_eliminar(request, id_jurado):  # Eliminar Jurado
     jurado = Jurado.objects.get(id=id_jurado)
     nombre = jurado.usuario.nombre_usuario
@@ -1067,10 +1160,10 @@ def jurado_eliminar(request, id_jurado):  # Eliminar Jurado
         print(error)
     
     return redirect('dame_jurados')
+#endregion--------------------------
 
-#--------------------------
-
-#-------- CONCURSO --------
+#region-------- CONCURSO --------
+@permission_required('concursos_online.add_concurso', raise_exception=True)
 def concurso_create(request):  # Método que controla el tipo de formulario
 
     # Si la petición es GET se creará el formulario vacío
@@ -1102,6 +1195,7 @@ def concurso_create(request):  # Método que controla el tipo de formulario
         {'formulario': formulario}
     )
 
+@permission_required('concursos_online.add_concurso', raise_exception=True)
 def crear_concurso_modelo(formulario):  # Método que interactúa con la base de datos
     
     concurso_creado = False
@@ -1117,6 +1211,7 @@ def crear_concurso_modelo(formulario):  # Método que interactúa con la base de
 
     return concurso_creado
 
+@permission_required('concursos_online.view_concurso', raise_exception=True)
 def concurso_buscar_avanzado(request):  # Búsqueda Avanzada para Concurso
 
     if len(request.GET) > 0:
@@ -1184,6 +1279,7 @@ def concurso_buscar_avanzado(request):  # Búsqueda Avanzada para Concurso
         {'formulario': formulario}
     )
 
+@permission_required('concursos_online.change_concurso', raise_exception=True)
 def concurso_editar(request, id_concurso):  # Actualizar Concurso
     
     concurso = Concurso.objects.get(id=id_concurso)
@@ -1210,6 +1306,7 @@ def concurso_editar(request, id_concurso):  # Actualizar Concurso
     
     return render(request, 'models/concursos/crud/actualizar_concursos.html', {'formulario': formulario, 'concurso': concurso})
 
+@permission_required('concursos_online.delete_concurso', raise_exception=True)
 def concurso_eliminar(request, id_concurso):  # Eliminar Concurso
     concurso = Concurso.objects.get(id=id_concurso)
     nombre = concurso.nombre
@@ -1219,41 +1316,18 @@ def concurso_eliminar(request, id_concurso):  # Eliminar Concurso
     except Exception as error:
         print(error)
     return redirect('lista_concursos')
-#--------------------------
+#endregion--------------------------
 
-#--------------------------------------------------------------------------------------------
-
-def registrar_usuario(request):
-    if request.method == 'POST':
-        formulario = RegistroForm(request.POST)
-        
-        if formulario.is_valid():
-            
-            user = formulario.save()
-            
-            perfil = Perfil.objects.create(usuario = user)
-            perfil.save()
-            
-            rol = int(formulario.cleaned_data.get('rol'))
-            
-            if(rol == Usuario.PARTICIPANTE):
-                participante = Participante.objects.create(usuario = user)
-                participante.save()
-            elif(rol == Usuario.JURADO):
-                jurado = Jurado.objects.create(usuario = user)
-                jurado.save()
-            
-            login(request, user)
-            
-            return redirect('home')
-    else:
-        formulario = RegistroForm()
-        
-    return render(request, 'registration/signup.html', {'formulario': formulario})
+# endregion
+# ============================================================
 
 
 
-# Errores
+
+
+# ============================================================
+# region Errores personalizados (400, 403, 404, 500)
+# ============================================================
 
 def mi_error_404(request,exception=None):
     return render(request,'error/404.html',None,None,404)
@@ -1266,3 +1340,6 @@ def mi_error_400(request,exception=None):
 
 def mi_error_500(request,exception=None):
     return render(request,'error/500.html',None,None,500)
+
+# endregion
+# ============================================================

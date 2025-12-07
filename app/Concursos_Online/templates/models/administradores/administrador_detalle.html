@@ -13,6 +13,10 @@
     <br>
 {% endblock %}
 {% block contenido %}
-    {% include "base/modal/_modal_eliminar.html" %}
+    {% if perms.concursos_online.delete_administrador %}
+        {% include "base/modal/_modal_eliminar.html" %}
+    {% endif %}
+
     {% include "models/administradores/_item_administrador.html" %}
+    
 {% endblock %}
