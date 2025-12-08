@@ -57,7 +57,7 @@ def perfiles_listar(request):
 # ============================================================
 
 #region --- CREATE ---
-@permission_required('concursos_online.add_perfil', raise_exception=True)
+@permission_required('Concursos_Online.add_perfil', raise_exception=True)
 def perfil_create(request): #Metodo que controla el tipo de formulario
         
     # Si la petición es GET se creará el formulario Vacío
@@ -96,7 +96,7 @@ def crear_perfil_modelo(formulario): #Metodo que interactua con la base de datos
 #endregion
 
 #region --- READ ---
-@permission_required('concursos_online.view_perfil', raise_exception=True)
+@permission_required('Concursos_Online.view_perfil', raise_exception=True)
 def perfil_buscar_avanzado(request): #Busqueda Avanzada
     
     if(len(request.GET) > 0):
@@ -157,7 +157,7 @@ def perfil_buscar_avanzado(request): #Busqueda Avanzada
 #endregion
 
 #region --- UPDATE ---
-@permission_required('concursos_online.change_perfil', raise_exception=True)
+@permission_required('Concursos_Online.change_perfil', raise_exception=True)
 def perfil_editar(request, id_perfil): # Editar Perfil
     
     perfil = Perfil.objects.get(id = id_perfil)
@@ -185,7 +185,7 @@ def perfil_editar(request, id_perfil): # Editar Perfil
 #endregion
 
 #region --- DELETE ---
-@permission_required('concursos_online.delete_perfil', raise_exception=True)
+@permission_required('Concursos_Online.delete_perfil', raise_exception=True)
 def perfil_eliminar(request, id_perfil): # Eliminar Perfil
     perfil = Perfil.objects.get(id = id_perfil)
     nombre = perfil.nombre_completo

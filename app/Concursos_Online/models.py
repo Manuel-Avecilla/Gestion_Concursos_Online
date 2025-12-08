@@ -7,16 +7,18 @@ class Usuario(AbstractUser):
     ADMINISTRADOR = 1
     PARTICIPANTE = 2
     JURADO = 3
+    USUARIO = 4
     
     ROLES = (
         (ADMINISTRADOR, 'Administrador'),
         (PARTICIPANTE, 'Participante'),
         (JURADO, 'Jurado'),
+        (USUARIO, 'Usuario'),
     )
     
     rol = models.PositiveSmallIntegerField(
         choices=ROLES,
-        default=1,
+        default=4,
     )
     def __str__(self):
         return f"{self.username} ({self.get_rol_display()})"

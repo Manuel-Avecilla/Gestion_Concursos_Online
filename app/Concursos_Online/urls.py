@@ -5,6 +5,7 @@
 from django.urls import path
 from . import views
 from django.urls import re_path
+from .views import MiLoginView
 
 # endregion
 # ============================================================
@@ -32,6 +33,7 @@ urlpatterns = [
     # ============================================================
 
     path('registro',views.registrar_usuario,name='registrar_usuario'),
+    path('accounts/login/', MiLoginView.as_view(), name='login'),
 
     # endregion
     # ============================================================

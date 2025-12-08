@@ -1,28 +1,26 @@
-# region Explicación de los imports.
-# ------------------------------------------------------------
-# BaseCommand: permite crear comandos personalizados de Django.
-# Faker: genera datos falsos (en español si se usa Faker('es_ES')).
-# random: funciones aleatorias (choice, sample, randint...).
-# Decimal: maneja decimales con precisión (para puntuaciones).
-# timedelta: suma/resta días a fechas.
-# timezone: obtiene fecha/hora actual con soporte de zona horaria.
-# Modelos: importamos las clases necesarias del app Concursos_Online.
-# ------------------------------------------------------------
-# endregion
+# ============================================================
+# region Importaciones
+# ============================================================
 
-# python manage.py migrate          <-- Comando para generar la base de datos
-# python manage.py generar_datos    <-- Comando para generar los datos y rellenar la base de datos
-# python manage.py generar_grupos   <-- Comando para generar los grupos y permisos
-
-# python manage.py dumpdata --indent 4 > Concursos_Online/fixtures/datos.json   <-- Comando para guardar los datos
-
+from django.contrib.auth.models import Group
+from django.contrib.auth import get_user_model
 from django.core.management.base import BaseCommand
 from faker import Faker
 import random
-from decimal import Decimal
 from datetime import timedelta
 from django.utils import timezone
 from Concursos_Online.models import *
+
+# endregion
+# ============================================================
+
+
+# python manage.py migrate          <-- Comando para generar la base de datos
+# python manage.py generar_grupos   <-- Comando para generar los grupos y permisos
+# python manage.py generar_datos    <-- Comando para generar los datos y rellenar la base de datos
+
+# python manage.py dumpdata --indent 4 > Concursos_Online/fixtures/datos.json   <-- Comando para guardar los datos
+
 
 class Command(BaseCommand):
     help = 'Generando datos usando Faker'
@@ -42,14 +40,18 @@ class Command(BaseCommand):
         
         self.stdout.write("Generando usuarios...")
         usuarios = []
+        u_grupo_usuarios, _ = Group.objects.get_or_create(name="Usuario")
+        
         for _ in range(30):
-            usuarios.append(
-                Usuario.objects.create_user(
+            
+            user = Usuario.objects.create_user(
                     username=fake.unique.user_name(),
                     email=fake.unique.email(),
                     password="iespsur.25"
-                )
             )
+            u_grupo_usuarios.user_set.add(user)
+            usuarios.append(user)
+
 
         
         # endregion
@@ -92,6 +94,8 @@ class Command(BaseCommand):
             
             u.rol = Usuario.ADMINISTRADOR
             u.save()
+            grupo_admin = Group.objects.get(name="Administrador")
+            grupo_admin.user_set.add(u)
             
             administradores.append(Administrador.objects.create(
                 usuario=u,
@@ -128,6 +132,8 @@ class Command(BaseCommand):
             
             u.rol = Usuario.JURADO
             u.save()
+            grupo_jurado = Group.objects.get(name="Jurados")
+            grupo_jurado.user_set.add(u)
             
             nuevo_jurado = Jurado.objects.create(
                 usuario=u,
@@ -163,6 +169,8 @@ class Command(BaseCommand):
             
             u.rol = Usuario.PARTICIPANTE
             u.save()
+            grupo_participante = Group.objects.get(name="Participantes")
+            grupo_participante.user_set.add(u)
             
             nuevo_participante = Participante.objects.create(
                 usuario=u,
@@ -329,24 +337,52 @@ class Command(BaseCommand):
                 concurso.save()
         # endregion
 
-        # region Creación de superusuario de pruebas
-        self.stdout.write("Creando superusuario de pruebas...")
+        # region Creación de usuarios de PRUEBAS (super-admin, admin, jurado, participante)
+        self.stdout.write("Creando usuarios de PRUEBAS...")
 
-        from django.contrib.auth import get_user_model
+        
+
         User = get_user_model()
 
-        # Si ya existe, lo eliminamos para evitar conflicto al regenerar la base
-        if User.objects.filter(username="admin").exists():
-            User.objects.filter(username="admin").delete()
+        up_grupo_admin, _ = Group.objects.get_or_create(name="Administrador")
+        up_grupo_jurado, _ = Group.objects.get_or_create(name="Jurados")
+        up_grupo_participante, _ = Group.objects.get_or_create(name="Participante")
+        up_grupo_usuario, _ = Group.objects.get_or_create(name="Usuario")  # Rol general
 
-        # Crear superusuario
-        User.objects.create_superuser(
-            username="admin",
-            email="admin@example.com",
-            password="1234"
-        )
+        usuarios_base = {
+            "super-admin": {"is_superuser": True, "groups": []},
+            "admin": {"is_superuser": False, "groups": [up_grupo_admin]},
+            "jurado": {"is_superuser": False, "groups": [up_grupo_jurado]},
+            "participante": {"is_superuser": False, "groups": [up_grupo_participante]},
+        }
 
-        self.stdout.write("Superusuario creado: admin / 1234")
+        for username, datos in usuarios_base.items():
+            # Si ya existe, eliminarlo
+            if User.objects.filter(username=username).exists():
+                User.objects.filter(username=username).delete()
+
+            # Crear usuario
+            user = User.objects.create_user(
+                username=username,
+                email=f"{username}@example.com",
+                password="1234"
+            )
+
+            # Asignar rol general "Usuario"
+            user.groups.add(up_grupo_usuario)
+
+            # Si es superadmin
+            if datos["is_superuser"]:
+                user.is_superuser = True
+                user.is_staff = True
+                user.save()
+            else:
+                # Asignar su grupo específico
+                for g in datos["groups"]:
+                    user.groups.add(g)
+
+            self.stdout.write(f"Usuario creado: {username} / 1234")
+
         # endregion
 
         self.stdout.write(self.style.SUCCESS("Datos generados correctamente."))

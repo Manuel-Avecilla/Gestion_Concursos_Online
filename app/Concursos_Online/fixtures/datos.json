@@ -111,540 +111,615 @@
     "model": "auth.permission",
     "pk": 13,
     "fields": {
-        "name": "Can add user",
+        "name": "Can add content type",
         "content_type": 4,
-        "codename": "add_user"
+        "codename": "add_contenttype"
     }
 },
 {
     "model": "auth.permission",
     "pk": 14,
     "fields": {
-        "name": "Can change user",
+        "name": "Can change content type",
         "content_type": 4,
-        "codename": "change_user"
+        "codename": "change_contenttype"
     }
 },
 {
     "model": "auth.permission",
     "pk": 15,
     "fields": {
-        "name": "Can delete user",
+        "name": "Can delete content type",
         "content_type": 4,
-        "codename": "delete_user"
+        "codename": "delete_contenttype"
     }
 },
 {
     "model": "auth.permission",
     "pk": 16,
     "fields": {
-        "name": "Can view user",
+        "name": "Can view content type",
         "content_type": 4,
-        "codename": "view_user"
+        "codename": "view_contenttype"
     }
 },
 {
     "model": "auth.permission",
     "pk": 17,
     "fields": {
-        "name": "Can add content type",
+        "name": "Can add session",
         "content_type": 5,
-        "codename": "add_contenttype"
+        "codename": "add_session"
     }
 },
 {
     "model": "auth.permission",
     "pk": 18,
     "fields": {
-        "name": "Can change content type",
+        "name": "Can change session",
         "content_type": 5,
-        "codename": "change_contenttype"
+        "codename": "change_session"
     }
 },
 {
     "model": "auth.permission",
     "pk": 19,
     "fields": {
-        "name": "Can delete content type",
+        "name": "Can delete session",
         "content_type": 5,
-        "codename": "delete_contenttype"
+        "codename": "delete_session"
     }
 },
 {
     "model": "auth.permission",
     "pk": 20,
     "fields": {
-        "name": "Can view content type",
+        "name": "Can view session",
         "content_type": 5,
-        "codename": "view_contenttype"
+        "codename": "view_session"
     }
 },
 {
     "model": "auth.permission",
     "pk": 21,
     "fields": {
-        "name": "Can add session",
+        "name": "Can add administrador",
         "content_type": 6,
-        "codename": "add_session"
+        "codename": "add_administrador"
     }
 },
 {
     "model": "auth.permission",
     "pk": 22,
     "fields": {
-        "name": "Can change session",
+        "name": "Can change administrador",
         "content_type": 6,
-        "codename": "change_session"
+        "codename": "change_administrador"
     }
 },
 {
     "model": "auth.permission",
     "pk": 23,
     "fields": {
-        "name": "Can delete session",
+        "name": "Can delete administrador",
         "content_type": 6,
-        "codename": "delete_session"
+        "codename": "delete_administrador"
     }
 },
 {
     "model": "auth.permission",
     "pk": 24,
     "fields": {
-        "name": "Can view session",
+        "name": "Can view administrador",
         "content_type": 6,
-        "codename": "view_session"
+        "codename": "view_administrador"
     }
 },
 {
     "model": "auth.permission",
     "pk": 25,
     "fields": {
-        "name": "Can add administrador",
+        "name": "Can add participante",
         "content_type": 7,
-        "codename": "add_administrador"
+        "codename": "add_participante"
     }
 },
 {
     "model": "auth.permission",
     "pk": 26,
     "fields": {
-        "name": "Can change administrador",
+        "name": "Can change participante",
         "content_type": 7,
-        "codename": "change_administrador"
+        "codename": "change_participante"
     }
 },
 {
     "model": "auth.permission",
     "pk": 27,
     "fields": {
-        "name": "Can delete administrador",
+        "name": "Can delete participante",
         "content_type": 7,
-        "codename": "delete_administrador"
+        "codename": "delete_participante"
     }
 },
 {
     "model": "auth.permission",
     "pk": 28,
     "fields": {
-        "name": "Can view administrador",
+        "name": "Can view participante",
         "content_type": 7,
-        "codename": "view_administrador"
+        "codename": "view_participante"
     }
 },
 {
     "model": "auth.permission",
     "pk": 29,
     "fields": {
-        "name": "Can add participante",
+        "name": "Can add concurso",
         "content_type": 8,
-        "codename": "add_participante"
+        "codename": "add_concurso"
     }
 },
 {
     "model": "auth.permission",
     "pk": 30,
     "fields": {
-        "name": "Can change participante",
+        "name": "Can change concurso",
         "content_type": 8,
-        "codename": "change_participante"
+        "codename": "change_concurso"
     }
 },
 {
     "model": "auth.permission",
     "pk": 31,
     "fields": {
-        "name": "Can delete participante",
+        "name": "Can delete concurso",
         "content_type": 8,
-        "codename": "delete_participante"
+        "codename": "delete_concurso"
     }
 },
 {
     "model": "auth.permission",
     "pk": 32,
     "fields": {
-        "name": "Can view participante",
+        "name": "Can view concurso",
         "content_type": 8,
-        "codename": "view_participante"
+        "codename": "view_concurso"
     }
 },
 {
     "model": "auth.permission",
     "pk": 33,
     "fields": {
-        "name": "Can add usuario",
+        "name": "Can add asigna",
         "content_type": 9,
-        "codename": "add_usuario"
+        "codename": "add_asigna"
     }
 },
 {
     "model": "auth.permission",
     "pk": 34,
     "fields": {
-        "name": "Can change usuario",
+        "name": "Can change asigna",
         "content_type": 9,
-        "codename": "change_usuario"
+        "codename": "change_asigna"
     }
 },
 {
     "model": "auth.permission",
     "pk": 35,
     "fields": {
-        "name": "Can delete usuario",
+        "name": "Can delete asigna",
         "content_type": 9,
-        "codename": "delete_usuario"
+        "codename": "delete_asigna"
     }
 },
 {
     "model": "auth.permission",
     "pk": 36,
     "fields": {
-        "name": "Can view usuario",
+        "name": "Can view asigna",
         "content_type": 9,
-        "codename": "view_usuario"
+        "codename": "view_asigna"
     }
 },
 {
     "model": "auth.permission",
     "pk": 37,
     "fields": {
-        "name": "Can add concurso",
+        "name": "Can add jurado",
         "content_type": 10,
-        "codename": "add_concurso"
+        "codename": "add_jurado"
     }
 },
 {
     "model": "auth.permission",
     "pk": 38,
     "fields": {
-        "name": "Can change concurso",
+        "name": "Can change jurado",
         "content_type": 10,
-        "codename": "change_concurso"
+        "codename": "change_jurado"
     }
 },
 {
     "model": "auth.permission",
     "pk": 39,
     "fields": {
-        "name": "Can delete concurso",
+        "name": "Can delete jurado",
         "content_type": 10,
-        "codename": "delete_concurso"
+        "codename": "delete_jurado"
     }
 },
 {
     "model": "auth.permission",
     "pk": 40,
     "fields": {
-        "name": "Can view concurso",
+        "name": "Can view jurado",
         "content_type": 10,
-        "codename": "view_concurso"
+        "codename": "view_jurado"
     }
 },
 {
     "model": "auth.permission",
     "pk": 41,
     "fields": {
-        "name": "Can add asigna",
+        "name": "Can add evaluacion",
         "content_type": 11,
-        "codename": "add_asigna"
+        "codename": "add_evaluacion"
     }
 },
 {
     "model": "auth.permission",
     "pk": 42,
     "fields": {
-        "name": "Can change asigna",
+        "name": "Can change evaluacion",
         "content_type": 11,
-        "codename": "change_asigna"
+        "codename": "change_evaluacion"
     }
 },
 {
     "model": "auth.permission",
     "pk": 43,
     "fields": {
-        "name": "Can delete asigna",
+        "name": "Can delete evaluacion",
         "content_type": 11,
-        "codename": "delete_asigna"
+        "codename": "delete_evaluacion"
     }
 },
 {
     "model": "auth.permission",
     "pk": 44,
     "fields": {
-        "name": "Can view asigna",
+        "name": "Can view evaluacion",
         "content_type": 11,
-        "codename": "view_asigna"
+        "codename": "view_evaluacion"
     }
 },
 {
     "model": "auth.permission",
     "pk": 45,
     "fields": {
-        "name": "Can add jurado",
+        "name": "Can add notificacion",
         "content_type": 12,
-        "codename": "add_jurado"
+        "codename": "add_notificacion"
     }
 },
 {
     "model": "auth.permission",
     "pk": 46,
     "fields": {
-        "name": "Can change jurado",
+        "name": "Can change notificacion",
         "content_type": 12,
-        "codename": "change_jurado"
+        "codename": "change_notificacion"
     }
 },
 {
     "model": "auth.permission",
     "pk": 47,
     "fields": {
-        "name": "Can delete jurado",
+        "name": "Can delete notificacion",
         "content_type": 12,
-        "codename": "delete_jurado"
+        "codename": "delete_notificacion"
     }
 },
 {
     "model": "auth.permission",
     "pk": 48,
     "fields": {
-        "name": "Can view jurado",
+        "name": "Can view notificacion",
         "content_type": 12,
-        "codename": "view_jurado"
+        "codename": "view_notificacion"
     }
 },
 {
     "model": "auth.permission",
     "pk": 49,
     "fields": {
-        "name": "Can add evaluacion",
+        "name": "Can add inscribe",
         "content_type": 13,
-        "codename": "add_evaluacion"
+        "codename": "add_inscribe"
     }
 },
 {
     "model": "auth.permission",
     "pk": 50,
     "fields": {
-        "name": "Can change evaluacion",
+        "name": "Can change inscribe",
         "content_type": 13,
-        "codename": "change_evaluacion"
+        "codename": "change_inscribe"
     }
 },
 {
     "model": "auth.permission",
     "pk": 51,
     "fields": {
-        "name": "Can delete evaluacion",
+        "name": "Can delete inscribe",
         "content_type": 13,
-        "codename": "delete_evaluacion"
+        "codename": "delete_inscribe"
     }
 },
 {
     "model": "auth.permission",
     "pk": 52,
     "fields": {
-        "name": "Can view evaluacion",
+        "name": "Can view inscribe",
         "content_type": 13,
-        "codename": "view_evaluacion"
+        "codename": "view_inscribe"
     }
 },
 {
     "model": "auth.permission",
     "pk": 53,
     "fields": {
-        "name": "Can add notificacion",
+        "name": "Can add trabajo",
         "content_type": 14,
-        "codename": "add_notificacion"
+        "codename": "add_trabajo"
     }
 },
 {
     "model": "auth.permission",
     "pk": 54,
     "fields": {
-        "name": "Can change notificacion",
+        "name": "Can change trabajo",
         "content_type": 14,
-        "codename": "change_notificacion"
+        "codename": "change_trabajo"
     }
 },
 {
     "model": "auth.permission",
     "pk": 55,
     "fields": {
-        "name": "Can delete notificacion",
+        "name": "Can delete trabajo",
         "content_type": 14,
-        "codename": "delete_notificacion"
+        "codename": "delete_trabajo"
     }
 },
 {
     "model": "auth.permission",
     "pk": 56,
     "fields": {
-        "name": "Can view notificacion",
+        "name": "Can view trabajo",
         "content_type": 14,
-        "codename": "view_notificacion"
+        "codename": "view_trabajo"
     }
 },
 {
     "model": "auth.permission",
     "pk": 57,
     "fields": {
-        "name": "Can add inscribe",
+        "name": "Can add user",
         "content_type": 15,
-        "codename": "add_inscribe"
+        "codename": "add_usuario"
     }
 },
 {
     "model": "auth.permission",
     "pk": 58,
     "fields": {
-        "name": "Can change inscribe",
+        "name": "Can change user",
         "content_type": 15,
-        "codename": "change_inscribe"
+        "codename": "change_usuario"
     }
 },
 {
     "model": "auth.permission",
     "pk": 59,
     "fields": {
-        "name": "Can delete inscribe",
+        "name": "Can delete user",
         "content_type": 15,
-        "codename": "delete_inscribe"
+        "codename": "delete_usuario"
     }
 },
 {
     "model": "auth.permission",
     "pk": 60,
     "fields": {
-        "name": "Can view inscribe",
+        "name": "Can view user",
         "content_type": 15,
-        "codename": "view_inscribe"
+        "codename": "view_usuario"
     }
 },
 {
     "model": "auth.permission",
     "pk": 61,
     "fields": {
-        "name": "Can add trabajo",
+        "name": "Can add recibe",
         "content_type": 16,
-        "codename": "add_trabajo"
+        "codename": "add_recibe"
     }
 },
 {
     "model": "auth.permission",
     "pk": 62,
     "fields": {
-        "name": "Can change trabajo",
+        "name": "Can change recibe",
         "content_type": 16,
-        "codename": "change_trabajo"
+        "codename": "change_recibe"
     }
 },
 {
     "model": "auth.permission",
     "pk": 63,
     "fields": {
-        "name": "Can delete trabajo",
+        "name": "Can delete recibe",
         "content_type": 16,
-        "codename": "delete_trabajo"
+        "codename": "delete_recibe"
     }
 },
 {
     "model": "auth.permission",
     "pk": 64,
     "fields": {
-        "name": "Can view trabajo",
+        "name": "Can view recibe",
         "content_type": 16,
-        "codename": "view_trabajo"
+        "codename": "view_recibe"
     }
 },
 {
     "model": "auth.permission",
     "pk": 65,
     "fields": {
-        "name": "Can add recibe",
+        "name": "Can add perfil",
         "content_type": 17,
-        "codename": "add_recibe"
+        "codename": "add_perfil"
     }
 },
 {
     "model": "auth.permission",
     "pk": 66,
     "fields": {
-        "name": "Can change recibe",
+        "name": "Can change perfil",
         "content_type": 17,
-        "codename": "change_recibe"
+        "codename": "change_perfil"
     }
 },
 {
     "model": "auth.permission",
     "pk": 67,
     "fields": {
-        "name": "Can delete recibe",
+        "name": "Can delete perfil",
         "content_type": 17,
-        "codename": "delete_recibe"
+        "codename": "delete_perfil"
     }
 },
 {
     "model": "auth.permission",
     "pk": 68,
     "fields": {
-        "name": "Can view recibe",
-        "content_type": 17,
-        "codename": "view_recibe"
-    }
-},
-{
-    "model": "auth.permission",
-    "pk": 69,
-    "fields": {
-        "name": "Can add perfil",
-        "content_type": 18,
-        "codename": "add_perfil"
-    }
-},
-{
-    "model": "auth.permission",
-    "pk": 70,
-    "fields": {
-        "name": "Can change perfil",
-        "content_type": 18,
-        "codename": "change_perfil"
-    }
-},
-{
-    "model": "auth.permission",
-    "pk": 71,
-    "fields": {
-        "name": "Can delete perfil",
-        "content_type": 18,
-        "codename": "delete_perfil"
-    }
-},
-{
-    "model": "auth.permission",
-    "pk": 72,
-    "fields": {
         "name": "Can view perfil",
-        "content_type": 18,
+        "content_type": 17,
         "codename": "view_perfil"
+    }
+},
+{
+    "model": "auth.group",
+    "pk": 1,
+    "fields": {
+        "name": "Administrador",
+        "permissions": [
+            21,
+            22,
+            23,
+            24,
+            33,
+            34,
+            35,
+            36,
+            29,
+            30,
+            31,
+            32,
+            41,
+            42,
+            43,
+            44,
+            49,
+            50,
+            51,
+            52,
+            37,
+            38,
+            39,
+            40,
+            45,
+            46,
+            47,
+            48,
+            25,
+            26,
+            27,
+            28,
+            65,
+            66,
+            67,
+            68,
+            61,
+            62,
+            63,
+            64,
+            53,
+            54,
+            55,
+            56,
+            57,
+            58,
+            59,
+            60
+        ]
+    }
+},
+{
+    "model": "auth.group",
+    "pk": 2,
+    "fields": {
+        "name": "Jurados",
+        "permissions": [
+            32,
+            41,
+            42,
+            44,
+            48,
+            28,
+            56
+        ]
+    }
+},
+{
+    "model": "auth.group",
+    "pk": 3,
+    "fields": {
+        "name": "Participantes",
+        "permissions": [
+            32,
+            49,
+            50,
+            52,
+            48,
+            28,
+            68,
+            53,
+            56
+        ]
+    }
+},
+{
+    "model": "auth.group",
+    "pk": 4,
+    "fields": {
+        "name": "Usuario",
+        "permissions": [
+            32,
+            28,
+            68
+        ]
+    }
+},
+{
+    "model": "auth.group",
+    "pk": 5,
+    "fields": {
+        "name": "Participante",
+        "permissions": []
     }
 },
 {
@@ -675,21 +750,13 @@
     "model": "contenttypes.contenttype",
     "pk": 4,
     "fields": {
-        "app_label": "auth",
-        "model": "user"
-    }
-},
-{
-    "model": "contenttypes.contenttype",
-    "pk": 5,
-    "fields": {
         "app_label": "contenttypes",
         "model": "contenttype"
     }
 },
 {
     "model": "contenttypes.contenttype",
-    "pk": 6,
+    "pk": 5,
     "fields": {
         "app_label": "sessions",
         "model": "session"
@@ -697,7 +764,7 @@
 },
 {
     "model": "contenttypes.contenttype",
-    "pk": 7,
+    "pk": 6,
     "fields": {
         "app_label": "Concursos_Online",
         "model": "administrador"
@@ -705,7 +772,7 @@
 },
 {
     "model": "contenttypes.contenttype",
-    "pk": 8,
+    "pk": 7,
     "fields": {
         "app_label": "Concursos_Online",
         "model": "participante"
@@ -713,15 +780,7 @@
 },
 {
     "model": "contenttypes.contenttype",
-    "pk": 9,
-    "fields": {
-        "app_label": "Concursos_Online",
-        "model": "usuario"
-    }
-},
-{
-    "model": "contenttypes.contenttype",
-    "pk": 10,
+    "pk": 8,
     "fields": {
         "app_label": "Concursos_Online",
         "model": "concurso"
@@ -729,7 +788,7 @@
 },
 {
     "model": "contenttypes.contenttype",
-    "pk": 11,
+    "pk": 9,
     "fields": {
         "app_label": "Concursos_Online",
         "model": "asigna"
@@ -737,7 +796,7 @@
 },
 {
     "model": "contenttypes.contenttype",
-    "pk": 12,
+    "pk": 10,
     "fields": {
         "app_label": "Concursos_Online",
         "model": "jurado"
@@ -745,7 +804,7 @@
 },
 {
     "model": "contenttypes.contenttype",
-    "pk": 13,
+    "pk": 11,
     "fields": {
         "app_label": "Concursos_Online",
         "model": "evaluacion"
@@ -753,7 +812,7 @@
 },
 {
     "model": "contenttypes.contenttype",
-    "pk": 14,
+    "pk": 12,
     "fields": {
         "app_label": "Concursos_Online",
         "model": "notificacion"
@@ -761,7 +820,7 @@
 },
 {
     "model": "contenttypes.contenttype",
-    "pk": 15,
+    "pk": 13,
     "fields": {
         "app_label": "Concursos_Online",
         "model": "inscribe"
@@ -769,7 +828,7 @@
 },
 {
     "model": "contenttypes.contenttype",
-    "pk": 16,
+    "pk": 14,
     "fields": {
         "app_label": "Concursos_Online",
         "model": "trabajo"
@@ -777,7 +836,15 @@
 },
 {
     "model": "contenttypes.contenttype",
-    "pk": 17,
+    "pk": 15,
+    "fields": {
+        "app_label": "Concursos_Online",
+        "model": "usuario"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 16,
     "fields": {
         "app_label": "Concursos_Online",
         "model": "recibe"
@@ -785,7 +852,7 @@
 },
 {
     "model": "contenttypes.contenttype",
-    "pk": 18,
+    "pk": 17,
     "fields": {
         "app_label": "Concursos_Online",
         "model": "perfil"
@@ -795,340 +862,735 @@
     "model": "Concursos_Online.usuario",
     "pk": 1,
     "fields": {
-        "nombre_usuario": "josefina16",
-        "correo": "gasparalcala@example.net",
-        "password": "w7fPKEkQ@w",
-        "fecha_registro": "2025-11-30T14:58:57.894"
+        "password": "pbkdf2_sha256$870000$drScRo9IxQlB3nOdsU9t7H$M//92vJ5KaxX89APZpxaE2fNXiID5dxiptfpEsZqwP8=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "victorinoaranda",
+        "first_name": "",
+        "last_name": "",
+        "email": "tereflores@example.net",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-12-08T21:37:01.866",
+        "rol": 2,
+        "groups": [
+            3,
+            4
+        ],
+        "user_permissions": []
     }
 },
 {
     "model": "Concursos_Online.usuario",
     "pk": 2,
     "fields": {
-        "nombre_usuario": "qsuarez",
-        "correo": "gomismaximiano@example.com",
-        "password": "0^b0^IRkv%",
-        "fecha_registro": "2025-11-30T14:58:57.902"
+        "password": "pbkdf2_sha256$870000$cK6glCVNlNvCLB6UoCOQ8m$afH3Cink32mqKp7H9p4MXkLU3a7FxCEc1n7VLwS/50Y=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "miguel-angelrocamora",
+        "first_name": "",
+        "last_name": "",
+        "email": "lidiasalazar@example.org",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-12-08T21:37:02.252",
+        "rol": 1,
+        "groups": [
+            1,
+            4
+        ],
+        "user_permissions": []
     }
 },
 {
     "model": "Concursos_Online.usuario",
     "pk": 3,
     "fields": {
-        "nombre_usuario": "fcisneros",
-        "correo": "fernando93@example.com",
-        "password": "x_4MhCMu%5",
-        "fecha_registro": "2025-11-30T14:58:57.908"
+        "password": "pbkdf2_sha256$870000$WT9kzyIz5ofQuvH4B97hNZ$D5GiGXEKcvDMzW1eC7LCKE71rWfXSCPF3jGrBwS99CQ=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "rosaliarobles",
+        "first_name": "",
+        "last_name": "",
+        "email": "maricruzmendizabal@example.net",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-12-08T21:37:02.623",
+        "rol": 2,
+        "groups": [
+            3,
+            4
+        ],
+        "user_permissions": []
     }
 },
 {
     "model": "Concursos_Online.usuario",
     "pk": 4,
     "fields": {
-        "nombre_usuario": "eulalia94",
-        "correo": "emelina53@example.net",
-        "password": "KMA^6YQce@",
-        "fecha_registro": "2025-11-30T14:58:57.913"
+        "password": "pbkdf2_sha256$870000$WU49Dfz6kQpWhaD2JzJKUS$LHRUqqzmKDujJFKY8jI2kdU04drKI/gEF06P9LpPSiY=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "codinageorgina",
+        "first_name": "",
+        "last_name": "",
+        "email": "qalcantara@example.net",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-12-08T21:37:02.994",
+        "rol": 1,
+        "groups": [
+            1,
+            4
+        ],
+        "user_permissions": []
     }
 },
 {
     "model": "Concursos_Online.usuario",
     "pk": 5,
     "fields": {
-        "nombre_usuario": "leopoldo62",
-        "correo": "urbanochico@example.net",
-        "password": "@D_3itBhS6",
-        "fecha_registro": "2025-11-30T14:58:57.920"
+        "password": "pbkdf2_sha256$870000$TEx5QGOxJai4jNLcdV8u2A$iGCuEC2lQYbqDl9iRWXi5FoSdVdrwtgaVaTyMxPDKuQ=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "nereida08",
+        "first_name": "",
+        "last_name": "",
+        "email": "salinasselena@example.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-12-08T21:37:03.366",
+        "rol": 2,
+        "groups": [
+            3,
+            4
+        ],
+        "user_permissions": []
     }
 },
 {
     "model": "Concursos_Online.usuario",
     "pk": 6,
     "fields": {
-        "nombre_usuario": "alegrefelisa",
-        "correo": "isaura86@example.org",
-        "password": "+2zfSoGmyu",
-        "fecha_registro": "2025-11-30T14:58:57.926"
+        "password": "pbkdf2_sha256$870000$H5rHms90ZFh5hJjNLOpgZJ$rqbgZZ7ibJu6RBUuO79w7cfrNFarERxqu/z/cKXeByo=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "kblanca",
+        "first_name": "",
+        "last_name": "",
+        "email": "paulinourena@example.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-12-08T21:37:03.738",
+        "rol": 2,
+        "groups": [
+            3,
+            4
+        ],
+        "user_permissions": []
     }
 },
 {
     "model": "Concursos_Online.usuario",
     "pk": 7,
     "fields": {
-        "nombre_usuario": "julieta47",
-        "correo": "dora89@example.org",
-        "password": "g3f5^GQ1@Y",
-        "fecha_registro": "2025-11-30T14:58:57.932"
+        "password": "pbkdf2_sha256$870000$s7VsCGs5o0ER0erbKoCguK$xT7HB7afLHeiQTxxEOnQbalKBH61ZwWr+1+eh1Hw6wA=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "edgar97",
+        "first_name": "",
+        "last_name": "",
+        "email": "candelario36@example.org",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-12-08T21:37:04.110",
+        "rol": 1,
+        "groups": [
+            1,
+            4
+        ],
+        "user_permissions": []
     }
 },
 {
     "model": "Concursos_Online.usuario",
     "pk": 8,
     "fields": {
-        "nombre_usuario": "eva-maria74",
-        "correo": "allermanuela@example.org",
-        "password": "uX2NgJXgF!",
-        "fecha_registro": "2025-11-30T14:58:57.937"
+        "password": "pbkdf2_sha256$870000$LmyPOcTXZVRd2Ow7pKM1SD$uYyh0XMBfgh0AiRHSzIv33Zr3+lL4pdsJ+Mbkk0IBpA=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "galannazario",
+        "first_name": "",
+        "last_name": "",
+        "email": "nroldan@example.org",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-12-08T21:37:04.483",
+        "rol": 2,
+        "groups": [
+            3,
+            4
+        ],
+        "user_permissions": []
     }
 },
 {
     "model": "Concursos_Online.usuario",
     "pk": 9,
     "fields": {
-        "nombre_usuario": "gpadilla",
-        "correo": "xgaray@example.org",
-        "password": "_0EmSe6qip",
-        "fecha_registro": "2025-11-30T14:58:57.943"
+        "password": "pbkdf2_sha256$870000$wUKdXvx84Ofh7J2U56g2bP$sc7hUz29hEn4F2MTNFGs6qepIPDqufyVvp3ViaAN9Ic=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "egomez",
+        "first_name": "",
+        "last_name": "",
+        "email": "maria-manuelalobo@example.org",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-12-08T21:37:04.858",
+        "rol": 2,
+        "groups": [
+            3,
+            4
+        ],
+        "user_permissions": []
     }
 },
 {
     "model": "Concursos_Online.usuario",
     "pk": 10,
     "fields": {
-        "nombre_usuario": "mosqueracandelario",
-        "correo": "imelda30@example.org",
-        "password": "$dHyi7fzu4",
-        "fecha_registro": "2025-11-30T14:58:57.949"
+        "password": "pbkdf2_sha256$870000$whaTK9Wzo0jKOml4W4ULQ3$OsSim6/yOV9RuSDGqF3rPCw/zNF6PsM5drBI7udXsi0=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "eliasmorante",
+        "first_name": "",
+        "last_name": "",
+        "email": "jodarflorentina@example.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-12-08T21:37:05.231",
+        "rol": 2,
+        "groups": [
+            3,
+            4
+        ],
+        "user_permissions": []
     }
 },
 {
     "model": "Concursos_Online.usuario",
     "pk": 11,
     "fields": {
-        "nombre_usuario": "victorino50",
-        "correo": "jose-ramon44@example.com",
-        "password": "+70C3OlGFk",
-        "fecha_registro": "2025-11-30T14:58:57.954"
+        "password": "pbkdf2_sha256$870000$6hS7TJJ5EcRYpOB9gRd11n$dSISTKu121h/mEy35aTrXG4Eu73HKANpbYE1X8VIJnk=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "socorro90",
+        "first_name": "",
+        "last_name": "",
+        "email": "piedadlarranaga@example.org",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-12-08T21:37:05.604",
+        "rol": 4,
+        "groups": [
+            4
+        ],
+        "user_permissions": []
     }
 },
 {
     "model": "Concursos_Online.usuario",
     "pk": 12,
     "fields": {
-        "nombre_usuario": "estevewilfredo",
-        "correo": "araujocayetano@example.com",
-        "password": "J!@8VOky*A",
-        "fecha_registro": "2025-11-30T14:58:57.959"
+        "password": "pbkdf2_sha256$870000$NZa2soMQwBa882RCcGfUM2$wfpNikhCRcMceaFIopkFk+1yKXdRWe96E3AmWEXwmxI=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "agustinluque",
+        "first_name": "",
+        "last_name": "",
+        "email": "calvetzaira@example.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-12-08T21:37:05.977",
+        "rol": 3,
+        "groups": [
+            2,
+            4
+        ],
+        "user_permissions": []
     }
 },
 {
     "model": "Concursos_Online.usuario",
     "pk": 13,
     "fields": {
-        "nombre_usuario": "encarnacion93",
-        "correo": "bernalsaturnino@example.org",
-        "password": "(5pSvOb_%p",
-        "fecha_registro": "2025-11-30T14:58:57.965"
+        "password": "pbkdf2_sha256$870000$C2w0eFK1hJQKSY6s4Nncke$pJCsRlmM/BwCqmcwRNbyQ8GRa55ymYqYzuNHyccTQbw=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "aitana94",
+        "first_name": "",
+        "last_name": "",
+        "email": "ameliabaena@example.org",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-12-08T21:37:06.349",
+        "rol": 4,
+        "groups": [
+            4
+        ],
+        "user_permissions": []
     }
 },
 {
     "model": "Concursos_Online.usuario",
     "pk": 14,
     "fields": {
-        "nombre_usuario": "florindarodenas",
-        "correo": "tatianamayoral@example.org",
-        "password": "SUMbDWw%!2",
-        "fecha_registro": "2025-11-30T14:58:57.970"
+        "password": "pbkdf2_sha256$870000$lmcZlpivEKouVu4SdDPLes$bLfQC86rwlzlImRW6QmSmg3UDgsaSuXGFgikTsSn610=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "romulo56",
+        "first_name": "",
+        "last_name": "",
+        "email": "maria-manuelamiro@example.net",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-12-08T21:37:06.711",
+        "rol": 2,
+        "groups": [
+            3,
+            4
+        ],
+        "user_permissions": []
     }
 },
 {
     "model": "Concursos_Online.usuario",
     "pk": 15,
     "fields": {
-        "nombre_usuario": "tejerajovita",
-        "correo": "andreslupita@example.net",
-        "password": "xI_4ERClpY",
-        "fecha_registro": "2025-11-30T14:58:57.976"
+        "password": "pbkdf2_sha256$870000$shVcuHwCkBYC0ljIv4yqBd$zPxSeZX1MMZLStj/uxHZcaOXboilbeoNTz6wPVJmhnY=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "isaura32",
+        "first_name": "",
+        "last_name": "",
+        "email": "nadia87@example.net",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-12-08T21:37:07.074",
+        "rol": 4,
+        "groups": [
+            4
+        ],
+        "user_permissions": []
     }
 },
 {
     "model": "Concursos_Online.usuario",
     "pk": 16,
     "fields": {
-        "nombre_usuario": "nebotconstanza",
-        "correo": "somozabuenaventura@example.com",
-        "password": "+MW2bWhyz!",
-        "fecha_registro": "2025-11-30T14:58:57.982"
+        "password": "pbkdf2_sha256$870000$rAZk0KCSgKvAQ9RKmAclCU$N69SpkQFLCOqV1U3lTJxW2nXubtJOMC378EywyzCptk=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "alara",
+        "first_name": "",
+        "last_name": "",
+        "email": "bmarcos@example.org",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-12-08T21:37:07.438",
+        "rol": 4,
+        "groups": [
+            4
+        ],
+        "user_permissions": []
     }
 },
 {
     "model": "Concursos_Online.usuario",
     "pk": 17,
     "fields": {
-        "nombre_usuario": "custodiamuniz",
-        "correo": "jaime71@example.com",
-        "password": ")uy93EJ+u@",
-        "fecha_registro": "2025-11-30T14:58:57.988"
+        "password": "pbkdf2_sha256$870000$epuPE2EIKBz5pW3LJ50RxU$LmzweMXi0OF8PdSKf7u9TRvNddMneXZpTJvz4ATUego=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "paola01",
+        "first_name": "",
+        "last_name": "",
+        "email": "xpuig@example.org",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-12-08T21:37:07.804",
+        "rol": 2,
+        "groups": [
+            3,
+            4
+        ],
+        "user_permissions": []
     }
 },
 {
     "model": "Concursos_Online.usuario",
     "pk": 18,
     "fields": {
-        "nombre_usuario": "onofre45",
-        "correo": "marta78@example.com",
-        "password": "Oy)&O2XpwQ",
-        "fecha_registro": "2025-11-30T14:58:57.994"
+        "password": "pbkdf2_sha256$870000$pOd9ExJnCRpkoRJrqJoSFH$9IiHiyNuIg5q3alWwXyNtctx/KtKtV1LlHwK9nn560I=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "armando14",
+        "first_name": "",
+        "last_name": "",
+        "email": "ferrerocristobal@example.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-12-08T21:37:08.165",
+        "rol": 4,
+        "groups": [
+            4
+        ],
+        "user_permissions": []
     }
 },
 {
     "model": "Concursos_Online.usuario",
     "pk": 19,
     "fields": {
-        "nombre_usuario": "flor16",
-        "correo": "javiera68@example.com",
-        "password": "+9^y32KjL9",
-        "fecha_registro": "2025-11-30T14:58:57.999"
+        "password": "pbkdf2_sha256$870000$XUCCsjOSWkc5BKiVODWG77$Mm6HcZVmJZJZIReV4fOzDxqmnXa0raRIDSGbs05sHD8=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "evangelinavalenzuela",
+        "first_name": "",
+        "last_name": "",
+        "email": "villalbamarisela@example.net",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-12-08T21:37:08.530",
+        "rol": 2,
+        "groups": [
+            3,
+            4
+        ],
+        "user_permissions": []
     }
 },
 {
     "model": "Concursos_Online.usuario",
     "pk": 20,
     "fields": {
-        "nombre_usuario": "karagones",
-        "correo": "lcasado@example.net",
-        "password": "mYXk@in(_4",
-        "fecha_registro": "2025-11-30T14:58:58.005"
+        "password": "pbkdf2_sha256$870000$FeWwb9nCYj18t209LuGD7w$zhnxBj+LBvXT3ePMJxQinBP0X2ITvEqdixJ83HXMI1Q=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "oluis",
+        "first_name": "",
+        "last_name": "",
+        "email": "concepcionarce@example.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-12-08T21:37:08.898",
+        "rol": 3,
+        "groups": [
+            2,
+            4
+        ],
+        "user_permissions": []
     }
 },
 {
     "model": "Concursos_Online.usuario",
     "pk": 21,
     "fields": {
-        "nombre_usuario": "vquiroga",
-        "correo": "arrietaaroa@example.net",
-        "password": "$1DgYwvPG_",
-        "fecha_registro": "2025-11-30T14:58:58.011"
+        "password": "pbkdf2_sha256$870000$ybTEkqvYjR4nK28ElLQY08$KIFxeJPDJyZMxRw9DkfgLoqqiehnuszbGsi7EIINIW8=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "corominasgeronimo",
+        "first_name": "",
+        "last_name": "",
+        "email": "abigail65@example.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-12-08T21:37:09.266",
+        "rol": 4,
+        "groups": [
+            4
+        ],
+        "user_permissions": []
     }
 },
 {
     "model": "Concursos_Online.usuario",
     "pk": 22,
     "fields": {
-        "nombre_usuario": "adriana54",
-        "correo": "filomenamacias@example.com",
-        "password": "^dI7@QZPs*",
-        "fecha_registro": "2025-11-30T14:58:58.017"
+        "password": "pbkdf2_sha256$870000$oscoPhgpcEAcI1SYWY57sn$cUbtnFETGieOhVF0neoyQ1h3dLd+7i+yN4Vy2uqcmY8=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "cabanillaschita",
+        "first_name": "",
+        "last_name": "",
+        "email": "trinidadrio@example.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-12-08T21:37:09.628",
+        "rol": 4,
+        "groups": [
+            4
+        ],
+        "user_permissions": []
     }
 },
 {
     "model": "Concursos_Online.usuario",
     "pk": 23,
     "fields": {
-        "nombre_usuario": "maristelaruiz",
-        "correo": "vasco33@example.org",
-        "password": "0m2m#Cqh*k",
-        "fecha_registro": "2025-11-30T14:58:58.023"
+        "password": "pbkdf2_sha256$870000$fcG25cMOq5uAddLLlBIQJo$QeXHTjxuk602qHb39nLDABL0Jpk3iKNWF1JHg8Jpc0Q=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "rossellolino",
+        "first_name": "",
+        "last_name": "",
+        "email": "marianaropero@example.net",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-12-08T21:37:09.985",
+        "rol": 3,
+        "groups": [
+            2,
+            4
+        ],
+        "user_permissions": []
     }
 },
 {
     "model": "Concursos_Online.usuario",
     "pk": 24,
     "fields": {
-        "nombre_usuario": "palomanieto",
-        "correo": "silvestreclemente@example.org",
-        "password": "^ZAc2qsn0$",
-        "fecha_registro": "2025-11-30T14:58:58.029"
+        "password": "pbkdf2_sha256$870000$455wDYyQRw1Kx1knIrnI7N$Eb5f+YmCV1TsB5jI7y+2jDcCEhjwLc7wRXasKGsvMOQ=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "orianasanmartin",
+        "first_name": "",
+        "last_name": "",
+        "email": "carlagomila@example.org",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-12-08T21:37:10.345",
+        "rol": 4,
+        "groups": [
+            4
+        ],
+        "user_permissions": []
     }
 },
 {
     "model": "Concursos_Online.usuario",
     "pk": 25,
     "fields": {
-        "nombre_usuario": "eliseo64",
-        "correo": "maricelatolosa@example.com",
-        "password": "o6uODcx+^1",
-        "fecha_registro": "2025-11-30T14:58:58.035"
+        "password": "pbkdf2_sha256$870000$15WwJPbWFM7DXRvqYhu7DI$c28yfU6n0XYhzK8EAaHwxhQiHR+kFqjUpSy6HTEbLZU=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "pascualaribera",
+        "first_name": "",
+        "last_name": "",
+        "email": "arandafrancisco-javier@example.org",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-12-08T21:37:10.711",
+        "rol": 4,
+        "groups": [
+            4
+        ],
+        "user_permissions": []
     }
 },
 {
     "model": "Concursos_Online.usuario",
     "pk": 26,
     "fields": {
-        "nombre_usuario": "epallares",
-        "correo": "primitiva52@example.com",
-        "password": "kP+97QRdD+",
-        "fecha_registro": "2025-11-30T14:58:58.042"
+        "password": "pbkdf2_sha256$870000$NF1anof0YiZ3eeRofGhIl9$LF/EROJaOw6dWT+rOXR79oWqtRw4c2rKwgoxhwHuicE=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "teresaheredia",
+        "first_name": "",
+        "last_name": "",
+        "email": "pereirateresa@example.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-12-08T21:37:11.076",
+        "rol": 3,
+        "groups": [
+            2,
+            4
+        ],
+        "user_permissions": []
     }
 },
 {
     "model": "Concursos_Online.usuario",
     "pk": 27,
     "fields": {
-        "nombre_usuario": "marcelozamora",
-        "correo": "aguileracarmela@example.org",
-        "password": "AgXR)ihY(4",
-        "fecha_registro": "2025-11-30T14:58:58.048"
+        "password": "pbkdf2_sha256$870000$TsopRhntAr7frfunJYjAie$mLfp41Uw4MXl1ziJxYsnH2s7xyzZrOoWleq2Nx4OlUw=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "ernestocerda",
+        "first_name": "",
+        "last_name": "",
+        "email": "baudelio34@example.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-12-08T21:37:11.441",
+        "rol": 3,
+        "groups": [
+            2,
+            4
+        ],
+        "user_permissions": []
     }
 },
 {
     "model": "Concursos_Online.usuario",
     "pk": 28,
     "fields": {
-        "nombre_usuario": "victor79",
-        "correo": "victorcastello@example.org",
-        "password": "_F90K5Ci*s",
-        "fecha_registro": "2025-11-30T14:58:58.055"
+        "password": "pbkdf2_sha256$870000$FZbfhxxRrBosBJjFpe4pdv$q4AfdJO4Tq6w9578FgNBHp0TM7//CkoEZq+ZA2mSXOg=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "blascodaniela",
+        "first_name": "",
+        "last_name": "",
+        "email": "jacintapedraza@example.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-12-08T21:37:11.805",
+        "rol": 4,
+        "groups": [
+            4
+        ],
+        "user_permissions": []
     }
 },
 {
     "model": "Concursos_Online.usuario",
     "pk": 29,
     "fields": {
-        "nombre_usuario": "agueda40",
-        "correo": "estevezemperatriz@example.net",
-        "password": "p$4uk+ScU1",
-        "fecha_registro": "2025-11-30T14:58:58.060"
+        "password": "pbkdf2_sha256$870000$Sz8rqt79qatuNDigoPRxCa$ICkFpJezjAuTiviMAnu2PjjXhoz6hxsEo5zX//EKw5s=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "pacifica76",
+        "first_name": "",
+        "last_name": "",
+        "email": "soriaale@example.org",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-12-08T21:37:12.173",
+        "rol": 4,
+        "groups": [
+            4
+        ],
+        "user_permissions": []
     }
 },
 {
     "model": "Concursos_Online.usuario",
     "pk": 30,
     "fields": {
-        "nombre_usuario": "huertaisabela",
-        "correo": "miguel65@example.org",
-        "password": "qt0AJxXb#@",
-        "fecha_registro": "2025-11-30T14:58:58.066"
+        "password": "pbkdf2_sha256$870000$lfLeu6jUXqyzN0n1Y3fF8w$EkBSFTPB4ETHmnSQKjW22AzRXITfK2YWvwDygwcnfuU=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "guillermo43",
+        "first_name": "",
+        "last_name": "",
+        "email": "porfirio58@example.org",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-12-08T21:37:12.539",
+        "rol": 4,
+        "groups": [
+            4
+        ],
+        "user_permissions": []
     }
 },
 {
     "model": "Concursos_Online.usuario",
     "pk": 31,
     "fields": {
-        "nombre_usuario": "Usuario_004",
-        "correo": "prueba4@gmail.com",
-        "password": "12345678",
-        "fecha_registro": "2025-11-30T15:07:29.570"
+        "password": "pbkdf2_sha256$870000$Cez68SbOzwuvJ1fVtzaKgd$Bh9+CvRVfBU9MLuXKlfwYNrfRG8dxW49PANg6ME7eos=",
+        "last_login": "2025-12-08T21:38:00.398",
+        "is_superuser": true,
+        "username": "super-admin",
+        "first_name": "",
+        "last_name": "",
+        "email": "super-admin@example.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2025-12-08T21:37:14.136",
+        "rol": 4,
+        "groups": [
+            4
+        ],
+        "user_permissions": []
     }
 },
 {
     "model": "Concursos_Online.usuario",
     "pk": 32,
     "fields": {
-        "nombre_usuario": "Cristiano",
-        "correo": "cristianoronaldo@gmail.com",
-        "password": "12345678",
-        "fecha_registro": "2025-11-30T15:10:19.304"
+        "password": "pbkdf2_sha256$870000$ItZ5ElvUvBIIWCPqnzoqtI$DyzGm2Yt/jz+ptihj+8iz8LC6hsOUJpcvdP+53MGkx4=",
+        "last_login": "2025-12-08T21:37:47.985",
+        "is_superuser": false,
+        "username": "admin",
+        "first_name": "",
+        "last_name": "",
+        "email": "admin@example.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-12-08T21:37:14.541",
+        "rol": 4,
+        "groups": [
+            1,
+            4
+        ],
+        "user_permissions": []
     }
 },
 {
     "model": "Concursos_Online.usuario",
     "pk": 33,
     "fields": {
-        "nombre_usuario": "Paco",
-        "correo": "paco@gmail.com",
-        "password": "12345678",
-        "fecha_registro": "2025-11-30T15:12:52.179"
+        "password": "pbkdf2_sha256$870000$DNrI2UnpsvKhPPuiFYq0Wq$aQFqt87yLPsAhw9RJLTQSuRjoAG0JMoSG5gwcXmu/Ds=",
+        "last_login": "2025-12-08T21:38:17.296",
+        "is_superuser": false,
+        "username": "jurado",
+        "first_name": "",
+        "last_name": "",
+        "email": "jurado@example.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-12-08T21:37:14.936",
+        "rol": 4,
+        "groups": [
+            2,
+            4
+        ],
+        "user_permissions": []
     }
 },
 {
     "model": "Concursos_Online.usuario",
     "pk": 34,
     "fields": {
-        "nombre_usuario": "Usuario_005",
-        "correo": "prueba5@gmail.com",
-        "password": "12345678",
-        "fecha_registro": "2025-11-30T16:39:51.861"
+        "password": "pbkdf2_sha256$870000$kOWT993V5GbWbZjUE6zSrb$IxuHIB0m3/uu4OQwgb263ktT/JWkfyLanLH9ehtInA8=",
+        "last_login": "2025-12-08T21:38:28.573",
+        "is_superuser": false,
+        "username": "participante",
+        "first_name": "",
+        "last_name": "",
+        "email": "participante@example.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-12-08T21:37:15.327",
+        "rol": 4,
+        "groups": [
+            4,
+            5
+        ],
+        "user_permissions": []
     }
 },
 {
@@ -1136,10 +1598,10 @@
     "pk": 1,
     "fields": {
         "usuario": 1,
-        "nombre_completo": "León Suarez Mendoza",
-        "biografia": "Decisión modo crisis diversos a momento. Está carta nosotros dan parecía puntos del.\r\nCapaz aparece ningún antes. Eso medida hombres julio sociedad posición hacerlo. Llama mayores situación población.",
-        "fecha_nacimiento": "1975-01-15",
-        "imagen_perfil": ""
+        "nombre_completo": "Herminio Castell",
+        "biografia": "Estado muerto entre podía. Tengo orden valor trata vuelve popular.",
+        "fecha_nacimiento": "1991-01-06",
+        "imagen_perfil": "usuarios/foto-perfil-001.jpg"
     }
 },
 {
@@ -1147,10 +1609,10 @@
     "pk": 2,
     "fields": {
         "usuario": 2,
-        "nombre_completo": "Gil Pozo-Ropero",
-        "biografia": "Universidad cargo memoria pedro respecto. Partido tenía ese esto texto. Primero sus toma.",
-        "fecha_nacimiento": "2001-01-01",
-        "imagen_perfil": "usuarios/default.jpg"
+        "nombre_completo": "Pilar del Llanos",
+        "biografia": "Pública nos don los si algún. Algún esfuerzo señora animales. Miguel naturaleza distintos manuel tuvo político. Perdido madrid tú sociedad principio carácter podemos.",
+        "fecha_nacimiento": "2007-07-03",
+        "imagen_perfil": "usuarios/foto-perfil-002.jpg"
     }
 },
 {
@@ -1158,10 +1620,10 @@
     "pk": 3,
     "fields": {
         "usuario": 3,
-        "nombre_completo": "Jordana Fabra Blanco",
-        "biografia": "Falta e seguro estados autor. Aquellos aumento especialmente aún mejor. Contrario iba servicio línea área le.",
-        "fecha_nacimiento": "1958-04-28",
-        "imagen_perfil": "usuarios/default.jpg"
+        "nombre_completo": "Consuela Guardia López",
+        "biografia": "Junto problema diferentes situación control semana. E millones tenía. Encuentro próximo objetivo el queda fueron aire.\nPropios humana sino natural. Aspectos banco natural lugar interés importantes.",
+        "fecha_nacimiento": "1959-01-12",
+        "imagen_perfil": "usuarios/foto-perfil-003.jpg"
     }
 },
 {
@@ -1169,10 +1631,10 @@
     "pk": 4,
     "fields": {
         "usuario": 4,
-        "nombre_completo": "Tomasa Valderrama Esteban",
-        "biografia": "Primer muchas hablar tratamiento. Fueron española propuesta. Universidad bien calidad idea respecto fueron aunque.\nUsted no siguiente partido. Vida propio trabajar españoles sociedad menos.",
-        "fecha_nacimiento": "1974-01-09",
-        "imagen_perfil": "usuarios/default.jpg"
+        "nombre_completo": "Glauco Tomé Vazquez",
+        "biografia": "Españoles elementos calidad estas cultural e fuentes eran. Expresión teoría segunda parte parís precisamente prensa. Pese figura actitud vez solamente.",
+        "fecha_nacimiento": "1955-12-02",
+        "imagen_perfil": "usuarios/foto-perfil-004.jpg"
     }
 },
 {
@@ -1180,945 +1642,934 @@
     "pk": 5,
     "fields": {
         "usuario": 5,
-        "nombre_completo": "José Mari Gutierrez Carlos",
-        "biografia": "Puede cuestión consecuencia espera presente tipo después. Juicio fue ningún precisamente parecía.",
-        "fecha_nacimiento": "1961-09-22",
-        "imagen_perfil": "usuarios/default.jpg"
+        "nombre_completo": "Erasmo del Anglada",
+        "biografia": "Hemos aire cambios presente. Existencia cargo hospital desde poco.\nSituación fuego siendo armas. Siete en existe conciencia minutos quiero. Violencia contenido nada habrá nuevo mantener.",
+        "fecha_nacimiento": "1975-04-17",
+        "imagen_perfil": "usuarios/foto-perfil-005.jpg"
     }
 },
 {
     "model": "Concursos_Online.perfil",
-    "pk": 7,
-    "fields": {
-        "usuario": 7,
-        "nombre_completo": "Teo Madrigal Burgos",
-        "biografia": "Cara felipe dios diferentes distintos. País siempre acción ve unidos todo has ir. Existe unidad méxico puedo momentos.\nEconomía deben evitar millones. Figura dio respuesta mejores.",
-        "fecha_nacimiento": "1991-09-14",
-        "imagen_perfil": "usuarios/default.jpg"
-    }
-},
-{
-    "model": "Concursos_Online.perfil",
-    "pk": 8,
-    "fields": {
-        "usuario": 8,
-        "nombre_completo": "Che Cerdá-Vidal",
-        "biografia": "Abril control realizar ese llegó. Tenía minutos real sabe como veces.\nPasa servicios eso diversas energía. Tal nuevo reforma carne.",
-        "fecha_nacimiento": "1983-09-22",
-        "imagen_perfil": "usuarios/default.jpg"
-    }
-},
-{
-    "model": "Concursos_Online.perfil",
-    "pk": 9,
-    "fields": {
-        "usuario": 9,
-        "nombre_completo": "Ainara Escolano Alcalá",
-        "biografia": "María nuestros enero internacional.\nÚltimos esa política poder algo méxico. Españoles habla crisis toma. Lugar cerca calidad derecha.",
-        "fecha_nacimiento": "1974-11-17",
-        "imagen_perfil": "usuarios/default.jpg"
-    }
-},
-{
-    "model": "Concursos_Online.perfil",
-    "pk": 10,
-    "fields": {
-        "usuario": 10,
-        "nombre_completo": "Moisés del Espada",
-        "biografia": "Quizá fuego derecha entrada los. Su puerta hora posible análisis hombres poder.\nComún flores tierra junio.",
-        "fecha_nacimiento": "1971-11-29",
-        "imagen_perfil": "usuarios/default.jpg"
-    }
-},
-{
-    "model": "Concursos_Online.perfil",
-    "pk": 11,
-    "fields": {
-        "usuario": 11,
-        "nombre_completo": "René de Guerrero",
-        "biografia": "Paciente torno volvió dirección tres. Libro información sabe.\nPrimer sin evitar tipos actual muy. Estas apenas centros título capital difícil.",
-        "fecha_nacimiento": "1969-03-03",
-        "imagen_perfil": "usuarios/default.jpg"
-    }
-},
-{
-    "model": "Concursos_Online.perfil",
-    "pk": 12,
-    "fields": {
-        "usuario": 12,
-        "nombre_completo": "Juan Malo Salamanca",
-        "biografia": "Importante ellos acerca días siendo. Movimiento varios técnica eso fácil quiere aquel.\nAnimales sobre quiero don capital muchos. Siempre parece militar suficiente durante finalmente parís. Un solo n.",
-        "fecha_nacimiento": "1970-07-25",
-        "imagen_perfil": "usuarios/default.jpg"
-    }
-},
-{
-    "model": "Concursos_Online.perfil",
-    "pk": 13,
-    "fields": {
-        "usuario": 13,
-        "nombre_completo": "Olimpia Lilia Huerta Villalonga",
-        "biografia": "Pedro acciones orden has libre centro resulta. López reunión tierra cuenta. Oficial grupo españa presencia fernando siglo.",
-        "fecha_nacimiento": "1971-09-22",
-        "imagen_perfil": "usuarios/default.jpg"
-    }
-},
-{
-    "model": "Concursos_Online.perfil",
-    "pk": 14,
-    "fields": {
-        "usuario": 14,
-        "nombre_completo": "Severino Barragán Rovira",
-        "biografia": "Miguel cuenta señora final. Dios proyectos voy cabeza políticos. Haciendo causa tal comunidad.\nLa cómo domingo fiscal. Va autor hubo tienen estados. Nuevo razones escuela director joven.",
-        "fecha_nacimiento": "1975-07-07",
-        "imagen_perfil": "usuarios/default.jpg"
-    }
-},
-{
-    "model": "Concursos_Online.perfil",
-    "pk": 15,
-    "fields": {
-        "usuario": 15,
-        "nombre_completo": "Bruno Galvez Jódar",
-        "biografia": "Comunicación voy formación contra salida. Tiene mayor nombre primer. Españoles desde nuevo mar cada francia.",
-        "fecha_nacimiento": "1970-01-07",
-        "imagen_perfil": "usuarios/default.jpg"
-    }
-},
-{
-    "model": "Concursos_Online.perfil",
-    "pk": 16,
-    "fields": {
-        "usuario": 16,
-        "nombre_completo": "Darío Cañete Ferrer",
-        "biografia": "Evitar calidad debido fondo cama ser consumo. Momento entrada frente victoria todavía papel españoles.",
-        "fecha_nacimiento": "1970-07-30",
-        "imagen_perfil": "usuarios/default.jpg"
-    }
-},
-{
-    "model": "Concursos_Online.perfil",
-    "pk": 17,
-    "fields": {
-        "usuario": 17,
-        "nombre_completo": "Primitiva Conde-Juliá",
-        "biografia": "Cabeza fernando dentro cantidad pesar. Encuentro tenía tomar lópez suelo.",
-        "fecha_nacimiento": "1958-04-14",
-        "imagen_perfil": "usuarios/default.jpg"
-    }
-},
-{
-    "model": "Concursos_Online.perfil",
-    "pk": 18,
-    "fields": {
-        "usuario": 18,
-        "nombre_completo": "Claudia Ramirez Sobrino",
-        "biografia": "Conjunto formas familia empresa un ninguna. Técnica nuevos hechos.\nExiste políticos fútbol universidad principal. Aspecto haya especial español recuerdo.",
-        "fecha_nacimiento": "1972-07-08",
-        "imagen_perfil": "usuarios/default.jpg"
-    }
-},
-{
-    "model": "Concursos_Online.perfil",
-    "pk": 19,
-    "fields": {
-        "usuario": 19,
-        "nombre_completo": "Saturnina Mata Casanovas",
-        "biografia": "Saber función maría segundo. Derecho parecía posición mucho. Defensa fuerte diferentes fueron.\nFueron chile oro como mantener habla esto. Ella nuestras propio.",
-        "fecha_nacimiento": "1993-11-27",
-        "imagen_perfil": "usuarios/default.jpg"
-    }
-},
-{
-    "model": "Concursos_Online.perfil",
-    "pk": 20,
-    "fields": {
-        "usuario": 20,
-        "nombre_completo": "Victoria Bejarano-Fernández",
-        "biografia": "Rey manuel usted cuarto. G plan material plaza fueron tendrá.\nDebe sus campo voluntad electoral armas. Industria pesar incluso hemos energía.",
-        "fecha_nacimiento": "1973-08-28",
-        "imagen_perfil": "usuarios/default.jpg"
-    }
-},
-{
-    "model": "Concursos_Online.perfil",
-    "pk": 21,
-    "fields": {
-        "usuario": 21,
-        "nombre_completo": "Julieta Juanita Calleja Gallo",
-        "biografia": "Dolor estilo decisión tener sur. País pronto políticos hora realizar. Queda mientras aunque reforma.\nHace una área el ejército poder ocho. Total nuestra josé aparece diferencia días junio.",
-        "fecha_nacimiento": "1963-10-08",
-        "imagen_perfil": "usuarios/default.jpg"
-    }
-},
-{
-    "model": "Concursos_Online.perfil",
-    "pk": 22,
-    "fields": {
-        "usuario": 22,
-        "nombre_completo": "Máxima Castells Cueto",
-        "biografia": "Mira derecha nuestro ejemplo mismo dentro señor. Alta crisis máximo especialmente premio conocimiento gente.\nUno va son pasó mira acto. Ante una gobierno todavía amor habría.",
-        "fecha_nacimiento": "1963-04-25",
-        "imagen_perfil": "usuarios/default.jpg"
-    }
-},
-{
-    "model": "Concursos_Online.perfil",
-    "pk": 23,
-    "fields": {
-        "usuario": 23,
-        "nombre_completo": "Carmela del Zapata",
-        "biografia": "Control posibilidad muy sean posibilidades economía. Social ser ejemplo corazón director. Estado tarde popular.\nLibertad tratamiento estas.",
-        "fecha_nacimiento": "1956-04-05",
-        "imagen_perfil": "usuarios/default.jpg"
-    }
-},
-{
-    "model": "Concursos_Online.perfil",
-    "pk": 24,
-    "fields": {
-        "usuario": 24,
-        "nombre_completo": "Felipe Garriga Marquez",
-        "biografia": "Contenido diciembre consumo nuestros manuel. Hacer santiago acerca jefe chile país enfermedad siquiera.\nDinero decisión encontrar flores rafael interior quería. Jefe zonas obra movimiento cosas.",
-        "fecha_nacimiento": "2001-04-15",
-        "imagen_perfil": "usuarios/default.jpg"
-    }
-},
-{
-    "model": "Concursos_Online.perfil",
-    "pk": 25,
-    "fields": {
-        "usuario": 25,
-        "nombre_completo": "Antonia Naranjo Serra",
-        "biografia": "Ver nada iglesia maría buena primeras algunas. Interior productos estilo europea ellos.\nCultural rosa sola. Pablo todo francisco. Trabajo mal siete niveles particular decía.",
-        "fecha_nacimiento": "1975-12-02",
-        "imagen_perfil": "usuarios/default.jpg"
-    }
-},
-{
-    "model": "Concursos_Online.perfil",
-    "pk": 26,
-    "fields": {
-        "usuario": 26,
-        "nombre_completo": "Macarena Quirós Portero",
-        "biografia": "Valores acuerdo atención atrás pensar hace baja. Francia sin ejército desde deseo. Voy color ocasiones estados.",
-        "fecha_nacimiento": "1962-06-19",
-        "imagen_perfil": "usuarios/default.jpg"
-    }
-},
-{
-    "model": "Concursos_Online.perfil",
-    "pk": 27,
-    "fields": {
-        "usuario": 27,
-        "nombre_completo": "Malena Guerra",
-        "biografia": "Próximo natural centros muerte existencia. Señora españa asunto pasa fue dar marcha.\nLas paso instituciones pie. Común carácter nivel.",
-        "fecha_nacimiento": "2006-04-12",
-        "imagen_perfil": "usuarios/default.jpg"
-    }
-},
-{
-    "model": "Concursos_Online.perfil",
-    "pk": 28,
-    "fields": {
-        "usuario": 28,
-        "nombre_completo": "Baltasar de Torralba",
-        "biografia": "Reunión adelante origen tarde hombres dinero. Animales pablo ellos marco gracias jóvenes fiscal.\nD natural mientras otros. Como respecto plaza acuerdo horas hora. Democracia cara iglesia actual.",
-        "fecha_nacimiento": "1985-12-15",
-        "imagen_perfil": "usuarios/default.jpg"
-    }
-},
-{
-    "model": "Concursos_Online.perfil",
-    "pk": 29,
-    "fields": {
-        "usuario": 29,
-        "nombre_completo": "Marcos Blasco Iglesias",
-        "biografia": "Él salir luego llamado francia. Cultural encontrar año estaba imagen. Dios sino difícil objeto crisis j momentos.",
-        "fecha_nacimiento": "1977-01-11",
-        "imagen_perfil": "usuarios/default.jpg"
-    }
-},
-{
-    "model": "Concursos_Online.perfil",
-    "pk": 30,
-    "fields": {
-        "usuario": 30,
-        "nombre_completo": "Isa del Corominas",
-        "biografia": "Manuel estamos por él españoles noviembre media. Agua finalmente número aspecto puedo. Esa y conjunto armas mismo. Acerca aire domingo nosotros estilo plazo cuerpo.",
-        "fecha_nacimiento": "1973-05-30",
-        "imagen_perfil": "usuarios/default.jpg"
-    }
-},
-{
-    "model": "Concursos_Online.perfil",
-    "pk": 32,
-    "fields": {
-        "usuario": 32,
-        "nombre_completo": "Cristiano Ronaldo",
-        "biografia": "siuuuuuuuuuuuuu",
-        "fecha_nacimiento": "1985-02-05",
-        "imagen_perfil": "usuarios/prueba_3.webp"
-    }
-},
-{
-    "model": "Concursos_Online.perfil",
-    "pk": 33,
-    "fields": {
-        "usuario": 33,
-        "nombre_completo": "Paco paco",
-        "biografia": "hola soy paco",
-        "fecha_nacimiento": "2001-12-12",
-        "imagen_perfil": "usuarios/prueba_2.jpeg"
-    }
-},
-{
-    "model": "Concursos_Online.jurado",
-    "pk": 1,
-    "fields": {
-        "usuario": 7,
-        "experiencia": 1,
-        "especialidad": "Tasador",
-        "disponible": true,
-        "puntuacion_media": "8.98"
-    }
-},
-{
-    "model": "Concursos_Online.jurado",
-    "pk": 2,
-    "fields": {
-        "usuario": 17,
-        "experiencia": 9,
-        "especialidad": "Ebanista",
-        "disponible": true,
-        "puntuacion_media": "4.00"
-    }
-},
-{
-    "model": "Concursos_Online.jurado",
-    "pk": 3,
-    "fields": {
-        "usuario": 9,
-        "experiencia": 4,
-        "especialidad": "Impresor",
-        "disponible": true,
-        "puntuacion_media": "3.51"
-    }
-},
-{
-    "model": "Concursos_Online.jurado",
-    "pk": 4,
-    "fields": {
-        "usuario": 22,
-        "experiencia": 2,
-        "especialidad": "Optometrista",
-        "disponible": true,
-        "puntuacion_media": "5.55"
-    }
-},
-{
-    "model": "Concursos_Online.jurado",
-    "pk": 5,
-    "fields": {
-        "usuario": 5,
-        "experiencia": 7,
-        "especialidad": "Operador de instalaciones de producción de energía",
-        "disponible": true,
-        "puntuacion_media": "3.56"
-    }
-},
-{
-    "model": "Concursos_Online.participante",
-    "pk": 1,
-    "fields": {
-        "usuario": 25,
-        "alias": "begonaarteaga",
-        "edad": 44,
-        "nivel": 1,
-        "puntuacion_total": "51.01"
-    }
-},
-{
-    "model": "Concursos_Online.participante",
-    "pk": 2,
-    "fields": {
-        "usuario": 14,
-        "alias": "brigida26",
-        "edad": 56,
-        "nivel": 1,
-        "puntuacion_total": "8.09"
-    }
-},
-{
-    "model": "Concursos_Online.participante",
-    "pk": 3,
-    "fields": {
-        "usuario": 13,
-        "alias": "dcampoy",
-        "edad": 60,
-        "nivel": 5,
-        "puntuacion_total": "59.98"
-    }
-},
-{
-    "model": "Concursos_Online.participante",
-    "pk": 4,
-    "fields": {
-        "usuario": 10,
-        "alias": "vivesprimitiva",
-        "edad": 35,
-        "nivel": 5,
-        "puntuacion_total": "30.60"
-    }
-},
-{
-    "model": "Concursos_Online.participante",
-    "pk": 5,
-    "fields": {
-        "usuario": 1,
-        "alias": "rufina70",
-        "edad": 38,
-        "nivel": 1,
-        "puntuacion_total": "86.43"
-    }
-},
-{
-    "model": "Concursos_Online.participante",
     "pk": 6,
-    "fields": {
-        "usuario": 18,
-        "alias": "alonso18",
-        "edad": 23,
-        "nivel": 1,
-        "puntuacion_total": "3.67"
-    }
-},
-{
-    "model": "Concursos_Online.participante",
-    "pk": 7,
-    "fields": {
-        "usuario": 3,
-        "alias": "monica63",
-        "edad": 41,
-        "nivel": 3,
-        "puntuacion_total": "44.21"
-    }
-},
-{
-    "model": "Concursos_Online.participante",
-    "pk": 8,
-    "fields": {
-        "usuario": 11,
-        "alias": "patricio21",
-        "edad": 57,
-        "nivel": 2,
-        "puntuacion_total": "78.22"
-    }
-},
-{
-    "model": "Concursos_Online.participante",
-    "pk": 9,
-    "fields": {
-        "usuario": 4,
-        "alias": "hduque",
-        "edad": 42,
-        "nivel": 4,
-        "puntuacion_total": "29.78"
-    }
-},
-{
-    "model": "Concursos_Online.participante",
-    "pk": 10,
-    "fields": {
-        "usuario": 24,
-        "alias": "ana-sofiaverdugo",
-        "edad": 53,
-        "nivel": 4,
-        "puntuacion_total": "70.26"
-    }
-},
-{
-    "model": "Concursos_Online.administrador",
-    "pk": 1,
-    "fields": {
-        "usuario": 29,
-        "area_responsable": "Miembro del poder legislativo",
-        "activo": true,
-        "fecha_asignacion": "2025-11-30T14:58:58.263",
-        "horario_disponible": "03:17:00"
-    }
-},
-{
-    "model": "Concursos_Online.administrador",
-    "pk": 2,
-    "fields": {
-        "usuario": 21,
-        "area_responsable": "Matemático",
-        "activo": true,
-        "fecha_asignacion": "2025-11-30T14:58:58.269",
-        "horario_disponible": "01:29:26"
-    }
-},
-{
-    "model": "Concursos_Online.administrador",
-    "pk": 3,
-    "fields": {
-        "usuario": 26,
-        "area_responsable": "Reparador de bicicletas",
-        "activo": true,
-        "fecha_asignacion": "2025-11-30T14:58:58.275",
-        "horario_disponible": "14:56:53"
-    }
-},
-{
-    "model": "Concursos_Online.notificacion",
-    "pk": 1,
-    "fields": {
-        "autor": 1,
-        "titulo": "Derechos necesidad capacidad conocimiento.",
-        "mensaje": "Octubre últimos democracia europea nadie deben. Recursos algunas sobre pasa solo ellas hijo. Actividad finalmente familia primera aparece.",
-        "fecha_envio": "2025-11-30T14:58:58.756"
-    }
-},
-{
-    "model": "Concursos_Online.notificacion",
-    "pk": 2,
-    "fields": {
-        "autor": 1,
-        "titulo": "Familia negro cuales.",
-        "mensaje": "Parte sociedad vida imagen aire asunto todavía.\nLibro principios todos existen. Director dólares mujeres materia.",
-        "fecha_envio": "2025-11-30T14:58:58.793"
-    }
-},
-{
-    "model": "Concursos_Online.notificacion",
-    "pk": 3,
-    "fields": {
-        "autor": 2,
-        "titulo": "Energía sangre miguel mantener.",
-        "mensaje": "Comenzó encuentro don político todas profesional. Casos siempre esa espera. Pasar carne difícil marcha tres casos.",
-        "fecha_envio": "2025-11-30T14:58:58.830"
-    }
-},
-{
-    "model": "Concursos_Online.notificacion",
-    "pk": 4,
-    "fields": {
-        "autor": 2,
-        "titulo": "Universidad ni soy espacio.",
-        "mensaje": "Cabo esto propio negro. Llama hombre alguna año serán saber cambios resulta. Sea cierto banco pueblo antonio debido.",
-        "fecha_envio": "2025-11-30T14:58:58.863"
-    }
-},
-{
-    "model": "Concursos_Online.notificacion",
-    "pk": 5,
-    "fields": {
-        "autor": 3,
-        "titulo": "Les efectos instituciones plaza nadie opinión.",
-        "mensaje": "Apenas función imágenes eso puedo dentro. Ni después derecha generales.",
-        "fecha_envio": "2025-11-30T14:58:58.898"
-    }
-},
-{
-    "model": "Concursos_Online.notificacion",
-    "pk": 6,
-    "fields": {
-        "autor": 3,
-        "titulo": "Diferencia siendo capital obras cuerpo.",
-        "mensaje": "México internacional asimismo día sola. Relación riesgo medida razones. Campo llevar enero.",
-        "fecha_envio": "2025-11-30T14:58:58.934"
-    }
-},
-{
-    "model": "Concursos_Online.recibe",
-    "pk": 1,
-    "fields": {
-        "usuario": 28,
-        "notificacion": 1,
-        "estado": "EN",
-        "fecha_recepcion": "2025-11-30T14:58:58.763"
-    }
-},
-{
-    "model": "Concursos_Online.recibe",
-    "pk": 2,
-    "fields": {
-        "usuario": 11,
-        "notificacion": 1,
-        "estado": "EN",
-        "fecha_recepcion": "2025-11-30T14:58:58.769"
-    }
-},
-{
-    "model": "Concursos_Online.recibe",
-    "pk": 3,
-    "fields": {
-        "usuario": 27,
-        "notificacion": 1,
-        "estado": "EN",
-        "fecha_recepcion": "2025-11-30T14:58:58.775"
-    }
-},
-{
-    "model": "Concursos_Online.recibe",
-    "pk": 4,
-    "fields": {
-        "usuario": 19,
-        "notificacion": 1,
-        "estado": "EN",
-        "fecha_recepcion": "2025-11-30T14:58:58.781"
-    }
-},
-{
-    "model": "Concursos_Online.recibe",
-    "pk": 5,
-    "fields": {
-        "usuario": 30,
-        "notificacion": 1,
-        "estado": "EN",
-        "fecha_recepcion": "2025-11-30T14:58:58.787"
-    }
-},
-{
-    "model": "Concursos_Online.recibe",
-    "pk": 6,
-    "fields": {
-        "usuario": 28,
-        "notificacion": 2,
-        "estado": "PE",
-        "fecha_recepcion": "2025-11-30T14:58:58.798"
-    }
-},
-{
-    "model": "Concursos_Online.recibe",
-    "pk": 7,
-    "fields": {
-        "usuario": 16,
-        "notificacion": 2,
-        "estado": "EN",
-        "fecha_recepcion": "2025-11-30T14:58:58.805"
-    }
-},
-{
-    "model": "Concursos_Online.recibe",
-    "pk": 8,
-    "fields": {
-        "usuario": 25,
-        "notificacion": 2,
-        "estado": "PE",
-        "fecha_recepcion": "2025-11-30T14:58:58.811"
-    }
-},
-{
-    "model": "Concursos_Online.recibe",
-    "pk": 9,
-    "fields": {
-        "usuario": 20,
-        "notificacion": 2,
-        "estado": "PE",
-        "fecha_recepcion": "2025-11-30T14:58:58.817"
-    }
-},
-{
-    "model": "Concursos_Online.recibe",
-    "pk": 10,
-    "fields": {
-        "usuario": 1,
-        "notificacion": 2,
-        "estado": "EN",
-        "fecha_recepcion": "2025-11-30T14:58:58.823"
-    }
-},
-{
-    "model": "Concursos_Online.recibe",
-    "pk": 11,
     "fields": {
         "usuario": 6,
+        "nombre_completo": "Fabiana Beltrán Cabello",
+        "biografia": "Dicho técnica junto. Nada ejército político primer sentido blanco. Vamos paciente abril si congreso sociales obstante. Efectos político poner mitad ella toda unión falta.",
+        "fecha_nacimiento": "1968-01-06",
+        "imagen_perfil": "usuarios/foto-perfil-006.jpg"
+    }
+},
+{
+    "model": "Concursos_Online.perfil",
+    "pk": 7,
+    "fields": {
+        "usuario": 7,
+        "nombre_completo": "Espiridión Sola Barón",
+        "biografia": "Primera dado arriba sea. Aquella sino este revolución española resultado otro. Estudios él frente alrededor méxico de.",
+        "fecha_nacimiento": "1981-01-30",
+        "imagen_perfil": "usuarios/foto-perfil-007.jpg"
+    }
+},
+{
+    "model": "Concursos_Online.perfil",
+    "pk": 8,
+    "fields": {
+        "usuario": 8,
+        "nombre_completo": "Artemio Pi Rojas",
+        "biografia": "Poner muchas consejo estoy vez. San puso había amor quién.\nPesar partidos términos yo tener aparece. Encontrar decisión tenemos color medida. Seguridad necesario estructura club.",
+        "fecha_nacimiento": "1991-11-08",
+        "imagen_perfil": "usuarios/foto-perfil-008.jpg"
+    }
+},
+{
+    "model": "Concursos_Online.perfil",
+    "pk": 9,
+    "fields": {
+        "usuario": 9,
+        "nombre_completo": "Bernarda Elías Santos",
+        "biografia": "Música luis dos producto tema. Partes forma m nunca pesar riesgo cada resultado. Frente don nadie experiencia jamás espera. Media hermano larga mano paso generales mundo.",
+        "fecha_nacimiento": "1975-03-26",
+        "imagen_perfil": "usuarios/foto-perfil-009.jpg"
+    }
+},
+{
+    "model": "Concursos_Online.perfil",
+    "pk": 10,
+    "fields": {
+        "usuario": 10,
+        "nombre_completo": "Apolonia Palmira Jáuregui Salom",
+        "biografia": "Solo cabo maría voz con principios. Francia su carrera corazón. Llegar último hicieron.",
+        "fecha_nacimiento": "1991-11-27",
+        "imagen_perfil": "usuarios/foto-perfil-010.jpg"
+    }
+},
+{
+    "model": "Concursos_Online.perfil",
+    "pk": 11,
+    "fields": {
+        "usuario": 11,
+        "nombre_completo": "Candelas Gonzalo Tormo",
+        "biografia": "Precios obras cultural doctor eso. Medios personas carlos destino. Cine ésta paz arriba política quiere opinión sistema.\nCosas público entre. Tenemos buenos lucha mujer.",
+        "fecha_nacimiento": "1971-04-22",
+        "imagen_perfil": "usuarios/foto-perfil-011.jpg"
+    }
+},
+{
+    "model": "Concursos_Online.perfil",
+    "pk": 12,
+    "fields": {
+        "usuario": 12,
+        "nombre_completo": "Nereida del Peña",
+        "biografia": "Cuales sé proyecto cuya enfermedad. Salir principios pasar había doctor posibilidad. Sí peor no tendrá carne propia particular.",
+        "fecha_nacimiento": "1978-12-01",
+        "imagen_perfil": "usuarios/foto-perfil-012.jpg"
+    }
+},
+{
+    "model": "Concursos_Online.perfil",
+    "pk": 13,
+    "fields": {
+        "usuario": 13,
+        "nombre_completo": "Alejo Haro-Rovira",
+        "biografia": "Justicia información diez chile allí carrera internacional. Valor esta cómo siguientes también efecto empresa.",
+        "fecha_nacimiento": "1958-06-08",
+        "imagen_perfil": "usuarios/foto-perfil-013.jpg"
+    }
+},
+{
+    "model": "Concursos_Online.perfil",
+    "pk": 14,
+    "fields": {
+        "usuario": 14,
+        "nombre_completo": "Trinidad Concha Nicolás Espinosa",
+        "biografia": "Ejército algunas mayores período alta primero. Casa libertad alrededor llevar.",
+        "fecha_nacimiento": "1991-01-24",
+        "imagen_perfil": "usuarios/foto-perfil-014.jpg"
+    }
+},
+{
+    "model": "Concursos_Online.perfil",
+    "pk": 15,
+    "fields": {
+        "usuario": 15,
+        "nombre_completo": "Ignacio de Escudero",
+        "biografia": "Por después silencio miedo. Nacional puedo total tuvo silencio.\nUnión perdido posición última negro.\nPablo banco frente ministerio supuesto. Formas solución oposición origen.",
+        "fecha_nacimiento": "1975-07-20",
+        "imagen_perfil": "usuarios/foto-perfil-015.jpg"
+    }
+},
+{
+    "model": "Concursos_Online.perfil",
+    "pk": 16,
+    "fields": {
+        "usuario": 16,
+        "nombre_completo": "Lupe Carrillo",
+        "biografia": "Diciembre haciendo después estuvo memoria mirada llamado mejor. Por posible seguro europea domingo. Serán lo mis deja.",
+        "fecha_nacimiento": "1980-03-22",
+        "imagen_perfil": "usuarios/foto-perfil-016.jpg"
+    }
+},
+{
+    "model": "Concursos_Online.perfil",
+    "pk": 17,
+    "fields": {
+        "usuario": 17,
+        "nombre_completo": "Dani Mendoza-Oller",
+        "biografia": "Popular me niveles juego república jóvenes tienen. Universidad buen juan medios pesar. Color han compañía ese éste.",
+        "fecha_nacimiento": "1966-03-10",
+        "imagen_perfil": "usuarios/foto-perfil-017.jpg"
+    }
+},
+{
+    "model": "Concursos_Online.perfil",
+    "pk": 18,
+    "fields": {
+        "usuario": 18,
+        "nombre_completo": "Eva María del Donoso",
+        "biografia": "Unas fueron obras últimos conseguir formación cargo. Cuatro carlos unidad psoe. Pie vista que después.\nHombre aparece nuevos quiere. He son llamado hoy rafael victoria.",
+        "fecha_nacimiento": "1969-11-28",
+        "imagen_perfil": "usuarios/foto-perfil-018.jpg"
+    }
+},
+{
+    "model": "Concursos_Online.perfil",
+    "pk": 19,
+    "fields": {
+        "usuario": 19,
+        "nombre_completo": "Ainara Ferrando Adán",
+        "biografia": "Espera jorge estado tanto. Medida pequeño mar pesar nueva san hechos. Quien ninguna autor.",
+        "fecha_nacimiento": "1978-11-26",
+        "imagen_perfil": "usuarios/foto-perfil-019.jpg"
+    }
+},
+{
+    "model": "Concursos_Online.perfil",
+    "pk": 20,
+    "fields": {
+        "usuario": 20,
+        "nombre_completo": "Ruperta Mora Herranz",
+        "biografia": "Voy don qué otras. Otro fuentes razón n con democracia mucho. Mundo es palabra música n.\nEstados haciendo mal hemos madre curso zona. Primeras obstante muy grupo arte. Estuvo cantidad puerta.",
+        "fecha_nacimiento": "1978-06-15",
+        "imagen_perfil": "usuarios/foto-perfil-020.jpg"
+    }
+},
+{
+    "model": "Concursos_Online.perfil",
+    "pk": 21,
+    "fields": {
+        "usuario": 21,
+        "nombre_completo": "Bernabé Pánfilo Perez Ramirez",
+        "biografia": "Trabajar noche generales son.\nEspañola cinco toda construcción trabajar sea. Etapa parecía quería fuego manera bueno abril. Acerca sectores estilo pero expresión.",
+        "fecha_nacimiento": "1998-07-09",
+        "imagen_perfil": "usuarios/foto-perfil-021.jpg"
+    }
+},
+{
+    "model": "Concursos_Online.perfil",
+    "pk": 22,
+    "fields": {
+        "usuario": 22,
+        "nombre_completo": "Andrés Gibert Cases",
+        "biografia": "Francisco primeras medio boca hacer pie siempre. Primeras sector algún escuela tema cuya peso.",
+        "fecha_nacimiento": "1992-10-05",
+        "imagen_perfil": "usuarios/foto-perfil-022.jpg"
+    }
+},
+{
+    "model": "Concursos_Online.perfil",
+    "pk": 23,
+    "fields": {
+        "usuario": 23,
+        "nombre_completo": "Ruy Alarcón Ferrán",
+        "biografia": "Luego servicio lucha sociedad servicio lo siguientes. Expresión política argentina tú voluntad antes martín. Cuando cerca hasta río.",
+        "fecha_nacimiento": "1957-10-11",
+        "imagen_perfil": "usuarios/foto-perfil-023.jpg"
+    }
+},
+{
+    "model": "Concursos_Online.perfil",
+    "pk": 24,
+    "fields": {
+        "usuario": 24,
+        "nombre_completo": "Glauco Quiroga Losada",
+        "biografia": "Política don van fuera aquel cierta van. Chile c paso primera.\nUnos nacional nombre. Modo padres través. Torno sociedad español puerto dolor intereses población.",
+        "fecha_nacimiento": "2004-04-08",
+        "imagen_perfil": "usuarios/foto-perfil-024.jpg"
+    }
+},
+{
+    "model": "Concursos_Online.perfil",
+    "pk": 25,
+    "fields": {
+        "usuario": 25,
+        "nombre_completo": "Amada Abellán Rivas",
+        "biografia": "Consejo piel soy mayoría posición profesional generales. Busca hacia d prueba tipo casa. Ciencia actual cuba sociedad cine sabe.\nResultados comercio manos precisamente medios ahí.",
+        "fecha_nacimiento": "1964-03-13",
+        "imagen_perfil": "usuarios/foto-perfil-025.jpg"
+    }
+},
+{
+    "model": "Concursos_Online.perfil",
+    "pk": 26,
+    "fields": {
+        "usuario": 26,
+        "nombre_completo": "Maricruz Valenzuela Caparrós",
+        "biografia": "Opinión cama necesario pasó española actividades demás. Encontrar toma cuarto espacio una estilo año hicieron.\nCreo hubo santa ellos. Piel falta apoyo clase.",
+        "fecha_nacimiento": "1999-06-01",
+        "imagen_perfil": "usuarios/foto-perfil-026.jpg"
+    }
+},
+{
+    "model": "Concursos_Online.perfil",
+    "pk": 27,
+    "fields": {
+        "usuario": 27,
+        "nombre_completo": "Nuria Manjón",
+        "biografia": "Miembros jóvenes comenzó real partir después práctica. Una psoe tres líder servicios ejército paso.\nAsociación esta cultura cambios. Efecto televisión primer ii práctica organización.",
+        "fecha_nacimiento": "2000-02-04",
+        "imagen_perfil": "usuarios/foto-perfil-027.jpg"
+    }
+},
+{
+    "model": "Concursos_Online.perfil",
+    "pk": 28,
+    "fields": {
+        "usuario": 28,
+        "nombre_completo": "Renato del Tamarit",
+        "biografia": "Diario calidad grupo como algunos a durante. Palabra si algunas con. Nuevo dijo hay noche.\nCreación menos comunicación resto. Alto semana deja pensar carácter hospital cuyo varias.",
+        "fecha_nacimiento": "1969-03-06",
+        "imagen_perfil": "usuarios/foto-perfil-028.jpg"
+    }
+},
+{
+    "model": "Concursos_Online.perfil",
+    "pk": 29,
+    "fields": {
+        "usuario": 29,
+        "nombre_completo": "Cándido Caro Esparza",
+        "biografia": "Luego están carta. Persona pueda cualquier. Podría señor pese autoridades datos reforma derechos. Primero material esos dentro si francia vez.",
+        "fecha_nacimiento": "1979-04-04",
+        "imagen_perfil": "usuarios/foto-perfil-029.jpg"
+    }
+},
+{
+    "model": "Concursos_Online.perfil",
+    "pk": 30,
+    "fields": {
+        "usuario": 30,
+        "nombre_completo": "Faustino Sarabia Cisneros",
+        "biografia": "Derecho meses propio semanas aquellas sea hacen. Produce diferentes última ciudad suerte mucha siempre medida.\nEstados pasa puso asociación interior los. Embargo durante distintos exterior si julio.",
+        "fecha_nacimiento": "1988-12-13",
+        "imagen_perfil": "usuarios/foto-perfil-030.jpg"
+    }
+},
+{
+    "model": "Concursos_Online.jurado",
+    "pk": 1,
+    "fields": {
+        "usuario": 26,
+        "experiencia": 4,
+        "especialidad": "Peón de obras públicas y mantenimiento",
+        "disponible": true,
+        "puntuacion_media": "6.55"
+    }
+},
+{
+    "model": "Concursos_Online.jurado",
+    "pk": 2,
+    "fields": {
+        "usuario": 27,
+        "experiencia": 3,
+        "especialidad": "Constructor de casas",
+        "disponible": true,
+        "puntuacion_media": "4.55"
+    }
+},
+{
+    "model": "Concursos_Online.jurado",
+    "pk": 3,
+    "fields": {
+        "usuario": 23,
+        "experiencia": 5,
+        "especialidad": "Operador de máquinas para fabricar productos de papel",
+        "disponible": true,
+        "puntuacion_media": "8.39"
+    }
+},
+{
+    "model": "Concursos_Online.jurado",
+    "pk": 4,
+    "fields": {
+        "usuario": 12,
+        "experiencia": 7,
+        "especialidad": "Astrólogo",
+        "disponible": true,
+        "puntuacion_media": "5.70"
+    }
+},
+{
+    "model": "Concursos_Online.jurado",
+    "pk": 5,
+    "fields": {
+        "usuario": 20,
+        "experiencia": 4,
+        "especialidad": "Ingeniero mecánico",
+        "disponible": true,
+        "puntuacion_media": "3.83"
+    }
+},
+{
+    "model": "Concursos_Online.participante",
+    "pk": 1,
+    "fields": {
+        "usuario": 14,
+        "alias": "yanguita",
+        "edad": 56,
+        "nivel": 5,
+        "puntuacion_total": "43.13"
+    }
+},
+{
+    "model": "Concursos_Online.participante",
+    "pk": 2,
+    "fields": {
+        "usuario": 5,
+        "alias": "martina75",
+        "edad": 23,
+        "nivel": 2,
+        "puntuacion_total": "54.22"
+    }
+},
+{
+    "model": "Concursos_Online.participante",
+    "pk": 3,
+    "fields": {
+        "usuario": 9,
+        "alias": "pliniolarranaga",
+        "edad": 42,
+        "nivel": 5,
+        "puntuacion_total": "36.59"
+    }
+},
+{
+    "model": "Concursos_Online.participante",
+    "pk": 4,
+    "fields": {
+        "usuario": 1,
+        "alias": "polojacobo",
+        "edad": 25,
+        "nivel": 4,
+        "puntuacion_total": "29.01"
+    }
+},
+{
+    "model": "Concursos_Online.participante",
+    "pk": 5,
+    "fields": {
+        "usuario": 6,
+        "alias": "tenoriocarla",
+        "edad": 42,
+        "nivel": 3,
+        "puntuacion_total": "87.00"
+    }
+},
+{
+    "model": "Concursos_Online.participante",
+    "pk": 6,
+    "fields": {
+        "usuario": 17,
+        "alias": "isauramir",
+        "edad": 54,
+        "nivel": 4,
+        "puntuacion_total": "92.27"
+    }
+},
+{
+    "model": "Concursos_Online.participante",
+    "pk": 7,
+    "fields": {
+        "usuario": 19,
+        "alias": "qmiguel",
+        "edad": 56,
+        "nivel": 3,
+        "puntuacion_total": "16.17"
+    }
+},
+{
+    "model": "Concursos_Online.participante",
+    "pk": 8,
+    "fields": {
+        "usuario": 8,
+        "alias": "pdomingo",
+        "edad": 26,
+        "nivel": 3,
+        "puntuacion_total": "21.97"
+    }
+},
+{
+    "model": "Concursos_Online.participante",
+    "pk": 9,
+    "fields": {
+        "usuario": 3,
+        "alias": "georginanunez",
+        "edad": 22,
+        "nivel": 4,
+        "puntuacion_total": "37.71"
+    }
+},
+{
+    "model": "Concursos_Online.participante",
+    "pk": 10,
+    "fields": {
+        "usuario": 10,
+        "alias": "corominasbarbara",
+        "edad": 60,
+        "nivel": 5,
+        "puntuacion_total": "4.40"
+    }
+},
+{
+    "model": "Concursos_Online.administrador",
+    "pk": 1,
+    "fields": {
+        "usuario": 4,
+        "area_responsable": "Codificador de datos",
+        "activo": true,
+        "fecha_asignacion": "2025-12-08T21:37:13.106",
+        "horario_disponible": "17:37:58"
+    }
+},
+{
+    "model": "Concursos_Online.administrador",
+    "pk": 2,
+    "fields": {
+        "usuario": 7,
+        "area_responsable": "Profesor de enseñanza secundaria",
+        "activo": true,
+        "fecha_asignacion": "2025-12-08T21:37:13.124",
+        "horario_disponible": "13:10:04"
+    }
+},
+{
+    "model": "Concursos_Online.administrador",
+    "pk": 3,
+    "fields": {
+        "usuario": 2,
+        "area_responsable": "Abogado",
+        "activo": true,
+        "fecha_asignacion": "2025-12-08T21:37:13.140",
+        "horario_disponible": "14:32:26"
+    }
+},
+{
+    "model": "Concursos_Online.notificacion",
+    "pk": 1,
+    "fields": {
+        "autor": 1,
+        "titulo": "Me relación fiscal etc.",
+        "mensaje": "Mil días partes última demasiado congreso mientras. Frente al existencia nosotros nuevas cuarto debe.",
+        "fecha_envio": "2025-12-08T21:37:13.828"
+    }
+},
+{
+    "model": "Concursos_Online.notificacion",
+    "pk": 2,
+    "fields": {
+        "autor": 1,
+        "titulo": "Encuentran nuestro voz.",
+        "mensaje": "Acto al blanca. Libro pueden ley medio sí.\nZona segunda ideas hija. Natural puede relación estaba oficial actividad c.",
+        "fecha_envio": "2025-12-08T21:37:13.873"
+    }
+},
+{
+    "model": "Concursos_Online.notificacion",
+    "pk": 3,
+    "fields": {
+        "autor": 2,
+        "titulo": "Veces empresa había existe para.",
+        "mensaje": "Aun dar argentina muy. Única argentina salud finalmente fútbol.",
+        "fecha_envio": "2025-12-08T21:37:13.920"
+    }
+},
+{
+    "model": "Concursos_Online.notificacion",
+    "pk": 4,
+    "fields": {
+        "autor": 2,
+        "titulo": "Alguna me mujeres.",
+        "mensaje": "Habrá esto supuesto amigos. Seguro demás i defensa produce. Lugar europa gobierno maría blanca. Ciento pues madre dejar debía.",
+        "fecha_envio": "2025-12-08T21:37:13.972"
+    }
+},
+{
+    "model": "Concursos_Online.notificacion",
+    "pk": 5,
+    "fields": {
+        "autor": 3,
+        "titulo": "Sí políticas quizá juez uno.",
+        "mensaje": "Área otros película tiempos hicieron equipo. Niño flores cuando podemos servicios otras.",
+        "fecha_envio": "2025-12-08T21:37:14.014"
+    }
+},
+{
+    "model": "Concursos_Online.notificacion",
+    "pk": 6,
+    "fields": {
+        "autor": 3,
+        "titulo": "Aunque intereses esa.",
+        "mensaje": "Pequeño bien embargo este sigue creación. Junio ejército fuerte toma barcelona toda riesgo dan. Propio vista puedo que pie mujeres quizá.",
+        "fecha_envio": "2025-12-08T21:37:14.044"
+    }
+},
+{
+    "model": "Concursos_Online.recibe",
+    "pk": 1,
+    "fields": {
+        "usuario": 2,
+        "notificacion": 1,
+        "estado": "EN",
+        "fecha_recepcion": "2025-12-08T21:37:13.833"
+    }
+},
+{
+    "model": "Concursos_Online.recibe",
+    "pk": 2,
+    "fields": {
+        "usuario": 14,
+        "notificacion": 1,
+        "estado": "PE",
+        "fecha_recepcion": "2025-12-08T21:37:13.840"
+    }
+},
+{
+    "model": "Concursos_Online.recibe",
+    "pk": 3,
+    "fields": {
+        "usuario": 10,
+        "notificacion": 1,
+        "estado": "PE",
+        "fecha_recepcion": "2025-12-08T21:37:13.845"
+    }
+},
+{
+    "model": "Concursos_Online.recibe",
+    "pk": 4,
+    "fields": {
+        "usuario": 17,
+        "notificacion": 1,
+        "estado": "PE",
+        "fecha_recepcion": "2025-12-08T21:37:13.857"
+    }
+},
+{
+    "model": "Concursos_Online.recibe",
+    "pk": 5,
+    "fields": {
+        "usuario": 20,
+        "notificacion": 1,
+        "estado": "PE",
+        "fecha_recepcion": "2025-12-08T21:37:13.863"
+    }
+},
+{
+    "model": "Concursos_Online.recibe",
+    "pk": 6,
+    "fields": {
+        "usuario": 2,
+        "notificacion": 2,
+        "estado": "PE",
+        "fecha_recepcion": "2025-12-08T21:37:13.881"
+    }
+},
+{
+    "model": "Concursos_Online.recibe",
+    "pk": 7,
+    "fields": {
+        "usuario": 18,
+        "notificacion": 2,
+        "estado": "EN",
+        "fecha_recepcion": "2025-12-08T21:37:13.890"
+    }
+},
+{
+    "model": "Concursos_Online.recibe",
+    "pk": 8,
+    "fields": {
+        "usuario": 9,
+        "notificacion": 2,
+        "estado": "PE",
+        "fecha_recepcion": "2025-12-08T21:37:13.897"
+    }
+},
+{
+    "model": "Concursos_Online.recibe",
+    "pk": 9,
+    "fields": {
+        "usuario": 13,
+        "notificacion": 2,
+        "estado": "EN",
+        "fecha_recepcion": "2025-12-08T21:37:13.905"
+    }
+},
+{
+    "model": "Concursos_Online.recibe",
+    "pk": 10,
+    "fields": {
+        "usuario": 22,
+        "notificacion": 2,
+        "estado": "PE",
+        "fecha_recepcion": "2025-12-08T21:37:13.913"
+    }
+},
+{
+    "model": "Concursos_Online.recibe",
+    "pk": 11,
+    "fields": {
+        "usuario": 20,
         "notificacion": 3,
         "estado": "EN",
-        "fecha_recepcion": "2025-11-30T14:58:58.835"
+        "fecha_recepcion": "2025-12-08T21:37:13.933"
     }
 },
 {
     "model": "Concursos_Online.recibe",
     "pk": 12,
     "fields": {
-        "usuario": 30,
+        "usuario": 29,
         "notificacion": 3,
-        "estado": "PE",
-        "fecha_recepcion": "2025-11-30T14:58:58.841"
+        "estado": "EN",
+        "fecha_recepcion": "2025-12-08T21:37:13.943"
     }
 },
 {
     "model": "Concursos_Online.recibe",
     "pk": 13,
     "fields": {
-        "usuario": 14,
+        "usuario": 3,
         "notificacion": 3,
         "estado": "PE",
-        "fecha_recepcion": "2025-11-30T14:58:58.846"
+        "fecha_recepcion": "2025-12-08T21:37:13.954"
     }
 },
 {
     "model": "Concursos_Online.recibe",
     "pk": 14,
     "fields": {
-        "usuario": 16,
+        "usuario": 17,
         "notificacion": 3,
-        "estado": "PE",
-        "fecha_recepcion": "2025-11-30T14:58:58.852"
+        "estado": "EN",
+        "fecha_recepcion": "2025-12-08T21:37:13.960"
     }
 },
 {
     "model": "Concursos_Online.recibe",
     "pk": 15,
     "fields": {
-        "usuario": 10,
+        "usuario": 18,
         "notificacion": 3,
         "estado": "PE",
-        "fecha_recepcion": "2025-11-30T14:58:58.857"
+        "fecha_recepcion": "2025-12-08T21:37:13.966"
     }
 },
 {
     "model": "Concursos_Online.recibe",
     "pk": 16,
     "fields": {
-        "usuario": 29,
+        "usuario": 14,
         "notificacion": 4,
         "estado": "PE",
-        "fecha_recepcion": "2025-11-30T14:58:58.869"
+        "fecha_recepcion": "2025-12-08T21:37:13.977"
     }
 },
 {
     "model": "Concursos_Online.recibe",
     "pk": 17,
     "fields": {
-        "usuario": 1,
+        "usuario": 22,
         "notificacion": 4,
         "estado": "EN",
-        "fecha_recepcion": "2025-11-30T14:58:58.874"
+        "fecha_recepcion": "2025-12-08T21:37:13.988"
     }
 },
 {
     "model": "Concursos_Online.recibe",
     "pk": 18,
     "fields": {
-        "usuario": 19,
+        "usuario": 26,
         "notificacion": 4,
-        "estado": "PE",
-        "fecha_recepcion": "2025-11-30T14:58:58.880"
+        "estado": "EN",
+        "fecha_recepcion": "2025-12-08T21:37:13.996"
     }
 },
 {
     "model": "Concursos_Online.recibe",
     "pk": 19,
     "fields": {
-        "usuario": 9,
+        "usuario": 18,
         "notificacion": 4,
         "estado": "EN",
-        "fecha_recepcion": "2025-11-30T14:58:58.885"
+        "fecha_recepcion": "2025-12-08T21:37:14.002"
     }
 },
 {
     "model": "Concursos_Online.recibe",
     "pk": 20,
     "fields": {
-        "usuario": 22,
+        "usuario": 20,
         "notificacion": 4,
-        "estado": "EN",
-        "fecha_recepcion": "2025-11-30T14:58:58.891"
+        "estado": "PE",
+        "fecha_recepcion": "2025-12-08T21:37:14.007"
     }
 },
 {
     "model": "Concursos_Online.recibe",
     "pk": 21,
     "fields": {
-        "usuario": 4,
+        "usuario": 8,
         "notificacion": 5,
         "estado": "EN",
-        "fecha_recepcion": "2025-11-30T14:58:58.903"
+        "fecha_recepcion": "2025-12-08T21:37:14.019"
     }
 },
 {
     "model": "Concursos_Online.recibe",
     "pk": 22,
     "fields": {
-        "usuario": 15,
+        "usuario": 10,
         "notificacion": 5,
-        "estado": "EN",
-        "fecha_recepcion": "2025-11-30T14:58:58.909"
+        "estado": "PE",
+        "fecha_recepcion": "2025-12-08T21:37:14.024"
     }
 },
 {
     "model": "Concursos_Online.recibe",
     "pk": 23,
     "fields": {
-        "usuario": 12,
+        "usuario": 17,
         "notificacion": 5,
-        "estado": "PE",
-        "fecha_recepcion": "2025-11-30T14:58:58.915"
+        "estado": "EN",
+        "fecha_recepcion": "2025-12-08T21:37:14.029"
     }
 },
 {
     "model": "Concursos_Online.recibe",
     "pk": 24,
     "fields": {
-        "usuario": 22,
+        "usuario": 28,
         "notificacion": 5,
         "estado": "EN",
-        "fecha_recepcion": "2025-11-30T14:58:58.922"
+        "fecha_recepcion": "2025-12-08T21:37:14.034"
     }
 },
 {
     "model": "Concursos_Online.recibe",
     "pk": 25,
     "fields": {
-        "usuario": 23,
+        "usuario": 9,
         "notificacion": 5,
         "estado": "EN",
-        "fecha_recepcion": "2025-11-30T14:58:58.928"
+        "fecha_recepcion": "2025-12-08T21:37:14.039"
     }
 },
 {
     "model": "Concursos_Online.recibe",
     "pk": 26,
     "fields": {
-        "usuario": 8,
+        "usuario": 30,
         "notificacion": 6,
         "estado": "EN",
-        "fecha_recepcion": "2025-11-30T14:58:58.940"
+        "fecha_recepcion": "2025-12-08T21:37:14.049"
     }
 },
 {
     "model": "Concursos_Online.recibe",
     "pk": 27,
     "fields": {
-        "usuario": 15,
+        "usuario": 3,
         "notificacion": 6,
         "estado": "EN",
-        "fecha_recepcion": "2025-11-30T14:58:58.945"
+        "fecha_recepcion": "2025-12-08T21:37:14.054"
     }
 },
 {
     "model": "Concursos_Online.recibe",
     "pk": 28,
     "fields": {
-        "usuario": 11,
+        "usuario": 8,
         "notificacion": 6,
-        "estado": "PE",
-        "fecha_recepcion": "2025-11-30T14:58:58.951"
+        "estado": "EN",
+        "fecha_recepcion": "2025-12-08T21:37:14.059"
     }
 },
 {
     "model": "Concursos_Online.recibe",
     "pk": 29,
     "fields": {
-        "usuario": 12,
+        "usuario": 28,
         "notificacion": 6,
         "estado": "EN",
-        "fecha_recepcion": "2025-11-30T14:58:58.956"
+        "fecha_recepcion": "2025-12-08T21:37:14.064"
     }
 },
 {
     "model": "Concursos_Online.recibe",
     "pk": 30,
     "fields": {
-        "usuario": 28,
+        "usuario": 6,
         "notificacion": 6,
         "estado": "PE",
-        "fecha_recepcion": "2025-11-30T14:58:58.962"
+        "fecha_recepcion": "2025-12-08T21:37:14.069"
     }
 },
 {
     "model": "Concursos_Online.concurso",
     "pk": 1,
     "fields": {
-        "nombre": "Concurso 1: Energía",
-        "descripcion": "Popular están problema llega. Derechos países cuenta partido son.\nPúblico nacional asunto conocimiento creo menor fernando. Equipo visto área un veces grande económica casos. Ese tiempo mayo igual lenguaje.\nSociedad así o mientras mayo n por. Éxito buenos empresa unos. Voz fuera las partes.",
-        "fecha_inicio": "2025-07-12T14:58:58.373",
-        "fecha_final": "2025-07-17T14:58:58.373",
+        "nombre": "Torneo Internacional de Canto",
+        "descripcion": "Lugar juan diez mes superior.\nVe secretario aspecto estas si cual. Toda estar derecha razón.\nHabla cabo caso haber espera universidad. Tras familia así soy hijo lópez camino.\nAquí prueba atención la. Entre internacional cual favor pueblo tomar torno posible.",
+        "fecha_inicio": "2025-09-25T21:37:13.423",
+        "fecha_final": "2025-10-10T21:37:13.423",
         "activo": true,
-        "creador": 1,
-        "ganador": 3
+        "creador": 3,
+        "ganador": 7
     }
 },
 {
     "model": "Concursos_Online.concurso",
     "pk": 2,
     "fields": {
-        "nombre": "Concurso 2: Tu",
-        "descripcion": "Hoy va construcción mismo pública tener solo. Millones hemos toda peor internacional gente mal. Nuestro unidos toda su.\nVarias dio están ser libre estados quien donde. Pedro político j operación dicho. Algo línea organización a con tuvo.",
-        "fecha_inicio": "2025-08-29T14:58:58.379",
-        "fecha_final": "2025-09-03T14:58:58.379",
+        "nombre": "Premio Regional de Pintura",
+        "descripcion": "Sol dio expresión. Francia momentos hechos primeros. Español técnica llegó tenemos personal media final revolución.\nPartido tenido enfermedad capacidad tipos muchas ocasiones. Mayor visita mismos demasiado especial buena volver. Material formas cosa quería.",
+        "fecha_inicio": "2025-06-16T21:37:13.430",
+        "fecha_final": "2025-06-28T21:37:13.430",
         "activo": true,
-        "creador": 3,
-        "ganador": 8
+        "creador": 1,
+        "ganador": 7
     }
 },
 {
     "model": "Concursos_Online.concurso",
     "pk": 3,
     "fields": {
-        "nombre": "Concurso 3: Ciencia",
-        "descripcion": "Análisis noviembre segunda llamado ahí mayoría unos. Mayor encuentro hay tan presidente sangre aún. Habían juego vamos finalmente casos miguel española. Cierta modelo pp constitución fuerte noche.\nSeguridad armas puesto diferencia. Libre gobierno única quiere.",
-        "fecha_inicio": "2025-10-14T14:58:58.385",
-        "fecha_final": "2025-10-23T14:58:58.385",
-        "activo": false,
-        "creador": 3,
-        "ganador": 5
+        "nombre": "Torneo Regional de Pintura",
+        "descripcion": "Puerta riesgo eran. Semanas premio eso región mercado. Pacientes aspectos ellos cara.\nOposición sentido siete parte. Libertad padres e.\nCreo médico habría ha. Rodríguez precisamente ve.\nLe favor doctor todo tampoco formación baja voz. Perdido joven mirada todavía varios datos.",
+        "fecha_inicio": "2025-07-05T21:37:13.438",
+        "fecha_final": "2025-07-10T21:37:13.438",
+        "activo": true,
+        "creador": 1,
+        "ganador": 8
     }
 },
 {
     "model": "Concursos_Online.concurso",
     "pk": 4,
     "fields": {
-        "nombre": "Concurso 4: Ii",
-        "descripcion": "Segundo tribunal muerto te música. París marco peso corazón.\nEso comisión mismos dicen ex. Dejar suerte características cualquier personas falta. Unidad cabo partidos aquel j b hasta.\nOcho momento tipos cada seguir. Actividad mal unidos puedo habrá eso hay cual.",
-        "fecha_inicio": "2025-10-18T14:58:58.392",
-        "fecha_final": "2025-10-29T14:58:58.392",
+        "nombre": "Concurso Regional de Arte Digital",
+        "descripcion": "Propuesta soy torno acerca me primeras poco. Muy presente peor congreso.\nHechos armas lugar desarrollo madrid. Esfuerzo hacen de calidad comercio conocimiento. Militar llega todavía económico zonas muchos peor.\nPaciente podía yo era período. Casa trabajar gonzález organización varios una memoria.",
+        "fecha_inicio": "2025-07-18T21:37:13.443",
+        "fecha_final": "2025-07-23T21:37:13.443",
         "activo": false,
         "creador": 3,
-        "ganador": 9
+        "ganador": 1
     }
 },
 {
     "model": "Concursos_Online.concurso",
     "pk": 5,
     "fields": {
-        "nombre": "Concurso 5: Propia",
-        "descripcion": "Tema así baja segunda son económico si. Decía suelo duda suelo españa máximo.\nAllá victoria ciento formas soy. Naturaleza ese concepto su. Santiago ver diciembre dicen casa objeto.\nNoviembre tarde período nadie conjunto través última medios. Cuando difícil cargo siete acciones junio memoria.",
-        "fecha_inicio": "2025-10-24T14:58:58.401",
-        "fecha_final": "2025-11-06T14:58:58.401",
-        "activo": true,
-        "creador": 3,
-        "ganador": 2
+        "nombre": "Torneo Juvenil de Pintura",
+        "descripcion": "Estilo mesa ministerio volver solamente mucho b. Miguel industria precio pone este b. Contrario padres productos ser durante donde rey.\nConstitución energía iba grandes cabo parte porque. Nacional dio interior sociales república. Sea salir mujeres oro nuestro papel.",
+        "fecha_inicio": "2025-06-18T21:37:13.449",
+        "fecha_final": "2025-07-01T21:37:13.449",
+        "activo": false,
+        "creador": 1,
+        "ganador": 4
     }
 },
 {
     "model": "Concursos_Online.concurso",
     "pk": 6,
     "fields": {
-        "nombre": "Concurso 6: Poder",
-        "descripcion": "Todavía obras elecciones antonio. Muy no san cierto natural boca pp. Bueno quiere europea presidente lo ninguna ante. Amor destino miguel cuarto españa alto tras la.\nSeguir hubo sería fácil. B dolor trata minutos poner españoles. Sería siquiera sectores mundial premio país.",
-        "fecha_inicio": "2025-08-25T14:58:58.407",
-        "fecha_final": "2025-09-09T14:58:58.407",
-        "activo": true,
-        "creador": 2,
-        "ganador": 6
+        "nombre": "Premio Juvenil de Pintura",
+        "descripcion": "J cuba unidad mejor energía superior. Felipe carlos vida relaciones general hospital.\nLarga pero será trabajadores. Principales respecto libre arte. Amigo razón jamás resulta antes méxico cierto.\nEllas aquellas principio club. Trabajo diciembre momento con existen. Sus principios grado grupos.",
+        "fecha_inicio": "2025-09-02T21:37:13.454",
+        "fecha_final": "2025-09-16T21:37:13.454",
+        "activo": false,
+        "creador": 1,
+        "ganador": 8
     }
 },
 {
     "model": "Concursos_Online.concurso",
     "pk": 7,
     "fields": {
-        "nombre": "Concurso 7: Pesar",
-        "descripcion": "Persona realidad primer función arriba. Llegado atención todas nadie. Tiene ésta formación vuelta profesional.\nComunicación plazo base sido humanos acto. Época ni tiempo esfuerzo. Futuro contrario importancia próximo constitución.",
-        "fecha_inicio": "2025-08-06T14:58:58.413",
-        "fecha_final": "2025-08-20T14:58:58.413",
+        "nombre": "Festival Internacional de Fotografía",
+        "descripcion": "Tenía comunicación nombre local dios servicio. Habla cómo problema varias medida día. Don con antes encima noche militares.\nArtículo una viaje estilo posibilidad dijo. Esa sociales últimos. Educación habrá cinco dejó libertad pablo embargo.",
+        "fecha_inicio": "2025-11-14T21:37:13.460",
+        "fecha_final": "2025-11-29T21:37:13.460",
         "activo": false,
         "creador": 1,
-        "ganador": 8
+        "ganador": 9
     }
 },
 {
@@ -2126,103 +2577,103 @@
     "pk": 1,
     "fields": {
         "participante": 1,
+        "concurso": 4,
+        "titulo": "Bien todavía puesto desarrollo efectos.",
+        "descripcion": "Español ii cuyo mira seis dicho. Fuerzas médico guerra autor hizo.",
+        "archivo": "de.pdf",
+        "fecha_envio": "2025-12-08T21:37:13.644",
+        "puntuacion_promedio": "2.96"
+    }
+},
+{
+    "model": "Concursos_Online.trabajo",
+    "pk": 2,
+    "fields": {
+        "participante": 2,
+        "concurso": 7,
+        "titulo": "Cual partidos.",
+        "descripcion": "Caso cambios pasa encuentran tampoco gran embargo. Cuba imagen pasar dice.",
+        "archivo": "felipe.pdf",
+        "fecha_envio": "2025-12-08T21:37:13.658",
+        "puntuacion_promedio": "6.57"
+    }
+},
+{
+    "model": "Concursos_Online.trabajo",
+    "pk": 3,
+    "fields": {
+        "participante": 3,
         "concurso": 3,
-        "titulo": "Acción diversas.",
-        "descripcion": "Algunos mil buen habla la consumo contrario. Estados personas objetivo tiene servicios serie quería.",
-        "archivo": "mismos.pdf",
-        "fecha_envio": "2025-11-30T14:58:58.592",
+        "titulo": "Gobierno presente.",
+        "descripcion": "Actual precisamente conjunto varios anterior. Aun puede garcía presencia las.",
+        "archivo": "productos.pdf",
+        "fecha_envio": "2025-12-08T21:37:13.668",
+        "puntuacion_promedio": "4.65"
+    }
+},
+{
+    "model": "Concursos_Online.trabajo",
+    "pk": 4,
+    "fields": {
+        "participante": 4,
+        "concurso": 4,
+        "titulo": "Jamás rosa.",
+        "descripcion": "Tengo fuerza c actitud debido texto.\nCarne r parece hacerlo. Sin acción además amigo autoridades. Flores animales material manera.",
+        "archivo": "precios.pdf",
+        "fecha_envio": "2025-12-08T21:37:13.676",
+        "puntuacion_promedio": "3.06"
+    }
+},
+{
+    "model": "Concursos_Online.trabajo",
+    "pk": 5,
+    "fields": {
+        "participante": 5,
+        "concurso": 5,
+        "titulo": "Hombres tales sistemas importante nadie.",
+        "descripcion": "Sociedad efectos plazo. Supuesto lado etapa. Pasa familia siempre trabajar sólo dicen. Niños a años b dado.",
+        "archivo": "total.pdf",
+        "fecha_envio": "2025-12-08T21:37:13.686",
+        "puntuacion_promedio": "7.63"
+    }
+},
+{
+    "model": "Concursos_Online.trabajo",
+    "pk": 6,
+    "fields": {
+        "participante": 6,
+        "concurso": 3,
+        "titulo": "Viene pesetas policía.",
+        "descripcion": "Objeto dicho llegó desde europea. Decía gonzález izquierda él. Civil cerca línea esfuerzo.",
+        "archivo": "casa.pdf",
+        "fecha_envio": "2025-12-08T21:37:13.694",
+        "puntuacion_promedio": "3.15"
+    }
+},
+{
+    "model": "Concursos_Online.trabajo",
+    "pk": 7,
+    "fields": {
+        "participante": 7,
+        "concurso": 2,
+        "titulo": "Figura sistema.",
+        "descripcion": "Modo relaciones sigue aparece encuentra nadie voluntad. Segunda espera doctor a.\nFuentes ideas santiago explicó pero. Encontrar existencia mi lo.",
+        "archivo": "cierto.pdf",
+        "fecha_envio": "2025-12-08T21:37:13.701",
         "puntuacion_promedio": "3.18"
     }
 },
 {
     "model": "Concursos_Online.trabajo",
-    "pk": 2,
-    "fields": {
-        "participante": 2,
-        "concurso": 5,
-        "titulo": "Grupo izquierda bueno.",
-        "descripcion": "Libre medios justicia tener joven. Ayer usted caso todos valores serie muerte. Temas real vida efecto.",
-        "archivo": "manos.pdf",
-        "fecha_envio": "2025-11-30T14:58:58.602",
-        "puntuacion_promedio": "2.11"
-    }
-},
-{
-    "model": "Concursos_Online.trabajo",
-    "pk": 3,
-    "fields": {
-        "participante": 3,
-        "concurso": 1,
-        "titulo": "Lugar distintas abril única.",
-        "descripcion": "Atención donde pronto mi. Título aumento acto.\nMeses primeros menos plazo total ser. Tierra lleva partes experiencia fecha perdido mundo momento.",
-        "archivo": "ello.pdf",
-        "fecha_envio": "2025-11-30T14:58:58.613",
-        "puntuacion_promedio": "4.26"
-    }
-},
-{
-    "model": "Concursos_Online.trabajo",
-    "pk": 4,
-    "fields": {
-        "participante": 4,
-        "concurso": 5,
-        "titulo": "Octubre sobre niño sociales miembros.",
-        "descripcion": "Voz dios vez falta. Usted forma durante número. Importantes nadie viene puso través crecimiento.",
-        "archivo": "solamente.pdf",
-        "fecha_envio": "2025-11-30T14:58:58.620",
-        "puntuacion_promedio": "2.50"
-    }
-},
-{
-    "model": "Concursos_Online.trabajo",
-    "pk": 5,
-    "fields": {
-        "participante": 5,
-        "concurso": 3,
-        "titulo": "Tres programa miembros.",
-        "descripcion": "Sí visita varias fuego. Actividades tienen ciencia permite mil.",
-        "archivo": "precios.pdf",
-        "fecha_envio": "2025-11-30T14:58:58.628",
-        "puntuacion_promedio": "4.35"
-    }
-},
-{
-    "model": "Concursos_Online.trabajo",
-    "pk": 6,
-    "fields": {
-        "participante": 6,
-        "concurso": 6,
-        "titulo": "Derecha hizo argentina personal.",
-        "descripcion": "Yo constitución asociación equipo. Amigo derecho cuya cultural. Mujeres bajo dado donde momentos. Los intereses sido semanas deja.",
-        "archivo": "visto.pdf",
-        "fecha_envio": "2025-11-30T14:58:58.636",
-        "puntuacion_promedio": "4.75"
-    }
-},
-{
-    "model": "Concursos_Online.trabajo",
-    "pk": 7,
-    "fields": {
-        "participante": 7,
-        "concurso": 7,
-        "titulo": "Dolor llevar.",
-        "descripcion": "Equipo seguro línea difícil personas medios. Ambiente fuerte otro da estoy pueda. Objetivo llegar había conseguir usted. Zona desde medios.",
-        "archivo": "es.pdf",
-        "fecha_envio": "2025-11-30T14:58:58.643",
-        "puntuacion_promedio": "4.18"
-    }
-},
-{
-    "model": "Concursos_Online.trabajo",
     "pk": 8,
     "fields": {
         "participante": 8,
-        "concurso": 7,
-        "titulo": "Agua sueño dejó i imagen.",
-        "descripcion": "Consecuencia muchas tú sistemas. Actividad largo principal miedo.",
-        "archivo": "pueblo.pdf",
-        "fecha_envio": "2025-11-30T14:58:58.651",
-        "puntuacion_promedio": "4.57"
+        "concurso": 6,
+        "titulo": "Debe hora salud distintos somos.",
+        "descripcion": "Dolor pues militares saber iba. Participación dejar siete mi general s les.",
+        "archivo": "sabía.pdf",
+        "fecha_envio": "2025-12-08T21:37:13.707",
+        "puntuacion_promedio": "7.54"
     }
 },
 {
@@ -2230,12 +2681,12 @@
     "pk": 9,
     "fields": {
         "participante": 9,
-        "concurso": 7,
-        "titulo": "Eran posición hecho.",
-        "descripcion": "Hemos momento realidad. Intereses ayer enfermedad. Realidad algunos acerca mar pregunta partir.",
-        "archivo": "congreso.pdf",
-        "fecha_envio": "2025-11-30T14:58:58.659",
-        "puntuacion_promedio": "0.36"
+        "concurso": 5,
+        "titulo": "Político al.",
+        "descripcion": "Político parte generales principales primera. Sus u cuanto relación.",
+        "archivo": "rey.pdf",
+        "fecha_envio": "2025-12-08T21:37:13.714",
+        "puntuacion_promedio": "4.57"
     }
 },
 {
@@ -2243,12 +2694,12 @@
     "pk": 10,
     "fields": {
         "participante": 10,
-        "concurso": 5,
-        "titulo": "Presencia domingo.",
-        "descripcion": "Poner durante solución. Le ambiente los plazo voluntad. García hace empresas marco unidos. Cuatro qué estudio importancia sectores carrera.",
-        "archivo": "aire.pdf",
-        "fecha_envio": "2025-11-30T14:58:58.667",
-        "puntuacion_promedio": "3.36"
+        "concurso": 7,
+        "titulo": "Momentos piel piel ve.",
+        "descripcion": "Hubo y muestra mujeres mirada. Edad ver embargo derechos.\nAsociación acuerdo salida grandes vio.",
+        "archivo": "práctica.pdf",
+        "fecha_envio": "2025-12-08T21:37:13.721",
+        "puntuacion_promedio": "4.57"
     }
 },
 {
@@ -2256,8 +2707,8 @@
     "pk": 1,
     "fields": {
         "participante": 1,
-        "concurso": 7,
-        "fecha_inscripcion": "2025-11-30T14:58:58.475"
+        "concurso": 2,
+        "fecha_inscripcion": "2025-12-08T21:37:13.523"
     }
 },
 {
@@ -2265,8 +2716,8 @@
     "pk": 2,
     "fields": {
         "participante": 1,
-        "concurso": 3,
-        "fecha_inscripcion": "2025-11-30T14:58:58.481"
+        "concurso": 4,
+        "fecha_inscripcion": "2025-12-08T21:37:13.529"
     }
 },
 {
@@ -2274,8 +2725,8 @@
     "pk": 3,
     "fields": {
         "participante": 2,
-        "concurso": 5,
-        "fecha_inscripcion": "2025-11-30T14:58:58.487"
+        "concurso": 7,
+        "fecha_inscripcion": "2025-12-08T21:37:13.535"
     }
 },
 {
@@ -2283,8 +2734,8 @@
     "pk": 4,
     "fields": {
         "participante": 2,
-        "concurso": 1,
-        "fecha_inscripcion": "2025-11-30T14:58:58.493"
+        "concurso": 5,
+        "fecha_inscripcion": "2025-12-08T21:37:13.541"
     }
 },
 {
@@ -2292,8 +2743,8 @@
     "pk": 5,
     "fields": {
         "participante": 3,
-        "concurso": 1,
-        "fecha_inscripcion": "2025-11-30T14:58:58.498"
+        "concurso": 2,
+        "fecha_inscripcion": "2025-12-08T21:37:13.548"
     }
 },
 {
@@ -2301,8 +2752,8 @@
     "pk": 6,
     "fields": {
         "participante": 3,
-        "concurso": 7,
-        "fecha_inscripcion": "2025-11-30T14:58:58.503"
+        "concurso": 3,
+        "fecha_inscripcion": "2025-12-08T21:37:13.554"
     }
 },
 {
@@ -2310,8 +2761,8 @@
     "pk": 7,
     "fields": {
         "participante": 4,
-        "concurso": 1,
-        "fecha_inscripcion": "2025-11-30T14:58:58.509"
+        "concurso": 4,
+        "fecha_inscripcion": "2025-12-08T21:37:13.560"
     }
 },
 {
@@ -2320,7 +2771,7 @@
     "fields": {
         "participante": 4,
         "concurso": 5,
-        "fecha_inscripcion": "2025-11-30T14:58:58.515"
+        "fecha_inscripcion": "2025-12-08T21:37:13.566"
     }
 },
 {
@@ -2328,8 +2779,8 @@
     "pk": 9,
     "fields": {
         "participante": 5,
-        "concurso": 7,
-        "fecha_inscripcion": "2025-11-30T14:58:58.521"
+        "concurso": 5,
+        "fecha_inscripcion": "2025-12-08T21:37:13.571"
     }
 },
 {
@@ -2338,7 +2789,7 @@
     "fields": {
         "participante": 5,
         "concurso": 3,
-        "fecha_inscripcion": "2025-11-30T14:58:58.526"
+        "fecha_inscripcion": "2025-12-08T21:37:13.577"
     }
 },
 {
@@ -2346,8 +2797,8 @@
     "pk": 11,
     "fields": {
         "participante": 6,
-        "concurso": 6,
-        "fecha_inscripcion": "2025-11-30T14:58:58.532"
+        "concurso": 3,
+        "fecha_inscripcion": "2025-12-08T21:37:13.583"
     }
 },
 {
@@ -2356,7 +2807,7 @@
     "fields": {
         "participante": 6,
         "concurso": 7,
-        "fecha_inscripcion": "2025-11-30T14:58:58.537"
+        "fecha_inscripcion": "2025-12-08T21:37:13.588"
     }
 },
 {
@@ -2364,8 +2815,8 @@
     "pk": 13,
     "fields": {
         "participante": 7,
-        "concurso": 7,
-        "fecha_inscripcion": "2025-11-30T14:58:58.543"
+        "concurso": 2,
+        "fecha_inscripcion": "2025-12-08T21:37:13.594"
     }
 },
 {
@@ -2373,8 +2824,8 @@
     "pk": 14,
     "fields": {
         "participante": 7,
-        "concurso": 6,
-        "fecha_inscripcion": "2025-11-30T14:58:58.549"
+        "concurso": 1,
+        "fecha_inscripcion": "2025-12-08T21:37:13.599"
     }
 },
 {
@@ -2382,8 +2833,8 @@
     "pk": 15,
     "fields": {
         "participante": 8,
-        "concurso": 7,
-        "fecha_inscripcion": "2025-11-30T14:58:58.554"
+        "concurso": 6,
+        "fecha_inscripcion": "2025-12-08T21:37:13.605"
     }
 },
 {
@@ -2391,8 +2842,8 @@
     "pk": 16,
     "fields": {
         "participante": 8,
-        "concurso": 2,
-        "fecha_inscripcion": "2025-11-30T14:58:58.560"
+        "concurso": 3,
+        "fecha_inscripcion": "2025-12-08T21:37:13.610"
     }
 },
 {
@@ -2400,8 +2851,8 @@
     "pk": 17,
     "fields": {
         "participante": 9,
-        "concurso": 4,
-        "fecha_inscripcion": "2025-11-30T14:58:58.566"
+        "concurso": 7,
+        "fecha_inscripcion": "2025-12-08T21:37:13.616"
     }
 },
 {
@@ -2409,8 +2860,8 @@
     "pk": 18,
     "fields": {
         "participante": 9,
-        "concurso": 7,
-        "fecha_inscripcion": "2025-11-30T14:58:58.572"
+        "concurso": 5,
+        "fecha_inscripcion": "2025-12-08T21:37:13.622"
     }
 },
 {
@@ -2419,7 +2870,7 @@
     "fields": {
         "participante": 10,
         "concurso": 5,
-        "fecha_inscripcion": "2025-11-30T14:58:58.577"
+        "fecha_inscripcion": "2025-12-08T21:37:13.628"
     }
 },
 {
@@ -2427,8 +2878,8 @@
     "pk": 20,
     "fields": {
         "participante": 10,
-        "concurso": 3,
-        "fecha_inscripcion": "2025-11-30T14:58:58.583"
+        "concurso": 7,
+        "fecha_inscripcion": "2025-12-08T21:37:13.633"
     }
 },
 {
@@ -2436,8 +2887,8 @@
     "pk": 1,
     "fields": {
         "jurado": 1,
-        "concurso": 7,
-        "fecha_asignacion": "2025-11-30T14:58:58.419",
+        "concurso": 6,
+        "fecha_asignacion": "2025-12-08T21:37:13.466",
         "activo": true
     }
 },
@@ -2446,8 +2897,8 @@
     "pk": 2,
     "fields": {
         "jurado": 1,
-        "concurso": 1,
-        "fecha_asignacion": "2025-11-30T14:58:58.425",
+        "concurso": 4,
+        "fecha_asignacion": "2025-12-08T21:37:13.471",
         "activo": true
     }
 },
@@ -2456,8 +2907,8 @@
     "pk": 3,
     "fields": {
         "jurado": 2,
-        "concurso": 1,
-        "fecha_asignacion": "2025-11-30T14:58:58.430",
+        "concurso": 4,
+        "fecha_asignacion": "2025-12-08T21:37:13.477",
         "activo": true
     }
 },
@@ -2466,8 +2917,8 @@
     "pk": 4,
     "fields": {
         "jurado": 2,
-        "concurso": 4,
-        "fecha_asignacion": "2025-11-30T14:58:58.436",
+        "concurso": 7,
+        "fecha_asignacion": "2025-12-08T21:37:13.482",
         "activo": true
     }
 },
@@ -2476,8 +2927,8 @@
     "pk": 5,
     "fields": {
         "jurado": 3,
-        "concurso": 6,
-        "fecha_asignacion": "2025-11-30T14:58:58.442",
+        "concurso": 1,
+        "fecha_asignacion": "2025-12-08T21:37:13.489",
         "activo": true
     }
 },
@@ -2486,8 +2937,8 @@
     "pk": 6,
     "fields": {
         "jurado": 3,
-        "concurso": 5,
-        "fecha_asignacion": "2025-11-30T14:58:58.447",
+        "concurso": 7,
+        "fecha_asignacion": "2025-12-08T21:37:13.495",
         "activo": true
     }
 },
@@ -2496,8 +2947,8 @@
     "pk": 7,
     "fields": {
         "jurado": 4,
-        "concurso": 4,
-        "fecha_asignacion": "2025-11-30T14:58:58.452",
+        "concurso": 6,
+        "fecha_asignacion": "2025-12-08T21:37:13.501",
         "activo": true
     }
 },
@@ -2507,7 +2958,7 @@
     "fields": {
         "jurado": 4,
         "concurso": 3,
-        "fecha_asignacion": "2025-11-30T14:58:58.458",
+        "fecha_asignacion": "2025-12-08T21:37:13.507",
         "activo": true
     }
 },
@@ -2516,8 +2967,8 @@
     "pk": 9,
     "fields": {
         "jurado": 5,
-        "concurso": 2,
-        "fecha_asignacion": "2025-11-30T14:58:58.464",
+        "concurso": 3,
+        "fecha_asignacion": "2025-12-08T21:37:13.512",
         "activo": true
     }
 },
@@ -2526,8 +2977,8 @@
     "pk": 10,
     "fields": {
         "jurado": 5,
-        "concurso": 6,
-        "fecha_asignacion": "2025-11-30T14:58:58.469",
+        "concurso": 4,
+        "fecha_asignacion": "2025-12-08T21:37:13.517",
         "activo": true
     }
 },
@@ -2535,55 +2986,55 @@
     "model": "Concursos_Online.evaluacion",
     "pk": 1,
     "fields": {
-        "jurado": 4,
+        "jurado": 1,
         "trabajo": 1,
-        "puntuacion": "8.34",
-        "comentario": "Campaña día mantener expresión tarde producción. Considera imagen había tienen. Político seis cosa.",
-        "fecha_evaluacion": "2025-11-30T14:58:58.673"
+        "puntuacion": "3.74",
+        "comentario": "Alguna dio grandes muy. Personal donde vida cámara. Primeras ante elementos jorge.",
+        "fecha_evaluacion": "2025-12-08T21:37:13.728"
     }
 },
 {
     "model": "Concursos_Online.evaluacion",
     "pk": 2,
+    "fields": {
+        "jurado": 2,
+        "trabajo": 1,
+        "puntuacion": "3.80",
+        "comentario": "Llama presenta consecuencia unidos. Podemos hechos viaje ley.",
+        "fecha_evaluacion": "2025-12-08T21:37:13.734"
+    }
+},
+{
+    "model": "Concursos_Online.evaluacion",
+    "pk": 3,
+    "fields": {
+        "jurado": 5,
+        "trabajo": 1,
+        "puntuacion": "1.71",
+        "comentario": "Quién sabe políticos nuestra pp. Miguel tú hacia estados humana.",
+        "fecha_evaluacion": "2025-12-08T21:37:13.740"
+    }
+},
+{
+    "model": "Concursos_Online.evaluacion",
+    "pk": 4,
+    "fields": {
+        "jurado": 2,
+        "trabajo": 2,
+        "puntuacion": "5.13",
+        "comentario": "He otros madrid muy dolor aquí bajo. Todas luis semanas lucha jamás título.",
+        "fecha_evaluacion": "2025-12-08T21:37:13.746"
+    }
+},
+{
+    "model": "Concursos_Online.evaluacion",
+    "pk": 5,
     "fields": {
         "jurado": 3,
         "trabajo": 2,
-        "puntuacion": "3.19",
-        "comentario": "Resulta derechos tenido economía estados.",
-        "fecha_evaluacion": "2025-11-30T14:58:58.680"
-    }
-},
-{
-    "model": "Concursos_Online.evaluacion",
-    "pk": 3,
-    "fields": {
-        "jurado": 1,
-        "trabajo": 3,
-        "puntuacion": "5.21",
-        "comentario": "Al bajo lado primeras. General aquellas siete allá.",
-        "fecha_evaluacion": "2025-11-30T14:58:58.690"
-    }
-},
-{
-    "model": "Concursos_Online.evaluacion",
-    "pk": 4,
-    "fields": {
-        "jurado": 2,
-        "trabajo": 3,
-        "puntuacion": "9.85",
-        "comentario": "Expresión situación luego piel cada.",
-        "fecha_evaluacion": "2025-11-30T14:58:58.697"
-    }
-},
-{
-    "model": "Concursos_Online.evaluacion",
-    "pk": 5,
-    "fields": {
-        "jurado": 3,
-        "trabajo": 4,
-        "puntuacion": "2.07",
-        "comentario": "Cámara sabe calle. Puesto pasado días hace hablar unas.\nTenemos hacia marcha llamado hubo.",
-        "fecha_evaluacion": "2025-11-30T14:58:58.704"
+        "puntuacion": "9.69",
+        "comentario": "Máximo unos esto ella.\nAntonio lleva asociación. Humano otro cuatro ser puntos.",
+        "fecha_evaluacion": "2025-12-08T21:37:13.752"
     }
 },
 {
@@ -2591,76 +3042,120 @@
     "pk": 6,
     "fields": {
         "jurado": 4,
-        "trabajo": 5,
-        "puntuacion": "3.60",
-        "comentario": "Primera electoral somos habrá contrario hermano salud habían. Sol hasta las aquí.",
-        "fecha_evaluacion": "2025-11-30T14:58:58.711"
+        "trabajo": 3,
+        "puntuacion": "8.75",
+        "comentario": "Popular práctica ciento estar mayores esa. Acerca cuales libros título.",
+        "fecha_evaluacion": "2025-12-08T21:37:13.760"
     }
 },
 {
     "model": "Concursos_Online.evaluacion",
     "pk": 7,
     "fields": {
-        "jurado": 3,
-        "trabajo": 6,
-        "puntuacion": "7.77",
-        "comentario": "Todos aquellos r padres objetivo dio. Proyecto principio una.",
-        "fecha_evaluacion": "2025-11-30T14:58:58.717"
+        "jurado": 5,
+        "trabajo": 3,
+        "puntuacion": "4.93",
+        "comentario": "Busca desarrollo plan cuando nos. Fueron presencia aspecto. Zonas medidas favor ejército salida.",
+        "fecha_evaluacion": "2025-12-08T21:37:13.765"
     }
 },
 {
     "model": "Concursos_Online.evaluacion",
     "pk": 8,
     "fields": {
-        "jurado": 5,
-        "trabajo": 6,
-        "puntuacion": "7.24",
-        "comentario": "Tenían lenguaje violencia. Pablo medio sola económico educación juego.",
-        "fecha_evaluacion": "2025-11-30T14:58:58.723"
+        "jurado": 1,
+        "trabajo": 4,
+        "puntuacion": "0.07",
+        "comentario": "Memoria derechos serán algunas toma bien favor.\nRecuerdo algunos grandes marcha.",
+        "fecha_evaluacion": "2025-12-08T21:37:13.771"
     }
 },
 {
     "model": "Concursos_Online.evaluacion",
     "pk": 9,
     "fields": {
-        "jurado": 1,
-        "trabajo": 7,
-        "puntuacion": "8.17",
-        "comentario": "Juicio tipo papel les cuyo buenos principios rafael. Sistemas premio dio recuerdo hacía hospital.",
-        "fecha_evaluacion": "2025-11-30T14:58:58.730"
+        "jurado": 2,
+        "trabajo": 4,
+        "puntuacion": "8.47",
+        "comentario": "Actividades esta pie además. Cinco riesgo grandes todos niños blanca hijo.",
+        "fecha_evaluacion": "2025-12-08T21:37:13.777"
     }
 },
 {
     "model": "Concursos_Online.evaluacion",
     "pk": 10,
     "fields": {
-        "jurado": 1,
-        "trabajo": 8,
-        "puntuacion": "5.77",
-        "comentario": "Puerto izquierda estaba mismo este toma dicho. Tenido puerta años propio manera especial viene.",
-        "fecha_evaluacion": "2025-11-30T14:58:58.736"
+        "jurado": 5,
+        "trabajo": 4,
+        "puntuacion": "7.10",
+        "comentario": "Explicó tipo pesar.\nFondo tratamiento permite habla grado acuerdo todo.",
+        "fecha_evaluacion": "2025-12-08T21:37:13.783"
     }
 },
 {
     "model": "Concursos_Online.evaluacion",
     "pk": 11,
     "fields": {
-        "jurado": 1,
-        "trabajo": 9,
-        "puntuacion": "6.75",
-        "comentario": "Enfermedad deben mujeres resulta. I recuerdo estoy allí.",
-        "fecha_evaluacion": "2025-11-30T14:58:58.742"
+        "jurado": 4,
+        "trabajo": 6,
+        "puntuacion": "1.76",
+        "comentario": "Producto señor puede carácter puntos teatro metros. Habían cual carlos felipe año.",
+        "fecha_evaluacion": "2025-12-08T21:37:13.790"
     }
 },
 {
     "model": "Concursos_Online.evaluacion",
     "pk": 12,
     "fields": {
+        "jurado": 5,
+        "trabajo": 6,
+        "puntuacion": "2.51",
+        "comentario": "Muerto ello segunda todos película j instituto. José río garcía segunda.",
+        "fecha_evaluacion": "2025-12-08T21:37:13.796"
+    }
+},
+{
+    "model": "Concursos_Online.evaluacion",
+    "pk": 13,
+    "fields": {
+        "jurado": 1,
+        "trabajo": 8,
+        "puntuacion": "8.05",
+        "comentario": "Argentina doctor equipo operación. Casa podía población abril pueden la.",
+        "fecha_evaluacion": "2025-12-08T21:37:13.803"
+    }
+},
+{
+    "model": "Concursos_Online.evaluacion",
+    "pk": 14,
+    "fields": {
+        "jurado": 4,
+        "trabajo": 8,
+        "puntuacion": "1.89",
+        "comentario": "Pedro partes comercio cosas allá. Queda aquí luis. Señora pie proyectos república régimen memoria.",
+        "fecha_evaluacion": "2025-12-08T21:37:13.809"
+    }
+},
+{
+    "model": "Concursos_Online.evaluacion",
+    "pk": 15,
+    "fields": {
+        "jurado": 2,
+        "trabajo": 10,
+        "puntuacion": "7.26",
+        "comentario": "Tengo crisis gran. Tipos informe queda sentido etapa padre acciones antes.",
+        "fecha_evaluacion": "2025-12-08T21:37:13.816"
+    }
+},
+{
+    "model": "Concursos_Online.evaluacion",
+    "pk": 16,
+    "fields": {
         "jurado": 3,
         "trabajo": 10,
-        "puntuacion": "5.96",
-        "comentario": "Van diversas bueno debe fueron.",
-        "fecha_evaluacion": "2025-11-30T14:58:58.750"
+        "puntuacion": "0.47",
+        "comentario": "De revolución origen pues. Carta fecha diez españoles duda larga visto.",
+        "fecha_evaluacion": "2025-12-08T21:37:13.822"
     }
 }
 ]

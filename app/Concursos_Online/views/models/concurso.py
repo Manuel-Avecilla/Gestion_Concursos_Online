@@ -193,7 +193,7 @@ def dame_concurso_texto(request, texto):
 # ============================================================
 
 #region --- CREATE ---
-@permission_required('concursos_online.add_concurso', raise_exception=True)
+@permission_required('Concursos_Online.add_concurso', raise_exception=True)
 def concurso_create(request):  # Método que controla el tipo de formulario
 
     # Si la petición es GET se creará el formulario vacío
@@ -242,7 +242,7 @@ def crear_concurso_modelo(formulario):  # Método que interactúa con la base de
 #endregion
 
 #region --- READ ---
-@permission_required('concursos_online.view_concurso', raise_exception=True)
+@permission_required('Concursos_Online.view_concurso', raise_exception=True)
 def concurso_buscar_avanzado(request):  # Búsqueda Avanzada para Concurso
 
     if len(request.GET) > 0:
@@ -312,7 +312,7 @@ def concurso_buscar_avanzado(request):  # Búsqueda Avanzada para Concurso
 #endregion
 
 #region --- UPDATE ---
-@permission_required('concursos_online.change_concurso', raise_exception=True)
+@permission_required('Concursos_Online.change_concurso', raise_exception=True)
 def concurso_editar(request, id_concurso):  # Actualizar Concurso
     
     concurso = Concurso.objects.get(id=id_concurso)
@@ -341,7 +341,7 @@ def concurso_editar(request, id_concurso):  # Actualizar Concurso
 #endregion
 
 #region --- DELETE ---
-@permission_required('concursos_online.delete_concurso', raise_exception=True)
+@permission_required('Concursos_Online.delete_concurso', raise_exception=True)
 def concurso_eliminar(request, id_concurso):  # Eliminar Concurso
     concurso = Concurso.objects.get(id=id_concurso)
     nombre = concurso.nombre

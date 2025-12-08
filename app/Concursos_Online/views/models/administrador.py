@@ -52,7 +52,7 @@ def administradores_listar(request):
 
 
 #region --- CREATE ---
-@permission_required('concursos_online.add_administrador', raise_exception=True)
+@permission_required('Concursos_Online.add_administrador', raise_exception=True)
 def administrador_create(request):  # Metodo que controla el tipo de formulario
         
     # Si la petición es GET se creará el formulario Vacío
@@ -93,7 +93,7 @@ def crear_administrador_modelo(formulario):  # Metodo que interactua con la base
 #endregion
 
 #region --- READ ---
-@permission_required('concursos_online.view_administrador', raise_exception=True)
+@permission_required('Concursos_Online.view_administrador', raise_exception=True)
 def administrador_buscar_avanzado(request):  # Busqueda Avanzada
 
     if len(request.GET) > 0:
@@ -163,7 +163,7 @@ def administrador_buscar_avanzado(request):  # Busqueda Avanzada
 #endregion
 
 #region --- UPDATE ---
-@permission_required('concursos_online.change_administrador', raise_exception=True)
+@permission_required('Concursos_Online.change_administrador', raise_exception=True)
 def administrador_editar(request, id_administrador):  # Actualizar Administrador
     
     administrador = Administrador.objects.get(id=id_administrador)
@@ -193,7 +193,7 @@ def administrador_editar(request, id_administrador):  # Actualizar Administrador
 #endregion
 
 #region --- DELETE ---
-@permission_required('concursos_online.delete_administrador', raise_exception=True)
+@permission_required('Concursos_Online.delete_administrador', raise_exception=True)
 def administrador_eliminar(request, id_administrador):  # Eliminar Administrador
     administrador = Administrador.objects.get(id=id_administrador)
     nombre = administrador.usuario.username

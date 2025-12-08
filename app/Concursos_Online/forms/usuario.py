@@ -20,11 +20,12 @@ class UsuarioForm(ModelForm):
 
     class Meta:
         model = Usuario
-        fields = ["username","email","password"]
+        fields = ["username","email","password","rol"]
         labels = {
             "username":("Nombre de Usuario"),
             "correo":("Correo electrónico"),
             "password":("Contraseña"),
+            "rol":("Rol"),
         }
         help_texts = {
             "username":("50 caracteres como máximo"),

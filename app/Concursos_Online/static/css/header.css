@@ -20,3 +20,27 @@ header {
     background-repeat: no-repeat;
     background-size: contain;
 }
+
+.datos-sesion {
+    margin: 1rem;
+    padding: 0.3rem;
+    background-color: rgba(218, 236, 250, 0.637);
+    border-radius: 5px;
+    box-shadow:
+    rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 15px -1px;
+    width: 500px;
+    justify-self: flex-end;
+}
+.datos-sesion pre{
+    margin: 0.2rem;
+    padding: 0;
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+.datos-sesion hr {
+    margin: 0.2rem;
+    margin-bottom: 0.5rem;
+    padding: 0;
+    font-size: 0.7rem;
+}

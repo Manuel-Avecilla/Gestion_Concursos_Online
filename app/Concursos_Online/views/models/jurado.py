@@ -98,7 +98,7 @@ def metricas_experiencia_jurados(request):
 # ============================================================
 
 #region --- CREATE ---
-@permission_required('concursos_online.add_jurado', raise_exception=True)
+@permission_required('Concursos_Online.add_jurado', raise_exception=True)
 def jurado_create(request):  # Método que controla el tipo de formulario
         
     # Si la petición es GET se creará el formulario vacío
@@ -141,7 +141,7 @@ def crear_jurado_modelo(formulario):  # Método que interactúa con la base de d
 #endregion
 
 #region --- READ ---
-@permission_required('concursos_online.view_jurado', raise_exception=True)
+@permission_required('Concursos_Online.view_jurado', raise_exception=True)
 def jurado_buscar_avanzado(request):  # Búsqueda Avanzada
 
     if len(request.GET) > 0:
@@ -211,7 +211,7 @@ def jurado_buscar_avanzado(request):  # Búsqueda Avanzada
 #endregion
 
 #region --- UPDATE ---
-@permission_required('concursos_online.change_jurado', raise_exception=True)
+@permission_required('Concursos_Online.change_jurado', raise_exception=True)
 def jurado_editar(request, id_jurado):  # Actualizar Jurado
     
     jurado = Jurado.objects.get(id=id_jurado)
@@ -248,7 +248,7 @@ def jurado_editar(request, id_jurado):  # Actualizar Jurado
 #endregion
 
 #region --- DELETE ---
-@permission_required('concursos_online.delete_jurado', raise_exception=True)
+@permission_required('Concursos_Online.delete_jurado', raise_exception=True)
 def jurado_eliminar(request, id_jurado):  # Eliminar Jurado
     jurado = Jurado.objects.get(id=id_jurado)
     nombre = jurado.usuario.username

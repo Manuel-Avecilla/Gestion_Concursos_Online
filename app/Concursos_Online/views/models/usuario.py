@@ -78,7 +78,7 @@ def usuarios_sin_notificar(request):
 # ============================================================
 
 #region --- CREATE ---
-@permission_required('concursos_online.add_usuario', raise_exception=True)
+@permission_required('Concursos_Online.add_usuario', raise_exception=True)
 def usuario_create(request): # Metodo que controla el tipo de formulario
     
     # Si la petición es GET se creará el formulario Vacío
@@ -114,7 +114,7 @@ def crear_usuario_modelo(formulario): # Metodo que crea en la base de datos
 # endregion
 
 #region --- READ ---
-@permission_required('concursos_online.view_usuario', raise_exception=True)
+@permission_required('Concursos_Online.view_usuario', raise_exception=True)
 def usuario_buscar(request): # Busqueda Simple
 
     texto = request.GET.get("textoBusqueda", "")  # vacio si no se envia nada
@@ -132,7 +132,7 @@ def usuario_buscar(request): # Busqueda Simple
 
     return render(request,'models/usuarios/lista_usuarios.html',{'Usuarios_Mostrar': usuarios,'Texto_Busqueda': texto,})
 
-@permission_required('concursos_online.view_usuario', raise_exception=True)
+@permission_required('Concursos_Online.view_usuario', raise_exception=True)
 def usuario_buscar_avanzado(request): #Busqueda Avanzada
     
     if(len(request.GET) > 0):
@@ -206,7 +206,7 @@ def usuario_buscar_avanzado(request): #Busqueda Avanzada
 # endregion
 
 #region --- UPDATE ---
-@permission_required('concursos_online.change_usuario', raise_exception=True)
+@permission_required('Concursos_Online.change_usuario', raise_exception=True)
 def usuario_editar(request, id_usuario): # Editar Usuario
     usuario = Usuario.objects.get(id = id_usuario)
     
@@ -231,7 +231,7 @@ def usuario_editar(request, id_usuario): # Editar Usuario
 # endregion
 
 #region --- DELETE ---
-@permission_required('concursos_online.delete_usuario', raise_exception=True)
+@permission_required('Concursos_Online.delete_usuario', raise_exception=True)
 def usuario_eliminar(request, id_usuario): # Eliminar Usuario
     usuario = Usuario.objects.get(id=id_usuario)
     nombre = usuario.username

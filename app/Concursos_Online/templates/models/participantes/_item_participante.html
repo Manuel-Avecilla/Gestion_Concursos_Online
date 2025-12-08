@@ -44,13 +44,13 @@
         </div>
 
         <div class="ud-buttons">
-            {% if perms.concursos_online.change_participante %}
+            {% if perms.Concursos_Online.change_participante %}
                 <a class="editar" href="{% url 'participante_editar' id_participante=Participante_Mostrar.id %}">
                     <i class="fa-regular fa-pen-to-square"></i>
                     Editar
                 </a>
             {% endif %}
-            {% if perms.concursos_online.delete_participante %}
+            {% if perms.Concursos_Online.delete_participante %}
                 <button type="button" class="eliminar"
                         data-bs-toggle="modal"
                         data-bs-target="#modalEliminar"

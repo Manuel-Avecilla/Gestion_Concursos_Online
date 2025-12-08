@@ -1,9 +1,20 @@
+# ============================================================
+# region Importaciones
+# ============================================================
+
 from django.core.management.base import BaseCommand
-from django.contrib.auth.models import Group, Permission, ContentType
+from django.contrib.auth.models import Group, Permission
+
+# endregion
+# ============================================================
+
 
 # python manage.py migrate          <-- Comando para generar la base de datos
-# python manage.py generar_datos    <-- Comando para generar los datos y rellenar la base de datos
 # python manage.py generar_grupos   <-- Comando para generar los grupos y permisos
+# python manage.py generar_datos    <-- Comando para generar los datos y rellenar la base de datos
+
+# python manage.py dumpdata --indent 4 > Concursos_Online/fixtures/datos.json   <-- Comando para guardar los datos
+
 
 class Command(BaseCommand):
     help = "Crea los grupos y asigna los permisos necesarios."
@@ -84,6 +95,18 @@ class Command(BaseCommand):
 
                 # Notificaciones
                 "view_notificacion",
+
+                # Participante
+                "view_participante",
+
+                # Perfil
+                "view_perfil",
+            ],
+            
+            # ______________________ GRUPO USUARIO ________________________________
+            "Usuario": [
+                # Concurso
+                "view_concurso",
 
                 # Participante
                 "view_participante",

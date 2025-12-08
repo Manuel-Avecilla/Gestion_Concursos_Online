@@ -116,7 +116,7 @@ def detalle_participante_alias(request, alias_participante):
 # ============================================================
 
 #region --- CREATE ---
-@permission_required('concursos_online.add_participante', raise_exception=True)
+@permission_required('Concursos_Online.add_participante', raise_exception=True)
 def participante_create(request): #Metodo que controla el tipo de formulario
         
     # Si la petición es GET se creará el formulario Vacío
@@ -153,7 +153,7 @@ def crear_participante_modelo(formulario): #Metodo que interactua con la base de
 #endregion
 
 #region --- READ ---
-@permission_required('concursos_online.view_participante', raise_exception=True)
+@permission_required('Concursos_Online.view_participante', raise_exception=True)
 def participante_buscar_avanzado(request): #Busqueda Avanzada
     
     if(len(request.GET) > 0):
@@ -203,7 +203,7 @@ def participante_buscar_avanzado(request): #Busqueda Avanzada
 #endregion
 
 #region --- UPDATE ---
-@permission_required('concursos_online.change_participante', raise_exception=True)
+@permission_required('Concursos_Online.change_participante', raise_exception=True)
 def participante_editar(request, id_participante): # Actualizar Perfil
     
     participante = Participante.objects.get(id = id_participante)
@@ -229,7 +229,7 @@ def participante_editar(request, id_participante): # Actualizar Perfil
 #endregion
 
 #region --- DELETE ---
-@permission_required('concursos_online.delete_participante', raise_exception=True)
+@permission_required('Concursos_Online.delete_participante', raise_exception=True)
 def participante_eliminar(request, id_participante): # Eliminar Perfil
     participante = Participante.objects.get(id = id_participante)
     nombre = participante.alias
