@@ -19,7 +19,21 @@ from django.db.models import Prefetch, Avg, Max, Min
 # region Pages
 # ============================================================
 
-# Una url que obtiene todos los objetos Jurado.
+
+#region --- Detalles Jurado ---
+def dame_jurado(request, id_jurado):
+    
+    jurado = (
+        Jurado.objects
+        .select_related('usuario') 
+        .prefetch_related(Prefetch('concursos')) 
+        .get(id=id_jurado)
+    )
+    
+    return render(request, 'models/jurados/jurado_detalle.html',{'Jurado_Mostrar':jurado})
+# endregion
+
+#region --- Lista Jurado ---
 def jurados_listar(request):
     
     jurados = (
@@ -38,6 +52,9 @@ def jurados_listar(request):
     ))
     """
     return render(request, 'models/jurados/lista_jurados.html', {'Jurados_Mostrar':jurados})
+# endregion
+
+#region --- Filtros Jurado ---
 
 # Una url que calcula y muestra las métricas de agregación (media, máximo y mínimo) del campo experiencia de todos los Jurados.
 def metricas_experiencia_jurados(request):
@@ -67,16 +84,8 @@ def metricas_experiencia_jurados(request):
     """
     return render(request, 'models/jurados/metricas_jurados.html', {'Metricas_Mostrar':metricas_objeto})
 
-def dame_jurado(request, id_jurado):
-    
-    jurado = (
-        Jurado.objects
-        .select_related('usuario') 
-        .prefetch_related(Prefetch('concursos')) 
-        .get(id=id_jurado)
-    )
-    
-    return render(request, 'models/jurados/jurado_detalle.html',{'Jurado_Mostrar':jurado})
+# endregion
+
 
 # endregion
 # ============================================================
@@ -88,7 +97,7 @@ def dame_jurado(request, id_jurado):
 # region CRUD (Create, Read, Update, Delete)
 # ============================================================
 
-#region-------- JURADO ----------
+#region --- CREATE ---
 @permission_required('concursos_online.add_jurado', raise_exception=True)
 def jurado_create(request):  # Método que controla el tipo de formulario
         
@@ -108,14 +117,13 @@ def jurado_create(request):  # Método que controla el tipo de formulario
         if (jurado_creado):
             
             usuario = formulario.cleaned_data.get('usuario')
-            nombre = usuario.nombre_usuario
+            nombre = usuario.username
             
             messages.success(request, 'Se ha creado el Jurado: [ ' + nombre + " ] correctamente.")
-            return redirect('dame_jurados')
+            return redirect('jurados_listar')
 
     return render(request, 'models/jurados/crud/create_jurado.html', {'formulario': formulario})
 
-@permission_required('concursos_online.add_jurado', raise_exception=True)
 def crear_jurado_modelo(formulario):  # Método que interactúa con la base de datos
     
     jurado_creado = False
@@ -130,7 +138,9 @@ def crear_jurado_modelo(formulario):  # Método que interactúa con la base de d
             print(error)
     
     return jurado_creado
+#endregion
 
+#region --- READ ---
 @permission_required('concursos_online.view_jurado', raise_exception=True)
 def jurado_buscar_avanzado(request):  # Búsqueda Avanzada
 
@@ -151,7 +161,7 @@ def jurado_buscar_avanzado(request):  # Búsqueda Avanzada
             # --- Nombre de usuario contiene ---
             if usuario_contiene != '':
                 usuario_contiene = usuario_contiene.strip()
-                QsJurado = QsJurado.filter(usuario__nombre_usuario__icontains=usuario_contiene)
+                QsJurado = QsJurado.filter(usuario__username__icontains=usuario_contiene)
                 mensaje_busqueda += f'· Usuario contiene "{usuario_contiene}"\n'
             else:
                 mensaje_busqueda += '· Cualquier nombre de usuario\n'
@@ -198,7 +208,9 @@ def jurado_buscar_avanzado(request):  # Búsqueda Avanzada
         'models/jurados/crud/buscar_avanzada_jurados.html',
         {'formulario': formulario}
     )
+#endregion
 
+#region --- UPDATE ---
 @permission_required('concursos_online.change_jurado', raise_exception=True)
 def jurado_editar(request, id_jurado):  # Actualizar Jurado
     
@@ -220,10 +232,10 @@ def jurado_editar(request, id_jurado):  # Actualizar Jurado
         if (jurado_actualizado):
             
             usuario = formulario.cleaned_data.get('usuario')
-            nombre = usuario.nombre_usuario
+            nombre = usuario.username
             
             messages.success(request, 'Se ha actualizado el Jurado: [ ' + nombre + " ] correctamente.")
-            return redirect('dame_jurados')
+            return redirect('jurados_listar')
     
     return render(
         request,
@@ -233,11 +245,13 @@ def jurado_editar(request, id_jurado):  # Actualizar Jurado
             'jurado': jurado
         }
     )
+#endregion
 
+#region --- DELETE ---
 @permission_required('concursos_online.delete_jurado', raise_exception=True)
 def jurado_eliminar(request, id_jurado):  # Eliminar Jurado
     jurado = Jurado.objects.get(id=id_jurado)
-    nombre = jurado.usuario.nombre_usuario
+    nombre = jurado.usuario.username
     
     try:
         jurado.delete()
@@ -245,7 +259,7 @@ def jurado_eliminar(request, id_jurado):  # Eliminar Jurado
     except Exception as error:
         print(error)
     
-    return redirect('dame_jurados')
+    return redirect('jurados_listar')
 #endregion
 
 # endregion

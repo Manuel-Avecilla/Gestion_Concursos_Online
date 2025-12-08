@@ -19,6 +19,6 @@
         {% csrf_token %}
         {% bootstrap_form formulario %}
         <button type="submit" class="btn btn-success">Buscar</button>
-        <a href="{% url 'lista_concursos' %}" class="btn btn-secondary">Cancelar</a>
+        <a href="{% url 'concursos_listar' %}" class="btn btn-secondary">Cancelar</a>
     </form>
 {% endblock %}

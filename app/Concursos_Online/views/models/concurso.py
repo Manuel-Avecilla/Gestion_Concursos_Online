@@ -217,7 +217,7 @@ def concurso_create(request):  # Método que controla el tipo de formulario
                 request,
                 'Se ha creado el Concurso: [ ' + nombre_concurso + ' ] correctamente.'
             )
-            return redirect('lista_concursos')
+            return redirect('concursos_listar')
 
     return render(
         request,
@@ -225,7 +225,6 @@ def concurso_create(request):  # Método que controla el tipo de formulario
         {'formulario': formulario}
     )
 
-@permission_required('concursos_online.add_concurso', raise_exception=True)
 def crear_concurso_modelo(formulario):  # Método que interactúa con la base de datos
     
     concurso_creado = False
@@ -336,7 +335,7 @@ def concurso_editar(request, id_concurso):  # Actualizar Concurso
             nombre = formulario.cleaned_data.get('nombre')
             
             messages.success(request, 'Se ha actualizado el Concurso: [ ' + nombre + " ] correctamente.")
-            return redirect('lista_concursos')
+            return redirect('concursos_listar')
     
     return render(request, 'models/concursos/crud/actualizar_concursos.html', {'formulario': formulario, 'concurso': concurso})
 #endregion
@@ -351,7 +350,7 @@ def concurso_eliminar(request, id_concurso):  # Eliminar Concurso
         messages.success(request, 'Se ha eliminado el Concurso [ ' + nombre + ' ] correctamente.')
     except Exception as error:
         print(error)
-    return redirect('lista_concursos')
+    return redirect('concursos_listar')
 #endregion
 
 # endregion

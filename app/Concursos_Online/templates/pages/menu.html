@@ -11,10 +11,12 @@
     <h3>Tarea URL</h3>
     <div class="placeholder-menu">
         <ul>
-            <li><a href="{% url 'lista_concursos' %}">Concursos</a></li>
+            <li><a href="{% url 'concursos_listar' %}">Concursos</a></li>
+            <li><a href="{% url 'usuarios_listar' %}">Usuarios</a></li>
             <li><a href="{% url 'participantes_listar' %}">Participantes</a></li>
             <li><a href="{% url 'perfiles_listar' %}">Perfiles</a></li>
             <li><a href="{% url 'administradores_listar' %}">Administradores</a></li>
+            <li><a href="{% url 'jurados_listar' %}">Ver los Jurados y sus concursos Asignados</a></li>
             <li><a href="{% url 'dame_concurso' id_concurso=1 %}">Ver Concurso ID 1</a></li>
             <li><a href="{% url 'dame_concursos_fecha' anyo_concurso=2025 mes_concurso=5 %}">Ver Concursos que empienzan en mayo de 2025</a></li>
             <li><a href="{% url 'dame_concurso_activo' activo=True %}">Ver Concursos activos</a></li>
@@ -22,7 +24,6 @@
             <li><a href="{% url 'dame_ultimo_participante' id_concurso=1 %}">Ver Ultimo Participante inscrito en el Concurso ID 1</a></li>
             <li><a href="{% url 'detalle_participante_alias' alias_participante="rufina70" %}">Ver Participante con alias: rufina70</a></li>
             <li><a href="{% url 'usuarios_sin_notificar' %}">Usuarios sin Notificaciones</a></li>
-            <li><a href="{% url 'dame_jurados' %}">Ver los Jurados y sus concursos Asignados</a></li>
             <li><a href="{% url 'metricas_experiencia_jurados' %}">Ver Nivel de Experiencia de los Jurados</a></li>
         </ul>
     </div>
@@ -32,11 +33,11 @@
         <ul>
             <hr>
             <h4>USUARIO CRUD</h4>
-            <li><a href="">Crear USUARIO</a></li>
-            <li><a href="">Filtro Simple USUARIO</a></li>
-            <li><a href="">Filtro Avanzado USUARIO</a></li>
-            <li><a href="">Actualizar USUARIO ID:6 </a></li>
-            <li><a href="{% url 'usuario_buscar' %}">Eliminar USUARIO</a></li>
+            <li><a href="{% url 'usuario_create' %}">Crear USUARIO</a></li>
+            <li><a href="{% url 'usuarios_listar' %}">Filtro Simple USUARIO</a></li>
+            <li><a href="{% url 'usuario_buscar_avanzado' %}">Filtro Avanzado USUARIO</a></li>
+            <li><a href="{% url 'usuarios_listar' %}">Actualizar USUARIO ID:6 </a></li>
+            <li><a href="{% url 'usuarios_listar' %}">Eliminar USUARIO</a></li>
             <hr>
             <h4>PERFIL CRUD</h4>
             <li><a href="{% url 'perfil_create' %}">Crear PERFIL</a></li>
@@ -60,13 +61,13 @@
             <li><a href="{% url 'jurado_create' %}">Crear JURADO</a></li>
             <li><a href="{% url 'jurado_buscar_avanzado' %}">Filtro Avanzado JURADO</a></li>
             <li><a href="{% url 'jurado_editar' id_jurado=2 %}">Actualizar JURADO ID:2 </a></li>
-            <li><a href="{% url 'dame_jurados' %}">Eliminar JURADO</a></li>
+            <li><a href="{% url 'jurados_listar' %}">Eliminar JURADO</a></li>
             <hr>
             <h4>CONCURSO CRUD</h4>
             <li><a href="{% url 'concurso_create' %}">Crear CONCURSO</a></li>
             <li><a href="{% url 'concurso_buscar_avanzado' %}">Filtro Avanzado CONCURSO</a></li>
             <li><a href="{% url 'concurso_editar' id_concurso=2 %}">Actualizar CONCURSO ID:2 </a></li>
-            <li><a href="{% url 'lista_concursos' %}">Eliminar CONCURSO</a></li>
+            <li><a href="{% url 'concursos_listar' %}">Eliminar CONCURSO</a></li>
             <hr>
         </ul>
     </div>

@@ -81,7 +81,6 @@ def perfil_create(request): #Metodo que controla el tipo de formulario
 
     return render(request, 'models/perfil/crud/create_perfil.html',{'formulario':formulario})
 
-@permission_required('concursos_online.add_perfil', raise_exception=True)
 def crear_perfil_modelo(formulario): #Metodo que interactua con la base de datos
     
     perfil_creado = False
@@ -138,7 +137,7 @@ def perfil_buscar_avanzado(request): #Busqueda Avanzada
                 QsPerfil = QsPerfil.filter(usuario__id__in=usuarios)
                 
                 # Recorre los nombres y los separa con ,
-                nombres_usuarios = ", ".join([u.nombre_usuario for u in usuarios])
+                nombres_usuarios = ", ".join([u.username for u in usuarios])
                 mensaje_busqueda += f'· Perfil de los usuarios: {nombres_usuarios}\n'
                 
             else:

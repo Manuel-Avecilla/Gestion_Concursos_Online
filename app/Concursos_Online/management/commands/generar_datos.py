@@ -34,8 +34,8 @@ class Command(BaseCommand):
         # ------------------------------------------------------------
         # 1. Se crea una lista vacía `usuarios` para guardar las instancias creadas.
         # 2. Se generan 30 usuarios falsos con datos de Faker:
-        #    - nombre_usuario: nombre de usuario único.
-        #    - correo: email único.
+        #    - username: nombre de usuario único.
+        #    - email: email único.
         #    - password: contraseña aleatoria de 10 caracteres.
         # 3. Cada usuario creado se guarda en la lista `usuarios` para usarlos después.
         # ------------------------------------------------------------

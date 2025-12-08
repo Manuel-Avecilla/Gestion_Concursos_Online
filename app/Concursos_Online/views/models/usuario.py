@@ -4,7 +4,7 @@
 
 from django.shortcuts import render, redirect
 from Concursos_Online.models import Usuario
-from Concursos_Online.forms import UsuarioForm, UsuarioBuscarAvanzada
+from Concursos_Online.forms import UsuarioForm, UsuarioBuscarAvanzada, RegistroForm
 from django.contrib.auth.decorators import permission_required
 from django.contrib import messages
 from django.db.models import Q
@@ -87,19 +87,18 @@ def usuario_create(request): # Metodo que controla el tipo de formulario
     if request.method == "POST":
         datosFormulario = request.POST
     
-    formulario = UsuarioForm(datosFormulario)
+    formulario = RegistroForm(datosFormulario)
     
     if (request.method == "POST"):
         
         usuario_creado = crear_usuario_modelo(formulario)
         
         if(usuario_creado):
-            messages.success(request, 'Se ha creado el Usuario: [ '+formulario.cleaned_data.get('nombre_usuario')+" ] correctamente.")
+            messages.success(request, 'Se ha creado el Usuario: [ '+formulario.cleaned_data.get('username')+" ] correctamente.")
             return redirect('usuario_buscar')
 
     return render(request, 'models/usuarios/crud/create_usuario.html',{'formulario':formulario})
 
-@permission_required('concursos_online.add_usuario', raise_exception=True)
 def crear_usuario_modelo(formulario): # Metodo que crea en la base de datos
     
     usuario_creado = False
@@ -152,7 +151,7 @@ def usuario_buscar_avanzado(request): #Busqueda Avanzada
             #---Nombre---
             if(nombre_usuario_contiene!=''):
                 nombre_usuario_contiene = nombre_usuario_contiene.strip()
-                QsUsuarios = QsUsuarios.filter(nombre_usuario__icontains=nombre_usuario_contiene)
+                QsUsuarios = QsUsuarios.filter(username__icontains=nombre_usuario_contiene)
                 mensaje_busqueda += '· Nombre contiene "'+nombre_usuario_contiene+'"\n'
             else:
                 mensaje_busqueda += '· Cualquier nombre \n'
@@ -160,20 +159,20 @@ def usuario_buscar_avanzado(request): #Busqueda Avanzada
             #---Correo---
             if(correo_contiene!=''):
                 correo_contiene = correo_contiene.strip()
-                QsUsuarios = QsUsuarios.filter(correo__icontains=correo_contiene)
+                QsUsuarios = QsUsuarios.filter(email__icontains=correo_contiene)
                 mensaje_busqueda += '· Correo contiene "'+correo_contiene+'"\n'
             else:
                 mensaje_busqueda += '· Cualquier correo \n'
             
             #---Fecha---
             if (not fecha_registro_desde is None):
-                QsUsuarios = QsUsuarios.filter(fecha_registro__gte=fecha_registro_desde)
+                QsUsuarios = QsUsuarios.filter(date_joined__gte=fecha_registro_desde)
                 mensaje_busqueda += '· Registro desde '+datetime.strftime(fecha_registro_desde,'%d-%m-%Y')+'\n'
             else:
                 mensaje_busqueda += '· Registro desde: Cualquier fecha \n'
             
             if (not fecha_registro_hasta is None):
-                QsUsuarios = QsUsuarios.filter(fecha_registro__lte=fecha_registro_hasta)
+                QsUsuarios = QsUsuarios.filter(date_joined__lte=fecha_registro_hasta)
                 mensaje_busqueda += '· Registro hasta '+datetime.strftime(fecha_registro_hasta,'%d-%m-%Y')+'\n'
             else:
                 mensaje_busqueda += '· Registro hasta: Cualquier fecha \n'
@@ -218,14 +217,14 @@ def usuario_editar(request, id_usuario): # Editar Usuario
     if request.method == "POST":
         datosFormulario = request.POST
     
-    formulario = UsuarioForm(datosFormulario,instance=usuario)
+    formulario = RegistroForm(datosFormulario,instance=usuario)
     
     if (request.method == "POST"):
         
         usuario_creado = crear_usuario_modelo(formulario)
         
         if(usuario_creado):
-            messages.success(request, 'Se ha actualizado el Usuario: [ '+formulario.cleaned_data.get('nombre_usuario')+" ] correctamente.")
+            messages.success(request, 'Se ha actualizado el Usuario: [ '+formulario.cleaned_data.get('username')+" ] correctamente.")
             return redirect('usuario_buscar')
     
     return render(request, 'models/usuarios/crud/actualizar_usuario.html', {'formulario':formulario,'usuario':usuario})

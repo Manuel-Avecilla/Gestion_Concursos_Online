@@ -71,16 +71,13 @@ def administrador_create(request):  # Metodo que controla el tipo de formulario
         if (administrador_creado):
             
             usuario = formulario.cleaned_data.get('usuario')
-            nombre = usuario.nombre_usuario
+            nombre = usuario.username
             
             messages.success(request, 'Se ha creado el Administrador: [ ' + nombre + " ] correctamente.")
             return redirect('administradores_listar')
 
     return render(request, 'models/administradores/crud/create_administrador.html', {'formulario': formulario})
-#endregion
 
-#region --- READ ---
-@permission_required('concursos_online.add_administrador', raise_exception=True)
 def crear_administrador_modelo(formulario):  # Metodo que interactua con la base de datos
     
     administrador_creado = False
@@ -93,7 +90,9 @@ def crear_administrador_modelo(formulario):  # Metodo que interactua con la base
         except Exception as error:
             print(error)
     return administrador_creado
+#endregion
 
+#region --- READ ---
 @permission_required('concursos_online.view_administrador', raise_exception=True)
 def administrador_buscar_avanzado(request):  # Busqueda Avanzada
 
@@ -185,7 +184,7 @@ def administrador_editar(request, id_administrador):  # Actualizar Administrador
         if (administrador_actualizado):
             
             usuario = formulario.cleaned_data.get('usuario')
-            nombre = usuario.nombre_usuario
+            nombre = usuario.username
             
             messages.success(request, 'Se ha actualizado el Administrador: [ ' + nombre + " ] correctamente.")
             return redirect('administradores_listar')
@@ -197,7 +196,7 @@ def administrador_editar(request, id_administrador):  # Actualizar Administrador
 @permission_required('concursos_online.delete_administrador', raise_exception=True)
 def administrador_eliminar(request, id_administrador):  # Eliminar Administrador
     administrador = Administrador.objects.get(id=id_administrador)
-    nombre = administrador.usuario.nombre_usuario
+    nombre = administrador.usuario.username
     try:
         administrador.delete()
         messages.success(request, 'Se ha eliminado el Administrador [ ' + nombre + ' ] correctamente.')

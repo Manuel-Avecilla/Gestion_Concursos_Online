@@ -18,6 +18,19 @@ from django.contrib import messages
 # region Pages
 # ============================================================
 
+
+#region --- Detalles Participante ---
+def dame_participante(request, id_participante):
+    
+    participante = (
+        Participante.objects
+        .get(id=id_participante)
+    )
+    
+    return render(request,'models/participantes/participante_detalle.html',{'Participante_Mostrar':participante})
+# endregion
+
+#region --- Lista Participante ---
 def participantes_listar(request):
     participantes = (
         Participante.objects
@@ -25,7 +38,9 @@ def participantes_listar(request):
         .all()
     )
     return render(request,'models/participantes/lista_participantes.html',{'Participantes_Mostrar':participantes})
+# endregion
 
+#region --- Filtros Participante ---
 def dame_participantes_concurso(request, id_concurso):
     
     participantes = (
@@ -87,15 +102,8 @@ def detalle_participante_alias(request, alias_participante):
     """
     
     return render(request,'models/participantes/participante_detalle.html',{'Participante_Mostrar':participante_a_mostrar})
+# endregion
 
-def dame_participante(request, id_participante):
-    
-    participante = (
-        Participante.objects
-        .get(id=id_participante)
-    )
-    
-    return render(request,'models/participantes/participante_detalle.html',{'Participante_Mostrar':participante})
 
 # endregion
 # ============================================================
@@ -107,7 +115,7 @@ def dame_participante(request, id_participante):
 # region CRUD (Create, Read, Update, Delete)
 # ============================================================
 
-#region------ PARTICIPANTE ------
+#region --- CREATE ---
 @permission_required('concursos_online.add_participante', raise_exception=True)
 def participante_create(request): #Metodo que controla el tipo de formulario
         
@@ -130,7 +138,6 @@ def participante_create(request): #Metodo que controla el tipo de formulario
 
     return render(request, 'models/participantes/crud/create_participante.html',{'formulario':formulario})
 
-@permission_required('concursos_online.add_participante', raise_exception=True)
 def crear_participante_modelo(formulario): #Metodo que interactua con la base de datos
     
     participante_creado = False
@@ -143,7 +150,9 @@ def crear_participante_modelo(formulario): #Metodo que interactua con la base de
         except Exception as error:
             print(error)
     return participante_creado
+#endregion
 
+#region --- READ ---
 @permission_required('concursos_online.view_participante', raise_exception=True)
 def participante_buscar_avanzado(request): #Busqueda Avanzada
     
@@ -191,7 +200,9 @@ def participante_buscar_avanzado(request): #Busqueda Avanzada
     else:
         formulario = ParticipanteBuscarAvanzada(None)
     return render(request, 'models/participantes/crud/buscar_avanzada_participantes.html',{'formulario':formulario})
+#endregion
 
+#region --- UPDATE ---
 @permission_required('concursos_online.change_participante', raise_exception=True)
 def participante_editar(request, id_participante): # Actualizar Perfil
     
@@ -215,7 +226,9 @@ def participante_editar(request, id_participante): # Actualizar Perfil
             return redirect('participantes_listar')
     
     return render(request, 'models/participantes/crud/actualizar_participantes.html', {'formulario':formulario,'participante':participante})
+#endregion
 
+#region --- DELETE ---
 @permission_required('concursos_online.delete_participante', raise_exception=True)
 def participante_eliminar(request, id_participante): # Eliminar Perfil
     participante = Participante.objects.get(id = id_participante)
