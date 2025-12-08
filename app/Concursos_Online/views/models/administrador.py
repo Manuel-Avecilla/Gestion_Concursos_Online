@@ -2,13 +2,11 @@
 # region Importaciones
 # ============================================================
 
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from Concursos_Online.models import Administrador
 from Concursos_Online.forms import AdministradorForm, AdministradorBuscarAvanzada
 from django.contrib.auth.decorators import permission_required
-
 from django.contrib import messages
-from django.shortcuts import redirect
 
 # endregion
 # ============================================================
@@ -20,9 +18,7 @@ from django.shortcuts import redirect
 # region Pages
 # ============================================================
 
-
 #region --- Detalles Administrador ---
-
 def dame_administrador(request, id_administrador):
     
     administrador = (
@@ -31,11 +27,9 @@ def dame_administrador(request, id_administrador):
     )
     
     return render(request, 'models/administradores/administrador_detalle.html',{'Administrador_Mostrar':administrador})
+# endregion
 
-#endregion
-
-#region --- Lista Administradores ---
-
+#region --- Lista Administrador ---
 def administradores_listar(request):
     
     administradores = (
@@ -44,9 +38,7 @@ def administradores_listar(request):
         .all()
     )
     return render(request,'models/administradores/lista_administradores.html',{'Administradores_Mostrar':administradores})
-
-#endregion
-
+# endregion
 
 # endregion
 # ============================================================

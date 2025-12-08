@@ -5,6 +5,7 @@
 from django.shortcuts import render
 from Concursos_Online.models import Concurso
 from Concursos_Online.forms import ConcursoForm, ConcursoBuscarAvanzada
+from django.db.models import Q
 from django.contrib.auth.decorators import permission_required
 
 from django.contrib import messages
@@ -22,7 +23,6 @@ from django.shortcuts import redirect
 
 
 #region --- Detalles Concurso ---
-
 def dame_concurso(request, id_concurso):
     
     concurso = (
@@ -47,11 +47,9 @@ def dame_concurso(request, id_concurso):
     """
     
     return render(request,'models/concursos/concurso_detalle.html',{'Concurso_Mostrar':concurso})
-
 #endregion
 
 #region --- Lista Concurso ---
-
 def concursos_listar(request):
     
     concursos = (
@@ -71,6 +69,111 @@ def concursos_listar(request):
     + " JOIN Concursos_Online_participante pa ON co.ganador_id = pa.id "
     + " JOIN Concursos_Online_inscribe ins ON co.id = ins.concurso_id "
     + " JOIN Concursos_Online_participante p ON p.id = ins.participante_id"
+    ))
+    """
+    
+    return render(request,'models/concursos/lista_concursos.html',{'Concursos_Mostrar':concursos})
+#endregion
+
+#region --- Filtros Concurso ---
+
+# Una url que muestre los Concursos que comienzan en un año y mes concreto
+def dame_concursos_fecha(request, anyo_concurso, mes_concurso):
+    
+    concursos = (
+        Concurso.objects
+        .select_related(
+            "creador__usuario",  # anidado
+            "ganador__usuario",  # Asi también accedes a su usuario
+        )
+        .prefetch_related("participantes__usuario")  # Relacion N:N en participantes
+    )
+    concursos = concursos.filter(fecha_inicio__year=anyo_concurso, fecha_inicio__month=mes_concurso)
+    concursos.all()
+    
+    """
+    # Convertir el mes a cadena y asegurar que tenga 2 digitos con relleno de cero
+    mes_formato_sql = str(mes_concurso).zfill(2)
+    
+    concursos = (Concurso.objects.raw(
+    "SELECT * FROM Concursos_Online_concurso co "
+    + " JOIN Concursos_Online_administrador ad ON co.creador_id = ad.id "
+    + " JOIN Concursos_Online_participante pa ON co.ganador_id = pa.id "
+    + " JOIN Concursos_Online_inscribe ins ON co.id = ins.concurso_id "
+    + " JOIN Concursos_Online_participante p ON p.id = ins.participante_id"
+    + " WHERE strftime('%%Y', co.fecha_inicio) = %s "
+    + " AND strftime('%%m', co.fecha_inicio) = %s "
+    ,[str(anyo_concurso),mes_formato_sql] # Usamos la variable formateada
+    ))
+    """
+    
+    return render(request,'models/concursos/lista_concursos.html',{'Concursos_Mostrar':concursos})
+
+# Una url que:
+# Si pones "true" en la URL, solo ves los concursos activos;
+# Si pones "false", ves todos los concursos (activos e inactivos);
+# Y siempre están ordConcursoenados por fecha de inicio.
+def dame_concurso_activo(request, activo):
+    
+    # Variable para transformar el str de la url a bolean
+    is_active = (str(activo).lower() == 'true')
+    
+    concursos = (
+        Concurso.objects
+        .select_related(
+            "creador__usuario",  # anidado
+            "ganador__usuario",  # Asi también accedes a su usuario
+        )
+        .prefetch_related("participantes__usuario")  # Relacion N:N en participantes
+    )
+    concursos = concursos.filter(Q(activo=is_active)|Q(activo=True)).order_by("fecha_inicio")
+    concursos.all()
+    
+    """
+    concursos = (Concurso.objects.raw(
+    "SELECT * FROM Concursos_Online_concurso co "
+    + " JOIN Concursos_Online_administrador ad ON co.creador_id = ad.id "
+    + " JOIN Concursos_Online_participante pa ON co.ganador_id = pa.id "
+    + " JOIN Concursos_Online_inscribe ins ON co.id = ins.concurso_id "
+    + " JOIN Concursos_Online_participante p ON p.id = ins.participante_id"
+    + " WHERE co.activo = %s "
+    + " OR co.activo = True "
+    + " ORDER BY co.fecha_inicio "
+    ,[is_active] # Usamos la variable activo
+    ))
+    """
+    
+    return render(request,'models/concursos/lista_concursos.html',{'Concursos_Mostrar':concursos})
+
+# Una url que:
+# Lista los concursos que tienen el texto especificado en su descripción.
+# Los concursos resultantes están ordenados de forma descendente (de Z a A) según el nombre.
+def dame_concurso_texto(request, texto):
+    
+    concursos = (
+        Concurso.objects
+        .select_related(
+            "creador__usuario",  # anidado
+            "ganador__usuario",  # Asi también accedes a su usuario
+        )
+        .prefetch_related("participantes__usuario")  # Relacion N:N en participantes
+    )
+    concursos = concursos.filter(descripcion__contains=texto).order_by("-nombre")
+    concursos.all()
+    
+    """
+    # 1. Prepara el parámetro para la búsqueda de subcadena (LIKE '%%')
+    texto_con_comodines = '%' + texto + '%'
+    
+    concursos = (Concurso.objects.raw(
+    "SELECT * FROM Concursos_Online_concurso co "
+    + " JOIN Concursos_Online_administrador ad ON co.creador_id = ad.id "
+    + " JOIN Concursos_Online_participante pa ON co.ganador_id = pa.id "
+    + " JOIN Concursos_Online_inscribe ins ON co.id = ins.concurso_id "
+    + " JOIN Concursos_Online_participante p ON p.id = ins.participante_id "
+    + " WHERE co.descripcion LIKE %s "
+    + " ORDER BY co.nombre DESC "
+    ,[texto_con_comodines] # Usamos la variable texto_con_comodines
     ))
     """
     
@@ -121,9 +224,7 @@ def concurso_create(request):  # Método que controla el tipo de formulario
         'models/concursos/crud/create_concurso.html',
         {'formulario': formulario}
     )
-#endregion
 
-#region --- READ ---
 @permission_required('concursos_online.add_concurso', raise_exception=True)
 def crear_concurso_modelo(formulario):  # Método que interactúa con la base de datos
     
@@ -139,7 +240,9 @@ def crear_concurso_modelo(formulario):  # Método que interactúa con la base de
             print(error)
 
     return concurso_creado
+#endregion
 
+#region --- READ ---
 @permission_required('concursos_online.view_concurso', raise_exception=True)
 def concurso_buscar_avanzado(request):  # Búsqueda Avanzada para Concurso
 
