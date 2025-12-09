@@ -4,7 +4,7 @@
 
 from django.shortcuts import render, redirect
 from Concursos_Online.models import Usuario
-from Concursos_Online.forms import UsuarioForm, UsuarioBuscarAvanzada, RegistroForm
+from Concursos_Online.forms import UsuarioForm, UsuarioBuscarAvanzada, RegistroUsuarioForm
 from django.contrib.auth.decorators import permission_required
 from django.contrib import messages
 from django.db.models import Q
@@ -87,7 +87,7 @@ def usuario_create(request): # Metodo que controla el tipo de formulario
     if request.method == "POST":
         datosFormulario = request.POST
     
-    formulario = RegistroForm(datosFormulario)
+    formulario = RegistroUsuarioForm(datosFormulario)
     
     if (request.method == "POST"):
         
@@ -217,7 +217,7 @@ def usuario_editar(request, id_usuario): # Editar Usuario
     if request.method == "POST":
         datosFormulario = request.POST
     
-    formulario = RegistroForm(datosFormulario,instance=usuario)
+    formulario = RegistroUsuarioForm(datosFormulario,instance=usuario)
     
     if (request.method == "POST"):
         
