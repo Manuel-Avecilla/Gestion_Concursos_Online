@@ -71,7 +71,10 @@ class Command(BaseCommand):
 
                 # Participante
                 "view_participante",
-
+                
+                # Jurado
+                "view_jurado",
+                
                 # Trabajo
                 "view_trabajo",
 
@@ -80,6 +83,13 @@ class Command(BaseCommand):
 
                 # Notificaciones
                 "view_notificacion",
+                
+                # Asignaciones
+                "view_asigna",
+                
+                # Inscripciones
+                "view_inscribe",
+                
             ],
 
             # ______________________ GRUPO PARTICIPANTE ________________________________
@@ -113,6 +123,9 @@ class Command(BaseCommand):
 
                 # Perfil
                 "view_perfil",
+                
+                # Notificaciones
+                "view_notificacion",
             ],
         }
 

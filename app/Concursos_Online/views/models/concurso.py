@@ -23,6 +23,7 @@ from django.shortcuts import redirect
 
 
 #region --- Detalles Concurso ---
+@permission_required('Concursos_Online.view_concurso', raise_exception=True)
 def dame_concurso(request, id_concurso):
     
     concurso = (
@@ -50,6 +51,7 @@ def dame_concurso(request, id_concurso):
 #endregion
 
 #region --- Lista Concurso ---
+@permission_required('Concursos_Online.view_concurso', raise_exception=True)
 def concursos_listar(request):
     
     concursos = (
@@ -80,6 +82,7 @@ def concursos_listar(request):
 #region --- Filtros Concurso ---
 
 # Una url que muestre los Concursos que comienzan en un año y mes concreto
+@permission_required('Concursos_Online.view_concurso', raise_exception=True)
 def dame_concursos_fecha(request, anyo_concurso, mes_concurso):
     
     concursos = (
@@ -115,6 +118,7 @@ def dame_concursos_fecha(request, anyo_concurso, mes_concurso):
 # Si pones "true" en la URL, solo ves los concursos activos;
 # Si pones "false", ves todos los concursos (activos e inactivos);
 # Y siempre están ordConcursoenados por fecha de inicio.
+@permission_required('Concursos_Online.view_concurso', raise_exception=True)
 def dame_concurso_activo(request, activo):
     
     # Variable para transformar el str de la url a bolean
@@ -150,6 +154,7 @@ def dame_concurso_activo(request, activo):
 # Una url que:
 # Lista los concursos que tienen el texto especificado en su descripción.
 # Los concursos resultantes están ordenados de forma descendente (de Z a A) según el nombre.
+@permission_required('Concursos_Online.view_concurso', raise_exception=True)
 def dame_concurso_texto(request, texto):
     
     concursos = (
@@ -209,7 +214,7 @@ def concurso_create(request):  # Método que controla el tipo de formulario
 
     if (request.method == "POST"):
 
-        concurso_creado = crear_concurso_modelo(formulario)
+        concurso_creado = crear_concurso_modelo(formulario, request.user)
 
         if (concurso_creado):
 
@@ -227,7 +232,7 @@ def concurso_create(request):  # Método que controla el tipo de formulario
         {'formulario': formulario}
     )
 
-def crear_concurso_modelo(formulario):  # Método que interactúa con la base de datos
+def crear_concurso_modelo(formulario, usuario):  # Método que interactúa con la base de datos
     
     concurso_creado = False
 
@@ -235,8 +240,16 @@ def crear_concurso_modelo(formulario):  # Método que interactúa con la base de
     if formulario.is_valid():
         try:
             # Guarda el Concurso en la base de datos
-            formulario.save()
+            concurso = formulario.save(commit=False)
+
+            # asignar creador SIEMPRE
+            concurso.creador = usuario.administrador
+
+            concurso.save()
+            formulario.save_m2m()  # por el ManyToManyField
+            
             concurso_creado = True
+            
         except Exception as error:
             print(error)
 
@@ -334,7 +347,7 @@ def concurso_editar(request, id_concurso):  # Actualizar Concurso
     
     if (request.method == "POST"):
         
-        concurso_actualizado = crear_concurso_modelo(formulario)
+        concurso_actualizado = crear_concurso_modelo(formulario, request.user)
         
         if (concurso_actualizado):
             

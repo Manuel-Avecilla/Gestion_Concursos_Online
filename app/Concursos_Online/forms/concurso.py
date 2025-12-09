@@ -26,7 +26,6 @@ class ConcursoForm(ModelForm):
             "fecha_inicio",
             "fecha_final",
             "activo",
-            "creador",
             "ganador",
             "participantes",
         ]
@@ -37,7 +36,6 @@ class ConcursoForm(ModelForm):
             "fecha_inicio": "Fecha de inicio",
             "fecha_final": "Fecha de finalización",
             "activo": "¿Activo?",
-            "creador": "Administrador creador",
             "ganador": "Ganador",
             "participantes": "Participantes del concurso",
         }

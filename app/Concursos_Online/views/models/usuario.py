@@ -22,6 +22,7 @@ from datetime import datetime
 
 
 #region --- Detalles Usuario ---
+@permission_required('Concursos_Online.view_usuario', raise_exception=True)
 def dame_usuario(request, id_usuario):
     
     usuario = (
@@ -33,6 +34,7 @@ def dame_usuario(request, id_usuario):
 # endregion
 
 #region --- Lista Usuario ---
+@permission_required('Concursos_Online.view_usuario', raise_exception=True)
 def usuarios_listar(request):
     
     usuarios = (
@@ -46,6 +48,7 @@ def usuarios_listar(request):
 #region --- Filtros Usuario ---
 
 # Una url que obtiene todos los Usuarios que nunca han recibido una Notificación.
+@permission_required('Concursos_Online.view_usuario', raise_exception=True)
 def usuarios_sin_notificar(request):
     
     usuarios_no_notificados = (

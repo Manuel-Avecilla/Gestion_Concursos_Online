@@ -21,6 +21,7 @@ from django.db.models import Prefetch, Avg, Max, Min
 
 
 #region --- Detalles Jurado ---
+@permission_required('Concursos_Online.view_jurado', raise_exception=True)
 def dame_jurado(request, id_jurado):
     
     jurado = (
@@ -34,6 +35,7 @@ def dame_jurado(request, id_jurado):
 # endregion
 
 #region --- Lista Jurado ---
+@permission_required('Concursos_Online.view_jurado', raise_exception=True)
 def jurados_listar(request):
     
     jurados = (
@@ -57,6 +59,7 @@ def jurados_listar(request):
 #region --- Filtros Jurado ---
 
 # Una url que calcula y muestra las métricas de agregación (media, máximo y mínimo) del campo experiencia de todos los Jurados.
+@permission_required('Concursos_Online.view_jurado', raise_exception=True)
 def metricas_experiencia_jurados(request):
     
     metricas_objeto = (

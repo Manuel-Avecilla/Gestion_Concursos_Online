@@ -338,7 +338,7 @@ class Command(BaseCommand):
         # endregion
 
         # region Creación de usuarios de PRUEBAS (super-admin, admin, jurado, participante)
-        self.stdout.write("Creando usuarios de PRUEBAS...")
+        self.stdout.write("Creando usuarios de PRUEBup_grupo_usuarioAS...")
 
         
 
@@ -354,6 +354,7 @@ class Command(BaseCommand):
             "admin": {"is_superuser": False, "groups": [up_grupo_admin]},
             "jurado": {"is_superuser": False, "groups": [up_grupo_jurado]},
             "participante": {"is_superuser": False, "groups": [up_grupo_participante]},
+            "usuario": {"is_superuser": False, "groups": []},
         }
 
         for username, datos in usuarios_base.items():
@@ -380,6 +381,56 @@ class Command(BaseCommand):
                 # Asignar su grupo específico
                 for g in datos["groups"]:
                     user.groups.add(g)
+                
+                nombre_perfil=""
+                # Asignar rol según el nombre del usuario
+                if username == "admin":
+                    user.rol = Usuario.ADMINISTRADOR
+                    Administrador.objects.create(
+                        usuario=user,
+                        area_responsable="admin prueba",
+                        activo=True,
+                        horario_disponible=fake.time()
+                    )
+                    nombre_perfil="Administrador pruebas"
+                    
+                elif username == "jurado":
+                    user.rol = Usuario.JURADO
+                    Jurado.objects.create(
+                        usuario=user,
+                        experiencia=random.randint(1, 10),
+                        especialidad="jurado prueba",
+                        disponible=True,
+                        puntuacion_media=round(random.uniform(3, 10), 2)
+                    )
+                    nombre_perfil="Jurado Pruebas"
+                    
+                elif username == "participante":
+                    user.rol = Usuario.PARTICIPANTE
+                    Participante.objects.create(
+                        usuario=user,
+                        alias="participante prueba",
+                        edad=random.randint(18, 60),
+                        nivel=random.randint(1, 5),
+                        puntuacion_total=round(random.uniform(0, 100), 2) # Una puntuación decimal entre 0 y 100 con 2 decimales.
+                    )
+                    nombre_perfil="Participante Pruebas"
+                    
+                else:
+                    user.rol = Usuario.USUARIO
+                    nombre_perfil="Usuario Pruebas"
+
+                num_imagen = str(random.randint(1, 30)).zfill(3)
+
+                Perfil.objects.create(
+                    usuario=user,
+                    nombre_completo=nombre_perfil,
+                    biografia=fake.text(200),
+                    fecha_nacimiento=fake.date_of_birth(minimum_age=18, maximum_age=70),
+                    imagen_perfil=f"usuarios/foto-perfil-{num_imagen}.jpg"
+                )
+
+                user.save()
 
             self.stdout.write(f"Usuario creado: {username} / 1234")
 

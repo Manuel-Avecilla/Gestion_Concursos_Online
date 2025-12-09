@@ -11,6 +11,7 @@ from django.contrib.auth import login
 
 from django.utils import timezone
 from django.contrib.auth.models import Group
+from django.contrib import messages
 
 # endregion
 # ============================================================
@@ -27,6 +28,11 @@ def pagina_registro(request):
 
 
 def registrar_usuario(request):
+    
+    if request.user.is_authenticated:
+        messages.info(request, 'Debe Cerrar Sesion para poder volver a Registrarse')
+        return redirect('home')
+    
     if request.method == 'POST':
         formulario = RegistroUsuarioForm(request.POST)
         
@@ -34,8 +40,8 @@ def registrar_usuario(request):
             
             user = formulario.save()
             
-            perfil = Perfil.objects.create(usuario = user)
-            perfil.save()
+            Perfil.objects.create(usuario = user)
+            
             grupo_usuario = Group.objects.get(name='Usuario')
             grupo_usuario.user_set.add(user)
             
@@ -66,27 +72,30 @@ def registrar_usuario(request):
 
 
 def registrar_participante(request):
+    
+    if request.user.is_authenticated:
+        messages.info(request, 'Debe Cerrar Sesion para poder volver a Registrarse')
+        return redirect('home')
+    
     if request.method == 'POST':
         formulario = RegistroParticipanteForm(request.POST)
         
         if formulario.is_valid():
             
+            f_alias = formulario.cleaned_data.get('alias')
+            f_edad = formulario.cleaned_data.get('edad')
+            
             user = formulario.save()
             
-            perfil = Perfil.objects.create(usuario = user)
-            perfil.save()
+            Perfil.objects.create(usuario = user)
+            
             grupo_usuario = Group.objects.get(name='Usuario')
             grupo_usuario.user_set.add(user)
             
             grupo = Group.objects.get(name='Participantes')
             grupo.user_set.add(user)
             
-            participante = Participante.objects.create(
-                usuario = user,
-                alias = formulario.cleaned_data.get('alias'),
-                edad = formulario.cleaned_data.get('edad'),
-                )
-            participante.save()
+            Participante.objects.create(usuario = user, alias = f_alias, edad = f_edad,)
             
             login(request, user)
             
@@ -115,27 +124,35 @@ def registrar_participante(request):
 
 
 def registrar_jurado(request):
+    
+    if request.user.is_authenticated:
+        messages.info(request, 'Debe Cerrar Sesion para poder volver a Registrarse')
+        return redirect('home')
+    
     if request.method == 'POST':
         formulario = RegistroJuradoForm(request.POST)
         
         if formulario.is_valid():
             
+            f_experiencia=formulario.cleaned_data.get('experiencia')
+            f_especialidad=formulario.cleaned_data.get('especialidad')
+            
             user = formulario.save()
             
-            perfil = Perfil.objects.create(usuario = user)
-            perfil.save()
+            Perfil.objects.create(usuario = user)
+            
             grupo_usuario = Group.objects.get(name='Usuario')
             grupo_usuario.user_set.add(user)
             
             grupo = Group.objects.get(name='Jurados')
             grupo.user_set.add(user)
             
-            jurado = Jurado.objects.create(
+            Jurado.objects.create(
                 usuario = user,
-                experiencia=formulario.cleaned_data['experiencia'],
-                disponible=formulario.cleaned_data['disponible'],
-                )
-            jurado.save()
+                experiencia = f_experiencia,
+                especialidad = f_especialidad
+            )
+            
             
             login(request, user)
             

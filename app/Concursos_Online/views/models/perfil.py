@@ -21,6 +21,7 @@ from datetime import datetime
 
 
 #region --- Detalles Perfil ---
+@permission_required('Concursos_Online.view_perfil', raise_exception=True)
 def dame_perfil(request, id_perfil):
     
     perfil = (
@@ -32,14 +33,34 @@ def dame_perfil(request, id_perfil):
 # endregion
 
 #region --- Lista Perfil ---
+@permission_required('Concursos_Online.view_perfil', raise_exception=True)
 def perfiles_listar(request):
     
     perfil = (
         Perfil.objects
         .select_related("usuario")
-        .all()
     )
-    return render(request,'models/perfil/lista_perfil.html',{'Perfiles_Mostrar':perfil})
+    
+    #---Segun-la-Sesion---
+    
+    mensaje=""
+    
+    if (request.user.rol == 1): # Administrador
+        
+        mensaje += "· Lista de (Todos los Perfiles del Sistema)"
+        
+    elif (request.user.rol == 3): # Jurado
+        
+        perfil = perfil.filter(usuario__rol__in=[3,2,4])
+        mensaje += "· Lista de (Jurados, Participantes y Usuarios)"
+        
+    else:
+        perfil = perfil.filter(usuario__rol__in=[2,4])
+        mensaje += "· Lista de (Participantes y Usuarios)"
+    
+    perfil = perfil.all()
+    
+    return render(request,'models/perfil/lista_perfil.html',{'Perfiles_Mostrar':perfil,'Mensaje_Busqueda':mensaje})
 # endregion
 
 #region --- Filtros Perfil ---
@@ -100,7 +121,7 @@ def crear_perfil_modelo(formulario): #Metodo que interactua con la base de datos
 def perfil_buscar_avanzado(request): #Busqueda Avanzada
     
     if(len(request.GET) > 0):
-        formulario = PerfilBuscarAvanzada(request.GET)
+        formulario = PerfilBuscarAvanzada(request.GET, request=request)
         if formulario.is_valid():
             mensaje_busqueda = 'Filtros Aplicados:\n'
             QsPerfil = Perfil.objects
@@ -137,11 +158,26 @@ def perfil_buscar_avanzado(request): #Busqueda Avanzada
                 QsPerfil = QsPerfil.filter(usuario__id__in=usuarios)
                 
                 # Recorre los nombres y los separa con ,
-                nombres_usuarios = ", ".join([u.username for u in usuarios])
+                nombres_usuarios = ", ".join([p.usuario.username for p in usuarios])
                 mensaje_busqueda += f'· Perfil de los usuarios: {nombres_usuarios}\n'
                 
             else:
                 mensaje_busqueda += '· Perfil de cualquier usuario \n'
+            
+            
+            #---Segun-la-Sesion---
+            if (request.user.rol == 1): # Administrador
+                
+                mensaje_busqueda += "· Lista de (Todos los Perfiles del Sistema)"
+                
+            elif (request.user.rol == 3): # Jurado
+                
+                QsPerfil = QsPerfil.filter(usuario__rol__in=[3,2,4])
+                mensaje_busqueda += "· Lista de (Jurados, Participantes y Usuarios)"
+                
+            else:
+                QsPerfil = QsPerfil.filter(usuario__rol__in=[2,4])
+                mensaje_busqueda += "· Lista de (Participantes y Usuarios)"
             
             
             #Ejecutamos la querySet y enviamos los usuarios
@@ -152,7 +188,7 @@ def perfil_buscar_avanzado(request): #Busqueda Avanzada
                         'Mensaje_Busqueda':mensaje_busqueda}
                         )
     else:
-        formulario = PerfilBuscarAvanzada(None)
+        formulario = PerfilBuscarAvanzada(None, request=request)
     return render(request, 'models/perfil/crud/buscar_avanzada_perfil.html',{'formulario':formulario})
 #endregion
 

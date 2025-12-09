@@ -20,6 +20,7 @@ from django.contrib import messages
 
 
 #region --- Detalles Participante ---
+@permission_required('Concursos_Online.view_participante', raise_exception=True)
 def dame_participante(request, id_participante):
     
     participante = (
@@ -31,6 +32,7 @@ def dame_participante(request, id_participante):
 # endregion
 
 #region --- Lista Participante ---
+@permission_required('Concursos_Online.view_participante', raise_exception=True)
 def participantes_listar(request):
     participantes = (
         Participante.objects
@@ -41,6 +43,7 @@ def participantes_listar(request):
 # endregion
 
 #region --- Filtros Participante ---
+@permission_required('Concursos_Online.view_participante', raise_exception=True)
 def dame_participantes_concurso(request, id_concurso):
     
     participantes = (
@@ -55,6 +58,7 @@ def dame_participantes_concurso(request, id_concurso):
 
 # Una url que permite ver el participante que se inscribió más recientemente en un concurso concreto, utilizando el ID del concurso.
 # Muestra únicamente la información de ese último inscrito, limitando la consulta a un solo registro
+@permission_required('Concursos_Online.view_participante', raise_exception=True)
 def dame_ultimo_participante(request, id_concurso):
     
     participante_a_mostrar = (
@@ -86,6 +90,7 @@ def dame_ultimo_participante(request, id_concurso):
     return render(request,'models/participantes/participante_detalle.html',{'Participante_Mostrar':participante_a_mostrar})
 
 # Una url que permite obtener información sobre un Participante en concreto, buscando por su alias.
+@permission_required('Concursos_Online.view_participante', raise_exception=True)
 def detalle_participante_alias(request, alias_participante):
     
     participante_a_mostrar = (

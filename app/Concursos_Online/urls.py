@@ -37,7 +37,7 @@ urlpatterns = [
     
     # Registro
     path('registro/usuario',views.registrar_usuario,name='registrar_usuario'),
-    path('registro/participante',views.registrar_participante,name='registrar_partecipante'),
+    path('registro/participante',views.registrar_participante,name='registrar_participante'),
     path('registro/jurado',views.registrar_jurado,name='registrar_jurado'),
     
     # Login

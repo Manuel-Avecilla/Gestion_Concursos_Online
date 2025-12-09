@@ -19,6 +19,7 @@ from django.contrib import messages
 # ============================================================
 
 #region --- Detalles Administrador ---
+@permission_required('Concursos_Online.view_administrador', raise_exception=True)
 def dame_administrador(request, id_administrador):
     
     administrador = (
@@ -30,6 +31,7 @@ def dame_administrador(request, id_administrador):
 # endregion
 
 #region --- Lista Administrador ---
+@permission_required('Concursos_Online.view_administrador', raise_exception=True)
 def administradores_listar(request):
     
     administradores = (

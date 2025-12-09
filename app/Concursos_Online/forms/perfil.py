@@ -88,6 +88,37 @@ class PerfilForm(ModelForm):
 
 class PerfilBuscarAvanzada(forms.Form):
     
+    def __init__(self, *args, **kwargs):
+        self.request = kwargs.pop("request", None)
+        super(PerfilBuscarAvanzada, self).__init__(*args, **kwargs)
+        
+        perfilesQS = Perfil.objects
+        u_label = "Seleccionar perfiles de usuarios"
+        
+        if (self.request.user.rol == 1): # Administrador
+            perfilesQS = perfilesQS.all()
+            u_label += " (Todos los Perfiles del Sistema)"
+            
+        elif (self.request.user.rol == 3): # Jurado
+            perfilesQS = perfilesQS.filter(usuario__rol__in=[3,2,4]).all()
+            u_label += " (Jurados, Participantes y Usuarios)"
+            
+        else:
+            perfilesQS = perfilesQS.filter(usuario__rol__in=[2,4]).all()
+            u_label += " (Participantes y Usuarios)"
+        
+        
+        self.fields["usuarios"] = forms.ModelMultipleChoiceField(
+            label=u_label,
+            help_text="(Opcional). Para selecionar los elementos manten pulsada la tecla Ctrl",
+            queryset=perfilesQS,
+            required=False,
+            widget=forms.SelectMultiple(attrs={
+                'class': 'form-select',
+                'size': '7'
+            })
+        )
+    
     biografia_contiene = forms.CharField(
         label='Biografia contiene',
         help_text="(Opcional)",
@@ -106,17 +137,6 @@ class PerfilBuscarAvanzada(forms.Form):
         help_text="(Opcional)",
         required=False,
         widget=forms.DateInput(attrs={'type':'date'})
-    )
-    
-    usuarios = forms.ModelMultipleChoiceField(
-        label='Ver perfiles de usuarios',
-        help_text="(Opcional). Para selecionar los elementos manten pulsada la tecla Ctrl",
-        queryset=Usuario.objects.all(),
-        required=False,
-        widget=forms.SelectMultiple(attrs={
-            'class': 'form-select',
-            'size': '9'
-        })
     )
     
     def clean(self):
