@@ -58,7 +58,9 @@ def concursos_listar(request):
             "creador__usuario",  # anidado
             "ganador__usuario",  # Asi también accedes a su usuario
         )
-        .prefetch_related("participantes__usuario")  # Relacion N:N en participantes
+        .prefetch_related("participantes__usuario")
+        .prefetch_related("creador__usuario")
+        .prefetch_related("ganador__usuario")  # Relacion N:N en participantes
     )
     concursos.all()
     
@@ -250,8 +252,12 @@ def concurso_buscar_avanzado(request):  # Búsqueda Avanzada para Concurso
         if formulario.is_valid():
 
             mensaje_busqueda = 'Filtros Aplicados:\n'
-            QsConcurso = Concurso.objects
-
+            QsConcurso = (
+                Concurso.objects
+                .prefetch_related("participantes__usuario")
+                .prefetch_related("creador__usuario")
+                .prefetch_related("ganador__usuario")
+            )
             # Obtener valores del formulario
             nombre_contiene = formulario.cleaned_data.get('nombre_contiene')
             fecha_inicio_minima = formulario.cleaned_data.get('fecha_inicio_minima')

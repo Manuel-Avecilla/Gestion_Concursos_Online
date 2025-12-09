@@ -23,6 +23,9 @@ from django.contrib.auth.models import Group
 # region Registro
 # ============================================================
 
+def pagina_registro(request):
+    return render(request, 'registration/page_signup.html')
+
 def registrar_usuario(request):
     if request.method == 'POST':
         formulario = RegistroForm(request.POST)

@@ -32,7 +32,8 @@ urlpatterns = [
     # region URL Sesiones
     # ============================================================
 
-    path('registro',views.registrar_usuario,name='registrar_usuario'),
+    path('registro/page',views.pagina_registro,name='pagina_registro'),
+    path('registro/usuario',views.registrar_usuario,name='registrar_usuario'),
     path('accounts/login/', MiLoginView.as_view(), name='login'),
 
     # endregion

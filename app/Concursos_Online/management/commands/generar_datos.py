@@ -346,7 +346,7 @@ class Command(BaseCommand):
 
         up_grupo_admin, _ = Group.objects.get_or_create(name="Administrador")
         up_grupo_jurado, _ = Group.objects.get_or_create(name="Jurados")
-        up_grupo_participante, _ = Group.objects.get_or_create(name="Participante")
+        up_grupo_participante, _ = Group.objects.get_or_create(name="Participantes")
         up_grupo_usuario, _ = Group.objects.get_or_create(name="Usuario")  # Rol general
 
         usuarios_base = {
