@@ -3,23 +3,63 @@
         <a href="{% url 'home' %}" class="logo-header"></a>
         <nav class="menu">
             <ul>
-                <li><a href="{% url 'home' %}" class="a-home">
+                <li><a href="{% url 'home' %}" class="a-home element-menu">
                     <i class="fa-solid fa-house-chimney"></i>
                     Home
                 </a></li>
-                <li><a href="{% url 'menu' %}" class="a-menu">
+                <li><a href="{% url 'menu' %}" class="a-menu element-menu">
                     <i class="fa-regular fa-compass"></i>
                     Menu
                 </a></li>
-                <li><a href="" class="a-Sing-Up" onclick="proximamente()">
-                    <i class="fa-solid fa-user-plus"></i>
-                    Sing-Up
-                </a></li>
-                <li><a href="" class="a-Log-in" onclick="proximamente()">
-                    <i class="fa-solid fa-arrow-right-to-bracket"></i>
-                    Log-in
-                </a></li>
+                {% if not request.user.is_authenticated %}
+                    <li><a href="{% url 'pagina_registro' %}" class="a-Sing-Up element-menu">
+                        <i class="fa-solid fa-user-plus"></i>
+                        Sing-Up
+                    </a></li>
+                    <li><a href="{% url 'login' %}" class="a-Log-in element-menu">
+                        <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                        Log-in
+                    </a></li>
+                {% else %}
+                    <li>
+                        {% if request.user.perfil %}
+                            <a href="{% url "dame_perfil" id_perfil=request.user.perfil.id %}">
+                        {% else %}
+                            <a href="{% url "home" %}">
+                        {% endif %}
+
+                        {% if request.user.perfil.imagen_perfil %}
+                            <img src="{{ request.user.perfil.imagen_perfil.url }}"
+                                class="img-perfil" 
+                                alt="Foto de perfil">
+                        {% else %}
+                            <img src="/static/img/default.jpg"
+                                class="img-perfil" 
+                                alt="Foto de perfil">
+                        {% endif %}
+                        </a>
+                    </li>
+
+                    <li>
+                        <form action="{% url 'logout' %}" method="post" role="search">
+                            {% csrf_token %}
+                            <button type="submit" class="btn-Log-out">Cerrar Sesion</button>
+                        </form>
+                    </li>
+                {% endif %}
             </ul>
         </nav>
     </div>
 </header>
+{% if request.user.is_authenticated %}
+    <div class="d-flex justify-content-center m-0">
+        <div class="datos-sesion">
+            <pre>Datos de la Sesion</pre>
+            <hr>
+            <pre>Usuario: {{ request.session.usuario }}</pre>
+            <pre>Grupo: {{ request.session.grupos }}</pre>
+            <pre>Hora login: {{ request.session.hora_login}}</pre>
+            <pre>Email: {{ request.session.email }}</pre>
+        </div>
+    </div>
+{% endif %}

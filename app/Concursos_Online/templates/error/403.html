@@ -1,19 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Error 403</title>
-</head>
-<body>
-    
-    <h1>Página 403</h1>
+{% extends "base/base.html" %}
+{% load static %}
 
-    <div>
+{% block title %}ConcurNet - 403{% endblock %}
 
-        <h2>Permiso denegado.</h2>
+{% block cabecera %}
+    <h1>Pagina: ERROR 403</h1>
+    <hr>
+    <br>
+{% endblock %}
 
-    </div>
+{% block contenido %}
+    <h3>No tienes permisos para acceder a esta página</h3>
 
-</body>
-</html>
+    <br>
+    <pre>Para tener acceso a algunas paginas de la aplicacion, debes Registrarte o Iniciar Sesion.</pre>
+{% endblock %}

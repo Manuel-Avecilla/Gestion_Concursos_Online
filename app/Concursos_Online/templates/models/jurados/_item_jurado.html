@@ -2,7 +2,7 @@
 
     <a class="jurado-header" href="{% url 'dame_jurado' id_jurado=Jurado_Mostrar.id %}">
         <i class="fa-solid fa-user-tie icon"></i>
-        <h2 class="jurado-nombre">{{ Jurado_Mostrar.usuario.nombre_usuario }}</h2>
+        <h2 class="jurado-nombre">{{ Jurado_Mostrar.usuario.username }}</h2>
     </a>
 
     <section class="jurado-info">
@@ -10,7 +10,7 @@
         <div class="info-item">
             <i class="fa-solid fa-envelope icon"></i>
             <p class="label">Correo:</p>
-            <p class="value">{{ Jurado_Mostrar.usuario.correo }}</p>
+            <p class="value">{{ Jurado_Mostrar.usuario.email }}</p>
         </div>
 
         <div class="info-item">
@@ -43,19 +43,25 @@
         </div>
         
         <!-- BOTONES -->
-        <div class="ud-buttons">
-            <a class="editar" href="{% url 'jurado_editar' id_jurado=Jurado_Mostrar.id %}">
-                <i class="fa-regular fa-pen-to-square"></i>
-                Editar
-            </a>
-            <button type="button" class="eliminar"
-                    data-bs-toggle="modal"
-                    data-bs-target="#modalEliminar"
-                    data-url="{% url 'jurado_eliminar' id_jurado=Jurado_Mostrar.id %}">
-                <i class="fa-solid fa-trash-can"></i>
-                Eliminar
-            </button>
-        </div>
+        
+            <div class="ud-buttons">
+                {% if perms.Concursos_Online.change_jurado %}
+                    <a class="editar" href="{% url 'jurado_editar' id_jurado=Jurado_Mostrar.id %}">
+                        <i class="fa-regular fa-pen-to-square"></i>
+                        Editar
+                    </a>
+                {% endif %}
+                {% if perms.Concursos_Online.delete_jurado %}
+                    <button type="button" class="eliminar"
+                            data-bs-toggle="modal"
+                            data-bs-target="#modalEliminar"
+                            data-url="{% url 'jurado_eliminar' id_jurado=Jurado_Mostrar.id %}">
+                        <i class="fa-solid fa-trash-can"></i>
+                        Eliminar
+                    </button>
+                {% endif %}
+            </div>
+        
 
     </section>
 

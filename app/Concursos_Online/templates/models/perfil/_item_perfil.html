@@ -3,7 +3,7 @@
     <div class="perfil-header text-center">
         <a class="perfil-title mb-0" href="{% url "dame_perfil" id_perfil=Perfil_Mostrar.id %}">
             <i class="fa-solid fa-id-card"></i>
-            Perfil de {{ Perfil_Mostrar.usuario.nombre_usuario }}
+            Perfil de {{ Perfil_Mostrar.usuario.username }}
         </a>
     </div>
 
@@ -45,17 +45,21 @@
         </p>
     
         <div class="ud-buttons">
-            <a class="editar" href="{% url 'perfil_editar' id_perfil=Perfil_Mostrar.id %}">
-                <i class="fa-regular fa-pen-to-square"></i>
-                Editar
-            </a>
-            <button type="button" class="eliminar"
-                    data-bs-toggle="modal"
-                    data-bs-target="#modalEliminar"
-                    data-url="{% url 'perfil_eliminar' id_perfil=Perfil_Mostrar.id %}">
-                <i class="fa-solid fa-trash-can"></i>
-                Eliminar
-            </button>
+            {% if perms.Concursos_Online.change_perfil %}
+                <a class="editar" href="{% url 'perfil_editar' id_perfil=Perfil_Mostrar.id %}">
+                    <i class="fa-regular fa-pen-to-square"></i>
+                    Editar
+                </a>
+            {% endif %}
+            {% if perms.Concursos_Online.delete_perfil %}
+                <button type="button" class="eliminar"
+                        data-bs-toggle="modal"
+                        data-bs-target="#modalEliminar"
+                        data-url="{% url 'perfil_eliminar' id_perfil=Perfil_Mostrar.id %}">
+                    <i class="fa-solid fa-trash-can"></i>
+                    Eliminar
+                </button>
+            {% endif %}
         </div>
     
     </div>

@@ -1,11 +1,15 @@
 /* MENÚ */
 .menu ul {
+    width: 100%;
+    height: 100%;
     list-style: none;
     display: flex;
+    align-items: center;
     gap: 1.5rem;
+    margin-bottom: 0px;
 }
 
-.menu a {
+.menu .element-menu {
     text-decoration: none;
     color: #28282A;
     font-weight: 600;
@@ -27,7 +31,7 @@
     font-size: 1.3rem;
 }
 
-.menu a:hover {
+.menu .element-menu:hover {
     background-color: #818388;
     color: white;
 }
@@ -55,4 +59,44 @@
 .menu a.a-Sing-Up:active,
 .menu a.a-Log-in:active {
     background-color: #061F38;
+}
+
+.btn-Log-out {
+    text-decoration: none;
+    background-color: #0a3c6f;
+    color: white;
+    border-color: transparent;
+    font-weight: 600;
+    transition: 0.2s ease;
+    padding: 0.5rem;
+    border-radius: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    box-shadow:
+    rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+    rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+.btn-Log-out:hover {
+    background-color: #061F38;
+}
+.btn-Log-out:active {
+    background-color: #061F38;
+    box-shadow:
+    rgba(255, 255, 255, 0.6) 0px 2px 4px,
+    rgba(255, 255, 255, 0.5) 0px 7px 13px -3px,
+    rgba(255, 255, 255, 0.4) 1px 3px 0px inset;
+}
+
+.img-perfil {
+    border: 3px solid #0a3c6f;
+    border-radius: 100%;
+    width: 45px;
+    height: 45px;
+    object-fit: cover;
+    transition: scale 0.2s ease;
+}
+.img-perfil:hover {
+    scale: 1.1;
 }

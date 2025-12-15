@@ -19,6 +19,6 @@
         {% csrf_token %}
         {% bootstrap_form formulario %}
         <button type="submit" class="btn btn-success">Crear</button>
-        <a href="{% url 'dame_jurados' %}" class="btn btn-secondary">Cancelar</a>
+        <a href="{% url 'jurados_listar' %}" class="btn btn-secondary">Cancelar</a>
     </form>
 {% endblock %}

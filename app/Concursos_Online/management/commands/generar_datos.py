@@ -1,26 +1,26 @@
-# region Explicación de los imports.
-# ------------------------------------------------------------
-# BaseCommand: permite crear comandos personalizados de Django.
-# Faker: genera datos falsos (en español si se usa Faker('es_ES')).
-# random: funciones aleatorias (choice, sample, randint...).
-# Decimal: maneja decimales con precisión (para puntuaciones).
-# timedelta: suma/resta días a fechas.
-# timezone: obtiene fecha/hora actual con soporte de zona horaria.
-# Modelos: importamos las clases necesarias del app Concursos_Online.
-# ------------------------------------------------------------
-# endregion
+# ============================================================
+# region Importaciones
+# ============================================================
 
-# python manage.py generar_datos   <-- Comando para generar los datos
-
-# python manage.py dumpdata --indent 4 > Concursos_Online/fixtures/datos.json   <-- Comando para guardar los datos
-
+from django.contrib.auth.models import Group
+from django.contrib.auth import get_user_model
 from django.core.management.base import BaseCommand
 from faker import Faker
 import random
-from decimal import Decimal
 from datetime import timedelta
 from django.utils import timezone
 from Concursos_Online.models import *
+
+# endregion
+# ============================================================
+
+
+# python manage.py migrate          <-- Comando para generar la base de datos
+# python manage.py generar_grupos   <-- Comando para generar los grupos y permisos
+# python manage.py generar_datos    <-- Comando para generar los datos y rellenar la base de datos
+
+# python manage.py dumpdata --indent 4 > Concursos_Online/fixtures/datos.json   <-- Comando para guardar los datos
+
 
 class Command(BaseCommand):
     help = 'Generando datos usando Faker'
@@ -32,20 +32,27 @@ class Command(BaseCommand):
         # ------------------------------------------------------------
         # 1. Se crea una lista vacía `usuarios` para guardar las instancias creadas.
         # 2. Se generan 30 usuarios falsos con datos de Faker:
-        #    - nombre_usuario: nombre de usuario único.
-        #    - correo: email único.
+        #    - username: nombre de usuario único.
+        #    - email: email único.
         #    - password: contraseña aleatoria de 10 caracteres.
         # 3. Cada usuario creado se guarda en la lista `usuarios` para usarlos después.
         # ------------------------------------------------------------
         
         self.stdout.write("Generando usuarios...")
         usuarios = []
+        u_grupo_usuarios, _ = Group.objects.get_or_create(name="Usuario")
+        
         for _ in range(30):
-            usuarios.append(Usuario.objects.create(
-                nombre_usuario=fake.unique.user_name(),
-                correo=fake.unique.email(),
-                password=fake.password(length=10)
-            ))
+            
+            user = Usuario.objects.create_user(
+                    username=fake.unique.user_name(),
+                    email=fake.unique.email(),
+                    password="iespsur.25"
+            )
+            u_grupo_usuarios.user_set.add(user)
+            usuarios.append(user)
+
+
         
         # endregion
 
@@ -58,15 +65,20 @@ class Command(BaseCommand):
         # ------------------------------------------------------------
         
         self.stdout.write("Generando perfiles...")
+        contador = 0
+
         for usuario in usuarios:
+            contador += 1
+            num = str(contador).zfill(3)  # → 001, 002, 003 ... 060
+
             Perfil.objects.create(
                 usuario=usuario,
                 nombre_completo=fake.name(),
                 biografia=fake.text(200),
                 fecha_nacimiento=fake.date_of_birth(minimum_age=18, maximum_age=70),
-                imagen_perfil="usuarios/default.jpg"
+                imagen_perfil=f"usuarios/foto-perfil-{num}.jpg"
             )
-        
+    
         # endregion
 
         # region Creación de Administradores
@@ -79,6 +91,12 @@ class Command(BaseCommand):
         self.stdout.write("Generando administradores...")
         administradores = []
         for u in random.sample(usuarios, 3):
+            
+            u.rol = Usuario.ADMINISTRADOR
+            u.save()
+            grupo_admin = Group.objects.get(name="Administrador")
+            grupo_admin.user_set.add(u)
+            
             administradores.append(Administrador.objects.create(
                 usuario=u,
                 area_responsable=fake.job(),
@@ -111,6 +129,12 @@ class Command(BaseCommand):
         # 4. Crear los objetos Jurado asociados a esos usuarios
         jurados = []
         for u in usuarios_para_jurado:
+            
+            u.rol = Usuario.JURADO
+            u.save()
+            grupo_jurado = Group.objects.get(name="Jurados")
+            grupo_jurado.user_set.add(u)
+            
             nuevo_jurado = Jurado.objects.create(
                 usuario=u,
                 experiencia=random.randint(1, 10),
@@ -142,6 +166,12 @@ class Command(BaseCommand):
         # 4. Crear los objetos Participante asociados a esos usuarios
         participantes = []
         for u in usuarios_para_participantes:
+            
+            u.rol = Usuario.PARTICIPANTE
+            u.save()
+            grupo_participante = Group.objects.get(name="Participantes")
+            grupo_participante.user_set.add(u)
+            
             nuevo_participante = Participante.objects.create(
                 usuario=u,
                 alias=fake.user_name(),
@@ -157,7 +187,7 @@ class Command(BaseCommand):
         self.stdout.write("Generando concursos...")
         # 1. Creamos una lista vacía para guardar los concursos
         concursos = []
-        # 2. Creamos 5 concursos
+        # 2. Creamos 7 concursos
         for i in range(7):
             # Elegir un administrador al azar como creador
             creador = random.choice(administradores)
@@ -175,7 +205,7 @@ class Command(BaseCommand):
                 estadoBolean = True
             
             concurso = Concurso.objects.create(
-                nombre=f"Concurso {i+1}: {fake.word().capitalize()}",
+                nombre = f"{random.choice(['Concurso','Festival','Premio','Torneo'])} {random.choice(['Nacional','Creativo','Juvenil','Internacional','Regional'])} de {random.choice(['Fotografía','Arte Digital','Robótica','Pintura','Canto','Ciencia'])}",
                 descripcion=fake.text(300),
                 fecha_inicio=fecha_inicio,
                 fecha_final=fecha_final,
@@ -305,6 +335,105 @@ class Command(BaseCommand):
                 ganador = random.choice(participantes_inscritos)
                 concurso.ganador = ganador
                 concurso.save()
+        # endregion
+
+        # region Creación de usuarios de PRUEBAS (super-admin, admin, jurado, participante)
+        self.stdout.write("Creando usuarios de PRUEBup_grupo_usuarioAS...")
+
+        
+
+        User = get_user_model()
+
+        up_grupo_admin, _ = Group.objects.get_or_create(name="Administrador")
+        up_grupo_jurado, _ = Group.objects.get_or_create(name="Jurados")
+        up_grupo_participante, _ = Group.objects.get_or_create(name="Participantes")
+        up_grupo_usuario, _ = Group.objects.get_or_create(name="Usuario")  # Rol general
+
+        usuarios_base = {
+            "super-admin": {"is_superuser": True, "groups": []},
+            "admin": {"is_superuser": False, "groups": [up_grupo_admin]},
+            "jurado": {"is_superuser": False, "groups": [up_grupo_jurado]},
+            "participante": {"is_superuser": False, "groups": [up_grupo_participante]},
+            "usuario": {"is_superuser": False, "groups": []},
+        }
+
+        for username, datos in usuarios_base.items():
+            # Si ya existe, eliminarlo
+            if User.objects.filter(username=username).exists():
+                User.objects.filter(username=username).delete()
+
+            # Crear usuario
+            user = User.objects.create_user(
+                username=username,
+                email=f"{username}@example.com",
+                password="1234"
+            )
+
+            # Asignar rol general "Usuario"
+            user.groups.add(up_grupo_usuario)
+
+            # Si es superadmin
+            if datos["is_superuser"]:
+                user.is_superuser = True
+                user.is_staff = True
+                user.save()
+            else:
+                # Asignar su grupo específico
+                for g in datos["groups"]:
+                    user.groups.add(g)
+                
+                nombre_perfil=""
+                # Asignar rol según el nombre del usuario
+                if username == "admin":
+                    user.rol = Usuario.ADMINISTRADOR
+                    Administrador.objects.create(
+                        usuario=user,
+                        area_responsable="admin prueba",
+                        activo=True,
+                        horario_disponible=fake.time()
+                    )
+                    nombre_perfil="Administrador pruebas"
+                    
+                elif username == "jurado":
+                    user.rol = Usuario.JURADO
+                    Jurado.objects.create(
+                        usuario=user,
+                        experiencia=random.randint(1, 10),
+                        especialidad="jurado prueba",
+                        disponible=True,
+                        puntuacion_media=round(random.uniform(3, 10), 2)
+                    )
+                    nombre_perfil="Jurado Pruebas"
+                    
+                elif username == "participante":
+                    user.rol = Usuario.PARTICIPANTE
+                    Participante.objects.create(
+                        usuario=user,
+                        alias="participante prueba",
+                        edad=random.randint(18, 60),
+                        nivel=random.randint(1, 5),
+                        puntuacion_total=round(random.uniform(0, 100), 2) # Una puntuación decimal entre 0 y 100 con 2 decimales.
+                    )
+                    nombre_perfil="Participante Pruebas"
+                    
+                else:
+                    user.rol = Usuario.USUARIO
+                    nombre_perfil="Usuario Pruebas"
+
+                num_imagen = str(random.randint(1, 30)).zfill(3)
+
+                Perfil.objects.create(
+                    usuario=user,
+                    nombre_completo=nombre_perfil,
+                    biografia=fake.text(200),
+                    fecha_nacimiento=fake.date_of_birth(minimum_age=18, maximum_age=70),
+                    imagen_perfil=f"usuarios/foto-perfil-{num_imagen}.jpg"
+                )
+
+                user.save()
+
+            self.stdout.write(f"Usuario creado: {username} / 1234")
+
         # endregion
 
         self.stdout.write(self.style.SUCCESS("Datos generados correctamente."))

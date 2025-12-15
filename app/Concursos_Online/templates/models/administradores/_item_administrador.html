@@ -4,7 +4,7 @@
     <div class="administrador-header text-center">
         <a class="administrador-title" href="{% url 'dame_administrador' id_administrador=Administrador_Mostrar.id %}">
             <i class="fa-solid fa-user-gear"></i>
-            Administrador: {{ Administrador_Mostrar.usuario.nombre_usuario }}
+            Administrador: {{ Administrador_Mostrar.usuario.username }}
         </a>
     </div>
 
@@ -49,19 +49,22 @@
 
         <!-- BOTONES -->
         <div class="ud-buttons">
-            <a class="editar" href="{% url 'administrador_editar' id_administrador=Administrador_Mostrar.id %}">
-                <i class="fa-regular fa-pen-to-square"></i>
-                Editar
-            </a>
-            <button type="button" class="eliminar"
-                    data-bs-toggle="modal"
-                    data-bs-target="#modalEliminar"
-                    data-url="{% url 'administrador_eliminar' id_administrador=Administrador_Mostrar.id %}">
-                <i class="fa-solid fa-trash-can"></i>
-                Eliminar
-            </button>
+            {% if perms.Concursos_Online.change_administrador %}
+                <a class="editar" href="{% url 'administrador_editar' id_administrador=Administrador_Mostrar.id %}">
+                    <i class="fa-regular fa-pen-to-square"></i>
+                    Editar
+                </a>
+            {% endif %}
+            {% if perms.Concursos_Online.delete_administrador %}
+                <button type="button" class="eliminar"
+                        data-bs-toggle="modal"
+                        data-bs-target="#modalEliminar"
+                        data-url="{% url 'administrador_eliminar' id_administrador=Administrador_Mostrar.id %}">
+                    <i class="fa-solid fa-trash-can"></i>
+                    Eliminar
+                </button>
+            {% endif %}
         </div>
-
     </div>
 
 </div>

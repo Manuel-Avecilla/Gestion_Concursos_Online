@@ -1,0 +1,16 @@
+.register-card {
+    transition: transform .15s, box-shadow .15s;
+    border-radius: 12px;
+    height: 100%;
+    aspect-ratio: 16/9;
+    cursor: pointer;
+}
+.register-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+.register-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    opacity: 0.9;
+}

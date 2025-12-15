@@ -21,15 +21,15 @@
         </div>
         <br>
         <p><strong>Creador:</strong>
-            <a href="" class="usuario">
+            <a href="{% url 'dame_administrador' id_administrador=Concurso_Mostrar.creador.id %}" class="usuario">
                 <i class="fa-solid fa-user"></i>
-                {{ Concurso_Mostrar.creador.usuario.nombre_usuario }}
+                {{ Concurso_Mostrar.creador.usuario.username }}
             </a>
         </p>
         <br>
         <p><strong>Alias Ganador:</strong>
             {% if Concurso_Mostrar.ganador %}
-                <a href="{% url 'detalle_participante_alias' alias_participante=Concurso_Mostrar.ganador.alias %}" class="usuario">
+                <a href="{% url 'dame_participante' id_participante=Concurso_Mostrar.ganador.id %}" class="usuario">
                     <i class="fa-solid fa-user"></i>
                     {{ Concurso_Mostrar.ganador.alias }}
                 </a>
@@ -45,7 +45,7 @@
         <ul>
             {% for Participante in Concurso_Mostrar.participantes.all|slice:":5" %}
                 <li>
-                    <a href="{% url 'detalle_participante_alias' alias_participante=Participante.alias %}" class="usuario">
+                    <a href="{% url 'dame_participante' id_participante=Participante.id %}" class="usuario">
                         <i class="fa-solid fa-user"></i>
                         {{ Participante.alias }}
                     </a>
@@ -74,19 +74,22 @@
         <br>
         <!-- BOTONES -->
         <div class="ud-buttons">
-            <a class="editar" href="{% url 'concurso_editar' id_concurso=Concurso_Mostrar.id %}">
-                <i class="fa-regular fa-pen-to-square"></i>
-                Editar
-            </a>
-            <button type="button" class="eliminar"
-                    data-bs-toggle="modal"
-                    data-bs-target="#modalEliminar"
-                    data-url="{% url 'concurso_eliminar' id_concurso=Concurso_Mostrar.id %}">
-                <i class="fa-solid fa-trash-can"></i>
-                Eliminar
-            </button>
+            {% if perms.Concursos_Online.change_concurso %}
+                <a class="editar" href="{% url 'concurso_editar' id_concurso=Concurso_Mostrar.id %}">
+                    <i class="fa-regular fa-pen-to-square"></i>
+                    Editar
+                </a>
+            {% endif %}
+            {% if perms.Concursos_Online.delete_concurso %}
+                <button type="button" class="eliminar"
+                        data-bs-toggle="modal"
+                        data-bs-target="#modalEliminar"
+                        data-url="{% url 'concurso_eliminar' id_concurso=Concurso_Mostrar.id %}">
+                    <i class="fa-solid fa-trash-can"></i>
+                    Eliminar
+                </button>
+            {% endif %}
         </div>
-
     </section>
 
 </div>

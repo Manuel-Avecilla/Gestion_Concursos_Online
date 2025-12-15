@@ -13,6 +13,10 @@
     <br>
 {% endblock %}
 {% block contenido %}
-    {% include "base/modal/_modal_eliminar.html" %}
+    
+    {% if perms.Concursos_Online.delete_participante %}
+        {% include "base/modal/_modal_eliminar.html" %}
+    {% endif %}
+
     {% include "models/participantes/_item_participante.html" %}
 {% endblock %}

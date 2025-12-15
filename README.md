@@ -14,6 +14,7 @@ Para mantener el README principal más limpio, la documentación detallada se en
 - [URLS del Sistema](docs/url.md)
 - [Templates del Sistema](docs/templates.md)
 - [CRUD del Sistema](docs/crud.md)
+- [Sesiones del Sistema](docs/sesiones.md)
 
 ---
 
